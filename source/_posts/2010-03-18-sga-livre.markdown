@@ -1,0 +1,64 @@
+---
+author: rogeriolino
+comments: true
+date: 2010-03-18 12:51:13+00:00
+layout: post
+slug: sga-livre
+title: SGA Livre
+wordpress_id: 236
+categories:
+- Javascript
+- Linux
+- PHP
+- Programas
+tags:
+- dataprev
+- Javascript
+- libjsx
+- livre
+- mysql
+- opensource
+- PHP
+- postgresql
+- publico
+- sga
+- software
+---
+
+_**ATENÇÃO:** Se você está pensando em utilizar um sistema para gerenciar a fila de atendimento da sua organização, conheça o [Novo SGA](http://www.novosga.org)._
+
+
+
+* * *
+
+
+
+![](http://rogeriolino.com/wp-content/uploads/2010/03/sga_logo.jpg)
+
+
+<blockquote>**SGA LIVRE** significa Sistema de Gerenciamento do Atendimento, versão Livre. É desenvolvido pela DATAPREV, totalmente baseado em tecnologias de software livre e de código aberto.
+
+Através do SGA é possível gerenciar filas e fluxo de atendimento em quaisquer tipos de empresas ou organizações que prestam serviço de atendimento presencial à pessoas.
+
+O SGA oferece o controle de filas de atendimento através de emissão de senhas e chamada das mesmas através de painéis. As filas de atendimento podem conter um único serviço ou um grupo de serviços. Os painéis podem chamar um, vários ou todos os serviços. Uma unidade de atendimento pode ter vários painéis.
+
+O SGA é mais do que um sistema de controle de filas. Ao gerenciar o fluxo de atendimento, o sistema apresenta uma série de recursos que auxiliam na gerência e administração das unidades de atendimento.
+
+Fornece uma diversidade de informações gerenciais preciosas, através de relatórios, estatísticas e gráficos avançados sobre atendimentos de uma unidade, de um grupo de unidades ou de todas elas. É possível obter estatísticas e tempos médios de atendimento por atendente, por período e por unidade, entre outras. Pode-se obter dados detalhados ou agregados.
+
+As informações gerenciais fornecidas pelo SGA possibilitam aos gestores planejar, acompanhar, monitorar, otimizar e agilizar o atendimento aos clientes.
+
+fonte: [http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494](http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494)</blockquote>
+
+
+Não é novidade o lançamento da versão livre do SGA, porém é com muito orgulho que hoje vejo este software ganhando força no cenário nacional, e também por ter participado do seu desenvolvimento. O software foi desenvolvido em [PHP](http://php.net) fornecendo uma camada para abstração do [RDMS](http://en.wikipedia.org/wiki/Relational_database_management_system), utilizando como interface de acesso o [PDO](http://php.net/manual/en/book.pdo.php) (suporte padrão ao [PostgreSQL](http://www.postgresql.org)). Tal contribuição foi desde definir a estrutura do sistema, passando por diagramação, HTML, CSS, até a programação PHP e Javascript.
+
+[caption id="attachment_238" align="aligncenter" width="294" caption="Tela de instalação do SGA"][![](http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao-294x300.jpg)](http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao.jpg)[/caption]
+
+Dividido em módulos é fácil customizar a ferramenta para atender as  necessidades específicas de qualquer centro de atendimento. Para facilitar o uso de requisições assíncronas no sistema foi  utilizada o código [Ajax](http://pt.wikipedia.org/wiki/AJAX_(programação)) da lib escrita por mim e já comentada nesse blog ([libjsx](http://rogeriolino.com/2009/03/11/javascript-libjsx/), [Ajax.js](http://code.google.com/p/libjsx/source/browse/trunk/org/libjsx/ajax/Ajax.js)).
+
+[](http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg)
+
+[caption id="attachment_237" align="aligncenter" width="300" caption="Tela de atendimento do SGA"][![](http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento-300x239.jpg)](http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg)[/caption]
+
+Quem quiser utilizar ou contribuir com o projeto basta se cadastrar no site [http://www.softwarepublico.gov.br/](http://www.softwarepublico.gov.br/) e acessar a página da [comunidade](http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494).

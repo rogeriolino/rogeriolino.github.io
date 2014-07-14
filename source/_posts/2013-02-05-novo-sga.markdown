@@ -1,0 +1,46 @@
+---
+author: rogeriolino
+comments: true
+date: 2013-02-05 11:33:57+00:00
+layout: post
+slug: novo-sga
+title: Novo SGA
+wordpress_id: 751
+categories:
+- CSS
+- HTML5
+- Javascript
+- PHP
+- Programas
+- Quickpost
+tags:
+- atendimento
+- controle
+- CSS
+- fila
+- gerenciamento
+- html5
+- java
+- Javascript
+- PHP
+- sga
+- sistema
+- web
+---
+
+[![novosga](http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png)](http://novosga.org)
+
+
+
+<blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
+
+Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 2009, unindo a burocracia dos responsáveis pela comunidade no [Portal do Software Público](http://softwarepublico.gov.br/) surgiu a necessidade de criar uma nova versão para esse sistema que já roda em diversas localidades do Brasil.
+
+A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
+
+
+
+
+Visite o [site do projeto](http://novosga.org) e confira a [versão demo](http://novosga.org/demo) disponível online.
+
+Gostou e quer contribuir com o desenvolvimento? Acesse o [projeto no GitHub](http://github.com/rogeriolino/novosga).

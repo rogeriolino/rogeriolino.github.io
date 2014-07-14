@@ -1,0 +1,84 @@
+---
+author: rogeriolino
+comments: true
+date: 2013-05-06 14:55:09+00:00
+layout: post
+slug: utf-8-icons
+title: UTF-8 Icons
+wordpress_id: 773
+categories:
+- CSS
+- HTML5
+tags:
+- CSS
+- css3
+- font
+- html5
+- icon
+- utf8
+---
+
+Com a adoção dos navegadores mais modernos, muitos projetos estão adotando os ícones UTF-8 em botões. Assim diminui a dependência de imagens tornando o carregamento mais rápido. Exemplo: [http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html](http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html)
+
+
+
+## Prós
+
+
+
+
+
+    
+  * Não há necessidade de imagens como dependência;
+
+    
+  * Pode usar a cor que desejar;
+
+    
+  * São escaláveis, muito fáceis de alterar o tamanho;
+
+    
+  * Pode usar transformações CSS (transparência, sombra, rotação, etc);
+
+    
+  * Reuso de ícones através de seletores CSS;
+
+
+
+
+
+## Contras
+
+
+
+
+
+    
+  * Os ícones das fonts padrões não são tão legais;
+
+    
+  * Embora não haja dependência de imagem, pode ter de font (web font);
+
+    
+  * Dependendo da font escolhida, um iconset pode ser mais leve;
+
+
+
+
+
+
+## Veja mais sobre ícones UTF-8
+
+
+
+
+
+    
+  * [http://www.utf8icons.com/](http://www.utf8icons.com/)
+    
+  * [http://weloveiconfonts.com/](http://weloveiconfonts.com/)
+
+    
+  * [http://fortawesome.github.io/Font-Awesome/](http://fortawesome.github.io/Font-Awesome/)
+
+

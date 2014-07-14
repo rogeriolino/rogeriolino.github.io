@@ -1,0 +1,45 @@
+---
+author: rogeriolino
+comments: true
+date: 2008-03-14 03:33:21+00:00
+layout: post
+slug: jump-menu
+title: 'Javascript: Jump Menu'
+wordpress_id: 108
+categories:
+- CSS
+- Javascript
+tags:
+- combo box
+- CSS
+- DOM
+- Javascript
+- jump menu
+- menu
+---
+
+Uma grande maioria dos desenvolvedores web não gostam cara padrão dos **Jump Menus**. Então por que não fazer um?
+
+Pensando assim que fiz um script para gerar um **Jump Menu**, ou **ComboBox** se prefirir. Ele é composto por uma **<div>** (para moldura), uma **<span>** (para servir como rótulo) e uma lista não-ordenada de links (**<ul>**).
+
+Para usá-lo, a única coisa que devemos fazer, além de linkar o script ou adicioná-lo no corpo da página, é instanciar o Objeto. E passar como parâmetro um _array_ de _array,_ contendo esse último na primeira posição a **url** e na segunda o **texto** a ser exibido. Após isso feito, escolha aonde adicioná-lo (**pack**) através do **id** da **tag**.
+
+Ex:
+
+    
+    
+    var itens = Array();
+    
+    for (var i=0; i<15; i++) {
+        itens[i] = ['http://rogeriolino.com/', 'item ' + (i+1)];
+        var menu = new JumpMenu(itens);
+        menu.setLabel(' + Click Here');
+        menu.pack('teste');
+    }
+    
+
+
+
+Para o visual basta usar de todo o potencial do CSS e estilizar como preferir.
+
+[Clique aqui para conferir o exemplo contendo o código.](http://dev.rogeriolino.com/exemplos/javascript/jump_menu/index.html)

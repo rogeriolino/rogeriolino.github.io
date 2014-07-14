@@ -1,0 +1,193 @@
+---
+author: rogeriolino
+comments: true
+date: 2006-07-20 12:21:53+00:00
+layout: post
+slug: layout-2
+title: 'Layout #2'
+wordpress_id: 17
+categories:
+- CSS
+- Tableless
+- XHTML
+tags:
+- CSS
+- fixo
+- fluido
+- layout
+- portal
+- strict
+- Tableless
+- valido
+- w3c
+- XHTML
+---
+
+Nessa segunda estrutura vamos ver um exemplo de site "tipo portal". Sem largura fixa, se estendendo na tela e mudando o tamanho (largura) dependendo da resolução do usuário (fluido).
+
+Dividido em 5 partes - topo, coluna esquerda, coluna central, coluna direita e rodapé.
+
+Você pode ver um exemplo desse layout [aqui](http://www17.brinkster.com/chivalrous/layout2.html).
+
+**Estruturando o XHTML:**
+
+
+<blockquote>
+
+>     
+>     <em><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+>      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+>     
+>     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+>     <head>
+>     <title>CSS Layout</title>
+>     <style type="text/css"></em>
+> 
+> 
+
+>     
+>     <em>
+>     </style>
+>     </head>
+>     <body>
+>     	<div id="geral">
+>     		<div id="topo">
+>     			<h2>CSS Layout</h2>
+>     		</div>
+>     		<div id="meio">
+>     			<div id="menu">
+>     				<ul>
+>     					<li><a href="#">Link 1</a></li>
+>     					<li><a href="#">Link 2</a></li>
+>     					<li><a href="#">Link 3</a></li>
+>     					<li><a href="#">Link 4</a></li>
+>     				</ul>
+>     			</div>
+>     			<div id="banners">
+>     				<p>Nulla nulla. Donec sit amet augue et risus tincidunt eleifend. Vestibulum quis pede. Aliquam erat volutpat. Morbi consequat dignissim dolor. Quisque felis erat, elementum at, aliquet non, bibendum at, nibh. Integer ut nibh imperdiet purus commodo posuere. Sed eget nisl vitae lectus accumsan rhoncus. Nulla semper euismod neque. Nullam gravida. Donec porta dictum arcu. Proin nisl. </p>
+>     			</div>
+>     			<div id="conteudo">
+>     				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut dapibus neque et felis. Proin nonummy. Suspendisse fermentum lobortis libero. Nam imperdiet imperdiet ipsum. Phasellus laoreet lectus ut neque. Nam tempus vestibulum leo. In posuere adipiscing metus. Sed tincidunt quam non arcu. Suspendisse nibh ante, consectetuer et, dapibus a, semper a, purus. Integer augue. Vestibulum bibendum. Duis sit amet enim vel leo dapibus fermentum. Phasellus sem. Phasellus dapibus, lectus sit amet malesuada tempus, augue elit tempor nisi, ut lacinia est sapien ac nisl. Duis velit eros, laoreet sed, pretium quis, dignissim in, quam. Pellentesque posuere, lectus nec euismod molestie, felis eros mattis orci, eget sollicitudin nisi sapien vel dolor.</p>
+>     				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque imperdiet, mauris ac volutpat accumsan, tellus nisi tincidunt turpis, non semper lectus orci quis magna. Fusce consectetuer. Integer in nisi et orci rhoncus ornare. Aliquam sit amet quam sit amet nisi elementum cursus. Sed ipsum. Mauris quis velit eu magna iaculis vulputate. Cras vel sem sit amet turpis consequat feugiat. Curabitur sapien lectus, bibendum eu, tincidunt eget, laoreet et, urna. Quisque eget orci. Curabitur a felis nec leo elementum commodo.</p>
+>     				<p>Quisque turpis eros, pulvinar id, pharetra id, sagittis ac, velit. Aenean nec eros ac magna molestie gravida. Nulla nibh diam, condimentum quis, gravida vel, sodales rhoncus, lectus. Mauris nunc ipsum, viverra in, cursus nec, sagittis a, augue. In libero. Donec eget urna. Nam tempus vehicula orci. Praesent lobortis, dolor a feugiat fermentum, orci libero ullamcorper purus, id mattis est nisi sit amet est. Morbi sed arcu tempus felis mattis pretium. Suspendisse nec risus. Sed a neque.</p>
+>     				<p>In hac habitasse platea dictumst. Sed faucibus, quam sed sodales lacinia, dui metus placerat mi, eget dictum eros tortor et nunc. Ut mauris felis, volutpat nec, consectetuer sit amet, semper eu, odio. Sed volutpat mattis ipsum. Etiam dictum congue augue. Cras tristique eros lacinia sem. Cras est. Cras velit orci, placerat eu, tempor eget, dictum et, urna. Aenean varius viverra metus. Suspendisse aliquam, massa sit amet vehicula consequat, magna risus fringilla arcu, ut cursus ipsum odio id diam. Cras ac ipsum. Aliquam vitae enim. Nulla lacus sapien, adipiscing a, venenatis sed, interdum vel, velit. In est neque, posuere sed, elementum sed, elementum ac, nulla. Suspendisse potenti. Aenean lorem. Sed nisi mauris, facilisis sit amet, congue vel, fermentum sed, nibh. Suspendisse consequat, tortor at mattis rutrum, orci diam commodo ligula, congue lacinia sem leo quis ligula.</p>
+>     				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras mi ipsum, scelerisque vitae, mollis non, molestie non, odio. Curabitur erat. Praesent fermentum. Curabitur vel lacus vitae metus vehicula mollis. Curabitur ipsum nibh, tempor eu, gravida vel, ultrices vitae, leo. Duis ac lacus. Donec tincidunt scelerisque libero. Suspendisse accumsan. Nullam lorem augue, pellentesque sed, lobortis eget, fermentum vitae, mauris. Aenean bibendum fermentum nulla. Aenean bibendum adipiscing diam. Etiam ipsum velit, tempus a, porta a, sollicitudin non, turpis. Etiam tincidunt odio ac quam.</p>
+>     				<p>Vivamus vel dolor in lectus imperdiet accumsan. Cras et libero nec augue tristique aliquet. Donec tempus. Aenean malesuada, orci et iaculis tristique, metus tellus consequat augue, et dictum nisi magna quis augue. Vivamus ligula leo, faucibus et, auctor vel, molestie vitae, elit. Nam tempus pellentesque sem. Curabitur aliquam hendrerit est. Sed non massa non ante scelerisque tincidunt. In aliquet scelerisque nibh. Phasellus ante risus, vehicula blandit, ultrices ut, scelerisque sed, felis. Nulla sit amet eros id dolor fermentum condimentum. Ut purus velit, ullamcorper sit amet, egestas a, sodales vel, ligula.</p>
+>     			</div>
+>     		</div>
+>     		<div id="rodape">
+>     			<h2>CSS Layout - <a href="http://rogeriolino.wordpress.com/">rogeriolino.wordpress.com</a></h2>
+>     		</div>
+>     	</div>
+>     </body>
+>     </html></em>
+> 
+> 
+</blockquote>
+
+
+Foi colocado na coluna da esquerda (**id="menu"**) um menu, na coluna do meio (**id="conteudo"**) um texto qualquer e na coluna da direita (**id="banners"**) um pequeno parágrafo só para encher lingüiça.
+
+Agora você deve estar se perguntando por que a coluna do meio vem depois da coluna da direita, já que na hora de ver fica ao contrário.
+
+Resposta: Simplesmente não funciona se a coluna da direita vier primeiro da coluna do meio. Na hora de colocar para flutuar (direita), a coluna do meio não "sobe". Fica no centro certim mas não fica alinhado acima com as demais colunas. Resumindo essa **ordem** realmente é **importante**. =]
+
+**Desenrolando com o CSS:**
+
+
+<blockquote>
+
+>     
+>     #topo {
+>     	height: 120px;
+>     	border: 1px solid #f1f1f1;
+>     	text-align: center;
+>     }
+>     
+>     #topo h2 {
+>     	color: #999999;
+>     	font-family: verdana, Arial, Sans-Serifv;
+>     }
+>     
+>     #meio {
+>     	margin-top: 10px;
+>     }
+>     
+>     #menu {
+>     	width: 150px;
+>     	float: left;
+>     }
+>     
+>     #menu ul {
+>     	width: 150px;
+>     	border: 1px solid #f1f1f1;
+>     	padding: 0;
+>     	margin: 0;
+>     }
+>     
+>     #menu ul li {
+>     	width: 150px;
+>     	list-style: none;
+>     	padding: 0;
+>     	margin: 0;
+>     }
+>     
+>     #menu ul li a {
+>     	width: 130px;
+>     	_width: 150px;
+>     	height: 20px;
+>     	display: block;
+>     	padding: 3px 0 0 20px;
+>     	text-decoration: none;
+>     	color: #999999;
+>     	font: 12px verdana, Arial, Sans-Serif;
+>     }
+>     
+>     #menu ul li a:hover {
+>     	color: #000000;
+>     	background: #f1f1f1;
+>     }
+>     
+>     #conteudo {
+>     	margin: 0 180px;
+>     	text-align: justify;
+>     }
+>     
+>     #conteudo p {
+>     	font: 12px Verdana, Arial, Sans-Serif;
+>     }
+>     
+>     #banners {
+>     	width: 150px;
+>     	float: right;
+>     	border: 1px solid #f1f1f1;
+>     }
+>     
+>     #rodape {
+>     	height: 50px;
+>     	border: 1px solid #f1f1f1;
+>     	clear: both;
+>     	text-align: center;
+>     }
+>     
+>     #rodape h2 {
+>     	color: #999999;
+>     	font: 11px verdana, Arial, Sans-Serif;
+>     }
+> 
+> 
+</blockquote>
+
+
+Para quem ainda não viu ou não conhece ainda o [CSS](http://rogeriolino.wordpress.com/2006/07/05/css-o-que-e/), esse código vai dentro da tag **style**. Que por sua vez fica dentro da tag **head**. Isso para adicionar o CSS no próprio arquivo, caso queira chamar um arquivo externo [aqui](http://rogeriolino.wordpress.com/2006/07/05/css-o-que-e/) tem um exemplo.
+
+Bem, olhando o código não tem muito o que explicar. Primeiramente definimos os tamanhos das camadas (_**topo:** altura=120px, **rodape:** altura=50px, **menu: **largura=150px,** ****banners:** largura=150px_).
+
+Colocando as colunas do canto para flutuar (_**menu:** float=left, **banners:** float=right_).
+
+Foi criado um menu no layout também, e se você reparar tem um [CSS Hack](http://tableless.com.br/aprenda/css-hacks/) nele, para que ele funcione corretamente no Internet Explorer 6 ou anterior. Nesse post não vou explicar como e o que foi feito, para mais [aqui](http://www.maujor.com/tutorial/cssmenu.php).
+Na coluna do meio defini-se uma margin para ambos lados para deixá-lo com uma largura única e não deixando o texto "escapar" para os lados.
+
+E lembrando de colocar o **clear** como _both_ no **rodape**. Para ele ficar sempre abaixo das demais camadas.
+
+No site do [Tableless](http://www.tableless.com.br/) tem um [vídeo tutorial](http://www.tableless.com.br/video-tutorial-6-transformando-layout-fixo-em-fluido) muito bom, mostrando exatamente como faz um layout desse tipo, mas dando mais exemplos para deixa-lo ou não fixo. No qual eu quase que praticamente fiz igual. Só que o [vídeo tutorial](http://www.tableless.com.br/video-tutorial-6-transformando-layout-fixo-em-fluido) é bem mais explicativo e melhor montado, vale muito a pena conferir.

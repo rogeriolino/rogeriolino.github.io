@@ -1,0 +1,165 @@
+---
+author: rogeriolino
+comments: true
+date: 2006-07-13 14:11:08+00:00
+layout: post
+slug: layout-1
+title: 'Layout #1'
+wordpress_id: 14
+categories:
+- CSS
+- Tableless
+- XHTML
+tags:
+- CSS
+- fixo
+- fluido
+- layout
+- portal
+- strict
+- Tableless
+- valido
+- w3c
+- XHTML
+---
+
+Agora que já sabemos como escrever um [XHTML](http://rogeriolino.wordpress.com/2006/07/11/escrevendo-o-primeiro-xhtml/) e temos uma [referência](http://rogeriolino.wordpress.com/2006/07/12/css-reference-1/) de [CSS](http://rogeriolino.wordpress.com/2006/07/05/css-o-que-e/), vamos fazer o nosso primeiro layout.
+
+Primeiro temos que analisar o que queremos, ou que teremos de, exibir na página. Se vai ter um menu horizontal ou vertical, se vai ter rodapé, quantas colunas, etc.
+
+Depois de feito isso é hora de estruturar o "esqueleto" da página no XHTML. Nesse primeiro exemplo vamos ver uma página com duas coluna, topo e rodapé. No qual a coluna do lado esquerdo vai conter o menu e do lado direito o conteúdo da página.
+
+**XHTML:**
+
+
+<blockquote>_ <!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml” xml:lang=”pt” lang=”pt”>
+<head>
+<title> Título </title>
+<meta name=”Generator” content=”" />
+<meta name=”Author” content=”" />
+<meta name=”Keywords” content=”" />
+<meta name=”Description” content=”" />
+<meta name=”language” content=”pt-br” />
+<!– Favicon –>
+<link rel=”shortcut icon” href=”favicon.ico” />
+<!– Style –>
+<link rel=”stylesheet” href=”style.css” type=”text/css”/>_
+_</head>
+<body>
+_ _<div id="geral">
+_ _    <div id="topo>_
+
+<h2>Título da Página</h2>
+
+_</div>
+_ _    <div id="meio">
+_ _        <div id="esquerda">_
+
+<ul>
+
+<li><a href="#" alt="Página Inicial">Home</a></li>
+
+<li><a href="#" alt="Quem Sou">Sobre</a></li>
+
+<li><a href="#" alt="Contato">Contato</a></li>
+
+</ul>
+
+_</div>
+_ _        <div id="direita">_
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum nulla. Mauris sollicitudin ante sed orci. Vivamus vitae sapien id felis lobortis aliquam. Suspendisse potenti. Integer pellentesque. Nulla vehicula, nisl a lacinia egestas, justo dolor semper justo, sed faucibus nibh orci eu magna. Curabitur vel nisi vulputate est vehicula rhoncus. Curabitur est ligula, vehicula ornare, suscipit vitae, ornare varius, justo. Suspendisse lacus. Sed pulvinar vehicula lectus. Curabitur quis augue. Nullam gravida tortor at felis. Aliquam neque massa, scelerisque at, auctor lobortis, placerat ut, erat. Fusce adipiscing. Phasellus imperdiet blandit quam. Maecenas posuere.</p>
+_</div>
+_ _    </div>
+_ _    <div id="rodape">_
+
+<h3>Minha Página - 2006</h3>
+
+_ _ _    </div>
+_ _</div>
+_ _</body>
+</html>_</blockquote>
+
+
+Foram colocadas seis camadas, **DIVs**, uma chamada **geral** que engloba todo o site para ter um maior controle, a **topo** - aonde vem a imagem de topo e título da página -, a **meio** que dentro tem duas, **esquerda** - menu - e **direita** - conteúdo - e **rodapé **- aonde tem os créditos -.
+
+No topo foi colocado o título da página dentro da tag **hn**, realmente utilizada para isso.
+
+Para fazer o menu foi usada uma lista indefinida ([**ul** - undefined list](http://www.w3schools.com/tags/tag_ul.asp)) com apenas três links.
+
+Na parte de conteúdo foi colocado o famoso "[Lorem Lipsum](http://www.lipsum.org)" para não ter que colocar aqueles "_bla bla bla_" ou "_non non non_".
+
+E por fim um crédito no rodapé dentro de ourta tag **hn**.
+
+**CSS:**
+
+Agora é a vez do estilo. Como no XHTML o link do CSS está apontando para um arquivo chamado **style.css**, salve-o com esse nome. Caso deseje colocar outro, mude na página o destino.
+
+
+<blockquote>
+
+>     
+>     <strong>#geral </strong>{
+>     	width: 726px;
+>     }
+>     <strong>
+>     #topo</strong> {
+>     	width: 720px;
+>     	height: 100px;
+>     	border: 3px solid #999999;
+>     	background: #FFFFFF;
+>     }
+>     
+>     <strong>#meio</strong> {
+>     	width: 720px;
+>     	border: 3px solid #999999;
+>     	background: #FFFFFF;
+>     }
+>     
+>     <strong>#esquerda</strong>, <strong>#direita</strong> {
+>     	padding: 15px;
+>     }
+>     
+>     <strong>#esquerda </strong>{
+>     	width: 150px;
+>     	float: left;
+>     }
+>     
+>     <strong>#direita </strong>{
+>     	width: 490px;
+>     	float: right;
+>     }
+>     
+>     <strong>#rodape</strong> {
+>     	width: 720px;
+>     	height: 50px;
+>     	border: 3px solid #999999;
+>     	background: #FFFFFF;
+>     	clear: both;
+>     }
+> 
+> 
+
+> 
+> 
+</blockquote>
+
+
+Neste caso a página vai ter 720 pixeis de largura e as camadas uma borda de 3 pixeis, totalizando 726px (720+3+3) de largura para a camada geral. Então as camadas topo, meio e rodape terão 720px de largura.
+
+O topo com altura de 100px e o rodapé com 50px. Para as camadas esquerda e direita terem um espaçamento entre o topo e o rodapé, tem um padding de 15px.
+
+Para colocar as duas camadas, **esquerda** e **direita**, uma do lado da outro, atribui-se a propriedade **float**, com valor _left_ para **esquerda** e _right_ para **direita**. Fazendo com que ambas flutuem para o lado desejado.
+No rodapé foi colocado o [clear](http://www.w3schools.com/css/pr_class_clear.asp) como both para ele ficar abaixo do meio, devido que as camadas **esquerda** e **direita** estão _flutuando_.
+
+Alguns exemplos [aqui](http://www17.brinkster.com/chivalrous/layouts.html).
+
+**mais sobre:**
+
+[Maujor.com - Layout CSS sem tabelas](http://www.maujor.com/w3ctuto/layout.html)
+
+[Maujor.com - Layout CSS 3 colunas](http://www.maujor.com/layout3col.shtml)
+
+[Little Boxes - Examples](http://www.thenoodleincident.com/tutorials/box_lesson/boxes.html)

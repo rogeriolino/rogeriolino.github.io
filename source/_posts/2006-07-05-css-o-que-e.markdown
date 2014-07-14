@@ -1,0 +1,167 @@
+---
+author: rogeriolino
+comments: true
+date: 2006-07-05 04:54:49+00:00
+layout: post
+slug: css-o-que-e
+title: CSS - O que é?
+wordpress_id: 9
+categories:
+- CSS
+tags:
+- cascading
+- CSS
+- o que e
+- referencia
+- sheet
+- sintaxe
+- style
+- tag
+---
+
+CSS (**Cascading Style Sheet**) são folhas de estilo em cascata.
+
+_**Pra que servem?** _
+
+Servem para definir um estilo para o seu documento Web (HTML, XHTLM, por exemplo). Ao invez de você ter que toda hora definir dentro da tag usada os atributos desejados, basta fazer isso uma vez pelo CSS.
+
+Ex.: Se você quer que toda a tag <p> tenha a fonte de cor azul, Verdana e tamanho 12px. Basta configurar ela no CSS dessa maneira:
+
+
+<blockquote>_**p** {_
+_font: 12px Verdana;_
+_color: blue; _
+_} _</blockquote>
+
+
+E assim todas as tag <p> terão essa mesma característica. Caso você não queira que isso se aplique a todas mas sim em apenas algumas tag <p>, você pode definir uma classe com tais características e depois dentro da tag chamar essa classe.
+
+Ex.:
+
+
+<blockquote>_**.minhaclasse** {_
+_font: 12px Verdana;_
+_color: blue; _
+_} _repare que para definir uma classe é necessário começar com um ponto.
+
+e na tag:
+
+<p **class**="_minhaclasse_"> Meu parágrafo aqui </p></blockquote>
+
+
+_**Como que eu uso o CSS?**_
+
+Há duas maneiras de aplicar uma folha de estilo em seu documento, uma é definir na própria página, ou chamar um arquivo externo de extensão .css. A segunda opção posibilita muito mais flexibilidade, devido a que você não irá precisar mudar os estilos página por páginas, caso venha querer mudar a "cara" do seu documento, e sim só alterar uma vez o próprio arquivo .css.
+
+**Sintaxe:**
+
+A sintaxe do CSS é muito simples. Primeiro coloca o nome da tag que queira definir o estilo abra "{" coloca os atributos e depois fecha "}".
+
+Os nomes das classes devem ser iniciados com um "**.**" e dos ID com "**#**".
+
+Ex.:
+
+
+<blockquote>_**body** {_
+_background: black;_
+_}_
+
+_**.minhaclasse** {_
+_color: #FF0000;_
+_}_
+
+_**#meuDiv** {_
+_width: 100px;_
+_height: 200px; _
+_}_</blockquote>
+
+
+[mais aqui](http://www.w3schools.com/css/css_syntax.asp)
+
+A diferença primordial entre **class **e **id**, é que a mesma classe você usa mais de uma vez em tags diferentes, enquanto o id é usado uma única vez - por uma <div> por exempo - pois o nome declarado no id serve para identificar aquela tag (exclusiva), como era feito pelo atributo **_name_**.
+
+**Definindo o estilo pela própria página:**
+
+Se você não ver porquê criar um arquivo externo ou que só vai precisar usá-lo em uma página, basta colocar o código do CSS dentro da tag _**<style>**_ que por sua vez deve ficar dentro da tag **<head>** passando o atributo _type_ como **_text/css_**.
+
+Ex.:
+
+
+<blockquote><html>
+<head>
+<title>Meu Título</title>
+<style type="text/css">
+<!--
+_**.minhaclasse** {_
+_font: 12px Verdana;_
+_color: blue; _
+_}_
+-->
+</style>
+</head>
+<body>
+<p class="_minhaclasse_"> Meu parágrafo aqui </p>
+</body>
+</html>
+
+Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.</blockquote>
+
+
+**Definindo o estilo através de um arquivo externo:**
+
+Pode-se chamar um arquivo externo de duas maneiras, uma já utrapassada e pouco usada e a mais semânticamente correta usando a tag <link> - tag na qual adiciona informações externas na página.
+
+
+<blockquote>**Primeira:**</blockquote>
+
+
+
+
+<blockquote><style type="text/css">
+<!--
+_@import: url(arquivo.css);_
+-->
+</style></blockquote>
+
+
+
+
+<blockquote>**Segunda, e recomendada:**</blockquote>
+
+
+
+
+<blockquote><**link** rel="stylesheet" href="style.css" type="text/css"/>
+
+Para entender um pouco mais do porquê de tanto atributos vamos analisar um-por-um :
+
+[**href:**](http://www.w3.org/TR/html4/struct/links.html#adef-href) igual ao da tag <a>, define o caminho.
+
+[**rel:**](http://www.w3.org/TR/html4/struct/links.html#adef-rel) vem do ingles _relationship _(relacionamento), com o atual arquivo especificado no href.
+
+A tag <link> também deverá estar contida na tag <head>.</blockquote>
+
+
+**Alguns dos atributos mais utilizados:**
+
+
+<blockquote>_**background:** cor; /* cor do fundo da página */_
+_**color: **cor; /* cor da fonte */_
+**font:** familia; /* ex.: Verdana, Arial, Tahoma */
+_**margin: **top right bottom left; /* margin e os sentidos */_
+_**padding:**  top right bottom left; /* espaçamento dentro e os sentidos */_
+_**width:** valor /* largura */_
+_**height:** valor /* altura */_
+_**text-align:** valor /* alinhamento do texto - center, left, right, justify */_
+_**border: ** __largura tipo cor /* largura, tipo (solid, dotted, dashed), cor */_</blockquote>
+
+
+**mais sobre:**
+
+[Maujor.com](http://www.maujor.com/)
+[Maujor.com Tutorial](http://www.maujor.com/tutorialcss1/css1tut.shtml)
+[W3.org](http://www.w3.org/Style/)
+[W3.org Use Link](http://www.w3.org/QA/Tips/use-links)
+[W3schools.com](http://www.w3schools.com/css/default.asp)
+[W3schools.com examples](http://www.w3schools.com/css/css_examples.asp)
+[Wikipedia.org](http://pt.wikipedia.org/wiki/Cascading_Style_Sheets)
