@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PHP: JsonSerializable]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/06/09/php-jsonserializable/"/>
+    <updated>2014-06-09T14:44:23-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/06/09/php-jsonserializable</id>
+    <content type="html"><![CDATA[<p>Desde a <strong>versão 5.4</strong> do PHP ficou mais fácil transformar entidades em <strong>JSON</strong> através da função <em>json_encode()</em>. Basta implementar a interface <a href="http://www.php.net/manual/class.jsonserializable.php">JsonSerializable</a>, no qual o único método que precisa ser implementado pela subclasse é o <em>jsonSerialize</em>.</p>
+
+<!-- more -->
+
+
+<pre><code>class User implements \JsonSerializable {
+
+    private $username;
+    private $firstName;
+    private $lastName;
+
+    ...
+
+    public function jsonSerialize() {
+        return array(
+            'username' =&gt; $this-&gt;username,
+            'firstName' =&gt; $this-&gt;firstName,
+            'lastName' =&gt; $this-&gt;lastName,
+            'fullName' =&gt; "{$this-&gt;firstName} {$this-&gt;lastName}"
+        );
+    }
+
+}
+</code></pre>
+
+<p>Serializando:</p>
+
+<pre><code>$user = new User();
+$user-&gt;setUsername("rogeriolino");
+$user-&gt;setFirstName("Rogério");
+$user-&gt;setLastName("Lino");
+echo json_encode($user);
+</code></pre>
+
+<p>Resultado:</p>
+
+<pre><code>{
+    "username": "rogeriolino",
+    "firstName": "Rogério",
+    "lastName": "Lino",
+    "fullName": "Rogério Lino",
+}
+</code></pre>
+
+<p>Essa implementação se torna muito útil para desenvolvimento de APIs <strong>RESTful</strong> e <strong>ajax responses</strong> (json response).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Session Keep Alive]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/05/12/session-keep-alive/"/>
+    <updated>2014-05-12T13:14:14-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/05/12/session-keep-alive</id>
+    <content type="html"><![CDATA[<p>Uma maneira fácil de manter a sessão ativa no lado do servidor sem sobrecarregá-lo com longos tempos de timeout, é usar um script que redireciona o usuário para a tela de login após um determinado período de inatividade (teclado e mouse ociosos), e fazer requisições assíncronas ao servidor para manter a sessão ativa durante a atividade.</p>
+
+<!-- more -->
+
+
+<p>Resumindo, enquanto usuário está utilizando a aplicação (digitando ou movendo o cursor) uma requisição assíncrona é disparada a cada X minutos (ping), e quando o usuário ficar ocioso começa a contar o tempo para redirecioná-lo para a tela de login. É importante que esse tempo para redirecionar para o login seja menor do que o timeout do servidor.</p>
+
+<p>Para implementar essa ideia, vou utilizar um plugin jQuery que monitora a atividade do usuário (teclado e mouse): <a href="https://github.com/rogeriolino/jquery-idletimer.">https://github.com/rogeriolino/jquery-idletimer.</a></p>
+
+<p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
+
+<pre><code>// session keep alive
+;(function($) {
+    "use strict";
+
+    var pingTime = 60; // ping a cada 60 segundos
+    var count = pingTime;
+    $.idleTimer({
+        time: 10 * 60, // 10 minutos para timeout
+        start: function() {
+            count = pingTime;
+        },
+        change: function(it) {
+            count--;
+            console.log(count);
+            if (count &lt;= 0) {
+                count = pingTime;
+                $.ajax({ url: '/ping.php' });
+            }
+        },
+        end: function() {
+            window.location.href = '/logout.php';
+        }
+    });
+})(jQuery);
+</code></pre>
+
+<p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
+
+<pre><code>&lt;?php
+
+session_start();
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Stack Overflow Em Português]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/29/stack-overflow-em-portugues/"/>
+    <updated>2014-01-29T20:47:48-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/29/stack-overflow-em-portugues</id>
+    <content type="html"><![CDATA[<p>Foi anunciado hoje no blog do <a href="http://blog.stackoverflow.com/2014/01/ola-mundo-announcing-stack-overflow-in-portuguese/?cb=1">StackExchange</a> o lançamento oficial do <a href="http://pt.stackoverflow.com/">Stack Overflow em Português</a>. Conforme destacado na publicação do blog, esse é o primeiro Stack Overflow internacional.</p>
+
+<p><img src="http://blog.stackoverflow.com/wp-content/uploads/2014-01-28_11-08-04-1024x505.jpg" alt="" /></p>
+
+<p>Visite agora mesmo a nova comunidade e crie a sua conta: <a href="http://pt.stackoverflow.com">http://pt.stackoverflow.com</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection/"/>
+    <updated>2014-01-10T21:57:26-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection</id>
+    <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html class="no-js" lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;JS detection&lt;/title&gt;
+    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+
+    &lt;style&gt;
+        .js .alert-danger { display: none; }
+        .no-js .alert-success { display: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FreezeHeader jQuery Plugin]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/08/freezeheader-jquery-plugin/"/>
+    <updated>2014-01-08T14:58:41-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/08/freezeheader-jquery-plugin</id>
+    <content type="html"><![CDATA[<p>Se você está precisando de algum script para manter o cabeçalho da tabela sempre visível mesmo ao rolar a página, lhe apresento o plugin (jQuery) <a href="https://github.com/laertejjunior/freezeheader">freezeheader</a> criado pelo menu amigo <a href="https://github.com/laertejjunior">Laerte</a>.</p>
+
+<p>Aproveitando também para parabenizá-lo por seu plugin ter ficado entre os <a href="http://www.jqueryscript.net/blog/Top-100-Best-Free-jQuery-Plugins-From-2013.html">100 melhores de 2013</a>.</p>
+
+<p><strong>Links</strong></p>
+
+<p>Demo: <a href="http://laertejjunior.github.io/freezeheader">http://laertejjunior.github.io/freezeheader</a>
+Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.com/laertejjunior/freezeheader</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP: Slim Framework Action Based]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/12/27/php-slim-framework-action-based/"/>
+    <updated>2013-12-27T10:06:51-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/12/27/php-slim-framework-action-based</id>
+    <content type="html"><![CDATA[<p>Há algum tempo utilizo o <a href="http://www.slimframework.com/">Slim Framework</a> como base de meus projetos. E o motivo é sua simplicidade, velocidade e facilidade.</p>
+
+<p>E para criar CRUD, eu utilizo um trecho de código para trabalhar rotas semelhante aos frameworks action based. Seguindo a convenção <strong>/controlador/método</strong>.</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso &#8220;1&#8221;).
+</blockquote>
+
+
+<p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
+
+<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
+    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
+    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
+    try {
+        if (!class_exists($class)) {
+            throw new \Exception('Controlador não encontrado');
+        }
+        $ctrl = new $class($app);
+        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
+        $ref = new \ReflectionMethod($class, $methodName);
+        if (!$ref-&gt;isPublic()) {
+            throw new \Exception('O método do controlador não é público.');
+        }
+        $view = $methodName;
+        $rs = $ref-&gt;invokeArgs($ctrl, $params);
+        if ($rs) {
+            $view = $rs;
+        }
+        $app-&gt;render("{$controller}/{$view}.php");
+    } catch (\Exception $e) {
+        $app-&gt;notFound();
+    }
+});
+</code></pre>
+
+<p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing/"/>
+    <updated>2013-12-12T11:57:12-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing</id>
+    <content type="html"><![CDATA[<p><strong>HTML</strong></p>
+
+<pre><code>&lt;div class="container" ng-app="todo"&gt;
+    &lt;div ng-controller="todoCtrl"&gt;
+        &lt;form ng-submit="add()"&gt;
+            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
+            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;ul&gt;
+            &lt;li ng-repeat="todo in todos"&gt;
+                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
+                &lt;span ng-show="editing"&gt;
+                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
+                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>var app = angular.module('todo', []);
+
+app.controller('todoCtrl', function($scope) {
+
+    $scope.todos = [
+        {text: "First task"}
+    ];
+
+    $scope.add = function() {
+        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+            $scope.todos.push({
+                text: $scope.newTodo
+            });
+            $scope.newTodo = '';
+        }
+    }
+
+});
+</code></pre>
+
+<p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Futeria on Firefox OS]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/10/03/futeria-on-firefox-os/"/>
+    <updated>2013-10-03T12:50:00-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/10/03/futeria-on-firefox-os</id>
+    <content type="html"><![CDATA[<p>Após inscrever meu aplicativo <a href="https://play.google.com/store/apps/details?id=net.futeria.app">Futeria</a> e ganhar um <a href="http://www.geeksphone.com/">Geeksphone Keon</a> (developer preview) da Mozilla. Anuncio que em breve o aplicativo também estará disponível para o <a href="http://www.mozilla.org/en-US/firefox/os/">Firefox OS</a>.</p>
+
+<!-- more -->
+
+
+<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/wp-content/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
+
+<p><strong>[update 2013-10-09]</strong></p>
+
+<p>Futeria aprovado e disponível!</p>
+
+<p><a href="https://marketplace.firefox.com/app/futeria">https://marketplace.firefox.com/app/futeria</a></p>
+
+<p>Para demais dispositivos ou desktops, pode acessar a versão online direto <a href="http://m.futeria.net">http://m.futeria.net</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP: 5.5 New Features]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/07/17/php-5-5-new-features/"/>
+    <updated>2013-07-17T18:23:11-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/07/17/php-5-5-new-features</id>
+    <content type="html"><![CDATA[<p>A versão 5.5 do PHP foi lançada no mês passado, e trouxe algumas funcionalidades relevantes. Entre elas, seguem abaixo as mais interessantes (pelo menos para mim):</p>
+
+<h3>Generators</h3>
+
+<p>Com o <a href="http://br1.php.net/manual/en/language.generators.overview.php">Generators</a> você pode iterar com um dado dentro de uma função sem a necessidade de criar um array para ser retornado.</p>
+
+<pre><code>function numerosInteiros($minimo, $maximo) {
+    for ($i = $minimo; $i &lt;= $maximo; $i++) {
+        // a keyword yield "libera" a variável $i para a iteração (sem sair/retornar da/a função)
+        yield $i;
+    }
+}
+
+for (numerosInteiros(1, 10) as $numero) {
+    echo "$numero ";
+}
+</code></pre>
+
+<p>Ou um exemplo do próprio site php.net</p>
+
+<pre><code>function xrange($start, $limit, $step = 1) {
+    if ($start &lt; $limit) {
+        if ($step &lt;= 0) {
+            throw new LogicException('Step must be +ve');
+        }
+
+        for ($i = $start; $i &lt;= $limit; $i += $step) {
+            yield $i;
+        }
+    } else {
+        if ($step &gt;= 0) {
+            throw new LogicException('Step must be -ve');
+        }
+
+        for ($i = $start; $i &gt;= $limit; $i += $step) {
+            yield $i;
+        }
+    }
+}
+
+/*
+ * Note that both range() and xrange() result in the same
+ * output below.
+ */
+
+echo 'Single digit odd numbers from range():  ';
+foreach (range(1, 9, 2) as $number) {
+    echo "$number ";
+}
+</code></pre>
+
+<p>Repare que não há necessidade de criar um array, populá-lo, retorná-lo, e só depois iterá-lo para imprimir os valores.</p>
+
+<h3>Finally</h3>
+
+<p>Mesmo já possuindo a bastante tempo o bloco try/catch, só agora a partir da versão 5.5 foi introduzida a keyword <strong>finally</strong>. No qual você define um bloco para ser executado de qualquer maneira (mesmo que caia no catch).</p>
+
+<pre><code>function divide($a, $b) {
+    if ($b === 0) {
+        throw new Exception('Divisão por zero');
+    }
+    return $a / $b;
+}
+
+try {
+    echo '10 / 2 = ' . divide(10, 2);
+    echo '2 / 0 = ' . divide(2, 0);
+} catch (Exception $e) {
+    echo $e-&gt;getMessage();
+} finally {
+    echo 'Término das operações';
+}
+</code></pre>
+
+<h3>::class</h3>
+
+<p>Agora é possível resolver o nome da classe apenas através de <a href="http://br1.php.net/oop5.basic#language.oop5.basic.class.class">MinhaClass::class</a>.</p>
+
+<pre><code>&lt;?php
+namespace NS {
+    class ClassName {
+    }  
+    echo ClassName::class;
+}
+?&gt;
+</code></pre>
+
+<h3>empty()</h3>
+
+<p>Agora é possível passar expressões para a função <a href="http://br2.php.net/migration55.new-features#migration55.new-features.empty">empty()</a> e não mais apenas variáveis.</p>
+
+<pre><code>&lt;?php
+function always_false() {
+    return false;
+}
+
+if (empty(always_false())) {
+    echo "This will be printed.\n";
+}
+
+if (empty(true)) {
+    echo "This will not be printed.\n";
+}
+?&gt;
+</code></pre>
+
+<h3>Veja mais</h3>
+
+<p>Para saber mais sobre a nova versão acesse os links abaixo:</p>
+
+<p><a href="http://www.php.net/releases/5_5_0.php">http://www.php.net/releases/5_5_0.php</a>
+<a href="http://br2.php.net/manual/en/migration55.php">http://br2.php.net/manual/en/migration55.php</a></p>
+
+<p>E o <strong>php.net</strong> também lançou sua versão nova (ainda em beta). <a href="http://php.net/?setbeta=1&amp;beta=1">Clique aqui para abrir a versão beta</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UTF-8 Icons]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/05/06/utf-8-icons/"/>
+    <updated>2013-05-06T11:55:09-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/05/06/utf-8-icons</id>
+    <content type="html"><![CDATA[<p>Com a adoção dos navegadores mais modernos, muitos projetos estão adotando os ícones UTF-8 em botões. Assim diminui a dependência de imagens tornando o carregamento mais rápido. Exemplo: <a href="http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html">http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html</a></p>
+
+<h2>Prós</h2>
+
+<ul>
+<li><p>Não há necessidade de imagens como dependência;</p></li>
+<li><p>Pode usar a cor que desejar;</p></li>
+<li><p>São escaláveis, muito fáceis de alterar o tamanho;</p></li>
+<li><p>Pode usar transformações CSS (transparência, sombra, rotação, etc);</p></li>
+<li><p>Reuso de ícones através de seletores CSS;</p></li>
+</ul>
+
+
+<h2>Contras</h2>
+
+<ul>
+<li><p>Os ícones das fonts padrões não são tão legais;</p></li>
+<li><p>Embora não haja dependência de imagem, pode ter de font (web font);</p></li>
+<li><p>Dependendo da font escolhida, um iconset pode ser mais leve;</p></li>
+</ul>
+
+
+<h2>Veja mais sobre ícones UTF-8</h2>
+
+<ul>
+<li><p><a href="http://www.utf8icons.com/">http://www.utf8icons.com/</a></p></li>
+<li><p><a href="http://weloveiconfonts.com/">http://weloveiconfonts.com/</a></p></li>
+<li><p><a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Novo SGA]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/02/05/novo-sga/"/>
+    <updated>2013-02-05T09:33:57-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/02/05/novo-sga</id>
+    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+
+<blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
+
+Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 2009, unindo a burocracia dos responsáveis pela comunidade no [Portal do Software Público](http://softwarepublico.gov.br/) surgiu a necessidade de criar uma nova versão para esse sistema que já roda em diversas localidades do Brasil.
+
+A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
+
+
+<p>Visite o <a href="http://novosga.org">site do projeto</a> e confira a <a href="http://novosga.org/demo">versão demo</a> disponível online.</p>
+
+<p>Gostou e quer contribuir com o desenvolvimento? Acesse o <a href="http://github.com/rogeriolino/novosga">projeto no GitHub</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS3: Selection Background Color]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/01/02/css3-selection-background-color/"/>
+    <updated>2013-01-02T10:08:47-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/01/02/css3-selection-background-color</id>
+    <content type="html"><![CDATA[<p>Com o seletor <strong>selection</strong> podemos definir a cor do texto e de fundo do texto quando o selecionamos.</p>
+
+<blockquote>
+The ::-moz-selection (::selection) pseudo-element applies to the portion of a document that has been highlighted (e.g. selected with the mouse) by the user.
+
+Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. The following properties apply to ::-moz-selection:  color, background and background-color (background-image is ignored).
+
+[http://dochub.io/#css/selection](http://dochub.io/#css/selection)
+</blockquote>
+
+
+<p><strong>CSS</strong></p>
+
+<pre><code>p::selection  { color: #000; }
+p::-moz-selection { color: #000; }
+
+p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }
+
+p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }
+
+p.pink::selection { background: #E2189C; }
+p.pink::-moz-selection { background: #E2189C; }
+</code></pre>
+
+<p><strong>HTML</strong></p>
+
+<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+
+&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
+
+&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
+</code></pre>
+
+<p><strong>Exemplo</strong>
+<a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery + Modernizr: AccessKey Detection]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/12/13/jquery-modernizr-accesskey-detection/"/>
+    <updated>2012-12-13T14:13:36-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/12/13/jquery-modernizr-accesskey-detection</id>
+    <content type="html"><![CDATA[<p>O código abaixo permite exibir no title e na frente das tags que possuem o atributo <a href="http://www.w3schools.com/tags/att_global_accesskey.asp">accesskey</a> o seu atalho.</p>
+
+<p>Com o uso do CSS é adicionado ao <a href="http://www.w3schools.com/cssref/sel_after.asp">final do conteúdo da tag</a> o seu atalho. E via Javascript esse atalho também é adicionado ao title.</p>
+
+<p>Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz uso do Modernizr + Detectizr para adicionar no body a classes informando o ambiente.</p>
+
+<p><strong>Dependências</strong></p>
+
+<pre><code>&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<pre><code>*[accesskey]:after {
+    margin-left: 0.3em;
+    color: #ccc;
+    content: "[Alt + " attr(accesskey) "]";
+}
+
+body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
+body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
+body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>/**
+ * Add browser and OS name to body class, and append the shortcut to element title
+ * @author rogeriolino
+ */
+(function($) {
+    $(document).ready(function() {
+        Modernizr.Detectizr.detect({detectScreen:false});
+        var body = $('body')
+        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
+        $('*[accesskey]').each(function(i, e) {
+            var elem = $(e);
+            prefix = 'Alt';
+            if (body.hasClass('firefox')) {
+                if (body.hasClass('mac')) {
+                    prefix = 'Ctrl + Opt';
+                } else {
+                    prefix = 'Alt + Shift';
+                }
+            } else if (body.hasClass('safari mac')) {
+                prefix = 'Ctrl';
+            }
+            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
+        });
+    });
+})($);
+</code></pre>
+
+<p><strong>Demo</strong></p>
+
+<p><a href="http://jsfiddle.net/qmB3R/">Clique aqui para visualizar o exemplo no jsFiddle.net</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery: Horizontal + Vertical Align]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/11/28/jquery-horizontal-vertical-align/"/>
+    <updated>2012-11-28T08:23:58-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/11/28/jquery-horizontal-vertical-align</id>
+    <content type="html"><![CDATA[<p>Função jQuery para alinhar horizontalmente e verticalmente o elemento.</p>
+
+<pre><code>jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css({
+        top: '50%',
+        left: '50%', 
+        margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
+    });
+    return this;
+}
+</code></pre>
+
+<p>Exemplo:</p>
+
+<pre><code>&amp;lt;div id="centered_div"&amp;gt;
+    &lt;p&gt;My div content here&lt;/p&gt;
+&amp;lt;/div&amp;gt;
+
+
+
+
+
+
+
+$('#centered_div').center()
+</code></pre>
+
+<p>Edit on jsFiddle: <a href="http://jsfiddle.net/rc6kS/">http://jsfiddle.net/rc6kS/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu: PHP 5.4 + PHP5-FPM/FastCgi on Apache2]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2/"/>
+    <updated>2012-11-26T14:55:46-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2</id>
+    <content type="html"><![CDATA[<p>Os comandos abaixo que devem ser executados como <strong>root</strong>.</p>
+
+<h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
+
+<pre><code>apt-cache show php5 | grep Version
+</code></pre>
+
+<p>Caso a versão mais nova já esteja na 5.4 ou superior, então pule para o próximo passo. Senão execute os comandos abaixo para adicionar o repositório com a versão 5.4.</p>
+
+<pre><code>apt-get install python-software-properties
+add-apt-repository ppa:ondrej/php5
+apt-get update
+</code></pre>
+
+<h3>Passo 2 &ndash; Instalando os pacotes</h3>
+
+<p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
+
+<pre><code>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
+</code></pre>
+
+<p>Habilitando os módulos de requeridos para o próximo passo:</p>
+
+<pre><code>a2enmod actions fastcgi alias
+</code></pre>
+
+<h3>Passo 3 &ndash; Configurando o Apache2</h3>
+
+<p>Editar o arquivo de configuração do módulo fastcgi</p>
+
+<pre><code>vim /etc/apache2/mods-enabled/fastcgi.conf
+</code></pre>
+
+<p>Caso já tenha algumas entradas, comente (adicionando # no início da linha ou simplesmente remova) e adicione as seguintes linhas:</p>
+
+<pre><code>AddHandler php5-fcgi .php
+Action php5-fcgi /php5-fcgi
+Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
+</code></pre>
+
+<p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
+
+<h3>Passo 4 &ndash; Configurando o PHP-FPM</h3>
+
+<p>Abra o arquivo de configuração do PHP-FPM</p>
+
+<pre><code>vim /etc/php5/fpm/pool.d/www.conf
+</code></pre>
+
+<p>E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:</p>
+
+<pre><code>listen = /var/run/php5-fpm.sock
+</code></pre>
+
+<p>Essa opção serve para evitar overhead no TCP (caso o socket não esteja configurado)</p>
+
+<p>obs: Repare que tem que ser o mesmo caminho especificado no fastcgi.conf</p>
+
+<h3>Passo 5 &ndash; Reiniciando e testando</h3>
+
+<p>Reiniciando os serviços:</p>
+
+<pre><code>/etc/init.d/apache2 restart
+/etc/init.d/php5-fpm restart
+</code></pre>
+
+<p>Criando arquivo de teste:</p>
+
+<pre><code>cd /var/www
+echo '&lt;?php phpinfo();' | tee info.php
+</code></pre>
+
+<p>Depois acesse o arquivo criado via browser: <a href="http://nome_servidor/info.php">http://nome_servidor/info.php</a></p>
+
+<p>Confira a <strong>versão do PHP descrita no cabeçalho</strong> e se o valor do <strong>Server API</strong> está como <strong>FPM/FastCGI</strong>.</p>
+
+<p><img src="http://rogeriolino.com/wp-content/uploads/2012/11/phpinfo.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Quickpost: License Box]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/11/08/quickpost-license-box/"/>
+    <updated>2012-11-08T10:07:00-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/11/08/quickpost-license-box</id>
+    <content type="html"><![CDATA[<p>Atualizando exemplo antigo, para uso de CSS3:</p>
+
+<p><strong>Post original:</strong>
+<a href="http://rogeriolino.com/2006/11/25/tutorial-caixa-de-contrato/">http://rogeriolino.com/2006/11/25/tutorial-caixa-de-contrato/</a></p>
+
+<p><strong>Página da versão nova:</strong>
+<a href="http://dev.rogeriolino.com/exemplos/css/license/index.html">http://dev.rogeriolino.com/exemplos/css/license/index.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS3: Horizontal Menu]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/10/15/css3-horizontal-menu/"/>
+    <updated>2012-10-15T11:34:32-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/10/15/css3-horizontal-menu</id>
+    <content type="html"><![CDATA[<p>Exemplo de um menu dropdown horizontal, utilizando gradient e transition apenas com CSS3.</p>
+
+<h3>CSS</h3>
+
+<pre><code>.hmenu {
+    height: 40px;
+    position: relative;
+}
+
+.hmenu, .hmenu ul { 
+    border-radius: 3px;
+}
+
+.hmenu, .hmenu * {
+    margin: 0;
+    padding: 0;
+}
+
+.hmenu li {
+    list-style: none;
+    position: relative;
+    display: inline;
+}
+
+.hmenu li {
+    list-style: none;
+    position: relative;
+    float: left;
+}
+
+/* all links style */
+.hmenu a {
+    font-weight: bold;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* main link style */
+.hmenu&gt;li&gt;a {
+    padding: 13px 20px;
+    float: left;
+}
+
+.hmenu li ul {
+    width: 150px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    /* fading transition */
+    transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+}
+
+/* first submenu */
+.hmenu&gt;li&gt;ul {
+    top: 40px;
+    left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.hmenu li:hover&gt;ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hmenu li ul ul {
+    top: 0px;
+    left: 150px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.hmenu li ul li {
+    width: 150px;
+    display: block;
+}
+
+/* submenu link style */
+.hmenu ul a {
+    margin: 3px 2px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: block;
+}
+
+/* theming */
+.hmenu {
+    box-shadow: 0px 1px 5px #ccc;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.hmenu a {
+    color: #999;
+}
+
+.hmenu a:hover {
+}
+
+.hmenu li:hover&gt;a {
+    color: #000;
+    text-shadow: 1px 1px 2px #ccc;
+}
+
+.hmenu ul {
+    background-color: #f1f1f1;
+    box-shadow: 0px 1px 5px #bbb;
+}
+
+.hmenu ul a:hover {
+    background-color: #e1e1e1;
+}
+
+.hmenu&gt;li&gt;ul {
+    border-top: 2px solid #999;
+}
+
+.hmenu li ul ul {
+    border-left: 2px solid #999;
+}
+</code></pre>
+
+<h3>HTML</h3>
+
+<pre><code>&lt;ul class="hmenu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#"&gt;Services&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;Service 2&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 5&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#"&gt;About&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Company&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/css/hmenu.html">Visualizar o menu funcionando</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP: 5.4 New Features]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/10/01/php-5-4-new-features/"/>
+    <updated>2012-10-01T12:47:04-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/10/01/php-5-4-new-features</id>
+    <content type="html"><![CDATA[<p>Segue abaixo algumas das novas funcionalidades da versão 5.4 do PHP. Para ver mais informações, siga os links no final do post.</p>
+
+<h3>Trait</h3>
+
+<p>Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes reutilizem métodos de outras classes sem a necessidade de estende-la.</p>
+
+<pre><code>trait Singleton {
+    public static function getInstance() { ... }
+}
+
+class A {
+    use Singleton;
+    // ...
+}
+
+class B extends ArrayObject {
+    use Singleton;
+    // ...
+}
+
+// Singleton method is now available for both classes
+A::getInstance();
+B::getInstance();
+</code></pre>
+
+<h3>Sintaxe curta para definição de Array</h3>
+
+<p>Agora é possível instanciar um array de maneira semelhante à outras linguagens de script, como por exemplo, Javascript.</p>
+
+<pre><code>$a = [1, 2, 3];
+$b = ['foo' =&gt; 'orange', 'bar' =&gt; 'apple'];
+</code></pre>
+
+<h3>Referência direta ao retorno das funções/métodos</h3>
+
+<p>Também é possível fazer fazer chamada direta ao retorno das funções, sem que haja necessidade de atribuir o valor a uma variável e só depois fazer a chamada.</p>
+
+<pre><code>function fruits() {
+    return ['apple', 'banana', 'orange'];
+}
+echo fruits()[0]; // Outputs: apple
+</code></pre>
+
+<p>O mesmo serve para chamadas através de novas <strong>instâncias</strong>:</p>
+
+<pre><code>class Person {
+    private $name;
+    public function setName($name) {
+        $this-&gt;name = $name;
+    }
+    public function getName() {
+        return $this-&gt;name;
+    }
+}
+function createPerson() {
+    $p = new Person();
+    $p-&gt;setName('Rogerio');
+    return $p;
+}
+
+echo (new Person)-&gt;setName('Rogerio')-&gt;getName(); // Outputs: Rogerio
+</code></pre>
+
+<h3>Método mágico __invoke</h3>
+
+<p>Permite chamar um objeto como se fosse uma função</p>
+
+<pre><code>class MoneyObject {
+    private $value;
+    function __construct($val) {
+        $this-&gt;value = $val;
+    }
+    function __invoke() {
+        return sprintf('$%.2f',$this-&gt;value); 
+    }
+}
+$Money = new MoneyObject(11.02/5*13);
+echo $Money(); // Outputs: $28.65
+</code></pre>
+
+<h3>Built-in Web Server (CLI)</h3>
+
+<p>CLI server é uma pequena implementação de um Web server que você pode executar via linha de comando.</p>
+
+<blockquote>% php -S localhost:8000</blockquote>
+
+
+<p>Obviamente, não é para ser usado em produção.</p>
+
+<h3>Native Session Handler Interface</h3>
+
+<p>Ao invés de definir várias funções, você pode criar uma handler para a sua sessão, e apenas informá-lo no session_set_save_handler.</p>
+
+<pre><code>SessionHandler implements SessionHandlerInterface {
+  public int close ( void )
+  public int destroy ( string $sessionid )
+  public int gc ( int $maxlifetime )
+  public int open ( string $save_path , string $sessionid )
+  public string read ( string $sessionid )
+  public int write ( string $sessionid , string $sessiondata )
+}
+session_set_save_handler(new MySessionHandler);
+</code></pre>
+
+<h3>JsonSerialize Interface</h3>
+
+<p>Semelhante ao __tostring ao tentar imprimir um objeto, você pode pre-definir o objeto que será serializado para o formato json, através do uso da função <strong>json_encode</strong>.</p>
+
+<pre><code>class Foo implements JsonSerializable {
+    private $data = 'Bar';
+    public function jsonSerialize() {
+        return array('data'=&gt;$this-&gt;data);
+    }
+}
+echo json_encode(new Foo); // Outputs: {"data":"Bar"}
+</code></pre>
+
+<p>Para visualizar as alterações entre as versão 5.3 e 5.4, <a href="http://www.php.net/manual/en/migration54.php">clique aqui</a>.</p>
+
+<p><strong>Fontes:</strong>
+<a href="http://php.net/manual/en/migration54.new-features.php">http://php.net/manual/en/migration54.new-features.php</a>
+<a href="http://css.dzone.com/polls/what-new-feature-php-54">http://css.dzone.com/polls/what-new-feature-php-54</a>
+<a href="http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html">http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Development Tools]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/08/31/development-tools/"/>
+    <updated>2012-08-31T17:02:57-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/08/31/development-tools</id>
+    <content type="html"><![CDATA[<p><a href="http://dev.rogeriolino.com/tools/crypt"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/dev-tools.png" alt="" /></a></p>
+
+<p>Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para auxiliar durante o desenvolvimento. Segue abaixo as funcionalidades que estão disponíveis por enquanto:</p>
+
+<ul>
+<li><p><strong>Crypt</strong>: algorítimos de hash como sha1 e md5, e base64 encode/decode</p></li>
+<li><p><strong>Random:</strong> geração de senhas (com opções de configuração), CPF e CNPJ, e Lorem Ipsum</p></li>
+<li><p><strong>Converter</strong>: conversor de unidades de medida</p></li>
+<li><p><strong>Network</strong>: exibe o IP do cliente, geo localização (coordenadas e mapa), e consulta de domínios (whois server)</p></li>
+<li><p><strong>Browser</strong>: informações sobre versão, user-agent, resolução e viewport, e as principais funcionalidades do HTML5 e CSS3 que o browser suporta.</p></li>
+<li><p><strong>Javascript</strong>: code minifier and optimizer</p></li>
+</ul>
+
+
+<p>Como toda a execução é feita no lado do servidor, você pode fazer uma execução ajax do seu site/aplicação para o dev-tools e pegar no response o resultado, sem que haja necessidade de importar novos recursos:</p>
+
+<blockquote>GET
+>     /ajax/<package>/<method>/?<params>
+>     /ajax/crypt/sha1?data=test
+>     
+>     JSON RESPONSE
+>     {&#8220;success&#8221;:true,&#8221;data&#8221;:&#8221;a94a8fe5ccb19ba61c4c0873d391e987982fbbd3&#8221;}
+>     
+> 
+> </blockquote>
+
+
+<p>Conforme eu vá sentindo necessidade de mais funcionalidade ou alguém dê uma sugestão, irei incrementando. Depois criarei um projeto no Github e atualizarei o post com o link.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android: Futeria App]]></title>
+    <link href="http://rogeriolino.github.io/blog/2012/08/13/android-futeria-app/"/>
+    <updated>2012-08-13T13:54:12-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2012/08/13/android-futeria-app</id>
+    <content type="html"><![CDATA[<p><a href="https://play.google.com/store/apps/details?id=net.futeria.app"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/futeria-android.png" alt="" /></a></p>
+
+<p>Há alguns dias publiquei uma app no <a href="https://play.google.com">Google Play</a>: <strong>Futeria</strong>, versão móvel do site <a href="http://futeria.net">Futeria.net</a>, agregador de notícias dos principais clubes de futebol do Brasil.</p>
+
+<p>Para o desenvolvimento dessa app foi utilizado HTML5 e <a href="http://jquerymobile.com">jQueryMobile</a> para o frontend, e PHP para o backend. E para agilizar o carregamento das pãginas estã sendo utilizado o Manifest App Cache do HTML5. Já para uma  próxima versão estará disponível uma página para salvar configurações do usuário, utilizando <a href="http://www.w3schools.com/html5/html5_webstorage.asp">LocalStorage</a>.</p>
+
+<p>Então, se você é um usuário Android e gostaria de ler as últimas notícias do seu time, instale o Futeria e dê uma feedback sobre bugs e melhorias que podem ser feitas. E muito obrigado!</p>
+]]></content>
+  </entry>
+  
+</feed>

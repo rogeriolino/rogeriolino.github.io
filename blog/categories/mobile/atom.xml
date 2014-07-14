@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mobile | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/mobile/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Futeria on Firefox OS]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/10/03/futeria-on-firefox-os/"/>
+    <updated>2013-10-03T12:50:00-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/10/03/futeria-on-firefox-os</id>
+    <content type="html"><![CDATA[<p>Após inscrever meu aplicativo <a href="https://play.google.com/store/apps/details?id=net.futeria.app">Futeria</a> e ganhar um <a href="http://www.geeksphone.com/">Geeksphone Keon</a> (developer preview) da Mozilla. Anuncio que em breve o aplicativo também estará disponível para o <a href="http://www.mozilla.org/en-US/firefox/os/">Firefox OS</a>.</p>
+
+<!-- more -->
+
+
+<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/wp-content/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
+
+<p><strong>[update 2013-10-09]</strong></p>
+
+<p>Futeria aprovado e disponível!</p>
+
+<p><a href="https://marketplace.firefox.com/app/futeria">https://marketplace.firefox.com/app/futeria</a></p>
+
+<p>Para demais dispositivos ou desktops, pode acessar a versão online direto <a href="http://m.futeria.net">http://m.futeria.net</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: angular.js | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/angular-dot-js/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing/"/>
+    <updated>2013-12-12T11:57:12-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing</id>
+    <content type="html"><![CDATA[<p><strong>HTML</strong></p>
+
+<pre><code>&lt;div class="container" ng-app="todo"&gt;
+    &lt;div ng-controller="todoCtrl"&gt;
+        &lt;form ng-submit="add()"&gt;
+            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
+            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;ul&gt;
+            &lt;li ng-repeat="todo in todos"&gt;
+                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
+                &lt;span ng-show="editing"&gt;
+                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
+                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>var app = angular.module('todo', []);
+
+app.controller('todoCtrl', function($scope) {
+
+    $scope.todos = [
+        {text: "First task"}
+    ];
+
+    $scope.add = function() {
+        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+            $scope.todos.push({
+                text: $scope.newTodo
+            });
+            $scope.newTodo = '';
+        }
+    }
+
+});
+</code></pre>
+
+<p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Links | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/links/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Quickpost: Javascript Resource Loader]]></title>
+    <link href="http://rogeriolino.github.io/blog/2011/12/05/quickpost-javascript-resource-loader/"/>
+    <updated>2011-12-05T17:55:32-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2011/12/05/quickpost-javascript-resource-loader</id>
+    <content type="html"><![CDATA[<blockquote>[yepnope](http://yepnopejs.com/) is an asynchronous conditional resource loader that's super-fast, and allows you to load only the scripts that your users need.
+
+**Good Things**
+
+> 
+> 
+
+>   * yepnope.js is only 1.6kb - smaller than most and certainly a good size for its functionality set.
+> 
+
+>   * yepnope.js is called a "resource loader" because it can work with both JavaScript and CSS.
+> 
+
+>   * yepnope.js has a full test suite in QUnit that you can run in your set of supported browsers to make sure it works. (We run it via TestSwarm in every browser we can get our hands on)
+> 
+
+>   * yepnope.js fully decouples preloading from execution. This means that you have ultimate control of when your resource is executed and you can change that order on the fly.
+> 
+
+>   * The yepnope.js api is friendly and encourages logical grouping of resources.
+> 
+
+>   * yepnope.js is modular. It has a whole system for adding your own functionality and a couple examples of how you might do that. (Prefixes and filters).
+> 
+
+>   * The yepnope.js api encourages you to only load the resources that you need. This means that even when it's slower than another script loader, it still can come out on top, because you could avoid an entire resource.
+> 
+
+>   * yepnope.js is integrated into [Modernizr](http://www.modernizr.com/).
+> 
+
+>   * yepnope.js always executes things in the order they are listed. This is a pro for some, and a con for others. We think it's a friendly default.
+> 
+
+>   * yepnope.js has the capability to do resource fallbacks and still download dependent scripts in parallel with the first.
+> 
+
+</blockquote>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Games]]></title>
+    <link href="http://rogeriolino.github.io/blog/2010/02/02/javascript-games/"/>
+    <updated>2010-02-02T12:03:47-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2010/02/02/javascript-games</id>
+    <content type="html"><![CDATA[<p>Conforme a evolução dos browsers e consequentemente das suas engines de javascript, hoje é possível encontrarmos diversas API/Engines dessa linguagem de script. E um tipo de engine que vem crescendo nessa linguagem é a de jogos.</p>
+
+<p>O que antes precisariámos de um plugin adicional &ndash; <a href="http://get.adobe.com/br/flashplayer/">Flash Player</a> e/ou <a href="http://java.sun.com/applets/">Java Applet</a> &ndash; consumindo mais memória e processamento, podemos agora nos divertir com jogos rodando nativamente no browser.</p>
+
+<p>É possível encontrar na web jogos desde os simples e clássicos <strong>Paciência</strong> (Solitaire), <strong>Tetris</strong>, <strong>Resta Um</strong> (Peg), passando por clássicos não tão simples como <strong>Mario Kart</strong>, até jogos mais complexos como <strong>Shadow of Time 4</strong> e <strong>Crystal Galaxy</strong>.</p>
+
+<h2>Segue abaixo alguns jogos:</h2>
+
+<ul>
+<li><p><a href="http://www.freejavascriptgames.info/games/solitaire/solitaire1.0.html">Solitaire</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/jsTetris/tetris1.html">Tetris</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/peg/peg.html">Peg</a></p></li>
+<li><p><a href="http://www.tammyyee.com/keiki_page/javascript_games/battle/battleship.html">Battleship</a></p></li>
+<li><p><a href="http://www.def-logic.com/panic/panic.html">Panic Run</a></p></li>
+<li><p><a href="http://xwuz.com/bubble/">Bubble Trouble</a></p></li>
+<li><p><a href="http://www.nihilogic.dk/labs/mariokart/">Super Mario Kart</a></p></li>
+<li><p><a href="http://www.xs4all.nl/~peterned/games.html#pudracer">Pudracer</a></p></li>
+<li><p><a href="http://www.themaninblue.com/experiment/BunnyHunt/">Bunny Hunt</a></p></li>
+<li><p><a href="http://sot4.aerosphere-studios.com/">Shadow of Time 4</a></p></li>
+<li><p><a href="http://www.effectgames.com/effect/games/crystalgalaxy/">Crystal Galaxy</a></p></li>
+<li><p><a href="http://www.kesiev.com/akihabara/demo/game-capman.html">Capman</a></p></li>
+</ul>
+
+
+<h2>Javascript Game Engines:</h2>
+
+<p><a href="http://gamequery.onaluf.org/">gameQuery</a>: é um plugin do famoso jQuery, que fornece animação de sprites multi camadas, hierarquia de sprite (agrupamentos), detecção de colisões, dentre outras funcionalidades. Para visualizar alguns demos de jogos desenvolvidos por essa engine é só <a href="http://gamequery.onaluf.org/demos.php">clicar aqui</a>.</p>
+
+<p><a href="http://tommysmind.com/gamejs/">GameJS</a>: inspirado nos códigos javascript da <a href="http://www.extjs.com/">ExtJS</a> e com a ideia de portar a facilidade de criar jogos da XNA <a href="http://www.xna.com/">Game Framework da Microsoft</a>. No site do projeto possui um jogo demo chamado <a href="http://www.tommysmind.com/jetris/">Jetris</a>.</p>
+
+<p><a href="http://www.effectgames.com/effect/">EffectGames</a>: consiste na verdade em um site que provê ferramentas online e gratuitas para desenvolvimento, hospedagem e compartilhamento de jogos. Há uma wiki contendo o passo-a-passo de como utilizar as ferramentas através do <a href="http://www.effectgames.com/effect/#Article/docs/Getting_Started_Guide">Getting Started Guide</a>. E também há a <a href="http://www.effectgames.com/effect/#Article/docs/API_Reference_Guide|1">documentação da API fornecida</a> pelo site. Na própria página principal você irá encontrar os demos.</p>
+
+<p><a href="http://www.renderengine.com/index.php">Render Engine</a>: engine cross-browser, opensource, tem como principal característica facilidade de uso. Veja seus <a href="http://www.renderengine.com/demos.php">demos aqui</a>.</p>
+
+<p><a href="http://www.kesiev.com/akihabara/">Akihabara</a>: engine para jogos arcade, estilo 8-bit. Na mesma página da engine se encontram os demos.</p>
+
+<h2>Mais sobre jogos em javascript:</h2>
+
+<p><a href="http://www.def-logic.com/">http://www.def-logic.com/</a></p>
+
+<p><a href="http://www.javascriptgaming.com/">http://www.javascriptgaming.com/</a></p>
+
+<p><a href="http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/">http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

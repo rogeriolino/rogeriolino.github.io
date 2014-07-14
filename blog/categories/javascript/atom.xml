@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Session Keep Alive]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/05/12/session-keep-alive/"/>
+    <updated>2014-05-12T13:14:14-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/05/12/session-keep-alive</id>
+    <content type="html"><![CDATA[<p>Uma maneira fácil de manter a sessão ativa no lado do servidor sem sobrecarregá-lo com longos tempos de timeout, é usar um script que redireciona o usuário para a tela de login após um determinado período de inatividade (teclado e mouse ociosos), e fazer requisições assíncronas ao servidor para manter a sessão ativa durante a atividade.</p>
+
+<!-- more -->
+
+
+<p>Resumindo, enquanto usuário está utilizando a aplicação (digitando ou movendo o cursor) uma requisição assíncrona é disparada a cada X minutos (ping), e quando o usuário ficar ocioso começa a contar o tempo para redirecioná-lo para a tela de login. É importante que esse tempo para redirecionar para o login seja menor do que o timeout do servidor.</p>
+
+<p>Para implementar essa ideia, vou utilizar um plugin jQuery que monitora a atividade do usuário (teclado e mouse): <a href="https://github.com/rogeriolino/jquery-idletimer.">https://github.com/rogeriolino/jquery-idletimer.</a></p>
+
+<p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
+
+<pre><code>// session keep alive
+;(function($) {
+    "use strict";
+
+    var pingTime = 60; // ping a cada 60 segundos
+    var count = pingTime;
+    $.idleTimer({
+        time: 10 * 60, // 10 minutos para timeout
+        start: function() {
+            count = pingTime;
+        },
+        change: function(it) {
+            count--;
+            console.log(count);
+            if (count &lt;= 0) {
+                count = pingTime;
+                $.ajax({ url: '/ping.php' });
+            }
+        },
+        end: function() {
+            window.location.href = '/logout.php';
+        }
+    });
+})(jQuery);
+</code></pre>
+
+<p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
+
+<pre><code>&lt;?php
+
+session_start();
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection/"/>
+    <updated>2014-01-10T21:57:26-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection</id>
+    <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html class="no-js" lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;JS detection&lt;/title&gt;
+    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+
+    &lt;style&gt;
+        .js .alert-danger { display: none; }
+        .no-js .alert-success { display: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FreezeHeader jQuery Plugin]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/08/freezeheader-jquery-plugin/"/>
+    <updated>2014-01-08T14:58:41-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/08/freezeheader-jquery-plugin</id>
+    <content type="html"><![CDATA[<p>Se você está precisando de algum script para manter o cabeçalho da tabela sempre visível mesmo ao rolar a página, lhe apresento o plugin (jQuery) <a href="https://github.com/laertejjunior/freezeheader">freezeheader</a> criado pelo menu amigo <a href="https://github.com/laertejjunior">Laerte</a>.</p>
+
+<p>Aproveitando também para parabenizá-lo por seu plugin ter ficado entre os <a href="http://www.jqueryscript.net/blog/Top-100-Best-Free-jQuery-Plugins-From-2013.html">100 melhores de 2013</a>.</p>
+
+<p><strong>Links</strong></p>
+
+<p>Demo: <a href="http://laertejjunior.github.io/freezeheader">http://laertejjunior.github.io/freezeheader</a>
+Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.com/laertejjunior/freezeheader</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing/"/>
+    <updated>2013-12-12T11:57:12-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/12/12/angular-js-inplace-editing</id>
+    <content type="html"><![CDATA[<p><strong>HTML</strong></p>
+
+<pre><code>&lt;div class="container" ng-app="todo"&gt;
+    &lt;div ng-controller="todoCtrl"&gt;
+        &lt;form ng-submit="add()"&gt;
+            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
+            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;ul&gt;
+            &lt;li ng-repeat="todo in todos"&gt;
+                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
+                &lt;span ng-show="editing"&gt;
+                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
+                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>var app = angular.module('todo', []);
+
+app.controller('todoCtrl', function($scope) {
+
+    $scope.todos = [
+        {text: "First task"}
+    ];
+
+    $scope.add = function() {
+        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+            $scope.todos.push({
+                text: $scope.newTodo
+            });
+            $scope.newTodo = '';
+        }
+    }
+
+});
+</code></pre>
+
+<p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Novo SGA]]></title>
+    <link href="http://rogeriolino.github.io/blog/2013/02/05/novo-sga/"/>
+    <updated>2013-02-05T09:33:57-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2013/02/05/novo-sga</id>
+    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+
+<blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
+
+Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 2009, unindo a burocracia dos responsáveis pela comunidade no [Portal do Software Público](http://softwarepublico.gov.br/) surgiu a necessidade de criar uma nova versão para esse sistema que já roda em diversas localidades do Brasil.
+
+A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
+
+
+<p>Visite o <a href="http://novosga.org">site do projeto</a> e confira a <a href="http://novosga.org/demo">versão demo</a> disponível online.</p>
+
+<p>Gostou e quer contribuir com o desenvolvimento? Acesse o <a href="http://github.com/rogeriolino/novosga">projeto no GitHub</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

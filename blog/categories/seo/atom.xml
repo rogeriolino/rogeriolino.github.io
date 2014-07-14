@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Seo | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/seo/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Flash: SWFAddress + ReWrite = SEO]]></title>
+    <link href="http://rogeriolino.github.io/blog/2010/04/01/flash-swfaddress-rewrite-seo/"/>
+    <updated>2010-04-01T11:44:53-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2010/04/01/flash-swfaddress-rewrite-seo</id>
+    <content type="html"><![CDATA[<p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
+
+<blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
+
+> 
+> 
+    
+>   * Adicionar ao Favoritos de um navegador ou site social
+> 
+    
+>   * Enviar links via email ou mensageiros instantâneos
+> 
+    
+>   * Procurar por um conteúdo específico através dos sites de buscas
+> 
+    
+>   * Utilizar o histórico do navegador e o botão de recarregar
+> 
+
+</blockquote>
+
+
+<p>O <a href="http://www.adobe.com/br/products/flash/">Flash</a> está para o <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> assim como o <a href="http://cinemaeafins.com/files/2008/11/batmancoringa.jpg">Coringa está para o Batman</a>. Mas nem tudo está perdido quando se trata de otimizar a indexação do site em SWF nos mecanismos de busca. Com SWFAddress você pode interagir com a página via javascript alterando a URL e o próprio conteúdo do filme, possibilidade do o uso dos botões voltar e avançar do browser, adicionar ao Favoritos e alterar a animação do seu filme de acordo com a URL que está sendo requisitada.</p>
+
+<p>Caso sua página seja acessada através da URL **<a href="http://siteemflash.com/#contato**,">http://siteemflash.com/#contato**,</a> você poderá pular na timeline indo direto para o frame do contato. Para evitar o reload da página toda interação é feita através de âncoras html (#). E as alterações da URL utilizando âncoras são desprezadas pelos buscadores, uma vez que a âncora só serve para movimentar o foco na mesma página, logo o seu conteúdo permanece inalterado.</p>
+
+<p>É aí que entra o <a href="http://httpd.apache.org/docs/1.3/mod/mod_rewrite.html">módulo ReWrite do Apache</a>, com o mod_rewrite podemos escrever condições para tratar as requisições, redirecionando-as ou não. Então voltando ao exemplo anterior, teríamos uma condição que quando for requisitada a página **<a href="http://siteemflash.com/contato**">http://siteemflash.com/contato**</a> (ou qualquer outra URL) redireciona para a página inicial (index) adicionando a âncora para contato (#contato) e imprime na página o conteúdo referente à mesma. Esse conteúdo impresso não será visível, apenas para indexação. O <a href="http://pt.wikipedia.org/wiki/Sitemap">sitemap</a> ou a estrutura básica do site, também deve estar contido no bloco de código html invisível, juntamente com todas outras informações relevantes.</p>
+
+<p>Resumindo, você acaba tendo um trabalho dobrado ao desenvolver o site, mas evita transtornos de indexação. É muito útil para quem não abre mão do site feito com o uso da ferramenta da Adobe.</p>
+
+<p>No próprio site da Asual tem um <a href="http://www.asual.com/swfaddress/samples/seo/">exemplo de uso do SWFAddress para SEO</a> (o exemplo pode ser baixado pelo site). Abaixo segue alguns sites que fizeram uso da biblioteca, no qual o primeiro eu participei do desenvolvimento:</p>
+
+<ul>
+<li><p><a href="http://www.oticasparis.com.br/">Óticas Paris</a></p></li>
+<li><p><a href="http://www.salinas-rio.com.br/inverno2010/">Salinas Rio -inverno2010</a></p></li>
+<li><p><a href="http://www.umbro.com/">Umbro</a></p></li>
+<li><p><a href="http://www.mis-architecture.co.uk/">Mis Architecture</a></p></li>
+<li><p><a href="http://www.kraftfoods.com/foodandfamily">Kraftfoods &ndash; Food and Family</a></p></li>
+<li><p><a href="http://www.bartleboglehegarty.com/">BBH</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

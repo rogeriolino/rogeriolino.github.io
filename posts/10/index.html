@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Agora que já sabemos como escrever um XHTML e temos uma referência de CSS, vamos fazer o nosso primeiro layout. Primeiro temos que analisar o que &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/posts/10">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/13/layout-1/">Layout #1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-13T11:11:08-03:00" pubdate data-updated="true">Jul 13<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Agora que já sabemos como escrever um <a href="http://rogeriolino.wordpress.com/2006/07/11/escrevendo-o-primeiro-xhtml/">XHTML</a> e temos uma <a href="http://rogeriolino.wordpress.com/2006/07/12/css-reference-1/">referência</a> de <a href="http://rogeriolino.wordpress.com/2006/07/05/css-o-que-e/">CSS</a>, vamos fazer o nosso primeiro layout.</p>
+
+<p>Primeiro temos que analisar o que queremos, ou que teremos de, exibir na página. Se vai ter um menu horizontal ou vertical, se vai ter rodapé, quantas colunas, etc.</p>
+
+<p>Depois de feito isso é hora de estruturar o &ldquo;esqueleto&rdquo; da página no XHTML. Nesse primeiro exemplo vamos ver uma página com duas coluna, topo e rodapé. No qual a coluna do lado esquerdo vai conter o menu e do lado direito o conteúdo da página.</p>
+
+<p><strong>XHTML:</strong></p>
+
+<blockquote>_ <!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml” xml:lang=”pt” lang=”pt”>
+<head>
+<title> Título </title>
+<meta name=”Generator” content=”" />
+<meta name=”Author” content=”" />
+<meta name=”Keywords” content=”" />
+<meta name=”Description” content=”" />
+<meta name=”language” content=”pt-br” />
+<!– Favicon –>
+<link rel=”shortcut icon” href=”favicon.ico” />
+<!– Style –>
+<link rel=”stylesheet” href=”style.css” type=”text/css”/>_
+_</head>
+<body>
+_ _<div id="geral">
+_ _    <div id="topo>_
+
+<h2>Título da Página</h2>
+
+_</div>
+_ _    <div id="meio">
+_ _        <div id="esquerda">_
+
+<ul>
+
+<li><a href="#" alt="Página Inicial">Home</a></li>
+
+<li><a href="#" alt="Quem Sou">Sobre</a></li>
+
+<li><a href="#" alt="Contato">Contato</a></li>
+
+</ul>
+
+_</div>
+_ _        <div id="direita">_
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum nulla. Mauris sollicitudin ante sed orci. Vivamus vitae sapien id felis lobortis aliquam. Suspendisse potenti. Integer pellentesque. Nulla vehicula, nisl a lacinia egestas, justo dolor semper justo, sed faucibus nibh orci eu magna. Curabitur vel nisi vulputate est vehicula rhoncus. Curabitur est ligula, vehicula ornare, suscipit vitae, ornare varius, justo. Suspendisse lacus. Sed pulvinar vehicula lectus. Curabitur quis augue. Nullam gravida tortor at felis. Aliquam neque massa, scelerisque at, auctor lobortis, placerat ut, erat. Fusce adipiscing. Phasellus imperdiet blandit quam. Maecenas posuere.</p>
+_</div>
+_ _    </div>
+_ _    <div id="rodape">_
+
+<h3>Minha Página - 2006</h3>
+
+_ _ _    </div>
+_ _</div>
+_ _</body>
+</html>_</blockquote>
+
+
+<p>Foram colocadas seis camadas, <strong>DIVs</strong>, uma chamada <strong>geral</strong> que engloba todo o site para ter um maior controle, a <strong>topo</strong> &ndash; aonde vem a imagem de topo e título da página &ndash;, a <strong>meio</strong> que dentro tem duas, <strong>esquerda</strong> &ndash; menu &ndash; e <strong>direita</strong> &ndash; conteúdo &ndash; e <strong>rodapé </strong>&ndash; aonde tem os créditos &ndash;.</p>
+
+<p>No topo foi colocado o título da página dentro da tag <strong>hn</strong>, realmente utilizada para isso.</p>
+
+<p>Para fazer o menu foi usada uma lista indefinida (<a href="http://www.w3schools.com/tags/tag_ul.asp"><strong>ul</strong> &ndash; undefined list</a>) com apenas três links.</p>
+
+<p>Na parte de conteúdo foi colocado o famoso &ldquo;<a href="http://www.lipsum.org">Lorem Lipsum</a>&rdquo; para não ter que colocar aqueles &ldquo;<em>bla bla bla</em>&rdquo; ou &ldquo;<em>non non non</em>&rdquo;.</p>
+
+<p>E por fim um crédito no rodapé dentro de ourta tag <strong>hn</strong>.</p>
+
+<p><strong>CSS:</strong></p>
+
+<p>Agora é a vez do estilo. Como no XHTML o link do CSS está apontando para um arquivo chamado <strong>style.css</strong>, salve-o com esse nome. Caso deseje colocar outro, mude na página o destino.</p>
+
+<blockquote>
+
+>     
+>     <strong>#geral </strong>{
+>       width: 726px;
+>     }
+>     <strong>
+>     #topo</strong> {
+>       width: 720px;
+>       height: 100px;
+>       border: 3px solid #999999;
+>       background: #FFFFFF;
+>     }
+>     
+>     <strong>#meio</strong> {
+>       width: 720px;
+>       border: 3px solid #999999;
+>       background: #FFFFFF;
+>     }
+>     
+>     <strong>#esquerda</strong>, <strong>#direita</strong> {
+>       padding: 15px;
+>     }
+>     
+>     <strong>#esquerda </strong>{
+>       width: 150px;
+>       float: left;
+>     }
+>     
+>     <strong>#direita </strong>{
+>       width: 490px;
+>       float: right;
+>     }
+>     
+>     <strong>#rodape</strong> {
+>       width: 720px;
+>       height: 50px;
+>       border: 3px solid #999999;
+>       background: #FFFFFF;
+>       clear: both;
+>     }
+> 
+> 
+
+> 
+> 
+</blockquote>
+
+
+<p>Neste caso a página vai ter 720 pixeis de largura e as camadas uma borda de 3 pixeis, totalizando 726px (720+3+3) de largura para a camada geral. Então as camadas topo, meio e rodape terão 720px de largura.</p>
+
+<p>O topo com altura de 100px e o rodapé com 50px. Para as camadas esquerda e direita terem um espaçamento entre o topo e o rodapé, tem um padding de 15px.</p>
+
+<p>Para colocar as duas camadas, <strong>esquerda</strong> e <strong>direita</strong>, uma do lado da outro, atribui-se a propriedade <strong>float</strong>, com valor <em>left</em> para <strong>esquerda</strong> e <em>right</em> para <strong>direita</strong>. Fazendo com que ambas flutuem para o lado desejado.
+No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.asp">clear</a> como both para ele ficar abaixo do meio, devido que as camadas <strong>esquerda</strong> e <strong>direita</strong> estão <em>flutuando</em>.</p>
+
+<p>Alguns exemplos <a href="http://www17.brinkster.com/chivalrous/layouts.html">aqui</a>.</p>
+
+<p><strong>mais sobre:</strong></p>
+
+<p><a href="http://www.maujor.com/w3ctuto/layout.html">Maujor.com &ndash; Layout CSS sem tabelas</a></p>
+
+<p><a href="http://www.maujor.com/layout3col.shtml">Maujor.com &ndash; Layout CSS 3 colunas</a></p>
+
+<p><a href="http://www.thenoodleincident.com/tutorials/box_lesson/boxes.html">Little Boxes &ndash; Examples</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/12/css-reference-1/">CSS Reference #1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-12T15:44:50-03:00" pubdate data-updated="true">Jul 12<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Primeira referência de CSS vai ser sobre:</p>
+
+<p><strong>Background &amp; Border</strong></p>
+
+<blockquote>
+
+> 
+> 
+    
+>   * **Background **
+> 
+
+**background-color:** define a cor de fundo (ex: hexa/rgb/nome/transparent);
+
+**background-image:** imagem do fundo (ex: url(img/fundo.gif) );
+
+**background-repeat:** se a imagem de fundo repete ou não. (ex: repeat/repeat-x/repeat-y/no-repeat);
+
+**background-attachment:** define se a imagem de fundo fica fixa ou rola junto com a página (ex: fixed/scroll);
+
+**background-position:** aonde começa a imagem de fundo, por padrão top e left. (ex: top/center/bottom/x-pos/x-% left/center/right/y-pos/y-%);
+
+**background:** forma resumida de utilizar tudo, mas não é necessário declarar tudo. Qual não for declarado assumirá o valor padrão. (ex: #FF00FF url(fundo.gif) no-repeat);
+
+> 
+> 
+    
+>   * **Border**
+> 
+
+**border-width:** largura da borda. (ex: thin/medium/thick/valor);
+
+**border-style:** estilo da borda. (_ex: solid/dotted/dashed/groove/ridge/inset/outset_);
+
+**border-color: **a cor da borda (_ex: hexa/rgb/nome/none_);
+
+**border:** forma resumida (ex: _1px solid black_);
+
+**border-top:** definido do mesmo modo que o border porém só para cima.
+
+**border-right:**  borda da direita (ex: _2px dotted yellow);_
+
+**border-bottom:** borda de baixo;
+
+border-left: borda da esquerda;</blockquote>
+
+
+<p>Por enquanto é só isso, adiante veremos mais.</p>
+
+<p>mais sobre:</p>
+
+<p><a href="http://www.w3schools.com/css/css_reference.asp">W3Schools.com &ndash; CSS Reference</a></p>
+
+<p><a href="http://www.culturedcode.com/css/reference.html">Cultured Code &ndash; CSS Reference</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/11/escrevendo-o-primeiro-xhtml/">Escrevendo O Primeiro XHTML</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-11T09:47:21-03:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Mãos à obra, vamos agora escrever nosso primeiro código <strong>XHTML</strong>. Abaixo o código já pronto e comentado:</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt"&gt;
+&lt;head&gt;
+    &lt;title&gt; Título &lt;/title&gt;
+    &lt;meta name="Generator" content="" /&gt;
+    &lt;meta name="Author" content="" /&gt;
+    &lt;meta name="Keywords" content="" /&gt;
+    &lt;meta name="Description" content="" /&gt;
+    &lt;meta name="language" content="pt-br" /&gt;
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="shortcut icon" href="favicon.ico" /&gt;
+    &lt;!-- Style --&gt;
+    &lt;link rel="stylesheet" href="style.css" type="text/css"/&gt;&lt;/em&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: <a href="http://rogeriolino.com/2006/07/03/xhtml-o-que-e/">leia aqui</a> e/ou <a href="http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/">aqui</a>.</p>
+
+<p>Nesse caso foi definido como Strict, caso você ainda não esteje preparado pode utilizar como Transitional.</p>
+
+<blockquote>_<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">_</blockquote>
+
+
+<p>Você deve estar se perguntando: Por que aquele &ldquo;xmlns&rdquo; dentro da tag html ?</p>
+
+<p>É chamado de namespace e serve para mostrar para o browser quais elementos pertencem a qual linguagem no documento. <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#docconf">Dúvida?</a> <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#ref-xmlns">Mais?</a> <a href="http://www.imasters.com.br/artigo/3956/xhtml/faq_completo_sobre_xhtml">Mais!</a></p>
+
+<p>As tags <strong>meta</strong> servem para colocar informações adicionais, tais como, autor, idioma, palavras-chave e etc. &ndash; essas tags são utilizadas por mecanismos de buscas, como o Google por exemplo, para localizar os sites. Um site bem estruturado e definido tem chance maior de aparecer primeiro na busca.</p>
+
+<p>Logo abaixo aparece a tag <strong>link</strong> referenciando um arquivo externo, ícone. Chamado Favicon &ndash; ícone do favoritos &ndash; que é nada mais nada menos do que aquele íconezinho que fica aparecendo no browser ao lado do endereço do seu site e nos favoritos também é claro. Caso ainda tenha dúvida <a href="http://www.google.com.br/search?q=favicon&amp;start=0&amp;ie=utf-8&amp;oe=utf-8&amp;client=firefox-a&amp;rls=org.mozilla:pt-BR:official">veja aqui</a>.</p>
+
+<p>Depois como já vimos aparece novamente a tag <strong>link</strong> para &ldquo;puxar&rdquo; o arquivo de estilo da página &ndash; CSS.</p>
+
+<p>Fecha-se a tag <strong>head</strong>, abre e fecha a <strong>body</strong> e fecha a <strong>html</strong>, e pronto. O seu XHTML já está pronto.</p>
+
+<p>Na próxima veremos o um layout já pronto com o CSS.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/06/extensoes-firefox/">Extensões Firefox</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-06T14:31:51-03:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aqui vão algumas dicas de extensões para deixar seu Firefox muito mais robusto e personalizado.</p>
+
+<p><strong>Extensão e uma breve descrição.</strong></p>
+
+<p><a href="https://addons.mozilla.org/firefox/684/">FireFTP</a> &ndash; que tal conectar ao ftp pelo Firefox. Rápido e seguro.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/1429/">IE View Lite</a> &ndash; para você poder visualizar como está ficando seu código no Internet Explorer sem sair do Firefox.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/1419/">IE Tab</a> &ndash; também para visualizar pelo Firefox como está ficando no Internet Explorer (acho melhor).</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2076/">JSView</a> &ndash; embora os browsers têm a opção para ver o código-fonte, eles não abrem os arquivos externos, o que acontece essa extensão permite.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/139/">Image zoom</a> &ndash; dê um close nas imagens.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/1174/">ImageBot</a> &ndash; faça upload de suas imagens para um host grátis de forma bem rápida.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/655/">View Source Chart</a> &ndash; veja o código da página de forma bem ilustrativa e legível.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/775/">MR Tech Disable XPI Install Delay</a> &ndash; retire aquele delay, tempo de espera, na instalação das Extensões.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/249/">HTML Validator</a> &ndash; após abrir a página já demonstra os erros e os alertas da página (muito bom).</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2250/">Online  W3C HTML Validator</a> &ndash; verifique se seu código está validado pela W3C.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2195/">Extension Manager Extended</a> &ndash; gerencie melhor suas extensões com essa extensão.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/60/">Web Developer</a> &ndash; menu com algumas ferramentas para o desenvolvedores Web.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/539/">MeasureIt</a> &ndash; uma régua para medir as imagens, ou qualquer coisa na página, excelente para definir os tamanhos e margens.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/271/">ColorZilla</a> &ndash; quer saber o número da cor daquela imagem? Use esse colorpicker.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2289/">CSS Validator</a> &ndash;  verifique se seu CSS está validado pela W3C.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2064/">Dummy Lipsum</a> &ndash; gerador do famoso Lorem Lipsum.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/198/">LoremIpsum Content Generator</a> &ndash; gerador do Lorem Lipsum também, só que sem a opção de mostrar tag (<p>) igual ao Dummy Lipsum.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2108/">Stylish</a> &ndash; fácil gerenciador de estilos (CSS).</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2104/">CSS Viewer</a> &ndash; com essa extensão você pode visualizar o estilo aplicado só aonde desejar (muito bom).</p>
+
+<p><a href="https://addons.mozilla.org/firefox/179/">EditCSS</a> &ndash; modifique seu CSS na Sidebar.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2036/">Server Spy</a> &ndash;  espie qual servidor e a sua versão, no qual o site está rodando.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/1122/">Tab Mix Plus</a> &ndash; permite adicionar abas de por exemplo: download em execução ou extensões.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/1269/">Fast Fox</a> &ndash; melhore a perfomance e velocidade do navegador.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2390/">VideoDownloader</a> &ndash; baixe os videos dos sites como: YouTube e Google.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/201/">DownThemAll!</a> &ndash; gerenciador de download.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/2410/">Foxmarks</a> &ndash; agora nunca mais você vai perder seus favoritos, armazena-os online.</p>
+
+<p><a href="http://www.tapouillo.com/firefox_extension/">Google Pagerank</a> &ndash; veja o rank da página que está acessando, definido pelo Google Pagerank.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/186/">Translation Panel</a> &ndash; tradutor em vários idiomas.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/530/">GeoURL</a> &ndash; veja as coordenadas do site. Mostrando no mapa sua localização.</p>
+
+<p><a href="http://www.chatsum.com/about">ChatSum</a> &ndash; converse com os demais visitandes da mesma página que você.</p>
+
+<p><a href="https://addons.mozilla.org/firefox/554/">Pong! Multiplayer</a> &ndash; esse é para descontrair, clássico joguinho pong.</p>
+
+<p><strong>mais:</strong></p>
+
+<p>Para mais Extensões só acessar o site da <a href="http://www.mozilla.com/firefox/">Mozilla/Firefox</a> na parte de <a href="https://addons.mozilla.org/firefox/">addons</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/05/editores-html-qual-usar/">Editores HTML - Qual Usar?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-05T20:11:28-03:00" pubdate data-updated="true">Jul 5<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Uma coisa muito discutida por quem trabalha com Web é qual editor usar. Mas antes de ficar testando editor por editor a procura de um que mais lhe agrade é bom procurar saber mesmo o que você espera que um bom editor tenha.</p>
+
+<p>O primeiro editor de HTML que usei foi o <a href="http://www.adobe.com/products/dreamweaver/">Dreamweaver</a> na época em sua versão 4, de lá pra cá muita coisa mudou nele e hoje em dia com certeza é um dos editores mais completos, senão o mais completo. Porém não é freeware.
+Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ver que muitas de suas ferramentas eram dispensáveis e que ele era muito pesado só para eu ficar digitando, além de ter os códigos gerados automaticamente muito &ldquo;sujo&rdquo;. Procurei então por um editor mais leve. Usei durante um tempo o próprio bloco de notas do windows, mas quando o código começa a ficar muito grande aquele monte de letra da mesma cor passava a ser desagradável.</p>
+
+<p>Quando encontrei o <a href="http://www.editplus.com/">EditPlus</a> realmente era o que eu queria, simples, leve e só com as ferramentas que eu espera que um editor tivesse &ndash; como por exemplo paleta de cor e FTP &ndash; além de pintar todo o código facilitando a legibilidade. Foi amor a primeira vista e até hoje utilizo ele tanto para construir um documento XHTML quanto para CSS. Mas esse também é shareware.</p>
+
+<p>Esses dias quis procurar por novidades na internet, ver se talvez pudesse ter um editor que me agradace mais, sem fugir da mesma simplicidade do EditPlus, e melhor, um editor freeware.</p>
+
+<p>Encontrei dois editores que me agradaram muito:</p>
+
+<p>Primeiro o <a href="http://www.pspad.com/">PSPad</a> com interface muito parecida com a do EditPlus só que mais robusto. Possui uma paleta de cor mais abrangente com mais opções na hora de escolher a cor, outra coisa que me agradou muito também foi o indentador automático &ndash; apesar do custume de utilizar a tecla tab para alinhar &ndash; e vem também com uma opção autocompletar, teclando CTRL+J abre uma caixa com as opções para você escolher, ideal para pessoas como eu que do nada esquecem os nomes de alguns atributos &ndash;, isso além de fechar automáticamente as chaves, parênteses e aspas (ainda vou ter que me acostumar com isso).</p>
+
+<p>O segundo foi o <a href="http://www.ornj.net/araneae/">Araneae 5</a> excelente editor para aqueles que não abrem mão do velho bloco de notas. Tão leve quanto, mas com funcionalidade de colorir o código, paleta de cor e tem no canto direito uma aba com algumas tag e atributos, bastando só clicar para adicionar ao documento. Tem uma interface parecida com os programas da Macromedia, versão MX.</p>
+
+<p><strong>mais sobre:</strong></p>
+
+<p><a href="http://www.revolucao.etc.br/archives/web-standards-e-as-ferramentas-de-desenvolvimento/">Revolucao.etc.br &ndash; Web Standards e as Ferramentas de desenvolvimento</a></p>
+
+<p><strong>[ editado ]</strong></p>
+
+<p>O EditPlus também tem a opção de fechar as tags automaticamente, só que vem desabilitada.</p>
+
+<p><strong>[ /editado ]</strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/05/css-o-que-e/">CSS - O Que é?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-05T01:54:49-03:00" pubdate data-updated="true">Jul 5<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>CSS (<strong>Cascading Style Sheet</strong>) são folhas de estilo em cascata.</p>
+
+<p>_<strong>Pra que servem?</strong> _</p>
+
+<p>Servem para definir um estilo para o seu documento Web (HTML, XHTLM, por exemplo). Ao invez de você ter que toda hora definir dentro da tag usada os atributos desejados, basta fazer isso uma vez pelo CSS.</p>
+
+<p>Ex.: Se você quer que toda a tag <p> tenha a fonte de cor azul, Verdana e tamanho 12px. Basta configurar ela no CSS dessa maneira:</p>
+
+<blockquote>_**p** {_
+_font: 12px Verdana;_
+_color: blue; _
+_} _</blockquote>
+
+
+<p>E assim todas as tag <p> terão essa mesma característica. Caso você não queira que isso se aplique a todas mas sim em apenas algumas tag <p>, você pode definir uma classe com tais características e depois dentro da tag chamar essa classe.</p>
+
+<p>Ex.:</p>
+
+<blockquote>_**.minhaclasse** {_
+_font: 12px Verdana;_
+_color: blue; _
+_} _repare que para definir uma classe é necessário começar com um ponto.
+
+e na tag:
+
+<p **class**="_minhaclasse_"> Meu parágrafo aqui </p></blockquote>
+
+
+<p><em><strong>Como que eu uso o CSS?</strong></em></p>
+
+<p>Há duas maneiras de aplicar uma folha de estilo em seu documento, uma é definir na própria página, ou chamar um arquivo externo de extensão .css. A segunda opção posibilita muito mais flexibilidade, devido a que você não irá precisar mudar os estilos página por páginas, caso venha querer mudar a &ldquo;cara&rdquo; do seu documento, e sim só alterar uma vez o próprio arquivo .css.</p>
+
+<p><strong>Sintaxe:</strong></p>
+
+<p>A sintaxe do CSS é muito simples. Primeiro coloca o nome da tag que queira definir o estilo abra &ldquo;{&rdquo; coloca os atributos e depois fecha &ldquo;}&rdquo;.</p>
+
+<p>Os nomes das classes devem ser iniciados com um &ldquo;<strong>.</strong>&rdquo; e dos ID com &ldquo;<strong>#</strong>&rdquo;.</p>
+
+<p>Ex.:</p>
+
+<blockquote>_**body** {_
+_background: black;_
+_}_
+
+_**.minhaclasse** {_
+_color: #FF0000;_
+_}_
+
+_**#meuDiv** {_
+_width: 100px;_
+_height: 200px; _
+_}_</blockquote>
+
+
+<p><a href="http://www.w3schools.com/css/css_syntax.asp">mais aqui</a></p>
+
+<p>A diferença primordial entre <strong>class </strong>e <strong>id</strong>, é que a mesma classe você usa mais de uma vez em tags diferentes, enquanto o id é usado uma única vez &ndash; por uma <div> por exempo &ndash; pois o nome declarado no id serve para identificar aquela tag (exclusiva), como era feito pelo atributo <strong><em>name</em></strong>.</p>
+
+<p><strong>Definindo o estilo pela própria página:</strong></p>
+
+<p>Se você não ver porquê criar um arquivo externo ou que só vai precisar usá-lo em uma página, basta colocar o código do CSS dentro da tag <em><strong><style></strong></em> que por sua vez deve ficar dentro da tag <strong><head></strong> passando o atributo <em>type</em> como <strong><em>text/css</em></strong>.</p>
+
+<p>Ex.:</p>
+
+<blockquote><html>
+<head>
+<title>Meu Título</title>
+<style type="text/css">
+<!--
+_**.minhaclasse** {_
+_font: 12px Verdana;_
+_color: blue; _
+_}_
+-->
+</style>
+</head>
+<body>
+<p class="_minhaclasse_"> Meu parágrafo aqui </p>
+</body>
+</html>
+
+Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.</blockquote>
+
+
+<p><strong>Definindo o estilo através de um arquivo externo:</strong></p>
+
+<p>Pode-se chamar um arquivo externo de duas maneiras, uma já utrapassada e pouco usada e a mais semânticamente correta usando a tag <link> &ndash; tag na qual adiciona informações externas na página.</p>
+
+<blockquote>**Primeira:**</blockquote>
+
+
+
+
+<blockquote><style type="text/css">
+<!--
+_@import: url(arquivo.css);_
+-->
+</style></blockquote>
+
+
+
+
+<blockquote>**Segunda, e recomendada:**</blockquote>
+
+
+
+
+<blockquote><**link** rel="stylesheet" href="style.css" type="text/css"/>
+
+Para entender um pouco mais do porquê de tanto atributos vamos analisar um-por-um :
+
+[**href:**](http://www.w3.org/TR/html4/struct/links.html#adef-href) igual ao da tag <a>, define o caminho.
+
+[**rel:**](http://www.w3.org/TR/html4/struct/links.html#adef-rel) vem do ingles _relationship _(relacionamento), com o atual arquivo especificado no href.
+
+A tag <link> também deverá estar contida na tag <head>.</blockquote>
+
+
+<p><strong>Alguns dos atributos mais utilizados:</strong></p>
+
+<blockquote>_**background:** cor; /* cor do fundo da página */_
+_**color: **cor; /* cor da fonte */_
+**font:** familia; /* ex.: Verdana, Arial, Tahoma */
+_**margin: **top right bottom left; /* margin e os sentidos */_
+_**padding:**  top right bottom left; /* espaçamento dentro e os sentidos */_
+_**width:** valor /* largura */_
+_**height:** valor /* altura */_
+_**text-align:** valor /* alinhamento do texto - center, left, right, justify */_
+_**border: ** __largura tipo cor /* largura, tipo (solid, dotted, dashed), cor */_</blockquote>
+
+
+<p><strong>mais sobre:</strong></p>
+
+<p><a href="http://www.maujor.com/">Maujor.com</a>
+<a href="http://www.maujor.com/tutorialcss1/css1tut.shtml">Maujor.com Tutorial</a>
+<a href="http://www.w3.org/Style/">W3.org</a>
+<a href="http://www.w3.org/QA/Tips/use-links">W3.org Use Link</a>
+<a href="http://www.w3schools.com/css/default.asp">W3schools.com</a>
+<a href="http://www.w3schools.com/css/css_examples.asp">W3schools.com examples</a>
+<a href="http://pt.wikipedia.org/wiki/Cascading_Style_Sheets">Wikipedia.org</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/07/03/xhtml-o-que-e/">XHTML - O Que é?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-03T16:17:28-03:00" pubdate data-updated="true">Jul 3<sup>rd</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>XHTML (<strong>Extensible Hypertext Markup Language</strong>) é uma linguagem de marcação baseada em XML escrita para substituir o HTML.</p>
+
+<p>No XML podemos criar nossas próprias tags, e o XHTML já vem com as tags pré-definidas baseadas nas tags já conhecidas do HTML. Utilizando as regras do XML.</p>
+
+<p><em>Já que o XHTML usa as tags do HTML para que utilizá-lo?</em></p>
+
+<p>Imagine que para cada página da internet que você fosse ver um código diferente. E que cada pessoa fosse definir o seu padrão. Seria muito difícil verificar se aquele código estaria dentre os padrões. É aí que entra o XHTML.</p>
+
+<p>Para construir uma página em XHTML você deverá seguir os padrões da W3C, padronizando os códigos e tornando mais fácil sua validação e a legibilidade.</p>
+
+<p>Por exemplo: todas as tags e seus atributos devem ser escritos em letra minúscula, todo valor dos atributos devem estar entre &ldquo;&rdquo; (alt=&ldquo;Olá&rdquo;), e as tags simples devem ser fechadas com &ldquo;/>&rdquo; (<img  src="foto.gif" alt="eu" />).</p>
+
+<p><strong>Alguns exemplos:</strong></p>
+
+<p>Tags e atributos:</p>
+
+<blockquote>**errado:** <IMG src="foto.gif" ALT="eu">
+
+**certo:** <img src="foto.gif" alt="eu"></blockquote>
+
+
+<p>Aninhamento das tags:</p>
+
+<blockquote>**errado:** <p>parágrafo <em> negrito </p></em>
+
+**certo:** <p>parágrafo <em> negrito </em></p></blockquote>
+
+
+<p><strong>O XHTML é dividido em três tipos (DOCTYPE):</strong></p>
+
+<blockquote>**Strict:** o mais rigoroso, exige que seja seguido por completamente os padrões.
+**Transitional:** transição da forma antiga de marcação para uma nova forma. Utilizado por quem ainda está preso à alguma forma antiga em seu site. Sendo um pouco menos rigoroso que o Strict.
+**Frameset:** usado quando se utiliza frames no site.</blockquote>
+
+
+<p><strong>Principais diferenças entre XHTML e HTML </strong></p>
+
+<p>Além das tags escritas em letra minúscula, o fechamento obrigatório das tags, e as aspas. Também a sintaxe dos atributos devem ser escritas por completo ( <dl compact> para <dl compact="compact"> ). E a &ldquo;troca&rdquo; do atributo name para o atributo id.</p>
+
+<p>Logo  veremos mais a fundo o que são DOCTYPE e como funcionam e a declaração de um XHTML.</p>
+
+<p><strong>mais sobre:</strong>
+<a href="http://www.maujor.com/tutorial/xhtml.php">Maujor.com &ndash; Tutorial XHTML</a>
+<a href="http://www.w3.org/TR/xhtml1/#xhtml">W3.org &ndash; O que é XHTML?</a>
+<a href="http://www.w3schools.com/xhtml/xhtml_validate.asp">W3schools &ndash; XHTML validation</a>
+<a href="http://www.w3schools.com/xhtml/xhtml_html.asp">W3Schools &ndash; Diferença entre XHTML e HTML</a>
+<a href="http://www.revolucao.etc.br/archives/o-que-e-xhtml/">Revolução.ect.br &ndash; O que é XHTML?</a>
+<a href="http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/">Revolução.etc.br &ndash; Doctype</a>
+<a href="http://www.linhadecodigo.com.br/artigos.asp?id_ac=88">Linha de Código &ndash; Tutorial XHTML</a>
+<a href="http://www.linhadecodigo.com.br/artigos.asp?id_ac=88">Linha de Código &ndash; Escrevendo um XHTML válido</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/06/30/tags-o-que-sao-2/">Tags - O Que São?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-06-30T14:43:44-03:00" pubdate data-updated="true">Jun 30<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>São as estruturas que formam o <strong>HTML</strong>, podem conter atributos ou não. Uma tag é constituída por um sinal de &ldquo;&lt;&rdquo; no começo seguido de seu nome mais o sinal de &ldquo;>&rdquo;. Os atributos da tag são especificados dentro dela.</p>
+
+<p><strong>exemplo:</strong></p>
+
+<hr align="center" width="50%">
+
+
+<p>resultado:</p>
+
+<hr />
+
+<p>note que todos os valores dos atributos estão entre &ldquo;&rdquo;, mesmo não sendo necessárias para o HTML, mas é bom acostumar para que quando começar a trabalhar com o XHTML (veremos) &ndash; para que seja validado pela W3C. O mesmo serve para a &ldquo;/&rdquo;, que é insirida no final das tags simples, como é o caso da tag hr.<strong> Abaixo as principais tags e seus atributos:</strong><strong>html</strong> &ndash; a tag princiapal da página aonde ficará todas as outras tags.<strong>head</strong> &ndash; dentro da tag head ficam o titulo (title), os scripts (javascript)  e o estilo (CSS), além de outras tags como meta e link.<strong>title</strong> &ndash; define o título da página.</p>
+
+<p><strong>body</strong> &ndash; o corpo da página, o que vai aparecer para o visitante.</p>
+
+<p><strong>hn</strong> &ndash; varia de h1 até h6, vem com predefinições para o texto, utilizada para títulos.</p>
+
+<p><strong>p</strong> &ndash; para iniciar um parágrafo.</p>
+
+<p><strong>blockquote</strong> &ndash; serve para definir uma citação do texto.</p>
+
+<p><strong>hr</strong> &ndash; horizontal rule, inseri uma linha horizontal. Pode ser controlada pelos seguintes atributos:</p>
+
+<blockquote>width: tamanho da linha, medida em pixel ou porcentagem;
+size: largura da linha, medida em pixel;
+align: define como será alinhada a linha (left, center, right);
+noshade: retira a sombra da linha;</blockquote>
+
+
+<p><strong>font</strong> &ndash; para formatar a fonte da página.</p>
+
+<blockquote>size: tamanho da fonte, vai de 1 até 7;
+color: cor da fonte em hexadecimal;
+face: o tipo da fonte, pode-se escolher mais de uma fonte separando por vírgula no qual o browser vai procurar qual o visitante tem da esquerda para a direita - usa-se como default &#8220;Sans-Serif&#8221;;
+ex: <font size="3" color="#000000" face="Verdana, Arial, Sans-Serif">Texto</font></blockquote>
+
+
+<p><strong>a</strong> &ndash; defini um link na página.</p>
+
+<blockquote>href: destino do link, pra onde o usuário vai.
+title: a descrição que irá aparecer ao repousar o mouse em cima.</blockquote>
+
+
+<p><strong>img</strong> &ndash; adiciona uma imagem à página. Tag simples, então termina com &ldquo;/&rdquo;.</p>
+
+<blockquote>src: destino da imagem.
+alt: descrição da imagem (ao posicionar o mouse em cima). Opcional, mas para ser validado tem que pelo menos conter. ex: alt=&#8221;&#8220;.
+width: largura.
+height: altura.
+ex: <img src="imagens/avatar.gif" width="100" height="75"/></blockquote>
+
+
+<p><strong>i</strong> &ndash; adiciona itálico ao texto;</p>
+
+<p><strong>b</strong> &ndash; adiciona negrito ao texto (bold);</p>
+
+<p><strong>center</strong> &ndash; centraliza o conteúdo contido nele na página.</p>
+
+<p>Algumas dessas tags &ndash; como por exemplo i, b e center e os atributos da tag font &ndash; quase não são usadas e seus atributos também, sendo substituídos por classes ou ids definidas no CSS (Cascade Style Sheet). Mas é bom vermos para termos uma boa base sobre como funcionam as tags.</p>
+
+<p>Toda tag pode receber uma <strong>id</strong> e/ou <strong>class</strong> para ser identificada e formatada no CSS.</p>
+
+<p>Dica: tente testar as tags alterando os atributos e ver os resultados para melhor fixar e compreender.</p>
+
+<p><strong>mais sobre:</strong></p>
+
+<p><a href="http://pt.wikipedia.org/wiki/Tag">http://pt.wikipedia.org/wiki/Tag</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/06/30/html-o-que-e/">HTML - O Que é?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-06-30T14:42:26-03:00" pubdate data-updated="true">Jun 30<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>HTML (Hyper Text Markup Language) é uma linguagem interpretada por browsers (navegadores) para exibir textos e gráficos pela Web; Formado, estruturado, por Tag&rsquo;s.
+Para desenvolver uma página HTML não é necessário mais do que um simples Bloco de Notas, desde que salve como a extensão .html.</p>
+
+<p>Exemplo de página HTML:
+<html></p>
+
+<pre><code>          &lt;head&gt;
+                      &lt;title&gt;Minha Home Pag&lt;/title&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+                      &lt;p&gt;Seja bem vindo!&lt;/p&gt;
+         &lt;/body&gt;
+</code></pre>
+
+<p><html>
+no exemplo acima temos uma simples página com o seguinte conteúdo sendo exibido no corpo da página (body) : &ldquo;Seja bem vindo!&rdquo;, formatado pela Tag <p> que define o parágrafo. E no título (title) na barra do browser: &ldquo;Minha Home Page&rdquo;.</p>
+
+<p>Repare que as todas as Tag&rsquo;s do exemplo são fechadas com a repetição de seu nome acrescentando uma &ldquo;/&rdquo; na frente, o que mostra para o browser quando a Tag é fechada. O que veremos mais a fundo nos próximos tópicos sobre Tag&rsquo;s.</p>
+
+<p>mais sobre:
+<a href="http://www.w3.org/MarkUp/">http://www.w3.org/MarkUp/</a>
+<a href="http://www.w3.org/MarkUp/Guide/">http://www.w3.org/MarkUp/Guide/</a>
+<a href="http://www.criarweb.com/artigos/7.php?manual=11">http://www.criarweb.com/artigos/7.php?manual=11</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/9">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

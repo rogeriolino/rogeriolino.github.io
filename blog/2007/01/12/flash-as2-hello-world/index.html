@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Flash: AS2 "Hello World!" - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Vamos nos familiarizar com a ActionScript 2, nesse exemplo veremos como exibir uma mensagem no meio do palco sem usar a ferramenta de texto, apenas &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/blog/2007/01/12/flash-as2-hello-world">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Flash: AS2 "Hello World!"</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-12T20:45:37-02:00" pubdate data-updated="true">Jan 12<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Vamos nos familiarizar com a ActionScript 2, nesse exemplo veremos como exibir uma mensagem no meio do palco sem usar a ferramenta de texto, apenas por AS.</p>
+
+<p>Após abrir o Flash (na versão 6 ou superior) escolha novo arquivo (<em>New/Novo > Flash Document</em>) .</p>
+
+<p>Clique no primeiro frame da Timeline e aperte F9 (atalho para abrir a janela das Actions).</p>
+
+<p>Criando então o campo de texto aonde aparecerá a mensagem.</p>
+
+<pre><code>this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+</code></pre>
+
+<p>É passado como parâmetro no método <strong>createTextField()</strong> o nome de instância do campo de texto (text field), a profundidade (o que define o que fica em cima do que &ndash; nesse caso usamos um método para retornar um valor para seu objeto ficar por cima de todos), o valor da posição em <strong>x</strong>, em <strong>y</strong>, largura e altura.</p>
+
+<p>Não precisa se preocupar porque todos valores estão zerados, que como pode ver logo embaixo definimos que o nosso campo de texto pode auto ajustar o seu tamanho (autoSize). Logo aumentará de acordo com o tamanho do texto.</p>
+
+<p>Mais abaixo pertimimos o campo de texto aceitar tags, ele aceita html.</p>
+
+<p>E por fim o nosso texto, a mensagem que queremos que apareça &ndash; &ldquo;Hello World!&rdquo;. Como nosso campo de texto tá definido como html poderiamos passar o texto assim:</p>
+
+<pre><code>meuCampo.htmlText = "Hello World!";
+</code></pre>
+
+<p>Assim o campo de texto irá tratar as tags e mostrará só o texto. Isso é muito bom porque você pode passar um texto todo e ele ficará já pré-definido pelas tags. E também nos possibilita utilizar CSS para formatar o texto, mas isso não veremos agora.</p>
+
+<p>Se você executar agora o arquivo verá a mensagem aparecer na parte superior esquerda, e com a formatação padrão.</p>
+
+<p>Vamos então criar o objeto que formatará o nosso texto (<strong>textFormat</strong>).</p>
+
+<pre><code>var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com"
+</code></pre>
+
+<p>Para poder conhecer  melhor as propriedades vamos deixar o texto bem &ldquo;emperequetado&rdquo;. Alinhamento central (pode escolher: &ldquo;justify&rdquo;, &ldquo;center&rdquo;, &ldquo;left&rdquo;, &ldquo;right&rdquo;), negrito (bold), italico (italic), a cor é representada de uma forma diferente do CSS ao invéz da &ldquo;#&rdquo; na frente usa-se &ldquo;0x&rdquo; (zero e xis) mais o código hexadecimal, a font (poderia ser &ldquo;Arial&rdquo; por exemplo), o tamanho (size) e por graça um link (url) passando o destino dele. Para este último funcionar tem que definir o campo como <strong>html</strong>.</p>
+
+<p>Agora só falta adicionar esse estilo ao campo:</p>
+
+<pre><code>meuCampo.setTextFormat(style);
+</code></pre>
+
+<p>E colocar o ele centralizado no palco:</p>
+
+<pre><code>meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+</code></pre>
+
+<p>Posição x recebe a largura do palco menos a largura do texto dividido por 2;
+Posição y recebe a altura do palco menos a altura do texto dividido por 2;</p>
+
+<p>Para funcionar corretamente temos que alinhar por último já que o tamanho do campo de texto irá mudar ao aplicar o estilo.</p>
+
+<p>Agora é só executar. Abaixo o código completo:</p>
+
+<pre><code>this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+
+var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com";
+
+meuCampo.setTextFormat(style);
+meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-12T20:45:37-02:00" pubdate data-updated="true">Jan 12<sup>th</sup>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/actionscript/'>actionscript</a>, <a class='category' href='/blog/categories/flash/'>flash</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.github.io/blog/2007/01/12/flash-as2-hello-world/" data-via="" data-counturl="http://rogeriolino.github.io/blog/2007/01/12/flash-as2-hello-world/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/01/11/javascript-classe-date/" title="Previous Post: Javascript: Classe Date()">&laquo; Javascript: Classe Date()</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/01/17/css-centralizar-horizontal-e-vertical/" title="Next Post: CSS: Centralizar Horizontal e Vertical">CSS: Centralizar Horizontal e Vertical &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

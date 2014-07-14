@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/posts/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/05/novo-sga/">Novo SGA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-05T09:33:57-02:00" pubdate data-updated="true">Feb 5<sup>th</sup>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+
+<blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
+
+Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 2009, unindo a burocracia dos responsáveis pela comunidade no [Portal do Software Público](http://softwarepublico.gov.br/) surgiu a necessidade de criar uma nova versão para esse sistema que já roda em diversas localidades do Brasil.
+
+A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
+
+
+<p>Visite o <a href="http://novosga.org">site do projeto</a> e confira a <a href="http://novosga.org/demo">versão demo</a> disponível online.</p>
+
+<p>Gostou e quer contribuir com o desenvolvimento? Acesse o <a href="http://github.com/rogeriolino/novosga">projeto no GitHub</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/02/css3-selection-background-color/">CSS3: Selection Background Color</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-02T10:08:47-02:00" pubdate data-updated="true">Jan 2<sup>nd</sup>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Com o seletor <strong>selection</strong> podemos definir a cor do texto e de fundo do texto quando o selecionamos.</p>
+
+<blockquote>
+The ::-moz-selection (::selection) pseudo-element applies to the portion of a document that has been highlighted (e.g. selected with the mouse) by the user.
+
+Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. The following properties apply to ::-moz-selection:  color, background and background-color (background-image is ignored).
+
+[http://dochub.io/#css/selection](http://dochub.io/#css/selection)
+</blockquote>
+
+
+<p><strong>CSS</strong></p>
+
+<pre><code>p::selection  { color: #000; }
+p::-moz-selection { color: #000; }
+
+p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }
+
+p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }
+
+p.pink::selection { background: #E2189C; }
+p.pink::-moz-selection { background: #E2189C; }
+</code></pre>
+
+<p><strong>HTML</strong></p>
+
+<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+
+&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
+
+&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
+</code></pre>
+
+<p><strong>Exemplo</strong>
+<a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/13/jquery-modernizr-accesskey-detection/">jQuery + Modernizr: AccessKey Detection</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-13T14:13:36-02:00" pubdate data-updated="true">Dec 13<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>O código abaixo permite exibir no title e na frente das tags que possuem o atributo <a href="http://www.w3schools.com/tags/att_global_accesskey.asp">accesskey</a> o seu atalho.</p>
+
+<p>Com o uso do CSS é adicionado ao <a href="http://www.w3schools.com/cssref/sel_after.asp">final do conteúdo da tag</a> o seu atalho. E via Javascript esse atalho também é adicionado ao title.</p>
+
+<p>Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz uso do Modernizr + Detectizr para adicionar no body a classes informando o ambiente.</p>
+
+<p><strong>Dependências</strong></p>
+
+<pre><code>&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p><strong>CSS</strong></p>
+
+<pre><code>*[accesskey]:after {
+    margin-left: 0.3em;
+    color: #ccc;
+    content: "[Alt + " attr(accesskey) "]";
+}
+
+body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
+body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
+body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>/**
+ * Add browser and OS name to body class, and append the shortcut to element title
+ * @author rogeriolino
+ */
+(function($) {
+    $(document).ready(function() {
+        Modernizr.Detectizr.detect({detectScreen:false});
+        var body = $('body')
+        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
+        $('*[accesskey]').each(function(i, e) {
+            var elem = $(e);
+            prefix = 'Alt';
+            if (body.hasClass('firefox')) {
+                if (body.hasClass('mac')) {
+                    prefix = 'Ctrl + Opt';
+                } else {
+                    prefix = 'Alt + Shift';
+                }
+            } else if (body.hasClass('safari mac')) {
+                prefix = 'Ctrl';
+            }
+            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
+        });
+    });
+})($);
+</code></pre>
+
+<p><strong>Demo</strong></p>
+
+<p><a href="http://jsfiddle.net/qmB3R/">Clique aqui para visualizar o exemplo no jsFiddle.net</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/28/jquery-horizontal-vertical-align/">jQuery: Horizontal + Vertical Align</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T08:23:58-02:00" pubdate data-updated="true">Nov 28<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Função jQuery para alinhar horizontalmente e verticalmente o elemento.</p>
+
+<pre><code>jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css({
+        top: '50%',
+        left: '50%', 
+        margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
+    });
+    return this;
+}
+</code></pre>
+
+<p>Exemplo:</p>
+
+<pre><code>&amp;lt;div id="centered_div"&amp;gt;
+    &lt;p&gt;My div content here&lt;/p&gt;
+&amp;lt;/div&amp;gt;
+
+
+
+
+
+
+
+$('#centered_div').center()
+</code></pre>
+
+<p>Edit on jsFiddle: <a href="http://jsfiddle.net/rc6kS/">http://jsfiddle.net/rc6kS/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2/">Ubuntu: PHP 5.4 + PHP5-FPM/FastCgi on Apache2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-26T14:55:46-02:00" pubdate data-updated="true">Nov 26<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Os comandos abaixo que devem ser executados como <strong>root</strong>.</p>
+
+<h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
+
+<pre><code>apt-cache show php5 | grep Version
+</code></pre>
+
+<p>Caso a versão mais nova já esteja na 5.4 ou superior, então pule para o próximo passo. Senão execute os comandos abaixo para adicionar o repositório com a versão 5.4.</p>
+
+<pre><code>apt-get install python-software-properties
+add-apt-repository ppa:ondrej/php5
+apt-get update
+</code></pre>
+
+<h3>Passo 2 &ndash; Instalando os pacotes</h3>
+
+<p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
+
+<pre><code>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
+</code></pre>
+
+<p>Habilitando os módulos de requeridos para o próximo passo:</p>
+
+<pre><code>a2enmod actions fastcgi alias
+</code></pre>
+
+<h3>Passo 3 &ndash; Configurando o Apache2</h3>
+
+<p>Editar o arquivo de configuração do módulo fastcgi</p>
+
+<pre><code>vim /etc/apache2/mods-enabled/fastcgi.conf
+</code></pre>
+
+<p>Caso já tenha algumas entradas, comente (adicionando # no início da linha ou simplesmente remova) e adicione as seguintes linhas:</p>
+
+<pre><code>AddHandler php5-fcgi .php
+Action php5-fcgi /php5-fcgi
+Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
+</code></pre>
+
+<p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
+
+<h3>Passo 4 &ndash; Configurando o PHP-FPM</h3>
+
+<p>Abra o arquivo de configuração do PHP-FPM</p>
+
+<pre><code>vim /etc/php5/fpm/pool.d/www.conf
+</code></pre>
+
+<p>E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:</p>
+
+<pre><code>listen = /var/run/php5-fpm.sock
+</code></pre>
+
+<p>Essa opção serve para evitar overhead no TCP (caso o socket não esteja configurado)</p>
+
+<p>obs: Repare que tem que ser o mesmo caminho especificado no fastcgi.conf</p>
+
+<h3>Passo 5 &ndash; Reiniciando e testando</h3>
+
+<p>Reiniciando os serviços:</p>
+
+<pre><code>/etc/init.d/apache2 restart
+/etc/init.d/php5-fpm restart
+</code></pre>
+
+<p>Criando arquivo de teste:</p>
+
+<pre><code>cd /var/www
+echo '&lt;?php phpinfo();' | tee info.php
+</code></pre>
+
+<p>Depois acesse o arquivo criado via browser: <a href="http://nome_servidor/info.php">http://nome_servidor/info.php</a></p>
+
+<p>Confira a <strong>versão do PHP descrita no cabeçalho</strong> e se o valor do <strong>Server API</strong> está como <strong>FPM/FastCGI</strong>.</p>
+
+<p><img src="http://rogeriolino.com/wp-content/uploads/2012/11/phpinfo.png" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/08/quickpost-license-box/">Quickpost: License Box</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-08T10:07:00-02:00" pubdate data-updated="true">Nov 8<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Atualizando exemplo antigo, para uso de CSS3:</p>
+
+<p><strong>Post original:</strong>
+<a href="http://rogeriolino.com/2006/11/25/tutorial-caixa-de-contrato/">http://rogeriolino.com/2006/11/25/tutorial-caixa-de-contrato/</a></p>
+
+<p><strong>Página da versão nova:</strong>
+<a href="http://dev.rogeriolino.com/exemplos/css/license/index.html">http://dev.rogeriolino.com/exemplos/css/license/index.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/15/css3-horizontal-menu/">CSS3: Horizontal Menu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T11:34:32-03:00" pubdate data-updated="true">Oct 15<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Exemplo de um menu dropdown horizontal, utilizando gradient e transition apenas com CSS3.</p>
+
+<h3>CSS</h3>
+
+<pre><code>.hmenu {
+    height: 40px;
+    position: relative;
+}
+
+.hmenu, .hmenu ul { 
+    border-radius: 3px;
+}
+
+.hmenu, .hmenu * {
+    margin: 0;
+    padding: 0;
+}
+
+.hmenu li {
+    list-style: none;
+    position: relative;
+    display: inline;
+}
+
+.hmenu li {
+    list-style: none;
+    position: relative;
+    float: left;
+}
+
+/* all links style */
+.hmenu a {
+    font-weight: bold;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* main link style */
+.hmenu&gt;li&gt;a {
+    padding: 13px 20px;
+    float: left;
+}
+
+.hmenu li ul {
+    width: 150px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    /* fading transition */
+    transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+}
+
+/* first submenu */
+.hmenu&gt;li&gt;ul {
+    top: 40px;
+    left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.hmenu li:hover&gt;ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hmenu li ul ul {
+    top: 0px;
+    left: 150px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.hmenu li ul li {
+    width: 150px;
+    display: block;
+}
+
+/* submenu link style */
+.hmenu ul a {
+    margin: 3px 2px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: block;
+}
+
+/* theming */
+.hmenu {
+    box-shadow: 0px 1px 5px #ccc;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.hmenu a {
+    color: #999;
+}
+
+.hmenu a:hover {
+}
+
+.hmenu li:hover&gt;a {
+    color: #000;
+    text-shadow: 1px 1px 2px #ccc;
+}
+
+.hmenu ul {
+    background-color: #f1f1f1;
+    box-shadow: 0px 1px 5px #bbb;
+}
+
+.hmenu ul a:hover {
+    background-color: #e1e1e1;
+}
+
+.hmenu&gt;li&gt;ul {
+    border-top: 2px solid #999;
+}
+
+.hmenu li ul ul {
+    border-left: 2px solid #999;
+}
+</code></pre>
+
+<h3>HTML</h3>
+
+<pre><code>&lt;ul class="hmenu"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#"&gt;Services&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;Service 2&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;Subservice 3&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Service 5&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="#"&gt;About&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Company&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/css/hmenu.html">Visualizar o menu funcionando</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/01/php-5-4-new-features/">PHP: 5.4 New Features</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-01T12:47:04-03:00" pubdate data-updated="true">Oct 1<sup>st</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Segue abaixo algumas das novas funcionalidades da versão 5.4 do PHP. Para ver mais informações, siga os links no final do post.</p>
+
+<h3>Trait</h3>
+
+<p>Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes reutilizem métodos de outras classes sem a necessidade de estende-la.</p>
+
+<pre><code>trait Singleton {
+    public static function getInstance() { ... }
+}
+
+class A {
+    use Singleton;
+    // ...
+}
+
+class B extends ArrayObject {
+    use Singleton;
+    // ...
+}
+
+// Singleton method is now available for both classes
+A::getInstance();
+B::getInstance();
+</code></pre>
+
+<h3>Sintaxe curta para definição de Array</h3>
+
+<p>Agora é possível instanciar um array de maneira semelhante à outras linguagens de script, como por exemplo, Javascript.</p>
+
+<pre><code>$a = [1, 2, 3];
+$b = ['foo' =&gt; 'orange', 'bar' =&gt; 'apple'];
+</code></pre>
+
+<h3>Referência direta ao retorno das funções/métodos</h3>
+
+<p>Também é possível fazer fazer chamada direta ao retorno das funções, sem que haja necessidade de atribuir o valor a uma variável e só depois fazer a chamada.</p>
+
+<pre><code>function fruits() {
+    return ['apple', 'banana', 'orange'];
+}
+echo fruits()[0]; // Outputs: apple
+</code></pre>
+
+<p>O mesmo serve para chamadas através de novas <strong>instâncias</strong>:</p>
+
+<pre><code>class Person {
+    private $name;
+    public function setName($name) {
+        $this-&gt;name = $name;
+    }
+    public function getName() {
+        return $this-&gt;name;
+    }
+}
+function createPerson() {
+    $p = new Person();
+    $p-&gt;setName('Rogerio');
+    return $p;
+}
+
+echo (new Person)-&gt;setName('Rogerio')-&gt;getName(); // Outputs: Rogerio
+</code></pre>
+
+<h3>Método mágico __invoke</h3>
+
+<p>Permite chamar um objeto como se fosse uma função</p>
+
+<pre><code>class MoneyObject {
+    private $value;
+    function __construct($val) {
+        $this-&gt;value = $val;
+    }
+    function __invoke() {
+        return sprintf('$%.2f',$this-&gt;value); 
+    }
+}
+$Money = new MoneyObject(11.02/5*13);
+echo $Money(); // Outputs: $28.65
+</code></pre>
+
+<h3>Built-in Web Server (CLI)</h3>
+
+<p>CLI server é uma pequena implementação de um Web server que você pode executar via linha de comando.</p>
+
+<blockquote>% php -S localhost:8000</blockquote>
+
+
+<p>Obviamente, não é para ser usado em produção.</p>
+
+<h3>Native Session Handler Interface</h3>
+
+<p>Ao invés de definir várias funções, você pode criar uma handler para a sua sessão, e apenas informá-lo no session_set_save_handler.</p>
+
+<pre><code>SessionHandler implements SessionHandlerInterface {
+  public int close ( void )
+  public int destroy ( string $sessionid )
+  public int gc ( int $maxlifetime )
+  public int open ( string $save_path , string $sessionid )
+  public string read ( string $sessionid )
+  public int write ( string $sessionid , string $sessiondata )
+}
+session_set_save_handler(new MySessionHandler);
+</code></pre>
+
+<h3>JsonSerialize Interface</h3>
+
+<p>Semelhante ao __tostring ao tentar imprimir um objeto, você pode pre-definir o objeto que será serializado para o formato json, através do uso da função <strong>json_encode</strong>.</p>
+
+<pre><code>class Foo implements JsonSerializable {
+    private $data = 'Bar';
+    public function jsonSerialize() {
+        return array('data'=&gt;$this-&gt;data);
+    }
+}
+echo json_encode(new Foo); // Outputs: {"data":"Bar"}
+</code></pre>
+
+<p>Para visualizar as alterações entre as versão 5.3 e 5.4, <a href="http://www.php.net/manual/en/migration54.php">clique aqui</a>.</p>
+
+<p><strong>Fontes:</strong>
+<a href="http://php.net/manual/en/migration54.new-features.php">http://php.net/manual/en/migration54.new-features.php</a>
+<a href="http://css.dzone.com/polls/what-new-feature-php-54">http://css.dzone.com/polls/what-new-feature-php-54</a>
+<a href="http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html">http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/31/development-tools/">Development Tools</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-31T17:02:57-03:00" pubdate data-updated="true">Aug 31<sup>st</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://dev.rogeriolino.com/tools/crypt"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/dev-tools.png" alt="" /></a></p>
+
+<p>Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para auxiliar durante o desenvolvimento. Segue abaixo as funcionalidades que estão disponíveis por enquanto:</p>
+
+<ul>
+<li><p><strong>Crypt</strong>: algorítimos de hash como sha1 e md5, e base64 encode/decode</p></li>
+<li><p><strong>Random:</strong> geração de senhas (com opções de configuração), CPF e CNPJ, e Lorem Ipsum</p></li>
+<li><p><strong>Converter</strong>: conversor de unidades de medida</p></li>
+<li><p><strong>Network</strong>: exibe o IP do cliente, geo localização (coordenadas e mapa), e consulta de domínios (whois server)</p></li>
+<li><p><strong>Browser</strong>: informações sobre versão, user-agent, resolução e viewport, e as principais funcionalidades do HTML5 e CSS3 que o browser suporta.</p></li>
+<li><p><strong>Javascript</strong>: code minifier and optimizer</p></li>
+</ul>
+
+
+<p>Como toda a execução é feita no lado do servidor, você pode fazer uma execução ajax do seu site/aplicação para o dev-tools e pegar no response o resultado, sem que haja necessidade de importar novos recursos:</p>
+
+<blockquote>GET
+>     /ajax/<package>/<method>/?<params>
+>     /ajax/crypt/sha1?data=test
+>     
+>     JSON RESPONSE
+>     {&#8220;success&#8221;:true,&#8221;data&#8221;:&#8221;a94a8fe5ccb19ba61c4c0873d391e987982fbbd3&#8221;}
+>     
+> 
+> </blockquote>
+
+
+<p>Conforme eu vá sentindo necessidade de mais funcionalidade ou alguém dê uma sugestão, irei incrementando. Depois criarei um projeto no Github e atualizarei o post com o link.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/13/android-futeria-app/">Android: Futeria App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-13T13:54:12-03:00" pubdate data-updated="true">Aug 13<sup>th</sup>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://play.google.com/store/apps/details?id=net.futeria.app"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/futeria-android.png" alt="" /></a></p>
+
+<p>Há alguns dias publiquei uma app no <a href="https://play.google.com">Google Play</a>: <strong>Futeria</strong>, versão móvel do site <a href="http://futeria.net">Futeria.net</a>, agregador de notícias dos principais clubes de futebol do Brasil.</p>
+
+<p>Para o desenvolvimento dessa app foi utilizado HTML5 e <a href="http://jquerymobile.com">jQueryMobile</a> para o frontend, e PHP para o backend. E para agilizar o carregamento das pãginas estã sendo utilizado o Manifest App Cache do HTML5. Já para uma  próxima versão estará disponível uma página para salvar configurações do usuário, utilizando <a href="http://www.w3schools.com/html5/html5_webstorage.asp">LocalStorage</a>.</p>
+
+<p>Então, se você é um usuário Android e gostaria de ler as últimas notícias do seu time, instale o Futeria e dê uma feedback sobre bugs e melhorias que podem ser feitas. E muito obrigado!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/3">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/index.html">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

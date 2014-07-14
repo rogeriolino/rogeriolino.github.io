@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Benchmark | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/benchmark/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript Benchmark: replaceAll]]></title>
+    <link href="http://rogeriolino.github.io/blog/2009/01/07/javascript-benchmark-replaceall/"/>
+    <updated>2009-01-07T15:06:39-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2009/01/07/javascript-benchmark-replaceall</id>
+    <content type="html"><![CDATA[<p>Há algum tempo <a href="http://rogeriolino.com/2007/07/23/javascript-replaceall/">escrevi um post contendo</a> um exemplo de método para fazer replace em toda String. No caso o método que escrevi usava <strong>while</strong> e realmente é muito menos eficiente do que as alternativas apresentadas nos comentários, a primeira usando <strong>Expressão Regular</strong> (sugerida pelo <a href="http://www.almirmendes.net/">Almir Mendes</a>) e a segunda utilizando <strong>split</strong> e <strong>join</strong> (sugerida pelo <a href="http://blog.lucasferreira.com/">Lucas Ferreira</a>).  Então resolvi (depois de muito tempo) fazer um benchmark utilizando os três métodos para poder chegar a uma conclusão sobre qual seria melhor.</p>
+
+<p>Fiquei muito surpreso com os testes, não porque o método utilizando while foi de longe o pior entre os três, mas sim pelo fato do método que consiste em dividir a String em um vetor e depois junta-la novamente (<strong>split+join</strong>) ter sido mais rápido do que o próprio método de replace do javascript utilizando Expressão Regular (já que o split também utiliza ER).</p>
+
+<p>Outro fato interessante é que tanto utilizando <strong>ER</strong> quanto <strong>split-join</strong> os métodos se mostraram bastante escaláveis, enquanto o com <strong>while</strong> piora consideravelmente conforme o número de ocorrência aumenta.</p>
+
+<p>Lembrando que fiz os testes através <a href="http://dev.rogeriolino.com/benchmark/javascript/replace_all/index.html">desta página</a> que criei utilizando como browser o <a href="http://pt-br.www.mozilla.com/pt-BR/firefox/">Firefox 3.0.5</a>. Caso alguém faça os testes e obtenha resultados diferente gostaria de receber feedbacks.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,1034 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Mesmo sendo fácil ainda há gente que não conhece. Através de um parâmetro () dentro da tag object podemos especificar se o arquivo terá o fundo &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/posts/8">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/02/04/flash-swf-com-fundo-transparente/">Flash: SWF Com Fundo Transparente</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-04T18:02:14-02:00" pubdate data-updated="true">Feb 4<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Mesmo sendo fácil ainda há gente que não conhece. Através de um parâmetro (<strong><param></strong>) dentro da tag object podemos especificar se o arquivo terá o fundo transparente.</p>
+
+<pre><code>&lt;param name="wmode" value="transparent" /&gt;
+</code></pre>
+
+<p>Para muitos que aindam usam a tag embed para funcionar em todos os browsers tem que colocar o atributo wmode nela também:</p>
+
+<pre><code>&lt;embed wmode="transparent" ... /&gt;
+</code></pre>
+
+<p>Então o código validado do SWF com fundo transparente ficaria assim:</p>
+
+<pre><code>&lt;object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400" &gt;
+    &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
+    &lt;param name="movie" value="filme.swf" /&gt;
+    &lt;param name="wmode" value="transparent" /&gt;
+&lt;/object&gt;
+</code></pre>
+
+<p>Uma coisa que acontece também que pode gerar bastante dor de cabeça é quando algum elemento do HTML que deveria ficar por cima do SWF e acaba acontecendo o contrário. E mesmo alterando o z-index não resolve. Sendo a solução apenas deixar o SWF com o fundo transparente.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/02/01/flash-tag-object/">Flash: Tag Object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-01T22:08:19-02:00" pubdate data-updated="true">Feb 1<sup>st</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Depois do <strong>swf</strong> gerado é hora de colocá-lo no <strong>HTML.</strong> No próprio <strong>Flash</strong> ao apertar o <strong>F12</strong> ele <strong>publica</strong> o filme e já cria um <strong>HTML</strong>. Tudo muito bom, se não fosse pelo código gerado, muito sujo e não é validado pela W3C.</p>
+
+<p>O código gerado é igual a este:</p>
+
+<pre><code>&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://..." width="550" height="400"&gt;
+    &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
+    &lt;param name="movie" value="filme.swf" /&gt;
+    &lt;param name="quality" value="high" /&gt;
+    &lt;param name="bgcolor" value="#ffffff" /&gt;
+    &lt;embed src="filme.swf" quality="high" bgcolor="#ffffff" width="550" height="400" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://..." /&gt;
+&lt;/object&gt;
+</code></pre>
+
+<p>O problema em sí não está na tag <strong>object </strong>e sim na <strong>embed</strong> que não é reconhecida pela <strong>W3C</strong>. Beleza, então eu tiro a tag embed e está tudo certo? Errado.</p>
+
+<p>Primeiramente vamos conhecer mais sobre a tag Object.</p>
+
+<p>A tag <strong>object</strong> serve para anexar à página algum dos três tipos de dados (objects, images and applets), mas para alguns existe uma tag mais adequada, como por exemplo uma imagem.</p>
+
+<blockquote>The [ OBJECT](http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT) element allows authors to specify all three types of data, but authors may not have to specify all three at once. For example, some objects may not require data (e.g., a self-contained applet that performs a small animation). Others may not require run-time initialization. Still others may not require additional implementation information, i.e., the user agent itself may already know how to render that type of data (e.g., GIF images).
+
+link: [http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT ](http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT)</blockquote>
+
+
+<p>Então respondendo a pergunta acima a tag <strong>object</strong> sem a <strong>embed</strong> não irá funcionar, a não ser que o atributo <strong>type</strong> (que no código acima você percebe que ele está na <strong>embed</strong>) esteja definido adequadamente. E também seja colocado o atributo <strong>data</strong> (que funciona igual ao <strong>href</strong>).</p>
+
+<p>Resulmindo o código acima ficaria assim:</p>
+
+<pre><code>&lt;object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400"&gt;
+    &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
+    &lt;param name="movie" value="filme.swf" /&gt;
+    &lt;param name="quality" value="high" /&gt;
+    &lt;param name="bgcolor" value="#ffffff" /&gt;
+&lt;/object&gt;
+</code></pre>
+
+<p>Pois então com o exemplo acima, além de validar sua página o código fica mais limpo e enxuto.</p>
+
+<p><strong> Mais sobre:</strong></p>
+
+<p><a href="http://www.maujor.com/tutorial/adeus-embed.php">http://www.maujor.com/tutorial/adeus-embed.php</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/29/flash-startdrag-e-stopdrag/">Flash: startDrag() E stopDrag()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-29T15:34:33-02:00" pubdate data-updated="true">Jan 29<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Aproveitando o post anterior sobre uma div arrastável usando Javascript. Vamos ver agora como seria feito uma janela também arrastável só que no Flash.</p>
+
+<p>Primeiro de tudo é desenharmos nossa janela, ela será divida da seguinte maneira:</p>
+
+<blockquote>**janela** (MovieClip Principal)
+|&#8211; **barra**;
+|&#8211; **minimax**;
+|&#8211; **fechar**;
+&#45;- **conteudo**.</blockquote>
+
+
+<p>Use as ferramentas de desenho para construir a janela, mas deixe os desenhos separados como mostrado acima. Se você ainda não está familiarizado<a href="http://rogeriolino.com/2006/09/06/flash-8-para-quem-esta-comecando-1/"> leia este post primeiro</a>.</p>
+
+<p>A minha janela ficou assim:</p>
+
+<p><img src="http://rogeriolino.files.wordpress.com/2007/01/janela.gif" alt="Desenho da Janela" /></p>
+
+<p>Aonde cada parte (desenho) é um MovieClip diferente, para <strong>transformar</strong> o seu <strong>desenho</strong> em <strong>MovieClip</strong> selecione ele aperte <strong>F8</strong> coloque o nome do MC e verifique se o <strong>radiobutton MovieClip</strong> realmente está marcado.</p>
+
+<p>Após criado o Movie devemos instanciâ-lo, para isso clique nele e vá na aba <strong>Propriedades</strong> (<strong>CTRL+F3</strong>), preencha o campo instância (siga os nomes definidos acima).</p>
+
+<p>Com os quatros MovieClips prontos (<strong>barra</strong>, <strong>minimax</strong>, <strong>fechar</strong> e <strong>conteudo</strong>) selecione-os e aperte novamente <strong>F8</strong> para transformá-los no nosso <strong>MC janela</strong>.</p>
+
+<p>Caso você queira editar algum movie ou apenas posicionar melhor, dê um duplo clique nele e poderá navegar através dos demais que estão contidos nele.</p>
+
+<p>Agora com os MCs criados e instanciados, vamos às <strong>actions</strong>:</p>
+
+<p>Clique no <strong>frame principal</strong> (o primeiro frame da timeline) e aperte <strong>F9</strong>. Cole o código abaixo:</p>
+
+<pre><code>this.janela.barra.onPress = function() {
+    this._parent.startDrag();
+}
+
+this.janela.barra.onRelease = function() {
+    this._parent.stopDrag();
+}
+
+this.janela.fechar.onRelease = function() {
+    this._parent._visible = false;
+}
+
+this.abrir.onRelease = function() {
+    this._parent.janela._visible = true;
+}
+
+this.janela.minimax.onRelease = function() {
+    this._parent.conteudo._visible = !this._parent.conteudo._visible;
+}
+</code></pre>
+
+<p>Ao contrário do Javascript e das versões bem mais antigas (até a 5) do Flash não é necessário um método para pegar um alvo. Você mostra o caminha para se chegar nele a partir do palco (_root sempre para raiz, ou this este filme &ndash; isso ficará mais claro quando aprendermos sobre carregar filme externo).</p>
+
+<p>Por exemplo o movie<strong> fechar</strong> está no dentro do MC<strong> janela</strong> que por sua vez está no palco, então: <strong>this.janela.fechar</strong>. E se você estiver em um MC (fehcar por exemplo) e queira acessar o seu pai (janela), fica assim: <strong>this._parent</strong>.</p>
+
+<p>Repare no código que a lógica é a mesma, porém no Flash tem um método nativo para realiza esse arrastar (<strong>startDrag()</strong>) e um para parar esse arrastar (<strong>stopDrag()</strong>). O que no HTML temos que fazer na mão mesmo.</p>
+
+<p>O que reduz e muito o código final. Agora é só testar (CTRL+ENTER).</p>
+
+<p>Para ver o <a href="http://dev.rogeriolino.com/exemplos/flash/drag/index.html">exemplo clique aqui</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/25/javascript-draggable-window/">Javascript: Draggable Window</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-25T21:11:33-02:00" pubdate data-updated="true">Jan 25<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Tem algum tempo já que estava de bobeira e acabei fazendo um <strong>exemplo</strong> de uma <strong>div</strong> (janela) <strong>arrastável</strong>.</p>
+
+<p>Simulei uma janela padrão em alguns Sistemas Operacionais, tem a barra superior com o título da janela, o espaço ao centro para o conteúdo e uma barra no final, a statusbar (essa só para incrementar mesmo).</p>
+
+<p>Há nela também três opções: &ldquo;<strong>minimizar/maximizar</strong>&rdquo;,  &ldquo;<strong>esconder</strong>&rdquo; e &ldquo;<strong>fechar</strong>&rdquo;.</p>
+
+<p>Na opção &ldquo;minimizar&rdquo; é alterado a propriedade <strong>display</strong> do <strong>CSS</strong> da parte do conteúdo para <strong>none</strong>. Voltando para <strong>block</strong> com &ldquo;maximizar&rdquo;.</p>
+
+<p>O &ldquo;esconder&rdquo; além de aproveitar a função para &ldquo;minimizar&rdquo; também altera o <strong>display</strong> da <strong>statusbar</strong> para <strong>none</strong>. E seta a <strong>posição</strong> da janela para a <strong>origem</strong> da tela (<strong>left</strong>:0 e <strong>top</strong>: 0).</p>
+
+<p>E o &ldquo;fechar&rdquo; por sua vez altera a propriedade do <strong>visibility</strong> do CSS da  janela toda para <strong>hidden</strong>. E no palco tem uma opção para (re)<strong>abrir</strong> a janela, que altera o <strong>visibility</strong> para <strong>visible</strong>.</p>
+
+<p>O porquê de usar visibility para &ldquo;fechar&rdquo; a janela é porque não queremos mudar o comportamento da janela, como ela é vista, e sim só sumir, torná-la invisível. O mesmo não funcionaria muito bem com o conteúdo porque fazendo ele só sumir ainda ficaria o seu &ldquo;espaço guardado&rdquo; fazendo apenas o conteúdo ficar invisível ao invéz da janela realmente minimizar.</p>
+
+<p>Ao arrastar a janela também é <strong>alterado</strong> o <strong>cursor</strong>, mudando para <strong>move</strong>. O que caracteriza melhor a janela sendo arrastada.</p>
+
+<p>Qualquer dúvida é só deixar no comentário.</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/drag/index.html">Exemplo: Draggable Window </a></p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/drag/script/drag.js">Source: Draggable Window</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/23/css-position-fixed-ie/">CSS: Position Fixed IE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-23T15:15:28-02:00" pubdate data-updated="true">Jan 23<sup>rd</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Um <strong>atributo</strong> muito interessante quem tem na propriedade position é o <strong>fixed</strong>.</p>
+
+<p>Com ele você pode posicionar um objeto no palco (como se fosse absolute) só que ele sempre estará na &ldquo;mesma posição&rdquo;, mesmo rolando a tela.</p>
+
+<p>Infelizmente o IE (até o 6) não reconhece esse atributo, mas antes de sairmos tentando bolar um código em javascript para ficar posicionando a janela quando o usuário rolar a tela. Vamos usar só o CSS.</p>
+
+<p><strong>Pensando: </strong>Poderíamos usar como <strong>position</strong> o <strong>absolute</strong> já que com ele a gente tem uma liberdade maior para posicionar o objeto. Mas ainda temos o problema com a rolagem.</p>
+
+<p>Mas tem o <strong>overflow</strong>, podemos colocar como <strong>auto</strong> para criar uma barra de rolagem para o que ultrapassar o limite, e o nosso objeto continuará sempre no mesmo lugar.  <strong>Pronto!</strong></p>
+
+<p>Nos <strong>browser espertos</strong> (smarts) fica assim:</p>
+
+<pre><code>#menu {
+    top: 15%;
+    left: 50px;
+    width: 200px;
+    padding: 20px 0px;
+    border: 2px solid #CCCCCC;
+    position: fixed;
+}
+</code></pre>
+
+<p>Dá para notar que é como estivéssemos colocando como absolute mesmo (<em>left, top</em>). Só isso basta.</p>
+
+<p>Agora para o <strong>IE</strong> vamos colocar o CSS dentro de um comentário do HTML (que por sua vez só ele mesmo para ler como código o comentário):</p>
+
+<pre><code>&lt;!--[if IE]&gt;
+&lt;style type="text/css"&gt;
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+#menu {
+    position: absolute;
+}
+&lt;/style&gt;
+&lt;![endif]--&gt;
+</code></pre>
+
+<p>Colocamos o <strong>body</strong> e o <strong>html</strong> com <strong>overflow auto</strong> e <strong>altura 100%</strong> para confirmar que sua altura é toda a janela (a visão do usuário). E definimos o objeto com <strong>postion absolute</strong>, não precisamos colocar <strong>left</strong> nem <strong>top</strong>, porque já foram passados acima, e só estamos <strong>sobrescrevendo</strong> (position).</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/css/position_fixed/index.html">Veja esse exemplo funcionando</a>. Dê uma olhada no código-fonte.</p>
+
+<p>Na internet podemos encontrar outros métodos para isto. Vi um que continha expressões javascript no CSS (coisa do IE) e outro que usava javascript puro para posicionar.</p>
+
+<p><strong>Para mais exemplos, resultado da busca:</strong></p>
+
+<p><a href="http://www.google.com.br/search?q=position+fixed+ie&amp;ie=utf-8&amp;oe=utf-8&amp;rls=org.mozilla:t-BR;%20Alexa:official&amp;client=firefox-a">Powered Google</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/19/javascript-classe-math/">Javascript: Classe Math</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-19T17:57:38-02:00" pubdate data-updated="true">Jan 19<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Assim como a <a href="http://rogeriolino.com/2007/01/11/javascript-classe-date/">classe Date()</a> uma outra classe nativa em várias linguagens que quebra um galho legal é a Math (Mathematical).</p>
+
+<p>Além de contar com algumas funções ela também fornece valores de constantes ou valores matemáticos, como por exemplo PI e raiz quadrada de 2.</p>
+
+<p><strong>Funções:</strong></p>
+
+<p><strong>Math.round() </strong>: Arredonda um valor real para inteiro. Se o valor da casa depois do ponto for maior ou igual a 5 é arredondado para cima, caso contrário para baixo;</p>
+
+<pre><code>Math.round(4.5); // retorna 5
+Math.round(3.49); // retorna 3
+</code></pre>
+
+<p><strong>Math.random()</strong> : Retorna um valor real e aleatório entre 0 e 1.</p>
+
+<pre><code>Math.random(); // ex 0.56766776... (até 17 números depois do ponto)
+</code></pre>
+
+<p><strong>Math.max() </strong>: Retorna o número de maior valor entre dois.</p>
+
+<pre><code>Math.max(4,7); // retorna 7
+</code></pre>
+
+<p><strong>Math.min()</strong> : Retorna o número de menor valor entre dois.</p>
+
+<pre><code>Math.min(4,7); // retorna 4
+</code></pre>
+
+<p><strong>Constantes Matemáticas: </strong></p>
+
+<pre><code>Math.E // valor de Euler (Oiler)
+Math.PI // valor de PI
+Math.SQRT2 // valor da raiz quadrada de 2
+Math.SQRT1_2 // valor da raiz quadrada de 0.5 (1/2)
+Math.LN2 // valor do Logaritmo Natural de 2 (ln 2)
+Math.LN10 // valor do Logaritmo Natural de 10 (ln 10)
+Math.LOG2E // valor do Logaritmo de E (Math.E) na base 2
+Math.LOG10E // valor do Logaritmo de E na base 10.
+</code></pre>
+
+<p><strong>Veja em ação:</strong></p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/math/index.html">Clique aqui</a> para ver esses exemplos funcionando.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/17/css-centralizar-horizontal-e-vertical/">CSS: Centralizar Horizontal E Vertical</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-17T21:50:22-02:00" pubdate data-updated="true">Jan 17<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Uma grande dúvida que sempre surge é como centralizar um elemento no HTML, tanto verticalmente quanto horizontalmente, usando CSS.</p>
+
+<p>Há duas maneiras de se fazer isso sem muito trabalho.</p>
+
+<p>A primeira consiste em definir a posição do objeto como <strong>absolute</strong> e suas posições <strong>top</strong> e<strong> left </strong>com <strong>50% </strong>e tirando a diferença (subtraindo) da metade de sua altura e metade de sua largura na margem. Por exemplo se um elemento tem <strong>500px</strong> de <strong>largura </strong>e <strong>400px</strong> de <strong>altura</strong> na margem vai ter um valor <strong>negativo</strong> (para <strong>top </strong>e <strong>left</strong>) igual a metade destes valores:</p>
+
+<pre><code>#minhaDiv {
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+    position: absolute;
+    border: 1px solid black;
+}
+</code></pre>
+
+<p>Ou resumindo: _<strong>margin: </strong>-200px auto auto -250px; _</p>
+
+<p>Pronto sua div vai ficar centralizada na janela. Mas temos um problema com isso.</p>
+
+<p>Nesse caso sabemos o valor da altura do objeto, então tiramos a diferença na margem. Mas e se tivessemos um objeto em que sua altura pode variar (ou seja não sabemos o valor da altura) ?</p>
+
+<p>Podemos solucionar isso usando o <strong>vertical-align</strong>, mas para ele funcionar temos que definir o<strong> display </strong>da div como <strong>table</strong>. A má notícia é que o nosso amigo <strong>IE</strong> não reconhece essa propriedade (e nem o valor table como display). A boa notícia que usando um hack para o IE dá pra acertar isso.</p>
+
+<p>A estrutura para simular uma tabela fica assim:</p>
+
+<pre><code>&lt;div id="tabela"&gt;
+    &lt;div id="cell"&gt;
+        &lt;div id="conteudo"&gt;
+            &lt;p&gt;parágrafo&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>E definimos no CSS o display da div <strong>tabela</strong> como <strong>table</strong> e da div <strong>cell</strong> como <strong>table-cell</strong>. Mas antes temos que acertar o <strong>html, body</strong> e a <strong>tabela</strong> para <strong>100%</strong> (largura e altura).</p>
+
+<pre><code>html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px; /* retirando a margem padrão */
+    padding: 0px; /* retirando o padding padrão */
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#cell { 
+    display: table-cell; 
+}
+</code></pre>
+
+<p>Com as divs já funcionando como tabela vamos definir a <strong>vertical-align</strong> como <strong>middle</strong>, isso na div <strong>cell</strong>.</p>
+
+<pre><code>#cell {
+    vertical-align: middle;
+    display: table-cell;
+}
+</code></pre>
+
+<p>Falta agora setar a <strong>margin</strong> do conteudo como <strong>auto</strong>. E colocar um valor para largura, senão vai ficar 100%.</p>
+
+<pre><code>#conteudo {
+    width: 500px;
+    margin: auto;
+}
+</code></pre>
+
+<p>Pronto, a div já vai aparecer centralizada no browser. Mas ainda está faltando o nosso amigo <strong>IE</strong>.</p>
+
+<p>A idéia é quase a mesma da primeira situação. Como antes do <strong>conteudo</strong> temos uma div (<strong>cell</strong>), a gente defini seu <strong>position </strong>como <strong>absolute</strong>, e <strong>top</strong> como <strong>50%</strong>. E na conteudo com <strong>position</strong> como <strong>relative</strong>, e <strong>top</strong> como <strong>-50%</strong>.</p>
+
+<p>Lembrando que para não atrapalhar a definição correta, usaremos um hack que só influenciará no Internet Explorer.</p>
+
+<p>Ficando o <strong>CSS final</strong> assim:</p>
+
+<pre><code>html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    display: table;
+    background: #f1f1f1;
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    _position: absolute;
+    _top: 50%;
+}
+
+#conteudo {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    _position: relative;
+    _top: -50%;
+}
+</code></pre>
+
+<p>E o <strong>HTML</strong>:</p>
+
+<pre><code>&lt;div id="table"&gt;
+    &lt;div id="cell"&gt;
+        &lt;div id="conteudo"&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>Mais <strong>sobre</strong>:</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/css/vertical_align/index.html">Exemplo com a primeira situação</a></p>
+
+<p><a href="http://www.maujor.com/tutorial/centrar-vertical.php">Maujor &ndash; Centralizar Vertical </a></p>
+
+<p><strong>[update testado=&ldquo;IE6, IE7, FIREFOX 2 e OPERA 9&rdquo;]</strong></p>
+
+<pre><code>html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: table;
+    *overflow: hidden; /* hack para o IE6 e IE7 */
+    *position: relative; /* hack para o IE6 e IE7 */
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    position: static;
+    *top: 50%; /* hack para o IE6 e IE7 */
+    *position: absolute; /* hack para o IE6 e IE7 */
+}
+
+#conteudo {
+    top: -50%;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background: red;
+}
+</code></pre>
+
+<p><strong>[/update] </strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/12/flash-as2-hello-world/">Flash: AS2 &#8220;Hello World!&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-12T20:45:37-02:00" pubdate data-updated="true">Jan 12<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Vamos nos familiarizar com a ActionScript 2, nesse exemplo veremos como exibir uma mensagem no meio do palco sem usar a ferramenta de texto, apenas por AS.</p>
+
+<p>Após abrir o Flash (na versão 6 ou superior) escolha novo arquivo (<em>New/Novo > Flash Document</em>) .</p>
+
+<p>Clique no primeiro frame da Timeline e aperte F9 (atalho para abrir a janela das Actions).</p>
+
+<p>Criando então o campo de texto aonde aparecerá a mensagem.</p>
+
+<pre><code>this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+</code></pre>
+
+<p>É passado como parâmetro no método <strong>createTextField()</strong> o nome de instância do campo de texto (text field), a profundidade (o que define o que fica em cima do que &ndash; nesse caso usamos um método para retornar um valor para seu objeto ficar por cima de todos), o valor da posição em <strong>x</strong>, em <strong>y</strong>, largura e altura.</p>
+
+<p>Não precisa se preocupar porque todos valores estão zerados, que como pode ver logo embaixo definimos que o nosso campo de texto pode auto ajustar o seu tamanho (autoSize). Logo aumentará de acordo com o tamanho do texto.</p>
+
+<p>Mais abaixo pertimimos o campo de texto aceitar tags, ele aceita html.</p>
+
+<p>E por fim o nosso texto, a mensagem que queremos que apareça &ndash; &ldquo;Hello World!&rdquo;. Como nosso campo de texto tá definido como html poderiamos passar o texto assim:</p>
+
+<pre><code>meuCampo.htmlText = "Hello World!";
+</code></pre>
+
+<p>Assim o campo de texto irá tratar as tags e mostrará só o texto. Isso é muito bom porque você pode passar um texto todo e ele ficará já pré-definido pelas tags. E também nos possibilita utilizar CSS para formatar o texto, mas isso não veremos agora.</p>
+
+<p>Se você executar agora o arquivo verá a mensagem aparecer na parte superior esquerda, e com a formatação padrão.</p>
+
+<p>Vamos então criar o objeto que formatará o nosso texto (<strong>textFormat</strong>).</p>
+
+<pre><code>var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com"
+</code></pre>
+
+<p>Para poder conhecer  melhor as propriedades vamos deixar o texto bem &ldquo;emperequetado&rdquo;. Alinhamento central (pode escolher: &ldquo;justify&rdquo;, &ldquo;center&rdquo;, &ldquo;left&rdquo;, &ldquo;right&rdquo;), negrito (bold), italico (italic), a cor é representada de uma forma diferente do CSS ao invéz da &ldquo;#&rdquo; na frente usa-se &ldquo;0x&rdquo; (zero e xis) mais o código hexadecimal, a font (poderia ser &ldquo;Arial&rdquo; por exemplo), o tamanho (size) e por graça um link (url) passando o destino dele. Para este último funcionar tem que definir o campo como <strong>html</strong>.</p>
+
+<p>Agora só falta adicionar esse estilo ao campo:</p>
+
+<pre><code>meuCampo.setTextFormat(style);
+</code></pre>
+
+<p>E colocar o ele centralizado no palco:</p>
+
+<pre><code>meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+</code></pre>
+
+<p>Posição x recebe a largura do palco menos a largura do texto dividido por 2;
+Posição y recebe a altura do palco menos a altura do texto dividido por 2;</p>
+
+<p>Para funcionar corretamente temos que alinhar por último já que o tamanho do campo de texto irá mudar ao aplicar o estilo.</p>
+
+<p>Agora é só executar. Abaixo o código completo:</p>
+
+<pre><code>this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+
+var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com";
+
+meuCampo.setTextFormat(style);
+meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/11/javascript-classe-date/">Javascript: Classe Date()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-11T18:55:17-02:00" pubdate data-updated="true">Jan 11<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Uma classe muito funcional do Javascript e em muitas outras linguagens é a Date().</p>
+
+<p>Definindo um objeto como Date podemos pegar a hora, minutos, segundos, dia, mês, &hellip;, local ou do horário universal.</p>
+
+<p>Usando:</p>
+
+<pre><code>var minhaData = new Date();
+var hora = minhaData.getHours();
+window.alert( hora);
+</code></pre>
+
+<p>Será mostrado na janela de aviso a hora local.</p>
+
+<p>Podemos então aproveitar isso para mostrar uma mensagem (bom dia, boa tarde ou boa noite) para o usuário.</p>
+
+<pre><code>var minhaData = new Date();
+var hora = minhaData.getHours();
+var msg = "Boa noite";
+if ((hora &gt;= 6) &amp;&amp; (hora &lt; 12)) {
+    msg = "Bom dia";
+} else if ((hora &gt;= 12) &amp;&amp; (hora &lt; 18)) {
+    msg = "Boa tarde";
+}
+window.alert(msg);
+</code></pre>
+
+<p>Define uma variável como Date(), e pegamos a hora local. O porquê da variavél msg receber &ldquo;Boa noite&rdquo; já vai dar para entender.</p>
+
+<p>Perguntamos então se o valor de hora é maior ou igual a 6 e menor que 12 (6 a 11), então ainda é dia. Caso contrário pode ser noite ou tarde, por isso perguntamos se esse valor é maior igual a 12 ou menor que 18 (12 a 17), então é tarde.</p>
+
+<p>Se não estiver entre os valores acima então é noite. Por isso já setamos a variável como &ldquo;Boa noite&rdquo;, só para economizar um else. =]</p>
+
+<p>Brincando um pouco mais com a Classe Date fiz um simples relógio, e mostrar a data formatada no site (na página também há um link para explicação de cada função da classe). Para conferir segue o link: <a href="http://dev.rogeriolino.com/exemplos/javascript/date/index.html">Classe Date()</a>.</p>
+
+<p><strong>Mais sobre:</strong></p>
+
+<p><a href="http://www.w3schools.com/jsref/jsref_obj_date.asp">http://www.w3schools.com/jsref/jsref_obj_date.asp</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/06/css-gallery/">CSS Gallery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-06T21:07:24-02:00" pubdate data-updated="true">Jan 6<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sempre é bom estarmos observando, conhecendo, novos layouts e aprendendo com eles.</p>
+
+<p>Já existem inúmeros sites indexadores de sites Tableless (CSS Layout).</p>
+
+<p>Abaixo segue uma listagem de alguns deles:</p>
+
+<p><a href="http://www.cssdrive.com/">http://www.cssdrive.com/</a>
+<a href="http://cssvault.com/">http://cssvault.com/</a>
+<a href="http://www.cssbeauty.com/gallery/">http://www.cssbeauty.com/gallery/</a>
+<a href="http://www.cssimport.com/">http://www.cssimport.com/</a>
+<a href="http://www.stylecrunch.com/">http://www.stylecrunch.com/</a>
+<a href="http://www.csselite.com/">http://www.csselite.com/</a>
+<a href="http://www.unmatchedstyle.com/">http://www.unmatchedstyle.com/</a>
+<a href="http://cssmania.com/">http://cssmania.com/</a>
+<a href="http://www.cssreboot.com/gallery/">http://www.cssreboot.com/gallery/ </a>
+<a href="http://www.css-website.com/">http://www.css-website.com/</a>
+<a href="http://www.cssbloom.com/">http://www.cssbloom.com/</a>
+<a href="http://www.css-design-yorkshire.com/">http://www.css-design-yorkshire.com/</a>
+<a href="http://cssbrain.hu/">http://cssbrain.hu/</a>
+<a href="http://screenfluent.com/">http://screenfluent.com/</a>
+<a href="http://www.isquare.it/">http://www.isquare.it/</a>
+<a href="http://www.webdigity.com/cssGallery/">http://www.webdigity.com/cssGallery/</a>
+<a href="http://www.creative-pakistan.com/">http://www.creative-pakistan.com/ </a></p>
+
+<p><strong>Quer mais?</strong>
+<a href="http://www.google.com.br/search?hl=pt-BR&amp;client=firefox-a&amp;rls=org.mozilla%3At-BR%3B%2BAlexa%3Aofficial&amp;q=css+gallery&amp;btnG=Pesquisar&amp;meta=">CSS Galleries </a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/9">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/7">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

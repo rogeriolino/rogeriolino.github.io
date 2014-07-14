@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Javascript: Draggable Window - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Tem algum tempo já que estava de bobeira e acabei fazendo um exemplo de uma div (janela) arrastável. Simulei uma janela padrão em alguns Sistemas &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/blog/2007/01/25/javascript-draggable-window">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Javascript: Draggable Window</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-25T21:11:33-02:00" pubdate data-updated="true">Jan 25<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Tem algum tempo já que estava de bobeira e acabei fazendo um <strong>exemplo</strong> de uma <strong>div</strong> (janela) <strong>arrastável</strong>.</p>
+
+<p>Simulei uma janela padrão em alguns Sistemas Operacionais, tem a barra superior com o título da janela, o espaço ao centro para o conteúdo e uma barra no final, a statusbar (essa só para incrementar mesmo).</p>
+
+<p>Há nela também três opções: &ldquo;<strong>minimizar/maximizar</strong>&rdquo;,  &ldquo;<strong>esconder</strong>&rdquo; e &ldquo;<strong>fechar</strong>&rdquo;.</p>
+
+<p>Na opção &ldquo;minimizar&rdquo; é alterado a propriedade <strong>display</strong> do <strong>CSS</strong> da parte do conteúdo para <strong>none</strong>. Voltando para <strong>block</strong> com &ldquo;maximizar&rdquo;.</p>
+
+<p>O &ldquo;esconder&rdquo; além de aproveitar a função para &ldquo;minimizar&rdquo; também altera o <strong>display</strong> da <strong>statusbar</strong> para <strong>none</strong>. E seta a <strong>posição</strong> da janela para a <strong>origem</strong> da tela (<strong>left</strong>:0 e <strong>top</strong>: 0).</p>
+
+<p>E o &ldquo;fechar&rdquo; por sua vez altera a propriedade do <strong>visibility</strong> do CSS da  janela toda para <strong>hidden</strong>. E no palco tem uma opção para (re)<strong>abrir</strong> a janela, que altera o <strong>visibility</strong> para <strong>visible</strong>.</p>
+
+<p>O porquê de usar visibility para &ldquo;fechar&rdquo; a janela é porque não queremos mudar o comportamento da janela, como ela é vista, e sim só sumir, torná-la invisível. O mesmo não funcionaria muito bem com o conteúdo porque fazendo ele só sumir ainda ficaria o seu &ldquo;espaço guardado&rdquo; fazendo apenas o conteúdo ficar invisível ao invéz da janela realmente minimizar.</p>
+
+<p>Ao arrastar a janela também é <strong>alterado</strong> o <strong>cursor</strong>, mudando para <strong>move</strong>. O que caracteriza melhor a janela sendo arrastada.</p>
+
+<p>Qualquer dúvida é só deixar no comentário.</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/drag/index.html">Exemplo: Draggable Window </a></p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/drag/script/drag.js">Source: Draggable Window</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-25T21:11:33-02:00" pubdate data-updated="true">Jan 25<sup>th</sup>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/css/'>css</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.github.io/blog/2007/01/25/javascript-draggable-window/" data-via="" data-counturl="http://rogeriolino.github.io/blog/2007/01/25/javascript-draggable-window/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/01/23/css-position-fixed-ie/" title="Previous Post: CSS: Position Fixed IE">&laquo; CSS: Position Fixed IE</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/01/29/flash-startdrag-e-stopdrag/" title="Next Post: Flash: startDrag() e stopDrag()">Flash: startDrag() e stopDrag() &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

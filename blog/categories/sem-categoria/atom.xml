@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Sem Categoria | My Octopress Blog]]></title>
+  <link href="http://rogeriolino.github.io/blog/categories/sem-categoria/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.github.io/"/>
+  <updated>2014-07-14T12:08:49-03:00</updated>
+  <id>http://rogeriolino.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <link href="http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection/"/>
+    <updated>2014-01-10T21:57:26-02:00</updated>
+    <id>http://rogeriolino.github.io/blog/2014/01/10/simple-javascript-support-detection</id>
+    <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html class="no-js" lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;JS detection&lt;/title&gt;
+    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+
+    &lt;style&gt;
+        .js .alert-danger { display: none; }
+        .no-js .alert-success { display: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Meus Feeds Favoritos]]></title>
+    <link href="http://rogeriolino.github.io/blog/2007/10/11/meus-feeds-favoritos/"/>
+    <updated>2007-10-11T16:40:37-03:00</updated>
+    <id>http://rogeriolino.github.io/blog/2007/10/11/meus-feeds-favoritos</id>
+    <content type="html"><![CDATA[<p>Como de costume, eu sempre enrolado e deixando o blog por último não reparei que fui convidado pelo <a href="http://www.brunodulcetti.com/blog/">Bruno Dulcetti</a> (a quase um mês) para participar de um meme, nesse para listar os blogs que mais entro.</p>
+
+<p>Então lá vai:</p>
+
+<p><a href="http://www.maujor.com">Maujor</a></p>
+
+<p><a href="http://www.revolucao.etc.br">Henrique Costa Pereira</a></p>
+
+<p><a href="http://www.meiobit.com/">Meiobit </a></p>
+
+<p>e agora o do próprio <a href="http://www.brunodulcetti.com/blog/">Bruno</a>, que infelizmente até então não conhecia.</p>
+
+<p>Minha lista é bem pequena mesmo, talvez por culpa do Google.</p>
+]]></content>
+  </entry>
+  
+</feed>

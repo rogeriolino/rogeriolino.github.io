@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Quem nunca viu aquelas &ldquo;5 estrelas&rdquo; logo após algum artigo, foto, etc? Pois então, esse script cria uma sequência de links () de uma &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/posts/6">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/02/18/javascript-rate-this/">Javascript: Rate This</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-02-18T17:11:09-03:00" pubdate data-updated="true">Feb 18<sup>th</sup>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://rogeriolino.files.wordpress.com/2008/02/rate.png" alt="Rate" /></p>
+
+<p>Quem nunca viu aquelas &ldquo;<em>5 estrelas</em>&rdquo; logo após algum artigo, foto, etc?</p>
+
+<p>Pois então, esse script cria uma  sequência de links (<strong><a></strong>) de uma quantidade pré-definida para que o visitante possa taxar, classificar, o conteúdo da página. Seu visual é totalmente customizável através de folhas de estilos (<strong>CSS</strong>).</p>
+
+<p>O código está contido na própria página do exemplo, e para usá-lo basta instanciar o objeto definindo a quantidade de &ldquo;<em>estrelas</em>&rdquo; e adicioná-lo em alguma tag (<strong>append</strong>):</p>
+
+<pre><code>var r1 = new Rate(5);
+
+r1.onclick = function() {
+    // input here your action
+    alert(r1.getValue());
+}
+
+r1.setDefault(3);
+
+r1.append("example1");
+</code></pre>
+
+<p>Para visualizar o exemplo <a href="http://dev.rogeriolino.com/exemplos/javascript/rate/index.html">clique aqui</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/01/15/javascript-fade-in-fade-out/">Javascript: Fade in, Fade Out</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-01-15T10:55:01-02:00" pubdate data-updated="true">Jan 15<sup>th</sup>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Um efeito muito legal de transição é o fade, aonde o objeto surge gradativamente (in) ou some (out). Com o auxílio do CSS, definido pelo próprio javascript, usando opacity (alpha) conseguimos montar um exemplo.</p>
+
+<p>Passando dois parâmetros a gente define o alvo (id do elemento HTML) e o tempo de demora da execução do efeito.</p>
+
+<p>Código:</p>
+
+<pre><code>function fadeOut(id, time) {
+    fade(id, time, 100, 0);
+}
+
+function fadeIn(id, time) {
+    fade(id, time, 0, 100);
+}
+
+function fade(id, time, ini, fin) {
+    var target = document.getElementById(id);
+    var alpha = ini;
+    var inc;
+    if (fin &gt;= ini) { 
+        inc = 2; 
+    } else {
+        inc = -2;
+    }
+    timer = (time * 1000) / 50;
+    var i = setInterval(
+        function() {
+            if ((inc &gt; 0 &amp;&amp; alpha &gt;= fin) || (inc &lt; 0 &amp;&amp; alpha &lt;= fin)) {
+                clearInterval(i);
+            }
+            setAlpha(target, alpha);
+            alpha += inc;
+        }, timer);
+}
+
+function setAlpha(target, alpha) {
+    target.style.filter = "alpha(opacity="+ alpha +")";
+    target.style.opacity = alpha/100;
+}
+</code></pre>
+
+<p>Exemplo:</p>
+
+<pre><code>fadeOut("foto", 0.6);
+fadeIn("popup", 1);
+</code></pre>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/fade/index.html"> Exemplo em funcionamento aqui.</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/12/20/javascript-text-shake/">Javascript: Text Shake</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-12-20T17:52:58-02:00" pubdate data-updated="true">Dec 20<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://rogeriolino.com/wp-content/uploads/2007/12/shake.jpg" alt="shake.jpg" /></p>
+
+<p>Mais um exemplo em Javascript, agora uma função, creio que conhecida por muitos já, que tem a finalidade de embaralhar o texto contido em uma tag qualquer (embaralhar o texto após passar o mouse por cima).</p>
+
+<p>Há duas maneiras de usá-la, uma aplicando em apenas uma tag o evento, e a outra, aplicando o evento a todas os elementos de mesmo <em>&ldquo;tag name&rdquo;.</em></p>
+
+<p>Ex:</p>
+
+<pre><code>shakeAll('h2');
+
+
+
+
+
+
+
+&lt;h3 onmouseover="shake(this)"&gt;&lt;/h3&gt;
+</code></pre>
+
+<p><strong>[update]</strong>
+<em>Codigo portado para jQuery</em></p>
+
+<pre><code>/**
+ * textShake
+ * @author rogeriolino http://rogeriolino.com
+ */
+(function($) {
+
+    $.fn.textShake = function(options) {
+
+        var defaults = {
+            timeIn: 20,
+            timeOut: 50
+        };
+
+        var opts = $.extend({}, defaults, options);
+
+        return this.each(function() {
+
+            var self = $(this);
+            self.running = false;
+
+            self.mouseover(function() {
+                if (!self.running) {
+                    self.running = true;
+                    self.content = self.text();
+                    self.len = self.content.length;
+                    self.init(self.i);
+                }
+            });
+
+            self.init = function(i) {
+                self.i = 0;
+                setTimeout(
+                    function() {
+                        self.text(self.shakeChar(i));
+                        if (i &lt;= self.len) {
+                            self.init(++i);
+                        } else {
+                            self.undo(0);
+                        }
+                    }
+                    , 
+                    opts.timeIn
+                );
+            }
+
+            self.shakeChar = function(i) {
+                return self.text().substring(0, i - 1) + randomChar() + self.text().substring(i);
+            }
+
+            self.undo = function(i) {
+                setTimeout(
+                    function() {
+                        if (i &lt;= self.len) {
+                            self.text(self.content.substring(0, i) + self.text().substring(i));
+                            self.undo(++i);
+                        } else {
+                            self.text(self.content);
+                            self.running = false;
+                        }
+                    }, 
+                    opts.timeOut
+                );
+            }
+
+        });
+
+        function range(ini, fin) {
+            var j = 0;
+            var a = new Array(fin - ini);
+            for (var i = ini; i &lt; fin; i++) {
+                a[j++] = i;
+            }
+            return a;
+        }
+
+        function randomChar() {
+            var arr = new Array();
+            arr = arr.concat(range(48, 57), range(65, 90), range(97, 122)); // numbers, uppers, lowers 
+            var c = arr[Math.floor(Math.random() * arr.length)];
+            return String.fromCharCode(c);
+        }
+
+    }
+
+})(jQuery);
+</code></pre>
+
+<p><strong>[/update]</strong></p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/shake/index.html">clique aqui para visualizar</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/23/javascript-highlight-code-syntax/">Javascript: Code Syntax Highlight</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-23T12:34:49-02:00" pubdate data-updated="true">Nov 23<sup>rd</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://rogeriolino.com/wp-content/uploads/2007/11/jscc1.jpg" alt="jscc.jpg" /></p>
+
+<p>Algo que qualquer editor que se prese tem que ter é a capacidade de facilitar a leitura do código utilizando o que se chama <strong>Syntax</strong> <strong>Highlight </strong>. O ato de <strong>distinguir </strong>partes do <strong>código </strong>com <strong>cores diferentes </strong>ajudando assim a uma melhor associação do mesmo.O que não ocorria na web até um tempo atrás, quando alguém teve a idéia de<em> &ldquo;pintar&rdquo;</em> os códigos disponibilizados na rede. Existem vários scripts para esse fim, muitos com suporte a mais de uma sintaxe (mais de uma linguagem).</p>
+
+<p>E nessa mesma onda fiz um script de fácil entendimento, com a possibilidade de personalizar o código usando <strong>CSS </strong>ficando o resultado de sua preferência.</p>
+
+<p><strong>JsCC </strong>(<em>Javascript Colored Code</em>) por enquanto só atende a códigos <strong>Java </strong>e <strong>Javascript</strong>, mas pretendo ir incluindo outras linguagens com o passar do tempo (e ganho de tempo também).</p>
+
+<p>Para visualiza-lo em funcionamento <a href="http://dev.rogeriolino.com/exemplos/javascript/jscc/index.html">clique aqui</a>, download <a href="http://dev.rogeriolino.com/exemplos/javascript/jscc/jscc.rar">disponível aqui</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/11/19/javascript-colorpicker/">Javascript: Colorpicker</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-11-19T17:43:09-02:00" pubdate data-updated="true">Nov 19<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://rogeriolino.com/wp-content/uploads/2007/11/colorpicker.jpg" alt="colorpicker.jpg" /></p>
+
+<p>Para quem não conhece, <strong>colorpicker </strong>é um <strong>seletor de cores</strong>. Ou seja uma &ldquo;janela&rdquo; com <strong>n cores predefinidas</strong>.</p>
+
+<p>Esse exemplo simula o <strong>colorpicker</strong> da <strong>Macromedia</strong>, disponível no <em>Flash, Dreamweaver, Fireworks</em> e etc. Como o picker da Macromedia, ele possui um <strong>display</strong> para <strong>pre-visualizar</strong> a cor e o seu <strong>valor hexadecimal</strong> ao passar o mouse sobre ela (<strong>onmouseover</strong>).</p>
+
+<p>Possui métodos <strong>getColor</strong> para resgatar o valor escolhido, <strong>onchange</strong> para efetuar uma ação ao escolher uma determinada cor, entre outros.</p>
+
+<p>É totalmente estilizado por <strong>CSS</strong>, logo poderá deixá-lo como quiser. Personalizando-o.</p>
+
+<p>Para utilizá-lo basta indexar-lo a sua página com a <strong>tag <script> </strong>e depois criar uma nova variável do tipo <strong>Colorpicker()</strong>.</p>
+
+<p>Ex:</p>
+
+<pre><code>&lt;script type="text/javascript" src="colorpicker.js"&gt;&lt;/script&gt;
+
+
+
+
+
+
+var picker = new ColorPicker(100, 38); // x , y
+picker.setVisible(true);
+</code></pre>
+
+<p>Para visualizar-lo funcionando <a href="http://dev.rogeriolino.com/exemplos/javascript/colorpicker/index.html">clique aqui</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/29/css-centralizar-horizontal-e-vertical-2/">CSS: Centralizar Horizontal E Vertical #2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-29T23:30:47-02:00" pubdate data-updated="true">Oct 29<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Há algum tempo postei sobre como centralizar verticalmente e horizontalmente usando CSS, o que gerou alguns posts de visitantes revoltados porque não funcionava no IE7, fato que na época eu não tinha testado para essa versão do IE.</p>
+
+<p>Então, mesmo depois de muito tempo da versão já lançada, deixo um novo post testados nos browsers Firefox 2, IE6, IE7 e Opera 9.</p>
+
+<pre><code>html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: table;
+    *overflow: hidden; /* hack para o IE6 e IE7 */
+    *position: relative; /* hack para o IE6 e IE7 */
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    position: static;
+    *top: 50%; /* hack para o IE6 e IE7 */
+    *position: absolute; /* hack para o IE6 e IE7 */
+}
+
+#conteudo {
+    top: -50%;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background: red;
+}
+</code></pre>
+
+<p><a href="http://rogeriolino.com/2007/01/17/css-centralizar-horizontal-e-vertical/">link para o outro post e comentários</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/11/meus-feeds-favoritos/">Meus Feeds Favoritos</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-11T16:40:37-03:00" pubdate data-updated="true">Oct 11<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Como de costume, eu sempre enrolado e deixando o blog por último não reparei que fui convidado pelo <a href="http://www.brunodulcetti.com/blog/">Bruno Dulcetti</a> (a quase um mês) para participar de um meme, nesse para listar os blogs que mais entro.</p>
+
+<p>Então lá vai:</p>
+
+<p><a href="http://www.maujor.com">Maujor</a></p>
+
+<p><a href="http://www.revolucao.etc.br">Henrique Costa Pereira</a></p>
+
+<p><a href="http://www.meiobit.com/">Meiobit </a></p>
+
+<p>e agora o do próprio <a href="http://www.brunodulcetti.com/blog/">Bruno</a>, que infelizmente até então não conhecia.</p>
+
+<p>Minha lista é bem pequena mesmo, talvez por culpa do Google.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/11/javascript-datagrid/">Javascript: DataGrid</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-11T16:08:52-03:00" pubdate data-updated="true">Oct 11<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://rogeriolino.com/wp-content/uploads/2007/10/datagrid.jpg" alt="" /></p>
+
+<p>Há algum tempo queria fazer algo parecido e então tirei um tempo para desenvolver, ou pelo menos tentar, uma espécie de data grid.</p>
+
+<p>Este é composto por uma tabela de quantas linhas e colunas desejar, e em cada célula (<strong><td></strong>) contém um <strong><div></strong> e um <strong><input></strong>, no qual se alternam. Para uma hora poder alterar o seu conteúdo (mostra o <strong><input></strong>) e outra apenas exibi-lo (<strong><div></strong>).</p>
+
+<p>Ao clicar duas vezes (<strong>ondbclick</strong>) na célula o atributo <strong>type</strong> do <strong><input></strong> é alterado,
+se é <strong>text</strong> altera para <strong>hidden</strong> e seu valor é colocado dentro da <strong><div></strong> (<strong>innerHTML</strong>), caso contrário se é <strong>hidden</strong> altera-se para <strong>text</strong> e o seu valor recebe o conteúdo da <strong><div></strong> (limpando-a: div.<strong>innerHTML</strong> = &ldquo;&rdquo;;).</p>
+
+<p>Nessa primeira versão tem uma quantidade razoável de funções, possibilitando uma boa customização. Mas nada impede de utilizar <strong>CSS</strong> para conseguir um resultado mais desejado.</p>
+
+<p>Para utilizar o DataGrid é bastante simples, precisa apenas informar a quantidade de linhas e colunas e aonde deseja adicioná-la.</p>
+
+<pre><code>var datagrid = new DataGrid(10, 25);
+datagrid.setCelSize(10,10);
+datagrid.pack("container2");
+</code></pre>
+
+<p><strong> new DataGrid(linhas, colunas) </strong>: cria um novo DataGrid, com a quantidade de linhas e colunas desejada;</p>
+
+<p><strong>setCelSize(largura, altura) :</strong> seta uma largura e altura para as células (em pixels);</p>
+
+<p><strong>pack(alvo) :</strong>  inclui (append) o DataGrid no alvo desejado, passando como parâmetro o <strong>id </strong>do alvo.</p>
+
+<p>Para visualiza-lo funcionando clique no link a seguir:</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/datagrid/index.html">http://dev.rogeriolino.com/exemplos/javascript/datagrid/index.html</a></p>
+
+<p><strong>ps:</strong> Para reportar algum bug, dúvida ou sugestões basta deixar um comentário. Caso vá usá-lo recomendo que leia o código primeiro para poder aproveitá-lo melhor.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/09/04/javascript-password-generator/">Javascript: Password Generator</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-04T11:20:22-03:00" pubdate data-updated="true">Sep 4<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Hoje me deparei com o fato de ter que alterar a senha do FTP, e há algum tempo queria fazer um gerador de senhas.</p>
+
+<p>Então não teve momento mais oportuno, com um simples <strong>script</strong> que <strong>transforma</strong> um <strong>números aleatórios</strong> em <strong>char </strong>e pronto. Está resulvido o meu problema.</p>
+
+<pre><code>var Password = function() {
+    this.pass = "";
+    this.generate = function(chars) {
+        for (var i= 0; i&lt;chars; i++) {
+            this.pass += this.getRandomChar();
+        }
+        return this.pass;
+    }
+
+    this.getRandomChar = function() {
+        /*
+         * matriz contendo em cada linha indices (inicial e final) da tabela ASCII para retornar alguns caracteres.
+         *  [48, 57] = numeros;
+         *  [64, 90] = "@" mais letras maiusculas;
+         *  [97, 122] = letras minusculas;
+         */
+        var ascii = [[48, 57],[64,90],[97,122]];
+        var i = Math.floor(Math.random()*ascii.length);
+        return String.fromCharCode(Math.floor(Math.random()*(ascii[i][1]-ascii[i][0]))+ascii[i][0]);
+    }
+}
+</code></pre>
+
+<p>O que tem de novo nesse script em relação ao conteúdo do blog está na funcão <strong>getRandomChar. </strong>Primeiro temos um <strong>vetor bidimensional</strong> (matriz) que guardamos em cada linha dois valores (duas colunas).</p>
+
+<p>Guardamos esses dois valores porque estamos utilizando a tabela <a href="http://equipe.nce.ufrj.br/adriano/c/apostila/tabascii.htm">ASCII</a> para converter número em caracter. Portanto para não termos caracteres do tipo &ldquo;*&rdquo;, &ldquo;.&rdquo;, &ldquo;;&rdquo; (etc) em nossa senha, temos que delimitar quais caracteres podem ser gerados. Logo o primeiro valor guarda a primeiro caracter que pode ser exibido e o segundo o último, e entre eles todos podem ser exibidos.</p>
+
+<p>E para converter o valor no tão &ldquo;pelejado&rdquo;  caracter utilizamos a função própria do Javascript da classe String ( <strong>String.fromCharCode()</strong> ), que obviamente é passado um inteiro como parâmetro e retornado um char.</p>
+
+<p>Enfim o script é capaz de gerar senhas de tamanho 0 até 9999 (restringido devido que senhas muito grandes são mais demoradas para serem geradas, e pode levar a travamento do browser) contendo letras minúsculas (a até z), letras maiúsculas (A até Z), números (0 até 9) e &ldquo;@&rdquo; (arroba).</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/gerador_senhas/index.html"><img src="http://rogeriolino.com/wp-content/uploads/2007/09/password_generator.jpg" alt="Password Generator" /></a></p>
+
+<p>Espero que seja de bom aproveito.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/08/23/flash-game-tutorials/">Flash: Game Tutorials</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-08-23T18:04:38-03:00" pubdate data-updated="true">Aug 23<sup>rd</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Uma coisa que facina a mim e acredito que a muitos outros usuários do Flash é a posibilidade de desenvolver jogos bastante interativos com uma certa facilidade.</p>
+
+<p>Então como conhecimento em excesso nunca  é o bastante, segue alguns links de Tutoriais sobre criação de jogos (variados) em Flash, e links de experimentos interessantes.</p>
+
+<p>OutsideOfSociety (Tutoriais &ndash; Exemplos)
+<a href="http://oos.moxiecode.com/">http://oos.moxiecode.com/</a></p>
+
+<p>Tonypa (Tutoral &ndash; Tile Based Games)
+<a href="http://www.tonypa.pri.ee/tbw/start.html">http://www.tonypa.pri.ee/tbw/start.html</a></p>
+
+<p>Strille (Tutoriais)
+<a href="http://www.strille.net/tutorials/part1_scrolling.php">http://www.strille.net/tutorials/part1_scrolling.php</a></p>
+
+<p>Andre Michelle (Exemplos)
+<a href="http://lab.andre-michelle.com/">http://lab.andre-michelle.com/</a></p>
+
+<p>GotoAndPlay (Tutoriais)
+<a href="http://www.gotoandplay.it/">http://www.gotoandplay.it/</a></p>
+
+<p>GotoAndPlay (Tutorial &ndash; Zelda-like Game)
+<a href="http://www.gotoandplay.it/_articles/2003/10/zelda.php">http://www.gotoandplay.it/_articles/2003/10/zelda.php</a></p>
+
+<p>Tutorialized (Tutoriais)
+<a href="http://www.tutorialized.com/tutorials/Flash/Games/1">http://www.tutorialized.com/tutorials/Flash/Games/1</a></p>
+
+<p>MXStudio (Tutorial Megaman &ndash; Parte 1 e 2)
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128</a>
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132</a></p>
+
+<p>GameSheep (Tutorial &ndash; Flash Racing Game)
+<a href="http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php">http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php</a></p>
+
+<p>Emanuele Feronato (Tutorial)
+<a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/">http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/</a></p>
+
+<p><a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/"></a>Actionscript.org (Tutorial &ndash; Building Games in Flash)
+<a href="http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html">http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html</a></p>
+
+<p>Flash Dreamer (Tutorial &ndash; Into to OOP Game Design)
+<a href="http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/">http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/</a></p>
+
+<p>Flashkit (Tutorial &ndash; Scoreboard)
+<a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php">http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php</a></p>
+
+<p><a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php"></a>FlashPerfection (Tutorial &ndash; Pong)
+<a href="http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html">http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html</a></p>
+
+<p>Matheus Prestes (Tutorial &ndash; Tiles Map &ndash;  português)
+<a href="http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html">http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html </a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/7">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/5">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

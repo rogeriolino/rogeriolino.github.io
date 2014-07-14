@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Javascript: Password Generator - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Hoje me deparei com o fato de ter que alterar a senha do FTP, e há algum tempo queria fazer um gerador de senhas. Então não teve momento mais &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/blog/2007/09/04/javascript-password-generator">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Javascript: Password Generator</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-04T11:20:22-03:00" pubdate data-updated="true">Sep 4<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Hoje me deparei com o fato de ter que alterar a senha do FTP, e há algum tempo queria fazer um gerador de senhas.</p>
+
+<p>Então não teve momento mais oportuno, com um simples <strong>script</strong> que <strong>transforma</strong> um <strong>números aleatórios</strong> em <strong>char </strong>e pronto. Está resulvido o meu problema.</p>
+
+<pre><code>var Password = function() {
+    this.pass = "";
+    this.generate = function(chars) {
+        for (var i= 0; i&lt;chars; i++) {
+            this.pass += this.getRandomChar();
+        }
+        return this.pass;
+    }
+
+    this.getRandomChar = function() {
+        /*
+         * matriz contendo em cada linha indices (inicial e final) da tabela ASCII para retornar alguns caracteres.
+         *  [48, 57] = numeros;
+         *  [64, 90] = "@" mais letras maiusculas;
+         *  [97, 122] = letras minusculas;
+         */
+        var ascii = [[48, 57],[64,90],[97,122]];
+        var i = Math.floor(Math.random()*ascii.length);
+        return String.fromCharCode(Math.floor(Math.random()*(ascii[i][1]-ascii[i][0]))+ascii[i][0]);
+    }
+}
+</code></pre>
+
+<p>O que tem de novo nesse script em relação ao conteúdo do blog está na funcão <strong>getRandomChar. </strong>Primeiro temos um <strong>vetor bidimensional</strong> (matriz) que guardamos em cada linha dois valores (duas colunas).</p>
+
+<p>Guardamos esses dois valores porque estamos utilizando a tabela <a href="http://equipe.nce.ufrj.br/adriano/c/apostila/tabascii.htm">ASCII</a> para converter número em caracter. Portanto para não termos caracteres do tipo &ldquo;*&rdquo;, &ldquo;.&rdquo;, &ldquo;;&rdquo; (etc) em nossa senha, temos que delimitar quais caracteres podem ser gerados. Logo o primeiro valor guarda a primeiro caracter que pode ser exibido e o segundo o último, e entre eles todos podem ser exibidos.</p>
+
+<p>E para converter o valor no tão &ldquo;pelejado&rdquo;  caracter utilizamos a função própria do Javascript da classe String ( <strong>String.fromCharCode()</strong> ), que obviamente é passado um inteiro como parâmetro e retornado um char.</p>
+
+<p>Enfim o script é capaz de gerar senhas de tamanho 0 até 9999 (restringido devido que senhas muito grandes são mais demoradas para serem geradas, e pode levar a travamento do browser) contendo letras minúsculas (a até z), letras maiúsculas (A até Z), números (0 até 9) e &ldquo;@&rdquo; (arroba).</p>
+
+<p><a href="http://dev.rogeriolino.com/exemplos/javascript/gerador_senhas/index.html"><img src="http://rogeriolino.com/wp-content/uploads/2007/09/password_generator.jpg" alt="Password Generator" /></a></p>
+
+<p>Espero que seja de bom aproveito.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-09-04T11:20:22-03:00" pubdate data-updated="true">Sep 4<sup>th</sup>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.github.io/blog/2007/09/04/javascript-password-generator/" data-via="" data-counturl="http://rogeriolino.github.io/blog/2007/09/04/javascript-password-generator/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/08/23/flash-game-tutorials/" title="Previous Post: Flash: Game Tutorials">&laquo; Flash: Game Tutorials</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/10/11/javascript-datagrid/" title="Next Post: Javascript: DataGrid">Javascript: DataGrid &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

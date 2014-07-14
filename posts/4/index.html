@@ -1,0 +1,1673 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.github.io/posts/4">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/09/php-template-engines/">PHP: Template Engines</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-09T18:22:29-03:00" pubdate data-updated="true">Sep 9<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.</p>
+
+<p><a href="http://www.smarty.net/">Smarty</a></p>
+
+<p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
+
+<pre><code>&lt;ul&gt;
+{foreach from=$myArray item=foo}
+    &lt;li&gt;{$foo}&lt;/li&gt;
+{/foreach}
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$smarty = new Smarty;
+$arr = array(1000, 1001, 1002);
+$smarty-&gt;assign ('myArray', $arr);
+$smarty-&gt;display ('HelloWorld.tpl');
+</code></pre>
+
+<p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
+
+<p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+
+
+
+
+$tmpl = new vlibTemplate('tmpl/basic.htm');
+$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl-&gt;pparse();
+</code></pre>
+
+<p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
+
+<p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
+
+<pre><code> &lt;table&gt;
+     &lt;!-- START row --&gt;
+         &lt;tr&gt;
+             &lt;!-- START cell --&gt; 
+             &lt;td &gt;{td_value} &lt;/td&gt; 
+             &lt;!-- END cell --&gt;
+         &lt;/tr&gt;
+     &lt;!-- END row --&gt;
+ &lt;/table&gt;
+
+
+
+
+
+
+
+$fxlt = new fxl_template('example.tpl');
+$fxlt_row = $fxlt-&gt;get_block('row');
+$fxlt_cell = $fxlt_row-&gt;get_block('cell');
+for ($tr = 1; $tr &lt;= 3; $tr++) {
+    for ($td = 1; $td &lt;= 3; $td++) {
+        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
+        $fxlt_row-&gt;assign('cell', $fxlt_cell);
+        $fxlt_cell-&gt;clear();
+    }
+    $fxlt-&gt;assign('row', $fxlt_row);
+    $fxlt_row-&gt;clear();
+}
+$fxlt-&gt;display();
+</code></pre>
+
+<p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
+
+<p>Mais do mesmo, mas com alterações de sintaxe.</p>
+
+<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
+&lt;ul&gt;
+{foreach:rows,row}
+    &lt;li&gt;
+    {row['name']} 
+    &lt;/li&gt;
+{end:} 
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$t = new vemplator();
+// if/else
+$t-&gt;assign('logged', true);
+$t-&gt;assign('username', 'Rogerio');
+// loop
+$items = array(
+    array('name' =&gt; 'Laptop'),
+    array('name' =&gt; 'Memory Stick')
+);
+$t-&gt;assign('rows', $rows);
+echo $t-&gt;output('example.template.html');
+</code></pre>
+
+<p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
+
+<p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
+
+<pre><code> &lt;table &gt;
+ &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table &gt;
+
+
+
+
+
+
+
+$TBS =&amp; new clsTinyButStrong ;
+$TBS-&gt;LoadTemplate('template.htm') ;
+$list = array('X','Y','Z') ;
+$TBS-&gt;MergeBlock('blk',$list) ;
+$TBS-&gt;Show();
+</code></pre>
+
+<p><a href="http://dwoo.org/">Dwoo</a></p>
+
+<p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
+     &lt;div id="content"&gt;
+      {block "content"}
+        Welcome to my amazing homepage
+      {/block}
+     &lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+{extends "base.html"}
+{block "title"}
+Gallery
+{/block}
+{foreach $images img}
+    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
+  {/foreach}
+
+
+
+
+
+
+
+
+$dwoo = Dwoo();
+$images = array(
+    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
+    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
+);
+$params = array();
+$params['images'] = $images;
+echo $dwoo-&gt;get("gallery.tpl", $params);
+</code></pre>
+
+<p><a href="http://www.h2o-template.org/">h2o</a></p>
+
+<p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;PHP: Template Engines&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.
+</code></pre>
+
+<p><a href="http://www.smarty.net/">Smarty</a></p>
+
+<p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
+
+<pre><code>&lt;ul&gt;
+{foreach from=$myArray item=foo}
+    &lt;li&gt;{$foo}&lt;/li&gt;
+{/foreach}
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$smarty = new Smarty;
+$arr = array(1000, 1001, 1002);
+$smarty-&gt;assign ('myArray', $arr);
+$smarty-&gt;display ('HelloWorld.tpl');
+</code></pre>
+
+<p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
+
+<p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+
+
+
+
+$tmpl = new vlibTemplate('tmpl/basic.htm');
+$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl-&gt;pparse();
+</code></pre>
+
+<p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
+
+<p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
+
+<pre><code> &lt;table&gt;
+     &lt;!-- START row --&gt;
+         &lt;tr&gt;
+             &lt;!-- START cell --&gt; 
+             &lt;td &gt;{td_value} &lt;/td&gt; 
+             &lt;!-- END cell --&gt;
+         &lt;/tr&gt;
+     &lt;!-- END row --&gt;
+ &lt;/table&gt;
+
+
+
+
+
+
+
+$fxlt = new fxl_template('example.tpl');
+$fxlt_row = $fxlt-&gt;get_block('row');
+$fxlt_cell = $fxlt_row-&gt;get_block('cell');
+for ($tr = 1; $tr &lt;= 3; $tr++) {
+    for ($td = 1; $td &lt;= 3; $td++) {
+        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
+        $fxlt_row-&gt;assign('cell', $fxlt_cell);
+        $fxlt_cell-&gt;clear();
+    }
+    $fxlt-&gt;assign('row', $fxlt_row);
+    $fxlt_row-&gt;clear();
+}
+$fxlt-&gt;display();
+</code></pre>
+
+<p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
+
+<p>Mais do mesmo, mas com alterações de sintaxe.</p>
+
+<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
+&lt;ul&gt;
+{foreach:rows,row}
+    &lt;li&gt;
+    {row['name']} 
+    &lt;/li&gt;
+{end:} 
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$t = new vemplator();
+// if/else
+$t-&gt;assign('logged', true);
+$t-&gt;assign('username', 'Rogerio');
+// loop
+$items = array(
+    array('name' =&gt; 'Laptop'),
+    array('name' =&gt; 'Memory Stick')
+);
+$t-&gt;assign('rows', $rows);
+echo $t-&gt;output('example.template.html');
+</code></pre>
+
+<p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
+
+<p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
+
+<pre><code> &lt;table &gt;
+ &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table &gt;
+
+
+
+
+
+
+
+$TBS =&amp; new clsTinyButStrong ;
+$TBS-&gt;LoadTemplate('template.htm') ;
+$list = array('X','Y','Z') ;
+$TBS-&gt;MergeBlock('blk',$list) ;
+$TBS-&gt;Show();
+</code></pre>
+
+<p><a href="http://dwoo.org/">Dwoo</a></p>
+
+<p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
+     &lt;div id="content"&gt;
+      {block "content"}
+        Welcome to my amazing homepage
+      {/block}
+     &lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+{extends "base.html"}
+{block "title"}
+Gallery
+{/block}
+{foreach $images img}
+    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
+  {/foreach}
+
+
+
+
+
+
+
+
+$dwoo = Dwoo();
+$images = array(
+    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
+    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
+);
+$params = array();
+$params['images'] = $images;
+echo $dwoo-&gt;get("gallery.tpl", $params);
+</code></pre>
+
+<p><a href="http://www.h2o-template.org/">h2o</a></p>
+
+<p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{{ page.title }}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     {{ page.content }}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+$h2o = new h2o('index.html');
+$page = array(
+  'title' =&gt; 'title of a page',
+  'body' =&gt; 'Hello world'
+);
+echo $h2o-&gt;render(compact('page'));
+</code></pre>
+
+<p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
+
+<p>Entre os projetos disponíveis no PEAR (<a href="http://pear.php.net/package/HTML_Template_PHPLIB/">PHPLIB</a>, <a href="http://pear.php.net/package/HTML_Template_Sigma/">Sigma</a> e <a href="http://pear.php.net/package/HTML_Template_IT/">IT</a>) esse é o melhor.</p>
+
+<p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{title}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
+    Input Box: &lt;input name="input" /&gt;
+    &lt;ul&gt;
+        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
+        &lt;li flexy:foreach="numbers,number,string" &gt;
+            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;!-- chamando o método da classe --&gt;
+    {someMethod()}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+class controller_test  {
+
+    var $title;
+    var $numbers = array();
+    var $elements = array();
+
+    function controller_test() {
+        $this-&gt;start();
+        $this-&gt;output();
+    }
+
+    function start() {
+        $this-&gt;title = "Hello World";
+        // create an HTML Element for the form element.
+        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
+        $this-&gt;elements['input']-&gt;setValue('Hello');
+
+        for ($i = 1;$i&lt; 5;$i++) {
+            $this-&gt;numbers[$i] = "Number $i";
+        }
+    }
+
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output-&gt;compile("home.html");
+        $output-&gt;outputObject($this,$this-&gt;elements);
+    }
+
+    function someMethod() {
+        return "Hello From A Method";
+    }
+
+}
+new controller_test();
+</code></pre>
+
+<p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
+
+<p>Em meados do ano passado comecei escrever uma engine baseada no <a href="https://javaserverfaces.dev.java.net/">JSF</a>+<a href="https://facelets.dev.java.net/">Facelets</a> (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).</p>
+
+<pre><code> &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+$h2o = new h2o('index.html');
+$page = array(
+  'title' =&gt; 'title of a page',
+  'body' =&gt; 'Hello world'
+);
+echo $h2o-&gt;render(compact('page'));
+</code></pre>
+
+<p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
+
+<p>Entre os projetos disponíveis no PEAR (<a href="http://pear.php.net/package/HTML_Template_PHPLIB/">PHPLIB</a>, <a href="http://pear.php.net/package/HTML_Template_Sigma/">Sigma</a> e <a href="http://pear.php.net/package/HTML_Template_IT/">IT</a>) esse é o melhor.</p>
+
+<p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{title}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
+    Input Box: &lt;input name="input" /&gt;
+    &lt;ul&gt;
+        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
+        &lt;li flexy:foreach="numbers,number,string" &gt;
+            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;!-- chamando o método da classe --&gt;
+    {someMethod()}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+class controller_test  {
+
+    var $title;
+    var $numbers = array();
+    var $elements = array();
+
+    function controller_test() {
+        $this-&gt;start();
+        $this-&gt;output();
+    }
+
+    function start() {
+        $this-&gt;title = "Hello World";
+        // create an HTML Element for the form element.
+        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
+        $this-&gt;elements['input']-&gt;setValue('Hello');
+
+        for ($i = 1;$i&lt; 5;$i++) {
+            $this-&gt;numbers[$i] = "Number $i";
+        }
+    }
+
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output-&gt;compile("home.html");
+        $output-&gt;outputObject($this,$this-&gt;elements);
+    }
+
+    function someMethod() {
+        return "Hello From A Method";
+    }
+
+}
+new controller_test();
+</code></pre>
+
+<p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
+
+<p>Em meados do ano passado comecei escrever uma engine baseada no <a href="https://javaserverfaces.dev.java.net/">JSF</a>+<a href="https://facelets.dev.java.net/">Facelets</a> (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/06/17/css-footer-always-in-bottom/">CSS: Footer Always in Bottom</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-17T11:51:50-03:00" pubdate data-updated="true">Jun 17<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>É muito comum vermos pessoas procurando saber como deixar um elemento HTML sempre no final da página, mas caso a página seja redimensionada criando rolagem, esse elemento continue no final dela. Ou seja, não apenas colocar o elemento com position fixed.</p>
+
+<p>Para tal exemplo vamos precisar de um HTML simples:</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="page"&gt;
+        &lt;div id="content"&gt;
+            &lt;h1&gt;Footer always in bottom&lt;/h1&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet imperdiet justo, quis congue velit egestas quis. Suspendisse ac tellus vitae est ultrices imperdiet eget at dolor. Donec sit amet viverra arcu. Aenean pulvinar vehicula justo, tincidunt congue nisi pharetra eu. Suspendisse potenti. Sed libero quam, lacinia at facilisis eu, egestas sodales dolor. Duis gravida, diam interdum cursus dictum, ligula libero pellentesque lacus, vitae viverra nulla metus id erat. Suspendisse fermentum aliquam hendrerit. Sed vulputate massa ut felis sagittis molestie. Suspendisse facilisis condimentum diam, a hendrerit urna venenatis sit amet. Cras orci diam, aliquam quis fringilla ac, euismod vel orci. Quisque ac pharetra nisi. Quisque et orci ligula. Praesent lacus felis, bibendum ac varius ac, eleifend in nulla. Aliquam sodales porttitor iaculis. Aliquam pretium risus ac neque egestas convallis. Sed dignissim massa ut odio vestibulum gravida ut vel nulla.&lt;/p&gt;
+            &lt;p&gt;Sed non lacus in nibh lobortis imperdiet. Aliquam auctor tellus quis elit adipiscing consequat. Ut in elit at orci dapibus gravida interdum eget sapien. Sed lobortis, massa nec aliquet aliquet, nulla mi tincidunt quam, id iaculis turpis nibh interdum leo. Curabitur in lorem et risus ultrices pharetra. Mauris adipiscing eros vitae diam sodales et rutrum velit consequat. Fusce adipiscing congue ultrices. Nullam fermentum ullamcorper urna a malesuada. Sed sit amet congue tortor. Nulla accumsan blandit diam sed feugiat. Morbi lobortis fermentum metus, ac pulvinar dui commodo ut.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div id="footer"&gt;
+            &lt;p&gt;footer here&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>E o CSS abaixo:</p>
+
+<pre><code>* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+}
+
+#page {
+    min-height: 100%;
+    position: relative;
+}
+
+#footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+</code></pre>
+
+<p>O <a href="http://dev.rogeriolino.com/exemplos/css/footer_bottom/index.html">exemplo funcionando você confere aqui</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/05/06/javascript-game-engine-for-html5-canvas/">Javascript Game Engine for HTML5 Canvas</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-06T16:04:35-03:00" pubdate data-updated="true">May 6<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Comecei escrever um pequeno projeto para facilitar a criação de jogos em Javascript utilizando HTML5 Canvas para isso. Baseado em <a href="http://en.wikipedia.org/wiki/Scene_graph">scenegraph</a> podendo criar nós dependentes, relativos ao nó pai. Por enquanto a estrutura da engine é composta por:</p>
+
+<blockquote>
+**Canvas:** para encapsular a tag canvas, pegando automaticamente o context e fornecendo algumas funções a mais.
+
+**Game:** o jogo em sí, possui uma ou muitas cenas (Scene). Contém o loop principal para atualizações do canvas. Necessita de uma instância do Canvas.
+
+**Scene:** deve ser estendida para criar cenas customizadas, deve implementar o método update(interval).
+
+**CanvasNode:** um nó do grafo, possui as coordenadas e ângulo de rotação do elemento no canvas.
+
+**CanvasNodeGroup:** um grupo de nós. Estende CanvasNode.
+
+**Graphics:** um nó &#8220;printável&#8221;, quem for estendê-lo deve implementar o método draw(). Possui como subclasses: Rectangle, Triangle, Circle, Text, Image2d e Line.
+
+**GraphicsGroup:** estende CanvasNodeGroup, possui um grupo de graphics. Scene é um GraphicsGroup.
+
+</blockquote>
+
+
+<p>Os próximos passos serão a implementação de TileMap, Scene Intro, Menu e botões. Agora é só aguardar até o próximo exemplo.</p>
+
+<p><strong>[update 2010-05-06]</strong>
+Added mouse and button support.
+See example above.
+<strong>[/update]</strong></p>
+
+<p><strong>[update 2010-05-06]</strong>
+Examples in <a href="http://mangame.rogeriolino.com/">http://mangame.rogeriolino.com/</a>
+<strong>[/update]</strong></p>
+
+<p><strong>[update 2011-11-11]</strong>
+Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub</a>!
+<strong>[/update]</strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/22/php-socket-class/">PHP: Socket Class</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-22T16:19:03-03:00" pubdate data-updated="true">Apr 22<sup>nd</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>
+**[UPDATE 16-05-2012]**
+Criei um projeto no Github e também adicionei suporte ao Websocket.
+[Clique aqui para ver o post novo](http://rogeriolino.com/2012/05/16/html5-websocket)
+**[/UPDATE]**
+</blockquote>
+
+
+<p>Muitas linguagens oferecem suporte a <a href="http://en.wikipedia.org/wiki/Internet_socket">Sockets</a>, e com <a href="http://php.net/manual/en/book.sockets.php">PHP</a> não é diferente, porém a falta de orientação a objetos nas funções do PHP pode ser um inconveniente para algumas pessoas. E como eu me incluo entre essas pessoas, quando precisei utilizar sockets em PHP acabei criando um classe para englobar essas funções soltas e fornecer tratamento a erros.</p>
+
+<pre><code>/**
+ * Copyright 2010 http://rogeriolino.com
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Socket
+ *
+ * @author rogeriolino
+ */
+class Socket {
+
+    private $port     = 3000;
+    private $address  = "localhost";
+    private $blocking = true;
+
+    private $buffer   = 2048;
+    private $backlog  = 5;
+
+    private $type     = SOCK_STREAM;
+    private $family   = AF_INET;
+    private $protocol = SOL_TCP;
+
+    private $resource;
+
+    /**
+     * Socket constructor
+     * @param  $resource
+     */
+    public function  __construct($resource = null) {
+        if ($resource == null) {
+            $this-&gt;resource = socket_create($this-&gt;family, $this-&gt;type, $this-&gt;protocol);
+        } else {
+            $this-&gt;resource = $resource;
+        }
+    }
+
+    /**
+     * Returns the socket port
+     * @return int
+     */
+    public function getPort() {
+        return $this-&gt;port;
+    }
+
+    /**
+     * Define the socket port
+     * @param int $port
+     */
+    public function setPort($port) {
+        $this-&gt;port = $port;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getAddress() {
+        return $this-&gt;address;
+    }
+
+    public function setAddress($address) {
+        $this-&gt;address = $address;
+    }
+
+    /**
+     * Returns if the socket is blocking mode
+     * @return boolean
+     */
+    public function isBlocking() {
+        return $this-&gt;blocking;
+    }
+
+    /**
+     * Defines whether the socket is blocking or nonblocking mode
+     * @param boolean $block
+     */
+    public function setBlocking($blocking) {
+        $this-&gt;blocking = ($blocking == true);
+        $this-&gt;updateBlockingMode();
+    }
+
+    /**
+     * Returns the socket communication type
+     * @return int
+     */
+    public function getType() {
+        return $this-&gt;type;
+    }
+
+    /**
+     * Define the socket communication type
+     * @param int $type
+     */
+    public function setType($type) {
+        if ($type == SOCK_STREAM || $type == SOCK_DGRAM || $type == SOCK_SEQPACKET || $type == SOCK_RAW || $type == SOCK_RDM) {
+            $this-&gt;type = $type;
+        } else {
+            throw new SocketException("Invalid socket communication type");
+        }
+    }
+
+    /**
+     * Returns the socket protocol family
+     * @return int
+     */
+    public function getFamily() {
+        return $this-&gt;family;
+    }
+
+    /**
+     * Define the socket protocol family
+     * @param int $family
+     */
+    public function setFamily($family) {
+        if ($family == AF_INET || $family == AF_INET6 || $family == AF_UNIX) {
+            $this-&gt;family = $family;
+        } else {
+            throw new SocketException("Invalid socket protocol family");
+        }
+    }
+
+    /**
+     * Returns the socket protocol
+     * @return int
+     */
+    public function getProtocol() {
+        return $this-&gt;protocol;
+    }
+
+    /**
+     * Define the socket protocol, must be compatible whit the protocol family
+     * @param int $protocol
+     */
+    public function setProtocol($protocol) {
+        if ($protocol == SOL_TCP || $protocol == SOL_UDP || $protocol == SOL_SOCKET) {
+            $this-&gt;protocol = $protocol;
+        } else {
+            throw new SocketException("Invalid socket protocol");
+        }
+    }
+
+    /**
+     * Binds to a socket
+     * @throws SocketException
+     */
+    public function bind() {
+        if (socket_bind($this-&gt;resource, $this-&gt;address, $this-&gt;port) === false) {
+            throw new SocketException("Socket bind failed: " . $this-&gt;error());
+        }
+    }
+
+    /**
+     * Listens for a connection on a socket
+     * @throws SocketException
+     */
+    public function listen() {
+        if (socket_listen($this-&gt;resource, $this-&gt;backlog) === false) {
+            throw new SocketException("Socket listen failed: " . $this-&gt;error());
+        }
+    }
+
+    /**
+     * Accepts a connection
+     * @throws SocketException
+     * @return Socket
+     */
+    public function accept() {
+        $sock = socket_accept($this-&gt;resource);
+        if ($sock === false) {
+            throw new SocketException("Socket accept failed: " . $this-&gt;error());
+        }
+        return new Socket($sock);
+    }
+
+    /**
+     * Reads data from the connected socket
+     * @return string
+     */
+    public function read() {
+        $data = "";
+        while (($m = socket_read($this-&gt;resource, $this-&gt;buffer)) != "") {
+            $data .= $m;
+        }
+        return $data;
+    }
+
+    /**
+     * Write the data to connected socket
+     * @param string $message
+     */
+    public function write($data) {
+        socket_write($this-&gt;resource, $data, strlen($data));
+    }
+
+    /**
+     * Initiates a connection on a socket
+     * @throws SocketException
+     * @return boolean
+     */
+    public function connect() {
+        try {
+            return socket_connect($this-&gt;resource, $this-&gt;address, $this-&gt;port);
+        } catch (SocketException $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Close the socket connection
+     */
+    public function close() {
+        socket_close($this-&gt;resource);
+    }
+
+    private function updateBlockingMode() {
+        if ($this-&gt;blocking) {
+            socket_set_block($this-&gt;resource);
+        } else {
+            socket_set_nonblock($this-&gt;resource);
+        }
+    }
+
+    private function error() {
+        return socket_strerror(socket_last_error($this-&gt;resource));
+    }
+
+}
+</code></pre>
+
+<p>Classe para as exceções:</p>
+
+<pre><code>/**
+ * Copyright 2010 http://rogeriolino.com
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * SocketException
+ *
+ * @author rogeriolino
+ */
+class SocketException extends Exception {
+
+    public function  __construct($message, $code = 0, $previous = null) {
+        $this-&gt;message = $message;
+        $this-&gt;code = $code;
+        $this-&gt;message = $previous;
+    }
+
+}
+</code></pre>
+
+<p>Espero que seja de bom aproveito.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/08/twitter-resumo-2/">Twitter: Resumo #2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-08T19:33:08-03:00" pubdate data-updated="true">Apr 8<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://twitter.com/rogeriolino"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/Twitter.gif" alt="Twitter" /></a></p>
+
+<ul>
+<li><p><a href="http://bit.ly/9e0f43">SVG Wow Demos</a></p></li>
+<li><p><a href="http://bit.ly/9V8vNl">Code Bubbles: Rethinking the User Interface Paradigm of IDEs</a></p></li>
+<li><p><a href="http://bit.ly/blEHlO">JSON visualization tool</a></p></li>
+<li><p><a href="http://bit.ly/cQYvpx">Reloading Java Classes: HotSwap and JRebel &ndash; Behind the Scenes</a></p></li>
+<li><p><a href="http://bit.ly/dqDWXN">Justiça volta a incluir Anatel como ré em processo que questiona banda larga</a></p></li>
+<li><p><a href="http://bit.ly/9Vfaww">HTML5 Database</a></p></li>
+<li><p><a href="http://bit.ly/aHcpYC">Valve Brings Hit Games, Steam Service to Mac</a></p></li>
+<li><p><a href="http://bit.ly/dofBNt">Bespin Code in the Cloud</a></p></li>
+<li><p><a href="http://bit.ly/9EM04F">Com novo roteador, Cisco promete turbinar internet do futuro</a></p></li>
+<li><p><a href="http://bit.ly/akLBcU">Google Island e a banda larga ultrarrápida</a></p></li>
+<li><p><a href="http://bit.ly/bS5o1k">The Reddit problem: Learning from mistakes</a></p></li>
+<li><p><a href="http://bit.ly/czdLxj">NoSQL v. SQL is the worst holy war ever.</a></p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/01/flash-swfaddress-rewrite-seo/">Flash: SWFAddress + ReWrite = SEO</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-01T11:44:53-03:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
+
+<blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
+
+> 
+> 
+    
+>   * Adicionar ao Favoritos de um navegador ou site social
+> 
+    
+>   * Enviar links via email ou mensageiros instantâneos
+> 
+    
+>   * Procurar por um conteúdo específico através dos sites de buscas
+> 
+    
+>   * Utilizar o histórico do navegador e o botão de recarregar
+> 
+
+</blockquote>
+
+
+<p>O <a href="http://www.adobe.com/br/products/flash/">Flash</a> está para o <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> assim como o <a href="http://cinemaeafins.com/files/2008/11/batmancoringa.jpg">Coringa está para o Batman</a>. Mas nem tudo está perdido quando se trata de otimizar a indexação do site em SWF nos mecanismos de busca. Com SWFAddress você pode interagir com a página via javascript alterando a URL e o próprio conteúdo do filme, possibilidade do o uso dos botões voltar e avançar do browser, adicionar ao Favoritos e alterar a animação do seu filme de acordo com a URL que está sendo requisitada.</p>
+
+<p>Caso sua página seja acessada através da URL **<a href="http://siteemflash.com/#contato**,">http://siteemflash.com/#contato**,</a> você poderá pular na timeline indo direto para o frame do contato. Para evitar o reload da página toda interação é feita através de âncoras html (#). E as alterações da URL utilizando âncoras são desprezadas pelos buscadores, uma vez que a âncora só serve para movimentar o foco na mesma página, logo o seu conteúdo permanece inalterado.</p>
+
+<p>É aí que entra o <a href="http://httpd.apache.org/docs/1.3/mod/mod_rewrite.html">módulo ReWrite do Apache</a>, com o mod_rewrite podemos escrever condições para tratar as requisições, redirecionando-as ou não. Então voltando ao exemplo anterior, teríamos uma condição que quando for requisitada a página **<a href="http://siteemflash.com/contato**">http://siteemflash.com/contato**</a> (ou qualquer outra URL) redireciona para a página inicial (index) adicionando a âncora para contato (#contato) e imprime na página o conteúdo referente à mesma. Esse conteúdo impresso não será visível, apenas para indexação. O <a href="http://pt.wikipedia.org/wiki/Sitemap">sitemap</a> ou a estrutura básica do site, também deve estar contido no bloco de código html invisível, juntamente com todas outras informações relevantes.</p>
+
+<p>Resumindo, você acaba tendo um trabalho dobrado ao desenvolver o site, mas evita transtornos de indexação. É muito útil para quem não abre mão do site feito com o uso da ferramenta da Adobe.</p>
+
+<p>No próprio site da Asual tem um <a href="http://www.asual.com/swfaddress/samples/seo/">exemplo de uso do SWFAddress para SEO</a> (o exemplo pode ser baixado pelo site). Abaixo segue alguns sites que fizeram uso da biblioteca, no qual o primeiro eu participei do desenvolvimento:</p>
+
+<ul>
+<li><p><a href="http://www.oticasparis.com.br/">Óticas Paris</a></p></li>
+<li><p><a href="http://www.salinas-rio.com.br/inverno2010/">Salinas Rio -inverno2010</a></p></li>
+<li><p><a href="http://www.umbro.com/">Umbro</a></p></li>
+<li><p><a href="http://www.mis-architecture.co.uk/">Mis Architecture</a></p></li>
+<li><p><a href="http://www.kraftfoods.com/foodandfamily">Kraftfoods &ndash; Food and Family</a></p></li>
+<li><p><a href="http://www.bartleboglehegarty.com/">BBH</a></p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/26/php-annotations/">PHP: Annotations</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-26T10:21:12-03:00" pubdate data-updated="true">Mar 26<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>É indiscutível a agilidade e facilidade de configuração que as annotations provêm no <a href="http://java.sun.com/">Java</a>, e com o objetivo de trazer tal comodidade ao <a href="http://php.net">PHP</a> surgiu o projeto <a href="http://code.google.com/p/addendum/">Addendum</a> &ndash; escrito por <a href="http://jsmf.net/">Jan Suchal</a> &ndash; que permite via <a href="http://en.wikipedia.org/wiki/Reflection_(computer_science">Reflection</a>) acessar as annotations das classes.</p>
+
+<p>As annotations devem ser escritas em blocos de comentários, uma vez que o <a href="http://thesmithfam.org/blog/2006/05/07/php-the-operator/">@</a> (caracter que inicia uma annotation) é um caractere reservado no PHP. Elas podem ser mono ou multi valoradas de acordo com os exemplos abaixo.</p>
+
+<pre><code>// Custom annotation
+class Persistent extends Annotation {}
+
+// Custom annotation
+class Table extends Annotation {}
+
+// Multi valued annotation
+class Secured extends Annotation {
+   public $role;
+   public $level;
+}
+
+/** 
+ * @Persistent 
+ * @Table("people")
+ * @Secured(role = "admin", level = 2)
+ */
+class Person {
+   // some code
+}
+
+// getting the annotation by class name
+$reflection = new ReflectionAnnotatedClass('Person');
+
+// getting the annotation by instance
+$person = new Person();
+$reflection = new ReflectionAnnotatedClass($person);
+
+// true
+$reflection-&gt;hasAnnotation('Persistent'); 
+
+// contains string "people"
+$reflection-&gt;getAnnotation('Table')-&gt;value; 
+</code></pre>
+
+<p>E seguindo na mesma onda da <a href="http://java.sun.com/javaee/technologies/persistence.jsp">JPA</a>, a <a href="http://www.doctrine-project.org/blog/php-5-3-and-doctrine-2-0-teaser">versão 2.0 do projeto Doctrine</a> implementou também a mesma funcionalidade e agora possui suas próprias annotations facilitando a configuração das classes de persistência e seus relacionamentos.</p>
+
+<pre><code>/**
+ * @DoctrineEntity(tableName="cms_articles")
+ */
+class CmsArticle {
+
+   /**
+    * @DoctrineId
+    * @DoctrineColumn(type="integer")
+    * @DoctrineIdGenerator("auto")
+    */
+   public $id;
+
+   /**
+    * @DoctrineColumn(type="varchar", length=255)
+    */
+   public $topic;
+
+   /**
+    * @DoctrineColumn(type="varchar")
+    */
+   public $text;
+
+   /**
+    * @DoctrineManyToOne(targetEntity="CmsUser",
+           joinColumns={"user_id" = "id"})
+    */
+   public $user;
+
+   /**
+    * @DoctrineOneToMany(targetEntity="CmsComment", mappedBy="article")
+    */
+   public $comments;
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/18/sga-livre/">SGA Livre</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-18T09:51:13-03:00" pubdate data-updated="true">Mar 18<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em><strong>ATENÇÃO:</strong> Se você está pensando em utilizar um sistema para gerenciar a fila de atendimento da sua organização, conheça o <a href="http://www.novosga.org">Novo SGA</a>.</em></p>
+
+<hr />
+
+<p><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_logo.jpg" alt="" /></p>
+
+<blockquote>**SGA LIVRE** significa Sistema de Gerenciamento do Atendimento, versão Livre. É desenvolvido pela DATAPREV, totalmente baseado em tecnologias de software livre e de código aberto.
+
+Através do SGA é possível gerenciar filas e fluxo de atendimento em quaisquer tipos de empresas ou organizações que prestam serviço de atendimento presencial à pessoas.
+
+O SGA oferece o controle de filas de atendimento através de emissão de senhas e chamada das mesmas através de painéis. As filas de atendimento podem conter um único serviço ou um grupo de serviços. Os painéis podem chamar um, vários ou todos os serviços. Uma unidade de atendimento pode ter vários painéis.
+
+O SGA é mais do que um sistema de controle de filas. Ao gerenciar o fluxo de atendimento, o sistema apresenta uma série de recursos que auxiliam na gerência e administração das unidades de atendimento.
+
+Fornece uma diversidade de informações gerenciais preciosas, através de relatórios, estatísticas e gráficos avançados sobre atendimentos de uma unidade, de um grupo de unidades ou de todas elas. É possível obter estatísticas e tempos médios de atendimento por atendente, por período e por unidade, entre outras. Pode-se obter dados detalhados ou agregados.
+
+As informações gerenciais fornecidas pelo SGA possibilitam aos gestores planejar, acompanhar, monitorar, otimizar e agilizar o atendimento aos clientes.
+
+fonte: [http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494](http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494)</blockquote>
+
+
+<p>Não é novidade o lançamento da versão livre do SGA, porém é com muito orgulho que hoje vejo este software ganhando força no cenário nacional, e também por ter participado do seu desenvolvimento. O software foi desenvolvido em <a href="http://php.net">PHP</a> fornecendo uma camada para abstração do <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDMS</a>, utilizando como interface de acesso o <a href="http://php.net/manual/en/book.pdo.php">PDO</a> (suporte padrão ao <a href="http://www.postgresql.org">PostgreSQL</a>). Tal contribuição foi desde definir a estrutura do sistema, passando por diagramação, HTML, CSS, até a programação PHP e Javascript.</p>
+
+<p>[caption id=&ldquo;attachment_238&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;294&rdquo; caption=&ldquo;Tela de instalação do SGA&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao-294x300.jpg" alt="" /></a>[/caption]</p>
+
+<p>Dividido em módulos é fácil customizar a ferramenta para atender as  necessidades específicas de qualquer centro de atendimento. Para facilitar o uso de requisições assíncronas no sistema foi  utilizada o código <a href="http://pt.wikipedia.org/wiki/AJAX_(programa%C3%A7%C3%A3o">Ajax</a>) da lib escrita por mim e já comentada nesse blog (<a href="http://rogeriolino.com/2009/03/11/javascript-libjsx/">libjsx</a>, <a href="http://code.google.com/p/libjsx/source/browse/trunk/org/libjsx/ajax/Ajax.js">Ajax.js</a>).</p>
+
+<p><a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg"></a></p>
+
+<p>[caption id=&ldquo;attachment_237&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;300&rdquo; caption=&ldquo;Tela de atendimento do SGA&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento-300x239.jpg" alt="" /></a>[/caption]</p>
+
+<p>Quem quiser utilizar ou contribuir com o projeto basta se cadastrar no site <a href="http://www.softwarepublico.gov.br/">http://www.softwarepublico.gov.br/</a> e acessar a página da <a href="http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494">comunidade</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/11/html5-database/">HTML5: Database</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-11T16:17:36-03:00" pubdate data-updated="true">Mar 11<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Uma das funcionalidades mais robustas presentes nessa nova versão do HTML é exatamente o suporte ao armazenamento local, sem ser por <a href="http://pt.wikipedia.org/wiki/Cookie">Cookie</a> mas sim pelo banco de dados presente no browser. Tal funcionalidade já está presente no <a href="http://webkit.org">Webkit</a> que fornece uma aplicação de exemplo: <a href="http://webkit.org/demos/sticky-notes/">http://webkit.org/demos/sticky-notes/</a>.</p>
+
+<p>No Webkit as informações são armazenadas utilizando <a href="http://www.sqlite.org/">SQLite</a>, e acredito que o Firefox irá pelo mesmo caminho, já que ele também utiliza o SQLite para armazenar os &ldquo;Favoritos&rdquo;.</p>
+
+<p>Para abrir a conexão com a banco de dados (<strong>openDatabase</strong>) deve-se informar o nome do banco (<em>database name</em>), a versão (<em>database version</em>), o nome de exibição (<em>display name</em>) e o tamanho estimado em bytes (<em>estimated size</em>) que será armazenado.</p>
+
+<pre><code>var db;
+try {
+    if (window.openDatabase) {
+        db = openDatabase("MyDB", "1.0", "HTML5 Database Example", 200000);
+        if (!db) {
+            alert("Failed to open the database.");
+        }
+    } else {
+        alert("Couldn't open the database.");
+    }
+} catch(err) { }
+</code></pre>
+
+<p>Uma vez estabelecida a conexão a interação passa ser efetuada através de comandos <a href="http://pt.wikipedia.org/wiki/SQL">SQL</a>.</p>
+
+<pre><code>db.transaction(function(tx) {
+tx.executeSql("CREATE TABLE myTable (id REAL UNIQUE, name TEXT, description TEXT, timestamp REAL");
+});
+
+db.transaction(function (tx) {
+tx.executeSql("INSERT INTO myTable (id, name, description, timestamp) VALUES (?, ?, ?, ?)", [id, name, description, timestamp]);
+});
+
+db.transaction(function(tx) {
+tx.executeSql("DELETE FROM myTable WHERE id = ?", [id]);
+});
+
+db.transaction(function(tx) {
+    tx.executeSql(
+        "SELECT * FROM myTable WHERE id = ?", 
+         [id], 
+         function(tx, result) {
+             // success
+             if (result.rows.length &gt; 0) {
+                   alert("My name is: " + result.rows.item(0)['name']);
+             } else {
+                  alert("Sorry, no result for this id");
+              }
+         }, 
+         function(tx, error) {
+             // error
+             alert("Error when try retrieve data: " + error.message);
+         }
+    );
+});
+</code></pre>
+
+<p>O método <strong>executeSql</strong> pode receber 4 parâmetros, sendo eles:</p>
+
+<ul>
+<li><p>O SQL a ser executado</p></li>
+<li><p>Os valores parametrizados para serem utilizados na consulta (array)</p></li>
+<li><p>Função callback para ser executada caso haja sucesso (onSuccess)</p></li>
+<li><p>Função callback para ser executada caso haja falha (onError)</p></li>
+</ul>
+
+
+<p>Sinceramente eu achei muito legal conceder mais esse poder ao Javascript no HTML5, porém <em>&ldquo;com grandes poderes vêm grandes responsabilidades&rdquo;</em>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/05/twitter-resumo-1/">Twitter: Resumo #1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-05T20:44:31-03:00" pubdate data-updated="true">Mar 5<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://twitter.com/rogeriolino"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/Twitter.gif" alt="" /></a></p>
+
+<ul>
+<li><p><a href="http://bit.ly/aLnYDH">IE6 Funeral</a></p></li>
+<li><p><a href="http://bit.ly/9aolgt">The Computer Language Benchmarks Game</a></p></li>
+<li><p><a href="http://bit.ly/c21JDs">Java Performance comparisons</a></p></li>
+<li><p><a href="http://bit.ly/9on1mE">Ubuntu cada vez mais Mac</a></p></li>
+<li><p><a href="http://bit.ly/bpO0QQ">Password Chart: bom para os gestores de redes</a></p></li>
+<li><p><a href="http://bit.ly/aPGsB4">Empresa aérea bane Flash de seu site</a></p></li>
+<li><p><a href="http://bit.ly/ciYcRG">Twitter Drops MySQL For Cassandra</a></p></li>
+<li><p><a href="http://bit.ly/8XMxc2">PS3 Bug</a></p></li>
+<li><p><a href="http://bit.ly/d8p6xw">Mercado de games sofre com falta de mão de obra</a></p></li>
+<li><p><a href="http://bit.ly/cFMmvJ">Nova hierarquia para certificações Java</a></p></li>
+</ul>
+
+
+<p>Gostou dos links? <a href="http://twitter.com/rogeriolino">Follow me!</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/5">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/3">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
