@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Flash | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/flash/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Flash: SWFAddress + ReWrite = SEO]]></title>
+    <link href="http://rogeriolino.com/2010/04/01/flash-swfaddress-rewrite-seo/"/>
+    <updated>2010-04-01T11:44:53-03:00</updated>
+    <id>http://rogeriolino.com/2010/04/01/flash-swfaddress-rewrite-seo</id>
+    <content type="html"><![CDATA[<p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
+
+<blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
+
+> 
+> 
+    
+>   * Adicionar ao Favoritos de um navegador ou site social
+> 
+    
+>   * Enviar links via email ou mensageiros instantâneos
+> 
+    
+>   * Procurar por um conteúdo específico através dos sites de buscas
+> 
+    
+>   * Utilizar o histórico do navegador e o botão de recarregar
+> 
+
+</blockquote>
+
+
+<p>O <a href="http://www.adobe.com/br/products/flash/">Flash</a> está para o <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> assim como o <a href="http://cinemaeafins.com/files/2008/11/batmancoringa.jpg">Coringa está para o Batman</a>. Mas nem tudo está perdido quando se trata de otimizar a indexação do site em SWF nos mecanismos de busca. Com SWFAddress você pode interagir com a página via javascript alterando a URL e o próprio conteúdo do filme, possibilidade do o uso dos botões voltar e avançar do browser, adicionar ao Favoritos e alterar a animação do seu filme de acordo com a URL que está sendo requisitada.</p>
+
+<p>Caso sua página seja acessada através da URL **<a href="http://siteemflash.com/#contato**,">http://siteemflash.com/#contato**,</a> você poderá pular na timeline indo direto para o frame do contato. Para evitar o reload da página toda interação é feita através de âncoras html (#). E as alterações da URL utilizando âncoras são desprezadas pelos buscadores, uma vez que a âncora só serve para movimentar o foco na mesma página, logo o seu conteúdo permanece inalterado.</p>
+
+<p>É aí que entra o <a href="http://httpd.apache.org/docs/1.3/mod/mod_rewrite.html">módulo ReWrite do Apache</a>, com o mod_rewrite podemos escrever condições para tratar as requisições, redirecionando-as ou não. Então voltando ao exemplo anterior, teríamos uma condição que quando for requisitada a página **<a href="http://siteemflash.com/contato**">http://siteemflash.com/contato**</a> (ou qualquer outra URL) redireciona para a página inicial (index) adicionando a âncora para contato (#contato) e imprime na página o conteúdo referente à mesma. Esse conteúdo impresso não será visível, apenas para indexação. O <a href="http://pt.wikipedia.org/wiki/Sitemap">sitemap</a> ou a estrutura básica do site, também deve estar contido no bloco de código html invisível, juntamente com todas outras informações relevantes.</p>
+
+<p>Resumindo, você acaba tendo um trabalho dobrado ao desenvolver o site, mas evita transtornos de indexação. É muito útil para quem não abre mão do site feito com o uso da ferramenta da Adobe.</p>
+
+<p>No próprio site da Asual tem um <a href="http://www.asual.com/swfaddress/samples/seo/">exemplo de uso do SWFAddress para SEO</a> (o exemplo pode ser baixado pelo site). Abaixo segue alguns sites que fizeram uso da biblioteca, no qual o primeiro eu participei do desenvolvimento:</p>
+
+<ul>
+<li><p><a href="http://www.oticasparis.com.br/">Óticas Paris</a></p></li>
+<li><p><a href="http://www.salinas-rio.com.br/inverno2010/">Salinas Rio -inverno2010</a></p></li>
+<li><p><a href="http://www.umbro.com/">Umbro</a></p></li>
+<li><p><a href="http://www.mis-architecture.co.uk/">Mis Architecture</a></p></li>
+<li><p><a href="http://www.kraftfoods.com/foodandfamily">Kraftfoods &ndash; Food and Family</a></p></li>
+<li><p><a href="http://www.bartleboglehegarty.com/">BBH</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HTML5: Video Player]]></title>
+    <link href="http://rogeriolino.com/2010/02/19/html5-video-player/"/>
+    <updated>2010-02-19T15:23:46-02:00</updated>
+    <id>http://rogeriolino.com/2010/02/19/html5-video-player</id>
+    <content type="html"><![CDATA[<p>Para todos aqueles que odeiam o <a href="http://get.adobe.com/flashplayer">flash player</a> e adoram assistir vídeos pela Internet, alguns portais de vídeos possuem uma alternativa ao plugin da Adobe para que os usuários possam assistir seus vídeos sem precisar de um plugin externo que pode deixar o browser mais lento e ocasionar travamentos. Isso se dá com a utilização da <a href="http://www.w3schools.com/html5/html5_reference.asp">tag video do HTML5</a> que por sua vez varia dependendo da implementação de cada navegador.</p>
+
+<p>No <a href="http://www.youtube.com/html5">Youtube por exemplo há uma página para sua versão experimental</a>. Ao acessar esta página destinada a habilitar o player em HTML5, eis que surgem algumas considerações e uma lista de browsers que o suportam:</p>
+
+<ul>
+<li><p><a href="http://www.google.com/chrome">Google Chrome</a></p></li>
+<li><p><a href="http://www.apple.com/safari/download/">Apple Safari</a> (versão 4+)</p></li>
+<li><p>Internet Explorer com o Google Chrome Frame</p></li>
+</ul>
+
+
+<p>Não incluindo o <a href="http://www.getfirefox.com/">Firefox</a>, um dos browsers mais utilizados no mundo e que suporta o HTML5. Mas para isso há uma explicação: O padrão de compressão adotado pelo Youtube é o <a href="http://pt.wikipedia.org/wiki/H.264">H.264</a> que não é suportado pelo Firefox devido ao fato deste formato ser proprietário e o pessoal da Mozilla utilizar <a href="http://en.wikipedia.org/wiki/Theora">Ogg Theora</a> como padrão. Motivo que <em>sem querer querendo</em> acaba ajudando o browser do Google, curiosamente, mesmo dono do Youtube.</p>
+
+<p>Outros pontos ruins nessa versão do Youtube são a nítida perda de qualidade entre os players em Flash e em HTML5, e o fato de não suportar fullscreen (limitação do HTML5 e não do player). Além do Youtube o <a href="http://vimeo.com/blog:268">Vimeo</a> também possui uma versão em HTML5, seguindo as mesmas restrições do Youtube, porém, com uma perda de qualidade menor. Já o <a href="http://blog.dailymotion.com/2009/05/27/watch-videowithout-flash/">Dailymotion</a> utiliza os formatos Ogg, Theora + Vorbis, funcionando em todos os navegadores decentes e com algumas travadas irritantes.</p>
+
+<p>Mas nem tudo está perdido para os players feitos em HTML5, um grupo de desenvolvedores e designers denominado <a href="http://jilion.com/">Jilion</a> desenvolveu um excelente player (bonito e funcional) chamado <a href="http://jilion.com/sublime/video">SublimeVideo</a>. Suportando todos os browsers listados na página do Youtube/Vimeo incluindo o Firefox.</p>
+
+<p>[caption id=&ldquo;attachment_184&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;604&rdquo; caption=&ldquo;SublimeVideo &ndash; HTML5 Video Player&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg" alt="SublimeVideo" /></a>[/caption]</p>
+
+<p>Mais sobre <a href="http://shaver.off.net/diary/2010/01/23/html5-video-and-codecs/">HTML5 video e codecs</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Games]]></title>
+    <link href="http://rogeriolino.com/2010/02/02/javascript-games/"/>
+    <updated>2010-02-02T12:03:47-02:00</updated>
+    <id>http://rogeriolino.com/2010/02/02/javascript-games</id>
+    <content type="html"><![CDATA[<p>Conforme a evolução dos browsers e consequentemente das suas engines de javascript, hoje é possível encontrarmos diversas API/Engines dessa linguagem de script. E um tipo de engine que vem crescendo nessa linguagem é a de jogos.</p>
+
+<p>O que antes precisariámos de um plugin adicional &ndash; <a href="http://get.adobe.com/br/flashplayer/">Flash Player</a> e/ou <a href="http://java.sun.com/applets/">Java Applet</a> &ndash; consumindo mais memória e processamento, podemos agora nos divertir com jogos rodando nativamente no browser.</p>
+
+<p>É possível encontrar na web jogos desde os simples e clássicos <strong>Paciência</strong> (Solitaire), <strong>Tetris</strong>, <strong>Resta Um</strong> (Peg), passando por clássicos não tão simples como <strong>Mario Kart</strong>, até jogos mais complexos como <strong>Shadow of Time 4</strong> e <strong>Crystal Galaxy</strong>.</p>
+
+<h2>Segue abaixo alguns jogos:</h2>
+
+<ul>
+<li><p><a href="http://www.freejavascriptgames.info/games/solitaire/solitaire1.0.html">Solitaire</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/jsTetris/tetris1.html">Tetris</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/peg/peg.html">Peg</a></p></li>
+<li><p><a href="http://www.tammyyee.com/keiki_page/javascript_games/battle/battleship.html">Battleship</a></p></li>
+<li><p><a href="http://www.def-logic.com/panic/panic.html">Panic Run</a></p></li>
+<li><p><a href="http://xwuz.com/bubble/">Bubble Trouble</a></p></li>
+<li><p><a href="http://www.nihilogic.dk/labs/mariokart/">Super Mario Kart</a></p></li>
+<li><p><a href="http://www.xs4all.nl/~peterned/games.html#pudracer">Pudracer</a></p></li>
+<li><p><a href="http://www.themaninblue.com/experiment/BunnyHunt/">Bunny Hunt</a></p></li>
+<li><p><a href="http://sot4.aerosphere-studios.com/">Shadow of Time 4</a></p></li>
+<li><p><a href="http://www.effectgames.com/effect/games/crystalgalaxy/">Crystal Galaxy</a></p></li>
+<li><p><a href="http://www.kesiev.com/akihabara/demo/game-capman.html">Capman</a></p></li>
+</ul>
+
+
+<h2>Javascript Game Engines:</h2>
+
+<p><a href="http://gamequery.onaluf.org/">gameQuery</a>: é um plugin do famoso jQuery, que fornece animação de sprites multi camadas, hierarquia de sprite (agrupamentos), detecção de colisões, dentre outras funcionalidades. Para visualizar alguns demos de jogos desenvolvidos por essa engine é só <a href="http://gamequery.onaluf.org/demos.php">clicar aqui</a>.</p>
+
+<p><a href="http://tommysmind.com/gamejs/">GameJS</a>: inspirado nos códigos javascript da <a href="http://www.extjs.com/">ExtJS</a> e com a ideia de portar a facilidade de criar jogos da XNA <a href="http://www.xna.com/">Game Framework da Microsoft</a>. No site do projeto possui um jogo demo chamado <a href="http://www.tommysmind.com/jetris/">Jetris</a>.</p>
+
+<p><a href="http://www.effectgames.com/effect/">EffectGames</a>: consiste na verdade em um site que provê ferramentas online e gratuitas para desenvolvimento, hospedagem e compartilhamento de jogos. Há uma wiki contendo o passo-a-passo de como utilizar as ferramentas através do <a href="http://www.effectgames.com/effect/#Article/docs/Getting_Started_Guide">Getting Started Guide</a>. E também há a <a href="http://www.effectgames.com/effect/#Article/docs/API_Reference_Guide|1">documentação da API fornecida</a> pelo site. Na própria página principal você irá encontrar os demos.</p>
+
+<p><a href="http://www.renderengine.com/index.php">Render Engine</a>: engine cross-browser, opensource, tem como principal característica facilidade de uso. Veja seus <a href="http://www.renderengine.com/demos.php">demos aqui</a>.</p>
+
+<p><a href="http://www.kesiev.com/akihabara/">Akihabara</a>: engine para jogos arcade, estilo 8-bit. Na mesma página da engine se encontram os demos.</p>
+
+<h2>Mais sobre jogos em javascript:</h2>
+
+<p><a href="http://www.def-logic.com/">http://www.def-logic.com/</a></p>
+
+<p><a href="http://www.javascriptgaming.com/">http://www.javascriptgaming.com/</a></p>
+
+<p><a href="http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/">http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Flash: Game Tutorials]]></title>
+    <link href="http://rogeriolino.com/2007/08/23/flash-game-tutorials/"/>
+    <updated>2007-08-23T18:04:38-03:00</updated>
+    <id>http://rogeriolino.com/2007/08/23/flash-game-tutorials</id>
+    <content type="html"><![CDATA[<p>Uma coisa que facina a mim e acredito que a muitos outros usuários do Flash é a posibilidade de desenvolver jogos bastante interativos com uma certa facilidade.</p>
+
+<p>Então como conhecimento em excesso nunca  é o bastante, segue alguns links de Tutoriais sobre criação de jogos (variados) em Flash, e links de experimentos interessantes.</p>
+
+<p>OutsideOfSociety (Tutoriais &ndash; Exemplos)
+<a href="http://oos.moxiecode.com/">http://oos.moxiecode.com/</a></p>
+
+<p>Tonypa (Tutoral &ndash; Tile Based Games)
+<a href="http://www.tonypa.pri.ee/tbw/start.html">http://www.tonypa.pri.ee/tbw/start.html</a></p>
+
+<p>Strille (Tutoriais)
+<a href="http://www.strille.net/tutorials/part1_scrolling.php">http://www.strille.net/tutorials/part1_scrolling.php</a></p>
+
+<p>Andre Michelle (Exemplos)
+<a href="http://lab.andre-michelle.com/">http://lab.andre-michelle.com/</a></p>
+
+<p>GotoAndPlay (Tutoriais)
+<a href="http://www.gotoandplay.it/">http://www.gotoandplay.it/</a></p>
+
+<p>GotoAndPlay (Tutorial &ndash; Zelda-like Game)
+<a href="http://www.gotoandplay.it/_articles/2003/10/zelda.php">http://www.gotoandplay.it/_articles/2003/10/zelda.php</a></p>
+
+<p>Tutorialized (Tutoriais)
+<a href="http://www.tutorialized.com/tutorials/Flash/Games/1">http://www.tutorialized.com/tutorials/Flash/Games/1</a></p>
+
+<p>MXStudio (Tutorial Megaman &ndash; Parte 1 e 2)
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128</a>
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132</a></p>
+
+<p>GameSheep (Tutorial &ndash; Flash Racing Game)
+<a href="http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php">http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php</a></p>
+
+<p>Emanuele Feronato (Tutorial)
+<a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/">http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/</a></p>
+
+<p><a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/"></a>Actionscript.org (Tutorial &ndash; Building Games in Flash)
+<a href="http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html">http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html</a></p>
+
+<p>Flash Dreamer (Tutorial &ndash; Into to OOP Game Design)
+<a href="http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/">http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/</a></p>
+
+<p>Flashkit (Tutorial &ndash; Scoreboard)
+<a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php">http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php</a></p>
+
+<p><a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php"></a>FlashPerfection (Tutorial &ndash; Pong)
+<a href="http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html">http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html</a></p>
+
+<p>Matheus Prestes (Tutorial &ndash; Tiles Map &ndash;  português)
+<a href="http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html">http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html </a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wiki FlashMasters]]></title>
+    <link href="http://rogeriolino.com/2007/04/09/wiki-flashmasters/"/>
+    <updated>2007-04-09T14:43:36-03:00</updated>
+    <id>http://rogeriolino.com/2007/04/09/wiki-flashmasters</id>
+    <content type="html"><![CDATA[<p>Já tem algum tempo que está no ar a <a href="http://wiki.flashmasters.net/">Wikipedia FlashMasters</a> mas estava esperando juntar mais um pouco de conteúdo antes de divulgá-la aqui.</p>
+
+<p>Lá você poderá tirar sua dúvida sobre algum comando ActionScript por exemplo, ou até mesmo deixar sua contribuíção. Assim como eu em <a href="http://wiki.flashmasters.net/index.php?title=Operadores">Operadores</a>, que também postei <a href="http://rogeriolino.com/2007/03/24/actionscript-operadores/">aqui no blog</a>.</p>
+
+<p>A intenção por trás da criação do Wiki está em ter o Help (ou um) do Flash traduzido para o português. Como o <a href="http://livedocs.adobe.com/flash/8/">LiveDocs</a> da Adobe.</p>
+
+<p>Tirando muitas dúvida dos usuários Flash do Brasil. Que sempre reclamam de ter pouco conteúdo a respeito escrito em nosso idioma.</p>
+
+<p>Sem esquecer também do <a href="www.flashmasters.net/forum">Forum</a>, bem rico em conteúdo. E contanto com os melhores Flash Users do Brasil para sanar sua(s) dúvida(s).</p>
+]]></content>
+  </entry>
+  
+</feed>

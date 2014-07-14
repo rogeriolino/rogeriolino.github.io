@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Semântica | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/semantica/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Escrevendo O Primeiro XHTML]]></title>
+    <link href="http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml/"/>
+    <updated>2006-07-11T09:47:21-03:00</updated>
+    <id>http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml</id>
+    <content type="html"><![CDATA[<p>Mãos à obra, vamos agora escrever nosso primeiro código <strong>XHTML</strong>. Abaixo o código já pronto e comentado:</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt"&gt;
+&lt;head&gt;
+    &lt;title&gt; Título &lt;/title&gt;
+    &lt;meta name="Generator" content="" /&gt;
+    &lt;meta name="Author" content="" /&gt;
+    &lt;meta name="Keywords" content="" /&gt;
+    &lt;meta name="Description" content="" /&gt;
+    &lt;meta name="language" content="pt-br" /&gt;
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="shortcut icon" href="favicon.ico" /&gt;
+    &lt;!-- Style --&gt;
+    &lt;link rel="stylesheet" href="style.css" type="text/css"/&gt;&lt;/em&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: <a href="http://rogeriolino.com/2006/07/03/xhtml-o-que-e/">leia aqui</a> e/ou <a href="http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/">aqui</a>.</p>
+
+<p>Nesse caso foi definido como Strict, caso você ainda não esteje preparado pode utilizar como Transitional.</p>
+
+<blockquote>_<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">_</blockquote>
+
+
+<p>Você deve estar se perguntando: Por que aquele &ldquo;xmlns&rdquo; dentro da tag html ?</p>
+
+<p>É chamado de namespace e serve para mostrar para o browser quais elementos pertencem a qual linguagem no documento. <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#docconf">Dúvida?</a> <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#ref-xmlns">Mais?</a> <a href="http://www.imasters.com.br/artigo/3956/xhtml/faq_completo_sobre_xhtml">Mais!</a></p>
+
+<p>As tags <strong>meta</strong> servem para colocar informações adicionais, tais como, autor, idioma, palavras-chave e etc. &ndash; essas tags são utilizadas por mecanismos de buscas, como o Google por exemplo, para localizar os sites. Um site bem estruturado e definido tem chance maior de aparecer primeiro na busca.</p>
+
+<p>Logo abaixo aparece a tag <strong>link</strong> referenciando um arquivo externo, ícone. Chamado Favicon &ndash; ícone do favoritos &ndash; que é nada mais nada menos do que aquele íconezinho que fica aparecendo no browser ao lado do endereço do seu site e nos favoritos também é claro. Caso ainda tenha dúvida <a href="http://www.google.com.br/search?q=favicon&amp;start=0&amp;ie=utf-8&amp;oe=utf-8&amp;client=firefox-a&amp;rls=org.mozilla:pt-BR:official">veja aqui</a>.</p>
+
+<p>Depois como já vimos aparece novamente a tag <strong>link</strong> para &ldquo;puxar&rdquo; o arquivo de estilo da página &ndash; CSS.</p>
+
+<p>Fecha-se a tag <strong>head</strong>, abre e fecha a <strong>body</strong> e fecha a <strong>html</strong>, e pronto. O seu XHTML já está pronto.</p>
+
+<p>Na próxima veremos o um layout já pronto com o CSS.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[XHTML - O Que é?]]></title>
+    <link href="http://rogeriolino.com/2006/07/03/xhtml-o-que-e/"/>
+    <updated>2006-07-03T16:17:28-03:00</updated>
+    <id>http://rogeriolino.com/2006/07/03/xhtml-o-que-e</id>
+    <content type="html"><![CDATA[<p>XHTML (<strong>Extensible Hypertext Markup Language</strong>) é uma linguagem de marcação baseada em XML escrita para substituir o HTML.</p>
+
+<p>No XML podemos criar nossas próprias tags, e o XHTML já vem com as tags pré-definidas baseadas nas tags já conhecidas do HTML. Utilizando as regras do XML.</p>
+
+<p><em>Já que o XHTML usa as tags do HTML para que utilizá-lo?</em></p>
+
+<p>Imagine que para cada página da internet que você fosse ver um código diferente. E que cada pessoa fosse definir o seu padrão. Seria muito difícil verificar se aquele código estaria dentre os padrões. É aí que entra o XHTML.</p>
+
+<p>Para construir uma página em XHTML você deverá seguir os padrões da W3C, padronizando os códigos e tornando mais fácil sua validação e a legibilidade.</p>
+
+<p>Por exemplo: todas as tags e seus atributos devem ser escritos em letra minúscula, todo valor dos atributos devem estar entre &ldquo;&rdquo; (alt=&ldquo;Olá&rdquo;), e as tags simples devem ser fechadas com &ldquo;/>&rdquo; (<img  src="foto.gif" alt="eu" />).</p>
+
+<p><strong>Alguns exemplos:</strong></p>
+
+<p>Tags e atributos:</p>
+
+<blockquote>**errado:** <IMG src="foto.gif" ALT="eu">
+
+**certo:** <img src="foto.gif" alt="eu"></blockquote>
+
+
+<p>Aninhamento das tags:</p>
+
+<blockquote>**errado:** <p>parágrafo <em> negrito </p></em>
+
+**certo:** <p>parágrafo <em> negrito </em></p></blockquote>
+
+
+<p><strong>O XHTML é dividido em três tipos (DOCTYPE):</strong></p>
+
+<blockquote>**Strict:** o mais rigoroso, exige que seja seguido por completamente os padrões.
+**Transitional:** transição da forma antiga de marcação para uma nova forma. Utilizado por quem ainda está preso à alguma forma antiga em seu site. Sendo um pouco menos rigoroso que o Strict.
+**Frameset:** usado quando se utiliza frames no site.</blockquote>
+
+
+<p><strong>Principais diferenças entre XHTML e HTML </strong></p>
+
+<p>Além das tags escritas em letra minúscula, o fechamento obrigatório das tags, e as aspas. Também a sintaxe dos atributos devem ser escritas por completo ( <dl compact> para <dl compact="compact"> ). E a &ldquo;troca&rdquo; do atributo name para o atributo id.</p>
+
+<p>Logo  veremos mais a fundo o que são DOCTYPE e como funcionam e a declaração de um XHTML.</p>
+
+<p><strong>mais sobre:</strong>
+<a href="http://www.maujor.com/tutorial/xhtml.php">Maujor.com &ndash; Tutorial XHTML</a>
+<a href="http://www.w3.org/TR/xhtml1/#xhtml">W3.org &ndash; O que é XHTML?</a>
+<a href="http://www.w3schools.com/xhtml/xhtml_validate.asp">W3schools &ndash; XHTML validation</a>
+<a href="http://www.w3schools.com/xhtml/xhtml_html.asp">W3Schools &ndash; Diferença entre XHTML e HTML</a>
+<a href="http://www.revolucao.etc.br/archives/o-que-e-xhtml/">Revolução.ect.br &ndash; O que é XHTML?</a>
+<a href="http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/">Revolução.etc.br &ndash; Doctype</a>
+<a href="http://www.linhadecodigo.com.br/artigos.asp?id_ac=88">Linha de Código &ndash; Tutorial XHTML</a>
+<a href="http://www.linhadecodigo.com.br/artigos.asp?id_ac=88">Linha de Código &ndash; Escrevendo um XHTML válido</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tags - O Que São?]]></title>
+    <link href="http://rogeriolino.com/2006/06/30/tags-o-que-sao-2/"/>
+    <updated>2006-06-30T14:43:44-03:00</updated>
+    <id>http://rogeriolino.com/2006/06/30/tags-o-que-sao-2</id>
+    <content type="html"><![CDATA[<p>São as estruturas que formam o <strong>HTML</strong>, podem conter atributos ou não. Uma tag é constituída por um sinal de &ldquo;&lt;&rdquo; no começo seguido de seu nome mais o sinal de &ldquo;>&rdquo;. Os atributos da tag são especificados dentro dela.</p>
+
+<p><strong>exemplo:</strong></p>
+
+<hr align="center" width="50%">
+
+
+<p>resultado:</p>
+
+<hr />
+
+<p>note que todos os valores dos atributos estão entre &ldquo;&rdquo;, mesmo não sendo necessárias para o HTML, mas é bom acostumar para que quando começar a trabalhar com o XHTML (veremos) &ndash; para que seja validado pela W3C. O mesmo serve para a &ldquo;/&rdquo;, que é insirida no final das tags simples, como é o caso da tag hr.<strong> Abaixo as principais tags e seus atributos:</strong><strong>html</strong> &ndash; a tag princiapal da página aonde ficará todas as outras tags.<strong>head</strong> &ndash; dentro da tag head ficam o titulo (title), os scripts (javascript)  e o estilo (CSS), além de outras tags como meta e link.<strong>title</strong> &ndash; define o título da página.</p>
+
+<p><strong>body</strong> &ndash; o corpo da página, o que vai aparecer para o visitante.</p>
+
+<p><strong>hn</strong> &ndash; varia de h1 até h6, vem com predefinições para o texto, utilizada para títulos.</p>
+
+<p><strong>p</strong> &ndash; para iniciar um parágrafo.</p>
+
+<p><strong>blockquote</strong> &ndash; serve para definir uma citação do texto.</p>
+
+<p><strong>hr</strong> &ndash; horizontal rule, inseri uma linha horizontal. Pode ser controlada pelos seguintes atributos:</p>
+
+<blockquote>width: tamanho da linha, medida em pixel ou porcentagem;
+size: largura da linha, medida em pixel;
+align: define como será alinhada a linha (left, center, right);
+noshade: retira a sombra da linha;</blockquote>
+
+
+<p><strong>font</strong> &ndash; para formatar a fonte da página.</p>
+
+<blockquote>size: tamanho da fonte, vai de 1 até 7;
+color: cor da fonte em hexadecimal;
+face: o tipo da fonte, pode-se escolher mais de uma fonte separando por vírgula no qual o browser vai procurar qual o visitante tem da esquerda para a direita - usa-se como default "Sans-Serif";
+ex: <font size="3" color="#000000" face="Verdana, Arial, Sans-Serif">Texto</font></blockquote>
+
+
+<p><strong>a</strong> &ndash; defini um link na página.</p>
+
+<blockquote>href: destino do link, pra onde o usuário vai.
+title: a descrição que irá aparecer ao repousar o mouse em cima.</blockquote>
+
+
+<p><strong>img</strong> &ndash; adiciona uma imagem à página. Tag simples, então termina com &ldquo;/&rdquo;.</p>
+
+<blockquote>src: destino da imagem.
+alt: descrição da imagem (ao posicionar o mouse em cima). Opcional, mas para ser validado tem que pelo menos conter. ex: alt="".
+width: largura.
+height: altura.
+ex: <img src="imagens/avatar.gif" width="100" height="75"/></blockquote>
+
+
+<p><strong>i</strong> &ndash; adiciona itálico ao texto;</p>
+
+<p><strong>b</strong> &ndash; adiciona negrito ao texto (bold);</p>
+
+<p><strong>center</strong> &ndash; centraliza o conteúdo contido nele na página.</p>
+
+<p>Algumas dessas tags &ndash; como por exemplo i, b e center e os atributos da tag font &ndash; quase não são usadas e seus atributos também, sendo substituídos por classes ou ids definidas no CSS (Cascade Style Sheet). Mas é bom vermos para termos uma boa base sobre como funcionam as tags.</p>
+
+<p>Toda tag pode receber uma <strong>id</strong> e/ou <strong>class</strong> para ser identificada e formatada no CSS.</p>
+
+<p>Dica: tente testar as tags alterando os atributos e ver os resultados para melhor fixar e compreender.</p>
+
+<p><strong>mais sobre:</strong></p>
+
+<p><a href="http://pt.wikipedia.org/wiki/Tag">http://pt.wikipedia.org/wiki/Tag</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HTML - O Que é?]]></title>
+    <link href="http://rogeriolino.com/2006/06/30/html-o-que-e/"/>
+    <updated>2006-06-30T14:42:26-03:00</updated>
+    <id>http://rogeriolino.com/2006/06/30/html-o-que-e</id>
+    <content type="html"><![CDATA[<p>HTML (Hyper Text Markup Language) é uma linguagem interpretada por browsers (navegadores) para exibir textos e gráficos pela Web; Formado, estruturado, por Tag&rsquo;s.
+Para desenvolver uma página HTML não é necessário mais do que um simples Bloco de Notas, desde que salve como a extensão .html.</p>
+
+<p>Exemplo de página HTML:
+<html></p>
+
+<pre><code>          &lt;head&gt;
+                      &lt;title&gt;Minha Home Pag&lt;/title&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+                      &lt;p&gt;Seja bem vindo!&lt;/p&gt;
+         &lt;/body&gt;
+</code></pre>
+
+<p><html>
+no exemplo acima temos uma simples página com o seguinte conteúdo sendo exibido no corpo da página (body) : &ldquo;Seja bem vindo!&rdquo;, formatado pela Tag <p> que define o parágrafo. E no título (title) na barra do browser: &ldquo;Minha Home Page&rdquo;.</p>
+
+<p>Repare que as todas as Tag&rsquo;s do exemplo são fechadas com a repetição de seu nome acrescentando uma &ldquo;/&rdquo; na frente, o que mostra para o browser quando a Tag é fechada. O que veremos mais a fundo nos próximos tópicos sobre Tag&rsquo;s.</p>
+
+<p>mais sobre:
+<a href="http://www.w3.org/MarkUp/">http://www.w3.org/MarkUp/</a>
+<a href="http://www.w3.org/MarkUp/Guide/">http://www.w3.org/MarkUp/Guide/</a>
+<a href="http://www.criarweb.com/artigos/7.php?manual=11">http://www.criarweb.com/artigos/7.php?manual=11</a></p>
+]]></content>
+  </entry>
+  
+</feed>

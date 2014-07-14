@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Jogos | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/jogos/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Quickpost: Cut the Rope]]></title>
+    <link href="http://rogeriolino.com/2012/03/02/quickpost-cut-the-rope/"/>
+    <updated>2012-03-02T11:37:37-03:00</updated>
+    <id>http://rogeriolino.com/2012/03/02/quickpost-cut-the-rope</id>
+    <content type="html"><![CDATA[<p><a href="http://www.cuttherope.ie/">
+<img src="http://rogeriolino.com/wp-content/uploads/2012/03/cuttherope.png" alt="" />
+</a></p>
+
+<p><strong>HTML5 version</strong></p>
+
+<p>Play: <a href="http://www.cuttherope.ie">http://www.cuttherope.ie</a>
+Development info: <a href="http://www.cuttherope.ie/dev">http://www.cuttherope.ie/dev</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript Game Engine for HTML5 Canvas]]></title>
+    <link href="http://rogeriolino.com/2010/05/06/javascript-game-engine-for-html5-canvas/"/>
+    <updated>2010-05-06T16:04:35-03:00</updated>
+    <id>http://rogeriolino.com/2010/05/06/javascript-game-engine-for-html5-canvas</id>
+    <content type="html"><![CDATA[<p>Comecei escrever um pequeno projeto para facilitar a criação de jogos em Javascript utilizando HTML5 Canvas para isso. Baseado em <a href="http://en.wikipedia.org/wiki/Scene_graph">scenegraph</a> podendo criar nós dependentes, relativos ao nó pai. Por enquanto a estrutura da engine é composta por:</p>
+
+<blockquote>
+**Canvas:** para encapsular a tag canvas, pegando automaticamente o context e fornecendo algumas funções a mais.
+
+**Game:** o jogo em sí, possui uma ou muitas cenas (Scene). Contém o loop principal para atualizações do canvas. Necessita de uma instância do Canvas.
+
+**Scene:** deve ser estendida para criar cenas customizadas, deve implementar o método update(interval).
+
+**CanvasNode:** um nó do grafo, possui as coordenadas e ângulo de rotação do elemento no canvas.
+
+**CanvasNodeGroup:** um grupo de nós. Estende CanvasNode.
+
+**Graphics:** um nó "printável", quem for estendê-lo deve implementar o método draw(). Possui como subclasses: Rectangle, Triangle, Circle, Text, Image2d e Line.
+
+**GraphicsGroup:** estende CanvasNodeGroup, possui um grupo de graphics. Scene é um GraphicsGroup.
+
+</blockquote>
+
+
+<p>Os próximos passos serão a implementação de TileMap, Scene Intro, Menu e botões. Agora é só aguardar até o próximo exemplo.</p>
+
+<p><strong>[update 2010-05-06]</strong>
+Added mouse and button support.
+See example above.
+<strong>[/update]</strong></p>
+
+<p><strong>[update 2010-05-06]</strong>
+Examples in <a href="http://mangame.rogeriolino.com/">http://mangame.rogeriolino.com/</a>
+<strong>[/update]</strong></p>
+
+<p><strong>[update 2011-11-11]</strong>
+Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub</a>!
+<strong>[/update]</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jogos: Pathfinding]]></title>
+    <link href="http://rogeriolino.com/2010/02/08/jogos-pathfinding/"/>
+    <updated>2010-02-08T17:15:33-02:00</updated>
+    <id>http://rogeriolino.com/2010/02/08/jogos-pathfinding</id>
+    <content type="html"><![CDATA[<p>É inevitável o estudo e a aplicação de <a href="http://pt.wikipedia.org/wiki/Intelig%C3%AAncia_artificial">IA </a><em>(Inteligência Artificial) </em>em jogos nos quais possuem inimigos (personagens) não controlados pelo jogador (humano). E o problema mais comum é encontrar uma maneira eficaz de delimitar áreas no cenário aonde o personagem pode se locomover sem aparentar ser um robô seguindo um rastro, ou seja, mais próximo possível da realidade.</p>
+
+<p>Normalmente visualizamos o problema como um grafo e nas arestas distribuimos valores que medem o custo entre um nó e outro. E para saber qual o melhor caminho (de menor custo) utilizamos de algum algoritmo de <a href="http://pt.wikipedia.org/wiki/Problema_do_caminho_m%C3%ADnimo">caminho mínimo</a>. Dentre os algoritmos existentes, os mais famosos são: <a href="http://pt.wikipedia.org/wiki/Algoritmo_A*">A*</a> (A Estrela), <a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Algoritmo de Dijkstra</a>, <a href="http://en.wikipedia.org/wiki/Branch_and_bound">Branch-and-Bound</a> e <a href="http://en.wikipedia.org/wiki/Category:Search_algorithms">etc</a>.</p>
+
+<p><a href="http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif" alt="" /></a></p>
+
+<p>Não vou analisar a efeciência do algoritmo utilizado, já que o objetivo é mostrar o problema ao utilizar grafos e uma possível solução (já aplicada em vários jogos).</p>
+
+<p>Esse grafo delimitando a trajetória que pode ser percorrida pelo cenário é denominado <em><strong>waypoint graphs</strong></em>. O termo <em>waypoint</em> ficou bastante conhecido no mod <a href="http://pt.wikipedia.org/wiki/Counter-Strike">Counter-Strike</a>, no qual para poder adicionar bots aos mapas para jogar &ldquo;sozinho&rdquo; era necessário antes percorrer todo o mapa criando marcaçöes (waypoints) que seriam utilizadas pelos bots para se locomoverem. Abaixo segue um vídeo mostrando alguns bugs envolvendo caminhos em jogos famosos:</p>
+
+<h2>Evitando o problema</h2>
+
+<p>Uma forma de evitar esse problema é utilizando polígonos para delimitar aonde os personagens podem andar. Venha as imagens abaixo:</p>
+
+<p>[caption id=&ldquo;attachment_171&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com waypoints&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg" alt="Cenário marcado com waypoints" /></a>[/caption]</p>
+
+<p>[caption id=&ldquo;attachment_172&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com Navegation Mesh&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg" alt="Cenário marcado com Navegation Mesh" /></a>[/caption]</p>
+
+<p>O <a href="http://en.wikipedia.org/wiki/Navigation_mesh">Navegation Mesh</a> nada mais é que um grafo aonde cada nó é representado por um polígono, e ao invés de buscar por um ponto no cenário que se pode andar, verifica se o ponto do jogador está contido no polígono. Levando em consideração que os mesmos algoritmos utilizados com os waypoints podem ser utilizados para o navegation mesh efetuando pequenas modificações. Obviamente dessa forma será um pouco mais custosa (<a href="http://www.google.com.br/search?q=custo+algoritmo&amp;ie=utf-8&amp;oe=utf-8&amp;aq=t&amp;rls=org.mozilla:pt-BR:official&amp;client=firefox-a">custo do algoritmo</a>), em contrapartida, pode conseguir economizar uma quantidade enorme de waypoints.</p>
+
+<p>[caption id=&ldquo;attachment_176&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;Waypoints: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg" alt="Waypoints: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
+
+<p>[caption id=&ldquo;attachment_175&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;NavMesh: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg" alt="NavMesh: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
+
+<p>Também nem sempre essa solução será a melhor para todos os tipos de jogos, é preciso antes de qualquer coisa, analisar com calma quais são as necessidades para não ter que utilizar um canhão para matar uma mosca.</p>
+
+<h2>Alguns jogos que utilizam navigation meshes</h2>
+
+<ul>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/562116.asp">Halo 2</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/926632.asp">Halo 3</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/920744.asp">First Encounter Assault Recon (F.E.A.R.)</a></p></li>
+<li><p><a href="http://developer.valvesoftware.com/wiki/Navigation_Meshes">Counter-Strike: Source</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/447244.asp">Metroid Prime</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/589573.asp">Metroid Prime 2: Echoes</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/928517.asp">Metroid Prime 3: Corruption</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/516509.asp">Jak and Daxter: The Precursor Legacy</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/914535.asp">Jak II</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/919901.asp">Jak 3</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/932984.asp">Uncharted: Drake&rsquo;s Fortune</a></p></li>
+<li><p><a href="http://www.gamerankings.com/htmlpages2/922228.asp">Scarface: The World is Yours</a></p></li>
+</ul>
+
+
+<p>Algumas parte desse texto e imagens foram retirados do artigo publicado no site <a href="http://www.ai-blog.net/archives/000152.html">ai-blog</a> e nesse mesmo blog há outra solução e um conteúdo muito mais robusto.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Games]]></title>
+    <link href="http://rogeriolino.com/2010/02/02/javascript-games/"/>
+    <updated>2010-02-02T12:03:47-02:00</updated>
+    <id>http://rogeriolino.com/2010/02/02/javascript-games</id>
+    <content type="html"><![CDATA[<p>Conforme a evolução dos browsers e consequentemente das suas engines de javascript, hoje é possível encontrarmos diversas API/Engines dessa linguagem de script. E um tipo de engine que vem crescendo nessa linguagem é a de jogos.</p>
+
+<p>O que antes precisariámos de um plugin adicional &ndash; <a href="http://get.adobe.com/br/flashplayer/">Flash Player</a> e/ou <a href="http://java.sun.com/applets/">Java Applet</a> &ndash; consumindo mais memória e processamento, podemos agora nos divertir com jogos rodando nativamente no browser.</p>
+
+<p>É possível encontrar na web jogos desde os simples e clássicos <strong>Paciência</strong> (Solitaire), <strong>Tetris</strong>, <strong>Resta Um</strong> (Peg), passando por clássicos não tão simples como <strong>Mario Kart</strong>, até jogos mais complexos como <strong>Shadow of Time 4</strong> e <strong>Crystal Galaxy</strong>.</p>
+
+<h2>Segue abaixo alguns jogos:</h2>
+
+<ul>
+<li><p><a href="http://www.freejavascriptgames.info/games/solitaire/solitaire1.0.html">Solitaire</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/jsTetris/tetris1.html">Tetris</a></p></li>
+<li><p><a href="http://www.freejavascriptgames.info/games/peg/peg.html">Peg</a></p></li>
+<li><p><a href="http://www.tammyyee.com/keiki_page/javascript_games/battle/battleship.html">Battleship</a></p></li>
+<li><p><a href="http://www.def-logic.com/panic/panic.html">Panic Run</a></p></li>
+<li><p><a href="http://xwuz.com/bubble/">Bubble Trouble</a></p></li>
+<li><p><a href="http://www.nihilogic.dk/labs/mariokart/">Super Mario Kart</a></p></li>
+<li><p><a href="http://www.xs4all.nl/~peterned/games.html#pudracer">Pudracer</a></p></li>
+<li><p><a href="http://www.themaninblue.com/experiment/BunnyHunt/">Bunny Hunt</a></p></li>
+<li><p><a href="http://sot4.aerosphere-studios.com/">Shadow of Time 4</a></p></li>
+<li><p><a href="http://www.effectgames.com/effect/games/crystalgalaxy/">Crystal Galaxy</a></p></li>
+<li><p><a href="http://www.kesiev.com/akihabara/demo/game-capman.html">Capman</a></p></li>
+</ul>
+
+
+<h2>Javascript Game Engines:</h2>
+
+<p><a href="http://gamequery.onaluf.org/">gameQuery</a>: é um plugin do famoso jQuery, que fornece animação de sprites multi camadas, hierarquia de sprite (agrupamentos), detecção de colisões, dentre outras funcionalidades. Para visualizar alguns demos de jogos desenvolvidos por essa engine é só <a href="http://gamequery.onaluf.org/demos.php">clicar aqui</a>.</p>
+
+<p><a href="http://tommysmind.com/gamejs/">GameJS</a>: inspirado nos códigos javascript da <a href="http://www.extjs.com/">ExtJS</a> e com a ideia de portar a facilidade de criar jogos da XNA <a href="http://www.xna.com/">Game Framework da Microsoft</a>. No site do projeto possui um jogo demo chamado <a href="http://www.tommysmind.com/jetris/">Jetris</a>.</p>
+
+<p><a href="http://www.effectgames.com/effect/">EffectGames</a>: consiste na verdade em um site que provê ferramentas online e gratuitas para desenvolvimento, hospedagem e compartilhamento de jogos. Há uma wiki contendo o passo-a-passo de como utilizar as ferramentas através do <a href="http://www.effectgames.com/effect/#Article/docs/Getting_Started_Guide">Getting Started Guide</a>. E também há a <a href="http://www.effectgames.com/effect/#Article/docs/API_Reference_Guide|1">documentação da API fornecida</a> pelo site. Na própria página principal você irá encontrar os demos.</p>
+
+<p><a href="http://www.renderengine.com/index.php">Render Engine</a>: engine cross-browser, opensource, tem como principal característica facilidade de uso. Veja seus <a href="http://www.renderengine.com/demos.php">demos aqui</a>.</p>
+
+<p><a href="http://www.kesiev.com/akihabara/">Akihabara</a>: engine para jogos arcade, estilo 8-bit. Na mesma página da engine se encontram os demos.</p>
+
+<h2>Mais sobre jogos em javascript:</h2>
+
+<p><a href="http://www.def-logic.com/">http://www.def-logic.com/</a></p>
+
+<p><a href="http://www.javascriptgaming.com/">http://www.javascriptgaming.com/</a></p>
+
+<p><a href="http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/">http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Flash: Game Tutorials]]></title>
+    <link href="http://rogeriolino.com/2007/08/23/flash-game-tutorials/"/>
+    <updated>2007-08-23T18:04:38-03:00</updated>
+    <id>http://rogeriolino.com/2007/08/23/flash-game-tutorials</id>
+    <content type="html"><![CDATA[<p>Uma coisa que facina a mim e acredito que a muitos outros usuários do Flash é a posibilidade de desenvolver jogos bastante interativos com uma certa facilidade.</p>
+
+<p>Então como conhecimento em excesso nunca  é o bastante, segue alguns links de Tutoriais sobre criação de jogos (variados) em Flash, e links de experimentos interessantes.</p>
+
+<p>OutsideOfSociety (Tutoriais &ndash; Exemplos)
+<a href="http://oos.moxiecode.com/">http://oos.moxiecode.com/</a></p>
+
+<p>Tonypa (Tutoral &ndash; Tile Based Games)
+<a href="http://www.tonypa.pri.ee/tbw/start.html">http://www.tonypa.pri.ee/tbw/start.html</a></p>
+
+<p>Strille (Tutoriais)
+<a href="http://www.strille.net/tutorials/part1_scrolling.php">http://www.strille.net/tutorials/part1_scrolling.php</a></p>
+
+<p>Andre Michelle (Exemplos)
+<a href="http://lab.andre-michelle.com/">http://lab.andre-michelle.com/</a></p>
+
+<p>GotoAndPlay (Tutoriais)
+<a href="http://www.gotoandplay.it/">http://www.gotoandplay.it/</a></p>
+
+<p>GotoAndPlay (Tutorial &ndash; Zelda-like Game)
+<a href="http://www.gotoandplay.it/_articles/2003/10/zelda.php">http://www.gotoandplay.it/_articles/2003/10/zelda.php</a></p>
+
+<p>Tutorialized (Tutoriais)
+<a href="http://www.tutorialized.com/tutorials/Flash/Games/1">http://www.tutorialized.com/tutorials/Flash/Games/1</a></p>
+
+<p>MXStudio (Tutorial Megaman &ndash; Parte 1 e 2)
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1128</a>
+<a href="http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132">http://www.mxstudio.com.br/views.tutorial.php?act=view&amp;cid=3&amp;aid=1132</a></p>
+
+<p>GameSheep (Tutorial &ndash; Flash Racing Game)
+<a href="http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php">http://www.gamesheep.com/free/flash-tutorials/1-flash-racing-game-1/flash-tutorial-1-1.php</a></p>
+
+<p>Emanuele Feronato (Tutorial)
+<a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/">http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/</a></p>
+
+<p><a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/"></a>Actionscript.org (Tutorial &ndash; Building Games in Flash)
+<a href="http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html">http://www.actionscript.org/resources/articles/52/1/Building-games-in-flash/Page1.html</a></p>
+
+<p>Flash Dreamer (Tutorial &ndash; Into to OOP Game Design)
+<a href="http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/">http://www.freshvision.com.au/blog/index.php/2007/03/27/tutorial-intro-to-oop-game-design/</a></p>
+
+<p>Flashkit (Tutorial &ndash; Scoreboard)
+<a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php">http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php</a></p>
+
+<p><a href="http://www.flashkit.com/tutorials/Games/How_to_c-Nick_Kuh-771/index.php"></a>FlashPerfection (Tutorial &ndash; Pong)
+<a href="http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html">http://www.flashperfection.com/tutorials/How-to-Make-the-Game-of-Pong-65527.html</a></p>
+
+<p>Matheus Prestes (Tutorial &ndash; Tiles Map &ndash;  português)
+<a href="http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html">http://www.freewebs.com/matheusprestes/MapTiles/html/TilesMap.html </a></p>
+]]></content>
+  </entry>
+  
+</feed>

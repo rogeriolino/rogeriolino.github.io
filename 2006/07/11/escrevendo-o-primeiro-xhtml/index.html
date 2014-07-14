@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Escrevendo O Primeiro XHTML - Rogério Lino</title>
+  <meta name="author" content="Rogério Lino">
+
+  
+  <meta name="description" content="Mãos à obra, vamos agora escrever nosso primeiro código XHTML. Abaixo o código já pronto e comentado: &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12652599-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Escrevendo O Primeiro XHTML</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-11T09:47:21-03:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Mãos à obra, vamos agora escrever nosso primeiro código <strong>XHTML</strong>. Abaixo o código já pronto e comentado:</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt"&gt;
+&lt;head&gt;
+    &lt;title&gt; Título &lt;/title&gt;
+    &lt;meta name="Generator" content="" /&gt;
+    &lt;meta name="Author" content="" /&gt;
+    &lt;meta name="Keywords" content="" /&gt;
+    &lt;meta name="Description" content="" /&gt;
+    &lt;meta name="language" content="pt-br" /&gt;
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="shortcut icon" href="favicon.ico" /&gt;
+    &lt;!-- Style --&gt;
+    &lt;link rel="stylesheet" href="style.css" type="text/css"/&gt;&lt;/em&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: <a href="http://rogeriolino.com/2006/07/03/xhtml-o-que-e/">leia aqui</a> e/ou <a href="http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/">aqui</a>.</p>
+
+<p>Nesse caso foi definido como Strict, caso você ainda não esteje preparado pode utilizar como Transitional.</p>
+
+<blockquote>_<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">_</blockquote>
+
+
+<p>Você deve estar se perguntando: Por que aquele &ldquo;xmlns&rdquo; dentro da tag html ?</p>
+
+<p>É chamado de namespace e serve para mostrar para o browser quais elementos pertencem a qual linguagem no documento. <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#docconf">Dúvida?</a> <a href="http://www.maujor.com/w3c/xhtml10_2ed.html#ref-xmlns">Mais?</a> <a href="http://www.imasters.com.br/artigo/3956/xhtml/faq_completo_sobre_xhtml">Mais!</a></p>
+
+<p>As tags <strong>meta</strong> servem para colocar informações adicionais, tais como, autor, idioma, palavras-chave e etc. &ndash; essas tags são utilizadas por mecanismos de buscas, como o Google por exemplo, para localizar os sites. Um site bem estruturado e definido tem chance maior de aparecer primeiro na busca.</p>
+
+<p>Logo abaixo aparece a tag <strong>link</strong> referenciando um arquivo externo, ícone. Chamado Favicon &ndash; ícone do favoritos &ndash; que é nada mais nada menos do que aquele íconezinho que fica aparecendo no browser ao lado do endereço do seu site e nos favoritos também é claro. Caso ainda tenha dúvida <a href="http://www.google.com.br/search?q=favicon&amp;start=0&amp;ie=utf-8&amp;oe=utf-8&amp;client=firefox-a&amp;rls=org.mozilla:pt-BR:official">veja aqui</a>.</p>
+
+<p>Depois como já vimos aparece novamente a tag <strong>link</strong> para &ldquo;puxar&rdquo; o arquivo de estilo da página &ndash; CSS.</p>
+
+<p>Fecha-se a tag <strong>head</strong>, abre e fecha a <strong>body</strong> e fecha a <strong>html</strong>, e pronto. O seu XHTML já está pronto.</p>
+
+<p>Na próxima veremos o um layout já pronto com o CSS.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-07-11T09:47:21-03:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2006</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categorias/css/'>css</a>, <a class='category' href='/categorias/semantica/'>semântica</a>, <a class='category' href='/categorias/tableless/'>tableless</a>, <a class='category' href='/categorias/xhtml/'>xhtml</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml/" data-via="rogeriolino" data-counturl="http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2006/07/06/extensoes-firefox/" title="Previous Post: Extensões Firefox">&laquo; Extensões Firefox</a>
+      
+      
+        <a class="basic-alignment right" href="/2006/07/12/css-reference-1/" title="Next Post: CSS Reference #1">CSS Reference #1 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rogeriolino',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

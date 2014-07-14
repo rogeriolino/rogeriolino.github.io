@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Flash: Tag Object - Rogério Lino</title>
+  <meta name="author" content="Rogério Lino">
+
+  
+  <meta name="description" content="Depois do swf gerado é hora de colocá-lo no HTML. No próprio Flash ao apertar o F12 ele publica o filme e já cria um HTML. Tudo muito bom, se não &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.com/2007/02/01/flash-tag-object">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12652599-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Flash: Tag Object</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-01T22:08:19-02:00" pubdate data-updated="true">Feb 1<sup>st</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Depois do <strong>swf</strong> gerado é hora de colocá-lo no <strong>HTML.</strong> No próprio <strong>Flash</strong> ao apertar o <strong>F12</strong> ele <strong>publica</strong> o filme e já cria um <strong>HTML</strong>. Tudo muito bom, se não fosse pelo código gerado, muito sujo e não é validado pela W3C.</p>
+
+<p>O código gerado é igual a este:</p>
+
+<pre><code>&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://..." width="550" height="400"&gt;
+    &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
+    &lt;param name="movie" value="filme.swf" /&gt;
+    &lt;param name="quality" value="high" /&gt;
+    &lt;param name="bgcolor" value="#ffffff" /&gt;
+    &lt;embed src="filme.swf" quality="high" bgcolor="#ffffff" width="550" height="400" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://..." /&gt;
+&lt;/object&gt;
+</code></pre>
+
+<p>O problema em sí não está na tag <strong>object </strong>e sim na <strong>embed</strong> que não é reconhecida pela <strong>W3C</strong>. Beleza, então eu tiro a tag embed e está tudo certo? Errado.</p>
+
+<p>Primeiramente vamos conhecer mais sobre a tag Object.</p>
+
+<p>A tag <strong>object</strong> serve para anexar à página algum dos três tipos de dados (objects, images and applets), mas para alguns existe uma tag mais adequada, como por exemplo uma imagem.</p>
+
+<blockquote>The [ OBJECT](http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT) element allows authors to specify all three types of data, but authors may not have to specify all three at once. For example, some objects may not require data (e.g., a self-contained applet that performs a small animation). Others may not require run-time initialization. Still others may not require additional implementation information, i.e., the user agent itself may already know how to render that type of data (e.g., GIF images).
+
+link: [http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT ](http://www.w3.org/TR/html4/struct/objects.html#edef-OBJECT)</blockquote>
+
+
+<p>Então respondendo a pergunta acima a tag <strong>object</strong> sem a <strong>embed</strong> não irá funcionar, a não ser que o atributo <strong>type</strong> (que no código acima você percebe que ele está na <strong>embed</strong>) esteja definido adequadamente. E também seja colocado o atributo <strong>data</strong> (que funciona igual ao <strong>href</strong>).</p>
+
+<p>Resulmindo o código acima ficaria assim:</p>
+
+<pre><code>&lt;object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400"&gt;
+    &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
+    &lt;param name="movie" value="filme.swf" /&gt;
+    &lt;param name="quality" value="high" /&gt;
+    &lt;param name="bgcolor" value="#ffffff" /&gt;
+&lt;/object&gt;
+</code></pre>
+
+<p>Pois então com o exemplo acima, além de validar sua página o código fica mais limpo e enxuto.</p>
+
+<p><strong> Mais sobre:</strong></p>
+
+<p><a href="http://www.maujor.com/tutorial/adeus-embed.php">http://www.maujor.com/tutorial/adeus-embed.php</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-02-01T22:08:19-02:00" pubdate data-updated="true">Feb 1<sup>st</sup>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categorias/flash/'>flash</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.com/2007/02/01/flash-tag-object/" data-via="rogeriolino" data-counturl="http://rogeriolino.com/2007/02/01/flash-tag-object/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/01/29/flash-startdrag-e-stopdrag/" title="Previous Post: Flash: startDrag() e stopDrag()">&laquo; Flash: startDrag() e stopDrag()</a>
+      
+      
+        <a class="basic-alignment right" href="/2007/02/04/flash-swf-com-fundo-transparente/" title="Next Post: Flash: SWF com Fundo transparente">Flash: SWF com Fundo transparente &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rogeriolino',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

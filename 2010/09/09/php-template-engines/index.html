@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHP: Template Engines - Rogério Lino</title>
+  <meta name="author" content="Rogério Lino">
+
+  
+  <meta name="description" content="Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.com/2010/09/09/php-template-engines">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12652599-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PHP: Template Engines</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-09T18:22:29-03:00" pubdate data-updated="true">Sep 9<sup>th</sup>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.</p>
+
+<p><a href="http://www.smarty.net/">Smarty</a></p>
+
+<p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
+
+<pre><code>&lt;ul&gt;
+{foreach from=$myArray item=foo}
+    &lt;li&gt;{$foo}&lt;/li&gt;
+{/foreach}
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$smarty = new Smarty;
+$arr = array(1000, 1001, 1002);
+$smarty-&gt;assign ('myArray', $arr);
+$smarty-&gt;display ('HelloWorld.tpl');
+</code></pre>
+
+<p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
+
+<p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+
+
+
+
+$tmpl = new vlibTemplate('tmpl/basic.htm');
+$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl-&gt;pparse();
+</code></pre>
+
+<p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
+
+<p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
+
+<pre><code> &lt;table&gt;
+     &lt;!-- START row --&gt;
+         &lt;tr&gt;
+             &lt;!-- START cell --&gt; 
+             &lt;td &gt;{td_value} &lt;/td&gt; 
+             &lt;!-- END cell --&gt;
+         &lt;/tr&gt;
+     &lt;!-- END row --&gt;
+ &lt;/table&gt;
+
+
+
+
+
+
+
+$fxlt = new fxl_template('example.tpl');
+$fxlt_row = $fxlt-&gt;get_block('row');
+$fxlt_cell = $fxlt_row-&gt;get_block('cell');
+for ($tr = 1; $tr &lt;= 3; $tr++) {
+    for ($td = 1; $td &lt;= 3; $td++) {
+        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
+        $fxlt_row-&gt;assign('cell', $fxlt_cell);
+        $fxlt_cell-&gt;clear();
+    }
+    $fxlt-&gt;assign('row', $fxlt_row);
+    $fxlt_row-&gt;clear();
+}
+$fxlt-&gt;display();
+</code></pre>
+
+<p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
+
+<p>Mais do mesmo, mas com alterações de sintaxe.</p>
+
+<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
+&lt;ul&gt;
+{foreach:rows,row}
+    &lt;li&gt;
+    {row['name']} 
+    &lt;/li&gt;
+{end:} 
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$t = new vemplator();
+// if/else
+$t-&gt;assign('logged', true);
+$t-&gt;assign('username', 'Rogerio');
+// loop
+$items = array(
+    array('name' =&gt; 'Laptop'),
+    array('name' =&gt; 'Memory Stick')
+);
+$t-&gt;assign('rows', $rows);
+echo $t-&gt;output('example.template.html');
+</code></pre>
+
+<p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
+
+<p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
+
+<pre><code> &lt;table &gt;
+ &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table &gt;
+
+
+
+
+
+
+
+$TBS =&amp; new clsTinyButStrong ;
+$TBS-&gt;LoadTemplate('template.htm') ;
+$list = array('X','Y','Z') ;
+$TBS-&gt;MergeBlock('blk',$list) ;
+$TBS-&gt;Show();
+</code></pre>
+
+<p><a href="http://dwoo.org/">Dwoo</a></p>
+
+<p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
+     &lt;div id="content"&gt;
+      {block "content"}
+        Welcome to my amazing homepage
+      {/block}
+     &lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+{extends "base.html"}
+{block "title"}
+Gallery
+{/block}
+{foreach $images img}
+    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
+  {/foreach}
+
+
+
+
+
+
+
+
+$dwoo = Dwoo();
+$images = array(
+    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
+    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
+);
+$params = array();
+$params['images'] = $images;
+echo $dwoo-&gt;get("gallery.tpl", $params);
+</code></pre>
+
+<p><a href="http://www.h2o-template.org/">h2o</a></p>
+
+<p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;PHP: Template Engines&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.
+</code></pre>
+
+<p><a href="http://www.smarty.net/">Smarty</a></p>
+
+<p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
+
+<pre><code>&lt;ul&gt;
+{foreach from=$myArray item=foo}
+    &lt;li&gt;{$foo}&lt;/li&gt;
+{/foreach}
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$smarty = new Smarty;
+$arr = array(1000, 1001, 1002);
+$smarty-&gt;assign ('myArray', $arr);
+$smarty-&gt;display ('HelloWorld.tpl');
+</code></pre>
+
+<p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
+
+<p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+
+
+
+
+
+$tmpl = new vlibTemplate('tmpl/basic.htm');
+$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl-&gt;pparse();
+</code></pre>
+
+<p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
+
+<p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
+
+<pre><code> &lt;table&gt;
+     &lt;!-- START row --&gt;
+         &lt;tr&gt;
+             &lt;!-- START cell --&gt; 
+             &lt;td &gt;{td_value} &lt;/td&gt; 
+             &lt;!-- END cell --&gt;
+         &lt;/tr&gt;
+     &lt;!-- END row --&gt;
+ &lt;/table&gt;
+
+
+
+
+
+
+
+$fxlt = new fxl_template('example.tpl');
+$fxlt_row = $fxlt-&gt;get_block('row');
+$fxlt_cell = $fxlt_row-&gt;get_block('cell');
+for ($tr = 1; $tr &lt;= 3; $tr++) {
+    for ($td = 1; $td &lt;= 3; $td++) {
+        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
+        $fxlt_row-&gt;assign('cell', $fxlt_cell);
+        $fxlt_cell-&gt;clear();
+    }
+    $fxlt-&gt;assign('row', $fxlt_row);
+    $fxlt_row-&gt;clear();
+}
+$fxlt-&gt;display();
+</code></pre>
+
+<p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
+
+<p>Mais do mesmo, mas com alterações de sintaxe.</p>
+
+<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
+&lt;ul&gt;
+{foreach:rows,row}
+    &lt;li&gt;
+    {row['name']} 
+    &lt;/li&gt;
+{end:} 
+&lt;/ul&gt;
+
+
+
+
+
+
+
+$t = new vemplator();
+// if/else
+$t-&gt;assign('logged', true);
+$t-&gt;assign('username', 'Rogerio');
+// loop
+$items = array(
+    array('name' =&gt; 'Laptop'),
+    array('name' =&gt; 'Memory Stick')
+);
+$t-&gt;assign('rows', $rows);
+echo $t-&gt;output('example.template.html');
+</code></pre>
+
+<p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
+
+<p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
+
+<pre><code> &lt;table &gt;
+ &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table &gt;
+
+
+
+
+
+
+
+$TBS =&amp; new clsTinyButStrong ;
+$TBS-&gt;LoadTemplate('template.htm') ;
+$list = array('X','Y','Z') ;
+$TBS-&gt;MergeBlock('blk',$list) ;
+$TBS-&gt;Show();
+</code></pre>
+
+<p><a href="http://dwoo.org/">Dwoo</a></p>
+
+<p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
+     &lt;div id="content"&gt;
+      {block "content"}
+        Welcome to my amazing homepage
+      {/block}
+     &lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+{extends "base.html"}
+{block "title"}
+Gallery
+{/block}
+{foreach $images img}
+    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
+  {/foreach}
+
+
+
+
+
+
+
+
+$dwoo = Dwoo();
+$images = array(
+    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
+    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
+);
+$params = array();
+$params['images'] = $images;
+echo $dwoo-&gt;get("gallery.tpl", $params);
+</code></pre>
+
+<p><a href="http://www.h2o-template.org/">h2o</a></p>
+
+<p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{{ page.title }}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     {{ page.content }}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+$h2o = new h2o('index.html');
+$page = array(
+  'title' =&gt; 'title of a page',
+  'body' =&gt; 'Hello world'
+);
+echo $h2o-&gt;render(compact('page'));
+</code></pre>
+
+<p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
+
+<p>Entre os projetos disponíveis no PEAR (<a href="http://pear.php.net/package/HTML_Template_PHPLIB/">PHPLIB</a>, <a href="http://pear.php.net/package/HTML_Template_Sigma/">Sigma</a> e <a href="http://pear.php.net/package/HTML_Template_IT/">IT</a>) esse é o melhor.</p>
+
+<p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{title}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
+    Input Box: &lt;input name="input" /&gt;
+    &lt;ul&gt;
+        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
+        &lt;li flexy:foreach="numbers,number,string" &gt;
+            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;!-- chamando o método da classe --&gt;
+    {someMethod()}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+class controller_test  {
+
+    var $title;
+    var $numbers = array();
+    var $elements = array();
+
+    function controller_test() {
+        $this-&gt;start();
+        $this-&gt;output();
+    }
+
+    function start() {
+        $this-&gt;title = "Hello World";
+        // create an HTML Element for the form element.
+        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
+        $this-&gt;elements['input']-&gt;setValue('Hello');
+
+        for ($i = 1;$i&lt; 5;$i++) {
+            $this-&gt;numbers[$i] = "Number $i";
+        }
+    }
+
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output-&gt;compile("home.html");
+        $output-&gt;outputObject($this,$this-&gt;elements);
+    }
+
+    function someMethod() {
+        return "Hello From A Method";
+    }
+
+}
+new controller_test();
+</code></pre>
+
+<p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
+
+<p>Em meados do ano passado comecei escrever uma engine baseada no <a href="https://javaserverfaces.dev.java.net/">JSF</a>+<a href="https://facelets.dev.java.net/">Facelets</a> (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).</p>
+
+<pre><code> &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+$h2o = new h2o('index.html');
+$page = array(
+  'title' =&gt; 'title of a page',
+  'body' =&gt; 'Hello world'
+);
+echo $h2o-&gt;render(compact('page'));
+</code></pre>
+
+<p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
+
+<p>Entre os projetos disponíveis no PEAR (<a href="http://pear.php.net/package/HTML_Template_PHPLIB/">PHPLIB</a>, <a href="http://pear.php.net/package/HTML_Template_Sigma/">Sigma</a> e <a href="http://pear.php.net/package/HTML_Template_IT/">IT</a>) esse é o melhor.</p>
+
+<p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
+
+<pre><code> &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;{title}&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
+    Input Box: &lt;input name="input" /&gt;
+    &lt;ul&gt;
+        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
+        &lt;li flexy:foreach="numbers,number,string" &gt;
+            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;!-- chamando o método da classe --&gt;
+    {someMethod()}
+ &lt;/body&gt;
+ &lt;/html&gt;
+
+
+
+
+
+
+
+class controller_test  {
+
+    var $title;
+    var $numbers = array();
+    var $elements = array();
+
+    function controller_test() {
+        $this-&gt;start();
+        $this-&gt;output();
+    }
+
+    function start() {
+        $this-&gt;title = "Hello World";
+        // create an HTML Element for the form element.
+        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
+        $this-&gt;elements['input']-&gt;setValue('Hello');
+
+        for ($i = 1;$i&lt; 5;$i++) {
+            $this-&gt;numbers[$i] = "Number $i";
+        }
+    }
+
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output-&gt;compile("home.html");
+        $output-&gt;outputObject($this,$this-&gt;elements);
+    }
+
+    function someMethod() {
+        return "Hello From A Method";
+    }
+
+}
+new controller_test();
+</code></pre>
+
+<p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
+
+<p>Em meados do ano passado comecei escrever uma engine baseada no <a href="https://javaserverfaces.dev.java.net/">JSF</a>+<a href="https://facelets.dev.java.net/">Facelets</a> (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-09-09T18:22:29-03:00" pubdate data-updated="true">Sep 9<sup>th</sup>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categorias/php/'>php</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.com/2010/09/09/php-template-engines/" data-via="rogeriolino" data-counturl="http://rogeriolino.com/2010/09/09/php-template-engines/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2010/06/17/css-footer-always-in-bottom/" title="Previous Post: CSS: Footer always in bottom">&laquo; CSS: Footer always in bottom</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/03/16/cakephp-layout-inheritance/" title="Next Post: CakePHP: Layout Inheritance">CakePHP: Layout Inheritance &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rogeriolino',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programas | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/programas/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Novo SGA]]></title>
+    <link href="http://rogeriolino.com/2013/02/05/novo-sga/"/>
+    <updated>2013-02-05T09:33:57-02:00</updated>
+    <id>http://rogeriolino.com/2013/02/05/novo-sga</id>
+    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+
+<blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
+
+Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 2009, unindo a burocracia dos responsáveis pela comunidade no [Portal do Software Público](http://softwarepublico.gov.br/) surgiu a necessidade de criar uma nova versão para esse sistema que já roda em diversas localidades do Brasil.
+
+A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
+
+
+<p>Visite o <a href="http://novosga.org">site do projeto</a> e confira a <a href="http://novosga.org/demo">versão demo</a> disponível online.</p>
+
+<p>Gostou e quer contribuir com o desenvolvimento? Acesse o <a href="http://github.com/rogeriolino/novosga">projeto no GitHub</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Extensões Google Chrome]]></title>
+    <link href="http://rogeriolino.com/2012/04/09/extensoes-google-chrome/"/>
+    <updated>2012-04-09T17:48:33-03:00</updated>
+    <id>http://rogeriolino.com/2012/04/09/extensoes-google-chrome</id>
+    <content type="html"><![CDATA[<p>Em 2006 publiquei um post listando algumas <a href="http://rogeriolino.com/2006/07/06/extensoes-firefox/">extensões que recomendava para o Firefox</a>, o tempo passou e acabei mudando de browser também. E o mais engraçado é que mesmo mudando de browser, as duas extensões que sempre fiz questão de instalar no Firefox, hoje também são pré-requisitos no Chrome. São elas:</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/bmagokdooijbeehmkpknfglimnifench">Firebug</a></p>
+
+<pre><code>Firebug Lite is not a substitute for Firebug, or Chrome Developer Tools. It is a tool to be used in conjunction with these tools. Firebug Lite provides the rich visual representation we are used to see in Firebug when it comes to HTML elements, DOM elements, and Box Model shading. It provides also some cool features like inspecting HTML elemements with your mouse, and live editing CSS properties.
+</code></pre>
+
+<p><a href="https://chrome.google.com/webstore/detail/bfbameneiokkgbdmiekhjnmfkcnldhhm">Web Developer</a></p>
+
+<pre><code>The Web Developer extension adds a toolbar button to the browser with various web developer tools. This is the official port of the popular Web Developer extension for Firefox written by the same person.
+</code></pre>
+
+<p>Além dessas que considero obrigatórias, recomendo também as seguintes extensões:</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc">JSONView</a></p>
+
+<pre><code>Valida e formata páginas com conteúdo JSON. Excelente extensão.
+</code></pre>
+
+<p><a href="https://chrome.google.com/webstore/detail/dkaagdgjmgdmbnecmcefdhjekcoceebi">PerfectPixel</a></p>
+
+<pre><code>This extension allows developers to put a semi-transparent image overlay over the top of the developed HTML and perform per pixel comparison between them. Analogue of popular Firefox extension PixelPerfect.
+</code></pre>
+
+<p><a href="https://chrome.google.com/webstore/detail/encaiiljifbdbjlphpgpiimidegddhic">Silver Bird</a> <em>(utilizava o Tweetdeck até ser necessária a criação de uma outra conta)</em></p>
+
+<pre><code>Silver Bird is an awesome Twitter client extension for Google Chrome with lots of features.
+</code></pre>
+
+<p><a href="https://chrome.google.com/webstore/detail/cpngackimfmofbokmjmljamhdncknpmg">Screen Capture by Google</a></p>
+
+<pre><code>It's easy to use this extension to capture visible content of a tab, a region of a web page, or the whole page as a PNG image.
+</code></pre>
+
+<p><a href="https://chrome.google.com/webstore/detail/lnpifgapnmpninomacbhdlconlpikdai">Window Close Protector</a></p>
+
+<pre><code>Show a warning dialog when closing a window containing multiple tabs.
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SGA Livre]]></title>
+    <link href="http://rogeriolino.com/2010/03/18/sga-livre/"/>
+    <updated>2010-03-18T09:51:13-03:00</updated>
+    <id>http://rogeriolino.com/2010/03/18/sga-livre</id>
+    <content type="html"><![CDATA[<p><em><strong>ATENÇÃO:</strong> Se você está pensando em utilizar um sistema para gerenciar a fila de atendimento da sua organização, conheça o <a href="http://www.novosga.org">Novo SGA</a>.</em></p>
+
+<hr />
+
+<p><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_logo.jpg" alt="" /></p>
+
+<blockquote>**SGA LIVRE** significa Sistema de Gerenciamento do Atendimento, versão Livre. É desenvolvido pela DATAPREV, totalmente baseado em tecnologias de software livre e de código aberto.
+
+Através do SGA é possível gerenciar filas e fluxo de atendimento em quaisquer tipos de empresas ou organizações que prestam serviço de atendimento presencial à pessoas.
+
+O SGA oferece o controle de filas de atendimento através de emissão de senhas e chamada das mesmas através de painéis. As filas de atendimento podem conter um único serviço ou um grupo de serviços. Os painéis podem chamar um, vários ou todos os serviços. Uma unidade de atendimento pode ter vários painéis.
+
+O SGA é mais do que um sistema de controle de filas. Ao gerenciar o fluxo de atendimento, o sistema apresenta uma série de recursos que auxiliam na gerência e administração das unidades de atendimento.
+
+Fornece uma diversidade de informações gerenciais preciosas, através de relatórios, estatísticas e gráficos avançados sobre atendimentos de uma unidade, de um grupo de unidades ou de todas elas. É possível obter estatísticas e tempos médios de atendimento por atendente, por período e por unidade, entre outras. Pode-se obter dados detalhados ou agregados.
+
+As informações gerenciais fornecidas pelo SGA possibilitam aos gestores planejar, acompanhar, monitorar, otimizar e agilizar o atendimento aos clientes.
+
+fonte: [http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494](http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494)</blockquote>
+
+
+<p>Não é novidade o lançamento da versão livre do SGA, porém é com muito orgulho que hoje vejo este software ganhando força no cenário nacional, e também por ter participado do seu desenvolvimento. O software foi desenvolvido em <a href="http://php.net">PHP</a> fornecendo uma camada para abstração do <a href="http://en.wikipedia.org/wiki/Relational_database_management_system">RDMS</a>, utilizando como interface de acesso o <a href="http://php.net/manual/en/book.pdo.php">PDO</a> (suporte padrão ao <a href="http://www.postgresql.org">PostgreSQL</a>). Tal contribuição foi desde definir a estrutura do sistema, passando por diagramação, HTML, CSS, até a programação PHP e Javascript.</p>
+
+<p>[caption id=&ldquo;attachment_238&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;294&rdquo; caption=&ldquo;Tela de instalação do SGA&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_instalacao-294x300.jpg" alt="" /></a>[/caption]</p>
+
+<p>Dividido em módulos é fácil customizar a ferramenta para atender as  necessidades específicas de qualquer centro de atendimento. Para facilitar o uso de requisições assíncronas no sistema foi  utilizada o código <a href="http://pt.wikipedia.org/wiki/AJAX_(programa%C3%A7%C3%A3o">Ajax</a>) da lib escrita por mim e já comentada nesse blog (<a href="http://rogeriolino.com/2009/03/11/javascript-libjsx/">libjsx</a>, <a href="http://code.google.com/p/libjsx/source/browse/trunk/org/libjsx/ajax/Ajax.js">Ajax.js</a>).</p>
+
+<p><a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg"></a></p>
+
+<p>[caption id=&ldquo;attachment_237&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;300&rdquo; caption=&ldquo;Tela de atendimento do SGA&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/sga_atendimento-300x239.jpg" alt="" /></a>[/caption]</p>
+
+<p>Quem quiser utilizar ou contribuir com o projeto basta se cadastrar no site <a href="http://www.softwarepublico.gov.br/">http://www.softwarepublico.gov.br/</a> e acessar a página da <a href="http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494">comunidade</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Python: PyCACIC]]></title>
+    <link href="http://rogeriolino.com/2008/07/03/python-pycacic/"/>
+    <updated>2008-07-03T15:31:11-03:00</updated>
+    <id>http://rogeriolino.com/2008/07/03/python-pycacic</id>
+    <content type="html"><![CDATA[<blockquote>
+![Cacic](http://rogeriolino.files.wordpress.com/2008/07/logo.png)**CACIC:** "Primeiro Software Público do Governo Federal, resultado do Consórcio de
+Cooperação entre a SLTI - Secretaria de Logística Tecnologia da Informação, do
+Ministério do Planejamento, Orçamento e Gestão - MPOG e a DATAPREV - Empresa de
+Tecnologia e Informações da Previdência Social, desenvolvido pelo Escritório
+Regional da DATAPREV no Espírito Santo.
+
+O Cacic é capaz de fornecer um diagnóstico preciso do parque computacional e
+disponibilizar informações como o número de equipamentos e sua distribuição nos mais
+diversos órgãos, os tipos de softwares utilizados e licenciados, configurações de
+hardware, entre outras. Também pode fornecer informações patrimoniais e a localização
+física dos equipamentos, ampliando o controle do parque computacional e a segurança
+na rede."
+
+**fonte:** [http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585](http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585)
+</blockquote>
+
+
+<p><strong>PyCacic</strong></p>
+
+<p>Há bastante tempo existe a versão do <strong>Agente Cacic</strong> para Windows, versão bastante difundida não só no Brasil quanto no mundo, mas ainda não existia uma versão para <strong>GNU/Linux</strong>. O que para a comunidade de software livre era uma pena, diante da grande utilidade e compentência do Cacic.</p>
+
+<p>E para felicidade geral foi lançada nesta segunda-feira (30/06/08) a versão rc1 (release candidate 1) do agente para <strong>GNU/Linux</strong> escrita em <strong>Python</strong>, no qual tive o prazer de ser um dos principais desenvolvedores junto com toda &ndash; excelente &ndash; equipe de desenvolvimento da <strong>Dataprev</strong> (<strong>URES</strong> &ndash; Unidade Regional Espírito Santo).</p>
+
+<p>Esta versão conta com a praticidade de um gerador de pacotes preconfigurados (deb, rpm ou tgz genérico) para facilitar a instação nas estações. Coleta informações de software, hardware, variáveis de ambiente, informações de rede e patrimoniais, partições e unidades de disco.</p>
+
+<p>O código fonte e pacotes podem ser baixados no próprio site da comunidade no <a href="http://www.softwarepublico.gov.br/">Software Público Brasileiro</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Firefox News]]></title>
+    <link href="http://rogeriolino.com/2006/12/21/firefox-news/"/>
+    <updated>2006-12-21T13:52:52-02:00</updated>
+    <id>http://rogeriolino.com/2006/12/21/firefox-news</id>
+    <content type="html"><![CDATA[<p>Esses dias instalei aqui em casa um plugin novo para o Firefox.</p>
+
+<p>Trata-se de um dicionário em português.</p>
+
+<p>Não sabia muito bem para que &ldquo;servia&rdquo; (é um dicionário oras) mas acabei instalando assim mesmo.</p>
+
+<p>E hoje ao responder uma mensagem no Orkut, vi que todas as palavras escritas erradas, ou simplesmente abreviadas (internetês), estavam sublinhadas. Como o verificador ortográfico do Microsoft Office.</p>
+
+<p>Achei até que poderia ser mais uma inovação da Google. Mas continuando a escrever textos em inputs navegando pelo Firefox, notei que o mesmo continuava a acontecer.
+Então, puta merda! A parada funciona melhor do que eu imaginava. É um corretor ortográfico embutido no browser. Muito bom para quem digita rápido e/ou tem alguma dúvida de como se escreve a determinada
+palavra.</p>
+
+<p>E enquanto digito esse texto, acabei de me surpreender mais. Só de sacanagem apertei com o botão direito em cima da palavra sublinhada, e eis que aparece sugestões e uma opção para adicionar ao
+dicionário.</p>
+
+<p>Carai, tô feitu ! (essa exclamação por exemplo abriu até um popup me xingando, hehehe, sacanagem).
+Para quem quiser fazer download do plugin, segue o link:
+<a href="https://addons.mozilla.org/firefox/3257/"></a></p>
+
+<p><a href="https://addons.mozilla.org/firefox/3257/">https://addons.mozilla.org/firefox/3257/</a></p>
+
+<p>[update]</p>
+
+<p><a href="http://releases.mozilla.org/pub/mozilla.org/extensions/united_states_english_dictionary/united_states_english_dictionary-2.0.0.6-fx+zm+tb.xpi">inglês aqui</a></p>
+
+<p>[/update]</p>
+]]></content>
+  </entry>
+  
+</feed>

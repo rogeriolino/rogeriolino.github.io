@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHP: Slim Framework Action Based - Rogério Lino</title>
+  <meta name="author" content="Rogério Lino">
+
+  
+  <meta name="description" content="Há algum tempo utilizo o Slim Framework como base de meus projetos. E o motivo é sua simplicidade, velocidade e facilidade. E para criar CRUD, eu &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12652599-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PHP: Slim Framework Action Based</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-27T10:06:51-02:00" pubdate data-updated="true">Dec 27<sup>th</sup>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Há algum tempo utilizo o <a href="http://www.slimframework.com/">Slim Framework</a> como base de meus projetos. E o motivo é sua simplicidade, velocidade e facilidade.</p>
+
+<p>E para criar CRUD, eu utilizo um trecho de código para trabalhar rotas semelhante aos frameworks action based. Seguindo a convenção <strong>/controlador/método</strong>.</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso &#8220;1&#8221;).
+</blockquote>
+
+
+<p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
+
+<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
+    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
+    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
+    try {
+        if (!class_exists($class)) {
+            throw new \Exception('Controlador não encontrado');
+        }
+        $ctrl = new $class($app);
+        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
+        $ref = new \ReflectionMethod($class, $methodName);
+        if (!$ref-&gt;isPublic()) {
+            throw new \Exception('O método do controlador não é público.');
+        }
+        $view = $methodName;
+        $rs = $ref-&gt;invokeArgs($ctrl, $params);
+        if ($rs) {
+            $view = $rs;
+        }
+        $app-&gt;render("{$controller}/{$view}.php");
+    } catch (\Exception $e) {
+        $app-&gt;notFound();
+    }
+});
+</code></pre>
+
+<p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-27T10:06:51-02:00" pubdate data-updated="true">Dec 27<sup>th</sup>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categorias/php/'>php</a>, <a class='category' href='/categorias/quickpost/'>quickpost</a>, <a class='category' href='/categorias/tutorial/'>tutorial</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based/" data-via="rogeriolino" data-counturl="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/12/12/angular-js-inplace-editing/" title="Previous Post: Angular.js: Inplace editing">&laquo; Angular.js: Inplace editing</a>
+      
+      
+        <a class="basic-alignment right" href="/2014/01/08/freezeheader-jquery-plugin/" title="Next Post: FreezeHeader jQuery plugin">FreezeHeader jQuery plugin &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rogeriolino',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

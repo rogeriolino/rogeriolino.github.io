@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Flash: startDrag() E stopDrag() - Rogério Lino</title>
+  <meta name="author" content="Rogério Lino">
+
+  
+  <meta name="description" content="Aproveitando o post anterior sobre uma div arrastável usando Javascript. Vamos ver agora como seria feito uma janela também arrastável só que no &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rogeriolino.com/2007/01/29/flash-startdrag-e-stopdrag">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12652599-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rogeriolino.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Flash: startDrag() E stopDrag()</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-29T15:34:33-02:00" pubdate data-updated="true">Jan 29<sup>th</sup>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Aproveitando o post anterior sobre uma div arrastável usando Javascript. Vamos ver agora como seria feito uma janela também arrastável só que no Flash.</p>
+
+<p>Primeiro de tudo é desenharmos nossa janela, ela será divida da seguinte maneira:</p>
+
+<blockquote>**janela** (MovieClip Principal)
+|&#8211; **barra**;
+|&#8211; **minimax**;
+|&#8211; **fechar**;
+&#45;- **conteudo**.</blockquote>
+
+
+<p>Use as ferramentas de desenho para construir a janela, mas deixe os desenhos separados como mostrado acima. Se você ainda não está familiarizado<a href="http://rogeriolino.com/2006/09/06/flash-8-para-quem-esta-comecando-1/"> leia este post primeiro</a>.</p>
+
+<p>A minha janela ficou assim:</p>
+
+<p><img src="http://rogeriolino.files.wordpress.com/2007/01/janela.gif" alt="Desenho da Janela" /></p>
+
+<p>Aonde cada parte (desenho) é um MovieClip diferente, para <strong>transformar</strong> o seu <strong>desenho</strong> em <strong>MovieClip</strong> selecione ele aperte <strong>F8</strong> coloque o nome do MC e verifique se o <strong>radiobutton MovieClip</strong> realmente está marcado.</p>
+
+<p>Após criado o Movie devemos instanciâ-lo, para isso clique nele e vá na aba <strong>Propriedades</strong> (<strong>CTRL+F3</strong>), preencha o campo instância (siga os nomes definidos acima).</p>
+
+<p>Com os quatros MovieClips prontos (<strong>barra</strong>, <strong>minimax</strong>, <strong>fechar</strong> e <strong>conteudo</strong>) selecione-os e aperte novamente <strong>F8</strong> para transformá-los no nosso <strong>MC janela</strong>.</p>
+
+<p>Caso você queira editar algum movie ou apenas posicionar melhor, dê um duplo clique nele e poderá navegar através dos demais que estão contidos nele.</p>
+
+<p>Agora com os MCs criados e instanciados, vamos às <strong>actions</strong>:</p>
+
+<p>Clique no <strong>frame principal</strong> (o primeiro frame da timeline) e aperte <strong>F9</strong>. Cole o código abaixo:</p>
+
+<pre><code>this.janela.barra.onPress = function() {
+    this._parent.startDrag();
+}
+
+this.janela.barra.onRelease = function() {
+    this._parent.stopDrag();
+}
+
+this.janela.fechar.onRelease = function() {
+    this._parent._visible = false;
+}
+
+this.abrir.onRelease = function() {
+    this._parent.janela._visible = true;
+}
+
+this.janela.minimax.onRelease = function() {
+    this._parent.conteudo._visible = !this._parent.conteudo._visible;
+}
+</code></pre>
+
+<p>Ao contrário do Javascript e das versões bem mais antigas (até a 5) do Flash não é necessário um método para pegar um alvo. Você mostra o caminha para se chegar nele a partir do palco (_root sempre para raiz, ou this este filme &ndash; isso ficará mais claro quando aprendermos sobre carregar filme externo).</p>
+
+<p>Por exemplo o movie<strong> fechar</strong> está no dentro do MC<strong> janela</strong> que por sua vez está no palco, então: <strong>this.janela.fechar</strong>. E se você estiver em um MC (fehcar por exemplo) e queira acessar o seu pai (janela), fica assim: <strong>this._parent</strong>.</p>
+
+<p>Repare no código que a lógica é a mesma, porém no Flash tem um método nativo para realiza esse arrastar (<strong>startDrag()</strong>) e um para parar esse arrastar (<strong>stopDrag()</strong>). O que no HTML temos que fazer na mão mesmo.</p>
+
+<p>O que reduz e muito o código final. Agora é só testar (CTRL+ENTER).</p>
+
+<p>Para ver o <a href="http://dev.rogeriolino.com/exemplos/flash/drag/index.html">exemplo clique aqui</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">rogeriolino</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-29T15:34:33-02:00" pubdate data-updated="true">Jan 29<sup>th</sup>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categorias/actionscript/'>actionscript</a>, <a class='category' href='/categorias/flash/'>flash</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://rogeriolino.com/2007/01/29/flash-startdrag-e-stopdrag/" data-via="rogeriolino" data-counturl="http://rogeriolino.com/2007/01/29/flash-startdrag-e-stopdrag/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2007/01/25/javascript-draggable-window/" title="Previous Post: Javascript: Draggable Window">&laquo; Javascript: Draggable Window</a>
+      
+      
+        <a class="basic-alignment right" href="/2007/02/01/flash-tag-object/" title="Next Post: Flash: Tag Object">Flash: Tag Object &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rogeriolino',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tutorial | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/tutorial/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Session Keep Alive]]></title>
+    <link href="http://rogeriolino.com/2014/05/12/session-keep-alive/"/>
+    <updated>2014-05-12T13:14:14-03:00</updated>
+    <id>http://rogeriolino.com/2014/05/12/session-keep-alive</id>
+    <content type="html"><![CDATA[<p>Uma maneira fácil de manter a sessão ativa no lado do servidor sem sobrecarregá-lo com longos tempos de timeout, é usar um script que redireciona o usuário para a tela de login após um determinado período de inatividade (teclado e mouse ociosos), e fazer requisições assíncronas ao servidor para manter a sessão ativa durante a atividade.</p>
+
+<!-- more -->
+
+
+<p>Resumindo, enquanto usuário está utilizando a aplicação (digitando ou movendo o cursor) uma requisição assíncrona é disparada a cada X minutos (ping), e quando o usuário ficar ocioso começa a contar o tempo para redirecioná-lo para a tela de login. É importante que esse tempo para redirecionar para o login seja menor do que o timeout do servidor.</p>
+
+<p>Para implementar essa ideia, vou utilizar um plugin jQuery que monitora a atividade do usuário (teclado e mouse): <a href="https://github.com/rogeriolino/jquery-idletimer.">https://github.com/rogeriolino/jquery-idletimer.</a></p>
+
+<p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
+
+<pre><code>// session keep alive
+;(function($) {
+    "use strict";
+
+    var pingTime = 60; // ping a cada 60 segundos
+    var count = pingTime;
+    $.idleTimer({
+        time: 10 * 60, // 10 minutos para timeout
+        start: function() {
+            count = pingTime;
+        },
+        change: function(it) {
+            count--;
+            console.log(count);
+            if (count &lt;= 0) {
+                count = pingTime;
+                $.ajax({ url: '/ping.php' });
+            }
+        },
+        end: function() {
+            window.location.href = '/logout.php';
+        }
+    });
+})(jQuery);
+</code></pre>
+
+<p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
+
+<pre><code>&lt;?php
+
+session_start();
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <link href="http://rogeriolino.com/2014/01/10/simple-javascript-support-detection/"/>
+    <updated>2014-01-10T21:57:26-02:00</updated>
+    <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
+    <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt; 
+&lt;html class="no-js" lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;JS detection&lt;/title&gt;
+    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+
+    &lt;style&gt;
+        .js .alert-danger { display: none; }
+        .no-js .alert-success { display: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP: Slim Framework Action Based]]></title>
+    <link href="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based/"/>
+    <updated>2013-12-27T10:06:51-02:00</updated>
+    <id>http://rogeriolino.com/2013/12/27/php-slim-framework-action-based</id>
+    <content type="html"><![CDATA[<p>Há algum tempo utilizo o <a href="http://www.slimframework.com/">Slim Framework</a> como base de meus projetos. E o motivo é sua simplicidade, velocidade e facilidade.</p>
+
+<p>E para criar CRUD, eu utilizo um trecho de código para trabalhar rotas semelhante aos frameworks action based. Seguindo a convenção <strong>/controlador/método</strong>.</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso "1").
+</blockquote>
+
+
+<p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
+
+<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
+    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
+    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
+    try {
+        if (!class_exists($class)) {
+            throw new \Exception('Controlador não encontrado');
+        }
+        $ctrl = new $class($app);
+        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
+        $ref = new \ReflectionMethod($class, $methodName);
+        if (!$ref-&gt;isPublic()) {
+            throw new \Exception('O método do controlador não é público.');
+        }
+        $view = $methodName;
+        $rs = $ref-&gt;invokeArgs($ctrl, $params);
+        if ($rs) {
+            $view = $rs;
+        }
+        $app-&gt;render("{$controller}/{$view}.php");
+    } catch (\Exception $e) {
+        $app-&gt;notFound();
+    }
+});
+</code></pre>
+
+<p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <link href="http://rogeriolino.com/2013/12/12/angular-js-inplace-editing/"/>
+    <updated>2013-12-12T11:57:12-02:00</updated>
+    <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
+    <content type="html"><![CDATA[<p><strong>HTML</strong></p>
+
+<pre><code>&lt;div class="container" ng-app="todo"&gt;
+    &lt;div ng-controller="todoCtrl"&gt;
+        &lt;form ng-submit="add()"&gt;
+            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
+            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;ul&gt;
+            &lt;li ng-repeat="todo in todos"&gt;
+                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
+                &lt;span ng-show="editing"&gt;
+                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
+                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<pre><code>var app = angular.module('todo', []);
+
+app.controller('todoCtrl', function($scope) {
+
+    $scope.todos = [
+        {text: "First task"}
+    ];
+
+    $scope.add = function() {
+        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+            $scope.todos.push({
+                text: $scope.newTodo
+            });
+            $scope.newTodo = '';
+        }
+    }
+
+});
+</code></pre>
+
+<p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS3: Selection Background Color]]></title>
+    <link href="http://rogeriolino.com/2013/01/02/css3-selection-background-color/"/>
+    <updated>2013-01-02T10:08:47-02:00</updated>
+    <id>http://rogeriolino.com/2013/01/02/css3-selection-background-color</id>
+    <content type="html"><![CDATA[<p>Com o seletor <strong>selection</strong> podemos definir a cor do texto e de fundo do texto quando o selecionamos.</p>
+
+<blockquote>
+The ::-moz-selection (::selection) pseudo-element applies to the portion of a document that has been highlighted (e.g. selected with the mouse) by the user.
+
+Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. The following properties apply to ::-moz-selection:  color, background and background-color (background-image is ignored).
+
+[http://dochub.io/#css/selection](http://dochub.io/#css/selection)
+</blockquote>
+
+
+<p><strong>CSS</strong></p>
+
+<pre><code>p::selection  { color: #000; }
+p::-moz-selection { color: #000; }
+
+p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }
+
+p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }
+
+p.pink::selection { background: #E2189C; }
+p.pink::-moz-selection { background: #E2189C; }
+</code></pre>
+
+<p><strong>HTML</strong></p>
+
+<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+
+&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
+
+&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
+</code></pre>
+
+<p><strong>Exemplo</strong>
+<a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
+]]></content>
+  </entry>
+  
+</feed>

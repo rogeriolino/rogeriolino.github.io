@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Xhtml | Rogério Lino]]></title>
+  <link href="http://rogeriolino.com/categorias/xhtml/atom.xml" rel="self"/>
+  <link href="http://rogeriolino.com/"/>
+  <updated>2014-07-14T12:23:37-03:00</updated>
+  <id>http://rogeriolino.com/</id>
+  <author>
+    <name><![CDATA[Rogério Lino]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Quickpost: Instant Documentation Search]]></title>
+    <link href="http://rogeriolino.com/2011/12/07/quickpost-instant-documentation-search/"/>
+    <updated>2011-12-07T12:47:27-02:00</updated>
+    <id>http://rogeriolino.com/2011/12/07/quickpost-instant-documentation-search</id>
+    <content type="html"><![CDATA[<p><a href="http://dochub.io/"><img src="http://rogeriolino.com/wp-content/uploads/2011/12/dochub.png" alt="" /></a></p>
+
+<p><a href="http://dochub.io/">dochub</a> concentra de maneira fácil e rápida as documentações de CSS, HTML, Javascript e DOM. No qual tem o seu conteúdo retirado da <a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a>.</p>
+
+<p>Excelente ferramente para tirar aquela dúvida ou refrescar a memória.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Colorpicker]]></title>
+    <link href="http://rogeriolino.com/2007/11/19/javascript-colorpicker/"/>
+    <updated>2007-11-19T17:43:09-02:00</updated>
+    <id>http://rogeriolino.com/2007/11/19/javascript-colorpicker</id>
+    <content type="html"><![CDATA[<p><img src="http://rogeriolino.com/wp-content/uploads/2007/11/colorpicker.jpg" alt="colorpicker.jpg" /></p>
+
+<p>Para quem não conhece, <strong>colorpicker </strong>é um <strong>seletor de cores</strong>. Ou seja uma &ldquo;janela&rdquo; com <strong>n cores predefinidas</strong>.</p>
+
+<p>Esse exemplo simula o <strong>colorpicker</strong> da <strong>Macromedia</strong>, disponível no <em>Flash, Dreamweaver, Fireworks</em> e etc. Como o picker da Macromedia, ele possui um <strong>display</strong> para <strong>pre-visualizar</strong> a cor e o seu <strong>valor hexadecimal</strong> ao passar o mouse sobre ela (<strong>onmouseover</strong>).</p>
+
+<p>Possui métodos <strong>getColor</strong> para resgatar o valor escolhido, <strong>onchange</strong> para efetuar uma ação ao escolher uma determinada cor, entre outros.</p>
+
+<p>É totalmente estilizado por <strong>CSS</strong>, logo poderá deixá-lo como quiser. Personalizando-o.</p>
+
+<p>Para utilizá-lo basta indexar-lo a sua página com a <strong>tag <script> </strong>e depois criar uma nova variável do tipo <strong>Colorpicker()</strong>.</p>
+
+<p>Ex:</p>
+
+<pre><code>&lt;script type="text/javascript" src="colorpicker.js"&gt;&lt;/script&gt;
+
+
+
+
+
+
+var picker = new ColorPicker(100, 38); // x , y
+picker.setVisible(true);
+</code></pre>
+
+<p>Para visualizar-lo funcionando <a href="http://dev.rogeriolino.com/exemplos/javascript/colorpicker/index.html">clique aqui</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS: Centralizar Horizontal E Vertical #2]]></title>
+    <link href="http://rogeriolino.com/2007/10/29/css-centralizar-horizontal-e-vertical-2/"/>
+    <updated>2007-10-29T23:30:47-02:00</updated>
+    <id>http://rogeriolino.com/2007/10/29/css-centralizar-horizontal-e-vertical-2</id>
+    <content type="html"><![CDATA[<p>Há algum tempo postei sobre como centralizar verticalmente e horizontalmente usando CSS, o que gerou alguns posts de visitantes revoltados porque não funcionava no IE7, fato que na época eu não tinha testado para essa versão do IE.</p>
+
+<p>Então, mesmo depois de muito tempo da versão já lançada, deixo um novo post testados nos browsers Firefox 2, IE6, IE7 e Opera 9.</p>
+
+<pre><code>html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: table;
+    *overflow: hidden; /* hack para o IE6 e IE7 */
+    *position: relative; /* hack para o IE6 e IE7 */
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    position: static;
+    *top: 50%; /* hack para o IE6 e IE7 */
+    *position: absolute; /* hack para o IE6 e IE7 */
+}
+
+#conteudo {
+    top: -50%;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background: red;
+}
+</code></pre>
+
+<p><a href="http://rogeriolino.com/2007/01/17/css-centralizar-horizontal-e-vertical/">link para o outro post e comentários</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Tooltip]]></title>
+    <link href="http://rogeriolino.com/2007/02/24/javascript-tooltip/"/>
+    <updated>2007-02-24T20:50:26-02:00</updated>
+    <id>http://rogeriolino.com/2007/02/24/javascript-tooltip</id>
+    <content type="html"><![CDATA[<p>Há algum tempo eu fiz um script de uma tooltip (aquela caixa que abre ao passar o mouse sobre algum link). Infelizmente o código não é dos menores, o que deixaria muito grande o post e sua explicação.</p>
+
+<p>Mas não está difícil de entender. Qualquer dúvida é só deixar um comentário que eu comento logo abaixo explicando.</p>
+
+<p>O seu funcionamento é bem simples. No HTML é adicionado uma <strong>div</strong> com <strong>position absolute</strong> com <strong>display</strong> igual a <strong>none</strong>. Com o <strong>document.onmousemove </strong>a posição do mouse é guardada em uma variável então ao passar o mouse sobre qualquer link o <strong>display</strong> da <strong>div</strong> (tooltip) muda para block e sua posição (x,y) é setada pela do mouse.</p>
+
+<p>Para ver o <a href="http://dev.rogeriolino.com/exemplos/javascript/tooltip/index.html">exemplo clique aqui</a>.</p>
+
+<p><em>obs: o código (javascript) está junto com o HTML e o CSS.</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Flash E CSS: Banner Flutuante]]></title>
+    <link href="http://rogeriolino.com/2007/02/04/flash-banner-flutuante/"/>
+    <updated>2007-02-04T18:45:42-02:00</updated>
+    <id>http://rogeriolino.com/2007/02/04/flash-banner-flutuante</id>
+    <content type="html"><![CDATA[<p>Muitos sites, portais, adotaram o banner flutuante, aquele no qual ao você passar o mouse por cima ele &ldquo;cresce&rdquo; pela página e mostra os detalhes da propaganda, promoções, etc.</p>
+
+<p>A idéia então consiste em posicionar o filme por cima dos outros elementos e ele tem que ter o fundo transparente para não &ldquo;tampar&rdquo; o  conteúdo.</p>
+
+<p>Então chegamos a <strong>conclusão</strong> que é só deixar o filme com o fundo <strong>transparente</strong> e colocá-lo numa <strong>div</strong> com <strong>position absolute</strong>? Certo.</p>
+
+<p>Primeiramente vamos ao SWF, no Flash crie um novo documento. Nesse exemplo eu criei um de tamanho 468x280.</p>
+
+<p>No primeiro frame coloque a action <strong>stop()</strong> para o filme não começar sozinho.</p>
+
+<p>Desenhei um retângulo que cobre todo o palco na horizontal e com altura de 60 pixels. Dupliquei ele (copia e cola) e apertei o F8 para transformá-lo em um MovieClip. Ele vai ser o nosso botão para quando passar o mouse dar o p<strong>lay()</strong> no filme.</p>
+
+<p>Instanciei de <strong>btn</strong> e apliquei o alpha para 0%, para deixar ele transparente. E adicionei no primeiro frame a seguinte action:</p>
+
+<pre><code>btn.onRollOver = function() {
+    _root.gotoAndPlay(2);
+}
+</code></pre>
+
+<p>Com essa action definimos que ao <strong>passar o mouse sobre</strong> o botão (<strong>btn</strong>) o filme irá para seguir a partir do segundo frame.</p>
+
+<p>E no frame 2 em diante fiz uma animação simple para dar impressão do fundo estar crescendo para baixo. No último frame da animação também adicionei a action <strong>stop();</strong> para o filme não voltar para o primeiro frame.</p>
+
+<p>Também temos que colocar uma action para ao tirar o mouse (rolar fora) do botão a animação ir e parar no primeiro frame. E também uma para quando clicar. Essa action pode ser colocada no primeiro frame também.</p>
+
+<pre><code>btn.onRollOut = function() {
+    _root.gotoAndStop(1);
+}
+
+btn.onRelease = function() {
+    getURL("http://rogeriolino.com/", "_blank");
+}
+</code></pre>
+
+<p>Na primeira faz com que ao tirar o mouse de cima do botão volte para o primeiro frame mas não continua o filme (stop). Na segunda tem a função <strong>getURL() </strong>que funciona como a tag <a> no html, seus parâmetros são: página/endereço e alvo/target (<em><em>blank = nova página / </em>self = mesma página / </em>parent = pai do frame_).</p>
+
+<p>Com a nossa animação pronta vamos ao HTML:</p>
+
+<p>Vamos colocar o SWF dentro de uma <strong>div</strong> chamada<strong> banner</strong>:</p>
+
+<pre><code>&lt;div id="banner"&gt;
+    &lt;object type="application/x-shockwave-flash" data="banner.swf" width="480" height="280"&gt;
+    &lt;param name="movie" value="banner.swf" /&gt;
+    &lt;param name="allowScriptAcess" value="sameDomain" /&gt;
+    &lt;param name="wmode" value="transparent" /&gt;
+    &lt;param name="quality" value="best" /&gt;
+&lt;/object&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>E o nosso CSS:</p>
+
+<pre><code>#banner {
+    margin-left: 250px;
+    _margin-left: 10px;
+    padding: 20px;
+    position: absolute;
+}
+</code></pre>
+
+<p>O <strong>hack</strong> na margin é por causa do <strong>IE</strong>.</p>
+
+<p>E pronto, já podemos ver nossa <a href="http://dev.rogeriolino.com/exemplos/flash/banner_flutuante/index.html">propaganda flutuante funcionando</a>. <a href="http://dev.rogeriolino.com/exemplos/flash/banner_flutuante/banner_flutuante.rar">Download do exemplo</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
