@@ -4,7 +4,7 @@
   <title><![CDATA[Rogério Lino]]></title>
   <link href="http://rogeriolino.com/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -14,10 +14,13 @@
 
   
   <entry>
+    
     <title type="html"><![CDATA[PHP: JsonSerializable]]></title>
     <link href="http://rogeriolino.com/2014/06/09/php-jsonserializable/"/>
+    
     <updated>2014-06-09T14:44:23-03:00</updated>
     <id>http://rogeriolino.com/2014/06/09/php-jsonserializable</id>
+    
     <content type="html"><![CDATA[<p>Desde a <strong>versão 5.4</strong> do PHP ficou mais fácil transformar entidades em <strong>JSON</strong> através da função <em>json_encode()</em>. Basta implementar a interface <a href="http://www.php.net/manual/class.jsonserializable.php">JsonSerializable</a>, no qual o único método que precisa ser implementado pela subclasse é o <em>jsonSerialize</em>.</p>
 
 <!-- more -->
@@ -64,13 +67,17 @@ echo json_encode($user);
 
 <p>Essa implementação se torna muito útil para desenvolvimento de APIs <strong>RESTful</strong> e <strong>ajax responses</strong> (json response).</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Session Keep Alive]]></title>
     <link href="http://rogeriolino.com/2014/05/12/session-keep-alive/"/>
+    
     <updated>2014-05-12T13:14:14-03:00</updated>
     <id>http://rogeriolino.com/2014/05/12/session-keep-alive</id>
+    
     <content type="html"><![CDATA[<p>Uma maneira fácil de manter a sessão ativa no lado do servidor sem sobrecarregá-lo com longos tempos de timeout, é usar um script que redireciona o usuário para a tela de login após um determinado período de inatividade (teclado e mouse ociosos), e fazer requisições assíncronas ao servidor para manter a sessão ativa durante a atividade.</p>
 
 <!-- more -->
@@ -115,26 +122,34 @@ echo json_encode($user);
 session_start();
 </code></pre>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Stack Overflow Em Português]]></title>
+    
+    <title type="html"><![CDATA[Stack Overflow em Português]]></title>
     <link href="http://rogeriolino.com/2014/01/29/stack-overflow-em-portugues/"/>
+    
     <updated>2014-01-29T20:47:48-02:00</updated>
     <id>http://rogeriolino.com/2014/01/29/stack-overflow-em-portugues</id>
+    
     <content type="html"><![CDATA[<p>Foi anunciado hoje no blog do <a href="http://blog.stackoverflow.com/2014/01/ola-mundo-announcing-stack-overflow-in-portuguese/?cb=1">StackExchange</a> o lançamento oficial do <a href="http://pt.stackoverflow.com/">Stack Overflow em Português</a>. Conforme destacado na publicação do blog, esse é o primeiro Stack Overflow internacional.</p>
 
 <p><img src="http://blog.stackoverflow.com/wp-content/uploads/2014-01-28_11-08-04-1024x505.jpg" alt="" /></p>
 
 <p>Visite agora mesmo a nova comunidade e crie a sua conta: <a href="http://pt.stackoverflow.com">http://pt.stackoverflow.com</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    
+    <title type="html"><![CDATA[Simple javascript support detection]]></title>
     <link href="http://rogeriolino.com/2014/01/10/simple-javascript-support-detection/"/>
+    
     <updated>2014-01-10T21:57:26-02:00</updated>
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
+    
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
 <pre><code>&lt;!DOCTYPE html&gt; 
@@ -160,13 +175,17 @@ session_start();
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[FreezeHeader jQuery Plugin]]></title>
+    
+    <title type="html"><![CDATA[FreezeHeader jQuery plugin]]></title>
     <link href="http://rogeriolino.com/2014/01/08/freezeheader-jquery-plugin/"/>
+    
     <updated>2014-01-08T14:58:41-02:00</updated>
     <id>http://rogeriolino.com/2014/01/08/freezeheader-jquery-plugin</id>
+    
     <content type="html"><![CDATA[<p>Se você está precisando de algum script para manter o cabeçalho da tabela sempre visível mesmo ao rolar a página, lhe apresento o plugin (jQuery) <a href="https://github.com/laertejjunior/freezeheader">freezeheader</a> criado pelo menu amigo <a href="https://github.com/laertejjunior">Laerte</a>.</p>
 
 <p>Aproveitando também para parabenizá-lo por seu plugin ter ficado entre os <a href="http://www.jqueryscript.net/blog/Top-100-Best-Free-jQuery-Plugins-From-2013.html">100 melhores de 2013</a>.</p>
@@ -176,13 +195,17 @@ session_start();
 <p>Demo: <a href="http://laertejjunior.github.io/freezeheader">http://laertejjunior.github.io/freezeheader</a>
 Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.com/laertejjunior/freezeheader</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PHP: Slim Framework Action Based]]></title>
+    
+    <title type="html"><![CDATA[PHP: Slim Framework action based]]></title>
     <link href="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based/"/>
+    
     <updated>2013-12-27T10:06:51-02:00</updated>
     <id>http://rogeriolino.com/2013/12/27/php-slim-framework-action-based</id>
+    
     <content type="html"><![CDATA[<p>Há algum tempo utilizo o <a href="http://www.slimframework.com/">Slim Framework</a> como base de meus projetos. E o motivo é sua simplicidade, velocidade e facilidade.</p>
 
 <p>E para criar CRUD, eu utilizo um trecho de código para trabalhar rotas semelhante aos frameworks action based. Seguindo a convenção <strong>/controlador/método</strong>.</p>
@@ -222,13 +245,17 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 
 <p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    
+    <title type="html"><![CDATA[Angular.js: Inplace editing]]></title>
     <link href="http://rogeriolino.com/2013/12/12/angular-js-inplace-editing/"/>
+    
     <updated>2013-12-12T11:57:12-02:00</updated>
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
+    
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
 <pre><code>&lt;div class="container" ng-app="todo"&gt;
@@ -274,13 +301,17 @@ app.controller('todoCtrl', function($scope) {
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Futeria on Firefox OS]]></title>
     <link href="http://rogeriolino.com/2013/10/03/futeria-on-firefox-os/"/>
+    
     <updated>2013-10-03T12:50:00-03:00</updated>
     <id>http://rogeriolino.com/2013/10/03/futeria-on-firefox-os</id>
+    
     <content type="html"><![CDATA[<p>Após inscrever meu aplicativo <a href="https://play.google.com/store/apps/details?id=net.futeria.app">Futeria</a> e ganhar um <a href="http://www.geeksphone.com/">Geeksphone Keon</a> (developer preview) da Mozilla. Anuncio que em breve o aplicativo também estará disponível para o <a href="http://www.mozilla.org/en-US/firefox/os/">Firefox OS</a>.</p>
 
 <!-- more -->
@@ -296,13 +327,17 @@ app.controller('todoCtrl', function($scope) {
 
 <p>Para demais dispositivos ou desktops, pode acessar a versão online direto <a href="http://m.futeria.net">http://m.futeria.net</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PHP: 5.5 New Features]]></title>
+    
+    <title type="html"><![CDATA[PHP: 5.5 new features]]></title>
     <link href="http://rogeriolino.com/2013/07/17/php-5-5-new-features/"/>
+    
     <updated>2013-07-17T18:23:11-03:00</updated>
     <id>http://rogeriolino.com/2013/07/17/php-5-5-new-features</id>
+    
     <content type="html"><![CDATA[<p>A versão 5.5 do PHP foi lançada no mês passado, e trouxe algumas funcionalidades relevantes. Entre elas, seguem abaixo as mais interessantes (pelo menos para mim):</p>
 
 <h3>Generators</h3>
@@ -418,13 +453,17 @@ if (empty(true)) {
 
 <p>E o <strong>php.net</strong> também lançou sua versão nova (ainda em beta). <a href="http://php.net/?setbeta=1&amp;beta=1">Clique aqui para abrir a versão beta</a>.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[UTF-8 Icons]]></title>
     <link href="http://rogeriolino.com/2013/05/06/utf-8-icons/"/>
+    
     <updated>2013-05-06T11:55:09-03:00</updated>
     <id>http://rogeriolino.com/2013/05/06/utf-8-icons</id>
+    
     <content type="html"><![CDATA[<p>Com a adoção dos navegadores mais modernos, muitos projetos estão adotando os ícones UTF-8 em botões. Assim diminui a dependência de imagens tornando o carregamento mais rápido. Exemplo: <a href="http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html">http://dev.rogeriolino.com/exemplos/css/utf8_icons/index.html</a></p>
 
 <h2>Prós</h2>
@@ -456,13 +495,17 @@ if (empty(true)) {
 </ul>
 
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Novo SGA]]></title>
     <link href="http://rogeriolino.com/2013/02/05/novo-sga/"/>
+    
     <updated>2013-02-05T09:33:57-02:00</updated>
     <id>http://rogeriolino.com/2013/02/05/novo-sga</id>
+    
     <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
 
 <blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
@@ -476,13 +519,17 @@ A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma 
 
 <p>Gostou e quer contribuir com o desenvolvimento? Acesse o <a href="http://github.com/rogeriolino/novosga">projeto no GitHub</a>.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[CSS3: Selection Background Color]]></title>
+    
+    <title type="html"><![CDATA[CSS3: Selection background color]]></title>
     <link href="http://rogeriolino.com/2013/01/02/css3-selection-background-color/"/>
+    
     <updated>2013-01-02T10:08:47-02:00</updated>
     <id>http://rogeriolino.com/2013/01/02/css3-selection-background-color</id>
+    
     <content type="html"><![CDATA[<p>Com o seletor <strong>selection</strong> podemos definir a cor do texto e de fundo do texto quando o selecionamos.</p>
 
 <blockquote>
@@ -521,13 +568,17 @@ p.pink::-moz-selection { background: #E2189C; }
 <p><strong>Exemplo</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[jQuery + Modernizr: AccessKey Detection]]></title>
+    
+    <title type="html"><![CDATA[jQuery + Modernizr: AccessKey detection]]></title>
     <link href="http://rogeriolino.com/2012/12/13/jquery-modernizr-accesskey-detection/"/>
+    
     <updated>2012-12-13T14:13:36-02:00</updated>
     <id>http://rogeriolino.com/2012/12/13/jquery-modernizr-accesskey-detection</id>
+    
     <content type="html"><![CDATA[<p>O código abaixo permite exibir no title e na frente das tags que possuem o atributo <a href="http://www.w3schools.com/tags/att_global_accesskey.asp">accesskey</a> o seu atalho.</p>
 
 <p>Com o uso do CSS é adicionado ao <a href="http://www.w3schools.com/cssref/sel_after.asp">final do conteúdo da tag</a> o seu atalho. E via Javascript esse atalho também é adicionado ao title.</p>
@@ -587,13 +638,17 @@ body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
 
 <p><a href="http://jsfiddle.net/qmB3R/">Clique aqui para visualizar o exemplo no jsFiddle.net</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[jQuery: Horizontal + Vertical Align]]></title>
+    
+    <title type="html"><![CDATA[jQuery: Horizontal + Vertical align]]></title>
     <link href="http://rogeriolino.com/2012/11/28/jquery-horizontal-vertical-align/"/>
+    
     <updated>2012-11-28T08:23:58-02:00</updated>
     <id>http://rogeriolino.com/2012/11/28/jquery-horizontal-vertical-align</id>
+    
     <content type="html"><![CDATA[<p>Função jQuery para alinhar horizontalmente e verticalmente o elemento.</p>
 
 <pre><code>jQuery.fn.center = function () {
@@ -624,13 +679,17 @@ $('#centered_div').center()
 
 <p>Edit on jsFiddle: <a href="http://jsfiddle.net/rc6kS/">http://jsfiddle.net/rc6kS/</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Ubuntu: PHP 5.4 + PHP5-FPM/FastCgi on Apache2]]></title>
     <link href="http://rogeriolino.com/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2/"/>
+    
     <updated>2012-11-26T14:55:46-02:00</updated>
     <id>http://rogeriolino.com/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2</id>
+    
     <content type="html"><![CDATA[<p>Os comandos abaixo que devem ser executados como <strong>root</strong>.</p>
 
 <h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
@@ -710,13 +769,17 @@ echo '&lt;?php phpinfo();' | tee info.php
 
 <p><img src="http://rogeriolino.com/wp-content/uploads/2012/11/phpinfo.png" alt="" /></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Quickpost: License Box]]></title>
+    
+    <title type="html"><![CDATA[Quickpost: License box]]></title>
     <link href="http://rogeriolino.com/2012/11/08/quickpost-license-box/"/>
+    
     <updated>2012-11-08T10:07:00-02:00</updated>
     <id>http://rogeriolino.com/2012/11/08/quickpost-license-box</id>
+    
     <content type="html"><![CDATA[<p>Atualizando exemplo antigo, para uso de CSS3:</p>
 
 <p><strong>Post original:</strong>
@@ -725,13 +788,17 @@ echo '&lt;?php phpinfo();' | tee info.php
 <p><strong>Página da versão nova:</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/license/index.html">http://dev.rogeriolino.com/exemplos/css/license/index.html</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[CSS3: Horizontal Menu]]></title>
     <link href="http://rogeriolino.com/2012/10/15/css3-horizontal-menu/"/>
+    
     <updated>2012-10-15T11:34:32-03:00</updated>
     <id>http://rogeriolino.com/2012/10/15/css3-horizontal-menu</id>
+    
     <content type="html"><![CDATA[<p>Exemplo de um menu dropdown horizontal, utilizando gradient e transition apenas com CSS3.</p>
 
 <h3>CSS</h3>
@@ -896,13 +963,17 @@ echo '&lt;?php phpinfo();' | tee info.php
 
 <p><a href="http://dev.rogeriolino.com/exemplos/css/hmenu.html">Visualizar o menu funcionando</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PHP: 5.4 New Features]]></title>
+    
+    <title type="html"><![CDATA[PHP: 5.4 new features]]></title>
     <link href="http://rogeriolino.com/2012/10/01/php-5-4-new-features/"/>
+    
     <updated>2012-10-01T12:47:04-03:00</updated>
     <id>http://rogeriolino.com/2012/10/01/php-5-4-new-features</id>
+    
     <content type="html"><![CDATA[<p>Segue abaixo algumas das novas funcionalidades da versão 5.4 do PHP. Para ver mais informações, siga os links no final do post.</p>
 
 <h3>Trait</h3>
@@ -1027,13 +1098,17 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
 <a href="http://css.dzone.com/polls/what-new-feature-php-54">http://css.dzone.com/polls/what-new-feature-php-54</a>
 <a href="http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html">http://www.oracle.com/technetwork/articles/dsl/lerdorf-php54-1564639.html</a></p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Development Tools]]></title>
     <link href="http://rogeriolino.com/2012/08/31/development-tools/"/>
+    
     <updated>2012-08-31T17:02:57-03:00</updated>
     <id>http://rogeriolino.com/2012/08/31/development-tools</id>
+    
     <content type="html"><![CDATA[<p><a href="http://dev.rogeriolino.com/tools/crypt"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/dev-tools.png" alt="" /></a></p>
 
 <p>Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para auxiliar durante o desenvolvimento. Segue abaixo as funcionalidades que estão disponíveis por enquanto:</p>
@@ -1063,13 +1138,17 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
 
 <p>Conforme eu vá sentindo necessidade de mais funcionalidade ou alguém dê uma sugestão, irei incrementando. Depois criarei um projeto no Github e atualizarei o post com o link.</p>
 ]]></content>
+    
   </entry>
   
   <entry>
+    
     <title type="html"><![CDATA[Android: Futeria App]]></title>
     <link href="http://rogeriolino.com/2012/08/13/android-futeria-app/"/>
+    
     <updated>2012-08-13T13:54:12-03:00</updated>
     <id>http://rogeriolino.com/2012/08/13/android-futeria-app</id>
+    
     <content type="html"><![CDATA[<p><a href="https://play.google.com/store/apps/details?id=net.futeria.app"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/futeria-android.png" alt="" /></a></p>
 
 <p>Há alguns dias publiquei uma app no <a href="https://play.google.com">Google Play</a>: <strong>Futeria</strong>, versão móvel do site <a href="http://futeria.net">Futeria.net</a>, agregador de notícias dos principais clubes de futebol do Brasil.</p>
@@ -1078,6 +1157,7 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
 
 <p>Então, se você é um usuário Android e gostaria de ler as últimas notícias do seu time, instale o Futeria e dê uma feedback sobre bugs e melhorias que podem ser feitas. E muito obrigado!</p>
 ]]></content>
+    
   </entry>
   
 </feed>

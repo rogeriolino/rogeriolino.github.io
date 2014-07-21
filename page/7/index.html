@@ -24,12 +24,13 @@
   <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -46,14 +47,8 @@
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Rogério Lino</a></h1>
-  
-    <h2>Web development and tips</h2>
-  
-</hgroup>
-
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
 </header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
@@ -70,6 +65,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -82,9 +78,11 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/07/23/javascript-replaceall/">Javascript: replaceAll()</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -141,9 +139,11 @@ window.alert(replaceAll(str, "a", "[A]"));
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/04/09/wiki-flashmasters/">Wiki FlashMasters</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -185,9 +185,11 @@ window.alert(replaceAll(str, "a", "[A]"));
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/04/01/javascript-graphic-generator/">Javascript: Graphic Generator</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -265,9 +267,11 @@ grafico.setBarraLabel(10, "kiwi");
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/03/24/actionscript-operadores/">ActionScript: Operadores</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -550,9 +554,11 @@ trace(a); // 2
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/03/21/javascript-image-preloader/">Javascript: Image Preloader</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -635,9 +641,11 @@ var imagem = new loadImage(largura, altura, url, alvo);
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/03/16/css-loading-image/">CSS: Loading Image</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -689,9 +697,11 @@ Link para o exemplo com Javascript:
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/03/06/flash-resize-proporcional/">Flash: Resize Proporcional</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -769,9 +779,11 @@ MovieClip.resizeH(novaAltura);
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/02/24/javascript-tooltip/">Javascript: Tooltip</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -813,9 +825,11 @@ MovieClip.resizeH(novaAltura);
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/02/23/flash-resume-texto-substring-e-indexof/">Flash: Resume Texto (Substring E indexOf)</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -903,9 +917,11 @@ trace(texto.resume(3)); // "Putz, o carnaval ..."
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2007/02/04/flash-banner-flutuante/">Flash E CSS: Banner Flutuante</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -999,11 +1015,11 @@ btn.onRelease = function() {
   
   <div class="pagination">
     
-      <a class="prev" href="/page/8">&larr; Older</a>
+      <a class="prev" href="8">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
-    <a class="next" href="/page/6">Newer &rarr;</a>
+    <a class="next" href="6">Newer &rarr;</a>
     
   </div>
 </div>
@@ -1022,15 +1038,15 @@ btn.onRelease = function() {
       </li>
     
       <li class="post">
-        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow em Português</a>
       </li>
     
       <li class="post">
-        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple javascript support detection</a>
       </li>
     
       <li class="post">
-        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery plugin</a>
       </li>
     
   </ul>
@@ -1075,8 +1091,8 @@ btn.onRelease = function() {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Rogério Lino -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2014 - Rogério Lino <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
 </p>
 
 </footer>
@@ -1090,7 +1106,7 @@ btn.onRelease = function() {
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -1123,7 +1139,7 @@ btn.onRelease = function() {
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

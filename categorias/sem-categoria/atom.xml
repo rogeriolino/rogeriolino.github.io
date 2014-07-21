@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Sem Categoria | Rogério Lino]]></title>
+  <title><![CDATA[Category: sem categoria | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/sem-categoria/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <title type="html"><![CDATA[Simple javascript support detection]]></title>
     <link href="http://rogeriolino.com/2014/01/10/simple-javascript-support-detection/"/>
     <updated>2014-01-10T21:57:26-02:00</updated>
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
@@ -46,7 +46,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Meus Feeds Favoritos]]></title>
+    <title type="html"><![CDATA[Meus feeds favoritos]]></title>
     <link href="http://rogeriolino.com/2007/10/11/meus-feeds-favoritos/"/>
     <updated>2007-10-11T16:40:37-03:00</updated>
     <id>http://rogeriolino.com/2007/10/11/meus-feeds-favoritos</id>

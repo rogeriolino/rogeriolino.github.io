@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript | Rogério Lino]]></title>
+  <title><![CDATA[Category: javascript | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/javascript/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -65,7 +65,7 @@ session_start();
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Simple Javascript Support Detection]]></title>
+    <title type="html"><![CDATA[Simple javascript support detection]]></title>
     <link href="http://rogeriolino.com/2014/01/10/simple-javascript-support-detection/"/>
     <updated>2014-01-10T21:57:26-02:00</updated>
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
@@ -97,7 +97,7 @@ session_start();
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[FreezeHeader jQuery Plugin]]></title>
+    <title type="html"><![CDATA[FreezeHeader jQuery plugin]]></title>
     <link href="http://rogeriolino.com/2014/01/08/freezeheader-jquery-plugin/"/>
     <updated>2014-01-08T14:58:41-02:00</updated>
     <id>http://rogeriolino.com/2014/01/08/freezeheader-jquery-plugin</id>
@@ -113,7 +113,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <title type="html"><![CDATA[Angular.js: Inplace editing]]></title>
     <link href="http://rogeriolino.com/2013/12/12/angular-js-inplace-editing/"/>
     <updated>2013-12-12T11:57:12-02:00</updated>
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>

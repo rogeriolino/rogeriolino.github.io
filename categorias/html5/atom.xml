@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Html5 | Rogério Lino]]></title>
+  <title><![CDATA[Category: html5 | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/html5/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Angular.js: Inplace Editing]]></title>
+    <title type="html"><![CDATA[Angular.js: Inplace editing]]></title>
     <link href="http://rogeriolino.com/2013/12/12/angular-js-inplace-editing/"/>
     <updated>2013-12-12T11:57:12-02:00</updated>
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
@@ -146,7 +146,7 @@ A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma 
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[CSS3: Selection Background Color]]></title>
+    <title type="html"><![CDATA[CSS3: Selection background color]]></title>
     <link href="http://rogeriolino.com/2013/01/02/css3-selection-background-color/"/>
     <updated>2013-01-02T10:08:47-02:00</updated>
     <id>http://rogeriolino.com/2013/01/02/css3-selection-background-color</id>

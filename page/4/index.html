@@ -24,12 +24,13 @@
   <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -46,14 +47,8 @@
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Rogério Lino</a></h1>
-  
-    <h2>Web development and tips</h2>
-  
-</hgroup>
-
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
 </header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
@@ -70,6 +65,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -82,9 +78,11 @@
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/09/09/php-template-engines/">PHP: Template Engines</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -684,9 +682,11 @@ new controller_test();
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/06/17/css-footer-always-in-bottom/">CSS: Footer Always in Bottom</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -765,9 +765,11 @@ html, body {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/05/06/javascript-game-engine-for-html5-canvas/">Javascript Game Engine for HTML5 Canvas</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -834,9 +836,11 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/04/22/php-socket-class/">PHP: Socket Class</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1153,9 +1157,11 @@ class SocketException extends Exception {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/04/08/twitter-resumo-2/">Twitter: Resumo #2</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1205,9 +1211,11 @@ class SocketException extends Exception {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/04/01/flash-swfaddress-rewrite-seo/">Flash: SWFAddress + ReWrite = SEO</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1281,9 +1289,11 @@ class SocketException extends Exception {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/03/26/php-annotations/">PHP: Annotations</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1391,9 +1401,11 @@ class CmsArticle {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/03/18/sga-livre/">SGA Livre</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1458,9 +1470,11 @@ fonte: [http://www.softwarepublico.gov.br/ver-comunidade?community_id=15719494](
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/03/11/html5-database/">HTML5: Database</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1557,9 +1571,11 @@ db.transaction(function(tx) {
     <article>
       
   <header>
+  
     
       <h1 class="entry-title"><a href="/2010/03/05/twitter-resumo-1/">Twitter: Resumo #1</a></h1>
-    
+      
+      
     
       <p class="meta">
         
@@ -1607,11 +1623,11 @@ db.transaction(function(tx) {
   
   <div class="pagination">
     
-      <a class="prev" href="/page/5">&larr; Older</a>
+      <a class="prev" href="5">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
-    <a class="next" href="/page/3">Newer &rarr;</a>
+    <a class="next" href="3">Newer &rarr;</a>
     
   </div>
 </div>
@@ -1630,15 +1646,15 @@ db.transaction(function(tx) {
       </li>
     
       <li class="post">
-        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow Em Português</a>
+        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow em Português</a>
       </li>
     
       <li class="post">
-        <a href="/2014/01/10/simple-javascript-support-detection/">Simple Javascript Support Detection</a>
+        <a href="/2014/01/10/simple-javascript-support-detection/">Simple javascript support detection</a>
       </li>
     
       <li class="post">
-        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery Plugin</a>
+        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery plugin</a>
       </li>
     
   </ul>
@@ -1683,8 +1699,8 @@ db.transaction(function(tx) {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Rogério Lino -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  Copyright &copy; 2014 - Rogério Lino <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
 </p>
 
 </footer>
@@ -1698,7 +1714,7 @@ db.transaction(function(tx) {
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -1731,7 +1747,7 @@ db.transaction(function(tx) {
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

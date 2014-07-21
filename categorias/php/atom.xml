@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Php | Rogério Lino]]></title>
+  <title><![CDATA[Category: php | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/php/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -118,7 +118,7 @@ session_start();
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PHP: Slim Framework Action Based]]></title>
+    <title type="html"><![CDATA[PHP: Slim Framework action based]]></title>
     <link href="http://rogeriolino.com/2013/12/27/php-slim-framework-action-based/"/>
     <updated>2013-12-27T10:06:51-02:00</updated>
     <id>http://rogeriolino.com/2013/12/27/php-slim-framework-action-based</id>
@@ -164,7 +164,7 @@ session_start();
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[PHP: 5.5 New Features]]></title>
+    <title type="html"><![CDATA[PHP: 5.5 new features]]></title>
     <link href="http://rogeriolino.com/2013/07/17/php-5-5-new-features/"/>
     <updated>2013-07-17T18:23:11-03:00</updated>
     <id>http://rogeriolino.com/2013/07/17/php-5-5-new-features</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Programas | Rogério Lino]]></title>
+  <title><![CDATA[Category: programas | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/programas/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-07-14T13:19:06-03:00</updated>
+  <updated>2014-07-21T09:34:31-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -155,7 +155,7 @@ na rede."
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Firefox News]]></title>
+    <title type="html"><![CDATA[Firefox news]]></title>
     <link href="http://rogeriolino.com/2006/12/21/firefox-news/"/>
     <updated>2006-12-21T13:52:52-02:00</updated>
     <id>http://rogeriolino.com/2006/12/21/firefox-news</id>
