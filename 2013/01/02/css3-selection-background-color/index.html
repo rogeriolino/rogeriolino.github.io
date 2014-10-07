@@ -114,27 +114,45 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p><strong>CSS</strong></p>
 
-<pre><code>p::selection  { color: #000; }
-p::-moz-selection { color: #000; }
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">p</span><span class="o">:</span><span class="nd">:selection</span>  <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.yellow</span><span class="o">:</span><span class="nd">:selection</span>  <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.yellow</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.green</span><span class="o">:</span><span class="nd">:selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#58FF4B</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.green</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#58FF4B</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.pink</span><span class="o">:</span><span class="nd">:selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#E2189C</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.pink</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#E2189C</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-p.yellow::selection  { background: yellow; }
-p.yellow::-moz-selection { background: yellow; }
-
-p.green::selection { background: #58FF4B; }
-p.green::-moz-selection { background: #58FF4B; }
-
-p.pink::selection { background: #E2189C; }
-p.pink::-moz-selection { background: #E2189C; }
-</code></pre>
 
 <p><strong>HTML</strong></p>
 
-<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;yellow&quot;</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit...<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;green&quot;</span><span class="nt">&gt;</span>Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;pink&quot;</span><span class="nt">&gt;</span>Donec interdum placerat urna at aliquet...<span class="nt">&lt;/p&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
-
-&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
-</code></pre>
 
 <p><strong>Exemplo</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>

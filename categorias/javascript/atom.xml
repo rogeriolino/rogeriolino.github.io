@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/javascript/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -29,38 +29,43 @@
 
 <p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
 
-<pre><code>// session keep alive
-;(function($) {
-    "use strict";
+<p>``` js
+// session keep alive
+;(function($) {</p>
 
-    var pingTime = 60; // ping a cada 60 segundos
-    var count = pingTime;
-    $.idleTimer({
-        time: 10 * 60, // 10 minutos para timeout
-        start: function() {
+<pre><code>"use strict";
+
+var pingTime = 60; // ping a cada 60 segundos
+var count = pingTime;
+$.idleTimer({
+    time: 10 * 60, // 10 minutos para timeout
+    start: function() {
+        count = pingTime;
+    },
+    change: function(it) {
+        count--;
+        console.log(count);
+        if (count &lt;= 0) {
             count = pingTime;
-        },
-        change: function(it) {
-            count--;
-            console.log(count);
-            if (count &lt;= 0) {
-                count = pingTime;
-                $.ajax({ url: '/ping.php' });
-            }
-        },
-        end: function() {
-            window.location.href = '/logout.php';
+            $.ajax({ url: '/ping.php' });
         }
-    });
-})(jQuery);
+    },
+    end: function() {
+        window.location.href = '/logout.php';
+    }
+});
 </code></pre>
+
+<p>})(jQuery);
+```</p>
 
 <p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
 
-<pre><code>&lt;?php
+<p>``` php  <br/>
+&lt;?php</p>
 
-session_start();
-</code></pre>
+<p>session_start();
+```</p>
 ]]></content>
   </entry>
   
@@ -71,26 +76,31 @@ session_start();
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<pre><code>&lt;!DOCTYPE html&gt; 
-&lt;html class="no-js" lang="pt-BR"&gt;
-&lt;head&gt;
-    &lt;title&gt;JS detection&lt;/title&gt;
-    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+<p>``` html
+&lt;!DOCTYPE html>
+<html class="no-js" lang="pt-BR">
+<head></p>
 
-    &lt;style&gt;
-        .js .alert-danger { display: none; }
-        .no-js .alert-success { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre><code>&lt;title&gt;JS detection&lt;/title&gt;
+&lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
 
-    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
-
-    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;style&gt;
+    .js .alert-danger { display: none; }
+    .no-js .alert-success { display: none; }
+&lt;/style&gt;
 </code></pre>
+
+<p></head>
+<body></p>
+
+<pre><code>&lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+&lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+</code></pre>
+
+<p></body>
+</html>
+```</p>
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
@@ -119,46 +129,52 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<pre><code>&lt;div class="container" ng-app="todo"&gt;
-    &lt;div ng-controller="todoCtrl"&gt;
-        &lt;form ng-submit="add()"&gt;
-            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
-            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
-        &lt;/form&gt;
-        &lt;ul&gt;
-            &lt;li ng-repeat="todo in todos"&gt;
-                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
-                &lt;span ng-show="editing"&gt;
-                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
-                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>``` html</p>
+
+<div class="container" ng-app="todo">
+    <div ng-controller="todoCtrl">
+        <form ng-submit="add()">
+            <input type="text" class="form-control" placeholder="New task..." ng-model="newTodo">
+            <button class="btn btn-primary">Add</button>
+        </form>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <span ng-click="editing = true" ng-hide="editing"></span>
+                <span ng-show="editing">
+                    <input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required>
+                    <a data-ng-click="editing = false" class="glyphicon glyphicon-ok"></a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<p>```</p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>var app = angular.module('todo', []);
+<p>``` js<br/>
+var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
-app.controller('todoCtrl', function($scope) {
+<p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
-    $scope.todos = [
-        {text: "First task"}
-    ];
+<pre><code>$scope.todos = [
+    {text: "First task"}
+];
 
-    $scope.add = function() {
-        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
-            $scope.todos.push({
-                text: $scope.newTodo
-            });
-            $scope.newTodo = '';
-        }
+$scope.add = function() {
+    if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+        $scope.todos.push({
+            text: $scope.newTodo
+        });
+        $scope.newTodo = '';
     }
-
-});
+}
 </code></pre>
+
+<p>});
+```</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>

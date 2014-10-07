@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/css/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,26 +20,31 @@
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<pre><code>&lt;!DOCTYPE html&gt; 
-&lt;html class="no-js" lang="pt-BR"&gt;
-&lt;head&gt;
-    &lt;title&gt;JS detection&lt;/title&gt;
-    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+<p>``` html
+&lt;!DOCTYPE html>
+<html class="no-js" lang="pt-BR">
+<head></p>
 
-    &lt;style&gt;
-        .js .alert-danger { display: none; }
-        .no-js .alert-success { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre><code>&lt;title&gt;JS detection&lt;/title&gt;
+&lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
 
-    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
-
-    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;style&gt;
+    .js .alert-danger { display: none; }
+    .no-js .alert-success { display: none; }
+&lt;/style&gt;
 </code></pre>
+
+<p></head>
+<body></p>
+
+<pre><code>&lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+&lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+</code></pre>
+
+<p></body>
+</html>
+```</p>
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
@@ -121,27 +126,38 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p><strong>CSS</strong></p>
 
-<pre><code>p::selection  { color: #000; }
-p::-moz-selection { color: #000; }
+<p>``` css
+p::selection  { color: #000; }
+p::-moz-selection { color: #000; }</p>
 
-p.yellow::selection  { background: yellow; }
-p.yellow::-moz-selection { background: yellow; }
+<p>p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }</p>
 
-p.green::selection { background: #58FF4B; }
-p.green::-moz-selection { background: #58FF4B; }
+<p>p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }</p>
 
-p.pink::selection { background: #E2189C; }
+<p>p.pink::selection { background: #E2189C; }
 p.pink::-moz-selection { background: #E2189C; }
-</code></pre>
+```</p>
 
 <p><strong>HTML</strong></p>
 
-<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+<p>``` html</p>
 
-&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
+<p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 
-&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
-</code></pre>
+
+
+
+<p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...</p>
+
+
+
+
+<p class="pink">Donec interdum placerat urna at aliquet...</p>
+
+
+<p>```</p>
 
 <p><strong>Exemplo</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
@@ -161,52 +177,68 @@ p.pink::-moz-selection { background: #E2189C; }
 
 <p><strong>Dependências</strong></p>
 
-<pre><code>&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"&gt;&lt;/script&gt;
-</code></pre>
+<p>``` html</p>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+
+<script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"></script>
+
+
+<p>```</p>
 
 <p><strong>CSS</strong></p>
 
-<pre><code>*[accesskey]:after {
-    margin-left: 0.3em;
-    color: #ccc;
-    content: "[Alt + " attr(accesskey) "]";
-}
+<p>``` css
+*[accesskey]:after {</p>
 
-body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
-body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
-body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
+<pre><code>margin-left: 0.3em;
+color: #ccc;
+content: "[Alt + " attr(accesskey) "]";
 </code></pre>
+
+<p>}</p>
+
+<p>body.firefox <em>[accesskey]:after { content: &ldquo;[Alt + Shift + &rdquo; attr(accesskey) &ldquo;]&rdquo;; }
+body.firefox.mac </em>[accesskey]:after { content: &ldquo;[Ctrl + Opt + &rdquo; attr(accesskey) &ldquo;]&rdquo;;  }
+body.safari.mac *[accesskey]:after { content: &ldquo;[Ctrl + &rdquo; attr(accesskey) &ldquo;]&rdquo;;  }
+```</p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>/**
+<p>``` js
+/<em>*
  * Add browser and OS name to body class, and append the shortcut to element title
  * @author rogeriolino
- */
-(function($) {
-    $(document).ready(function() {
-        Modernizr.Detectizr.detect({detectScreen:false});
-        var body = $('body')
-        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
-        $('*[accesskey]').each(function(i, e) {
-            var elem = $(e);
-            prefix = 'Alt';
-            if (body.hasClass('firefox')) {
-                if (body.hasClass('mac')) {
-                    prefix = 'Ctrl + Opt';
-                } else {
-                    prefix = 'Alt + Shift';
-                }
-            } else if (body.hasClass('safari mac')) {
-                prefix = 'Ctrl';
+ </em>/
+(function($) {</p>
+
+<pre><code>$(document).ready(function() {
+    Modernizr.Detectizr.detect({detectScreen:false});
+    var body = $('body')
+    body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
+    $('*[accesskey]').each(function(i, e) {
+        var elem = $(e);
+        prefix = 'Alt';
+        if (body.hasClass('firefox')) {
+            if (body.hasClass('mac')) {
+                prefix = 'Ctrl + Opt';
+            } else {
+                prefix = 'Alt + Shift';
             }
-            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
-        });
+        } else if (body.hasClass('safari mac')) {
+            prefix = 'Ctrl';
+        }
+        elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
     });
-})($);
+});
 </code></pre>
+
+<p>})(jQuery);
+```</p>
 
 <p><strong>Demo</strong></p>
 

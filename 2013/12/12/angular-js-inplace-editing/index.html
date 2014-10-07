@@ -9,7 +9,24 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="HTML &lt;div class="container" ng-app="todo"&gt; &lt;div ng-controller="todoCtrl"&gt; &lt;form ng-submit="add()"&gt; &lt;input type="text" class=" &hellip;">
+  <meta name="description" content="HTML 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+&lt;div class=&quot;container&quot; ng-app=&quot;todo&quot;&gt; &lt;div ng-controller=&quot;todoCtrl& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,46 +120,83 @@
 
 <div class="entry-content"><p><strong>HTML</strong></p>
 
-<pre><code>&lt;div class="container" ng-app="todo"&gt;
-    &lt;div ng-controller="todoCtrl"&gt;
-        &lt;form ng-submit="add()"&gt;
-            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
-            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
-        &lt;/form&gt;
-        &lt;ul&gt;
-            &lt;li ng-repeat="todo in todos"&gt;
-                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
-                &lt;span ng-show="editing"&gt;
-                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
-                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;todoCtrl&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;form</span> <span class="na">ng-submit=</span><span class="s">&quot;add()&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;New task...&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;newTodo&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>Add<span class="nt">&lt;/button&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/form&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;todo in todos&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;span</span> <span class="na">ng-click=</span><span class="s">&quot;editing = true&quot;</span> <span class="na">ng-hide=</span><span class="s">&quot;editing&quot;</span><span class="nt">&gt;</span><span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;span</span> <span class="na">ng-show=</span><span class="s">&quot;editing&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;todo.text&quot;</span> <span class="na">ng-blur=</span><span class="s">&quot;editing = false&quot;</span> <span class="na">ng-required</span><span class="nt">&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;a</span> <span class="na">data-ng-click=</span><span class="s">&quot;editing = false&quot;</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>var app = angular.module('todo', []);
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;todoCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s2">&quot;First task&quot;</span><span class="p">}</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">&amp;&amp;</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+</span><span class='line'>                <span class="nx">text</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>            <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-app.controller('todoCtrl', function($scope) {
-
-    $scope.todos = [
-        {text: "First task"}
-    ];
-
-    $scope.add = function() {
-        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
-            $scope.todos.push({
-                text: $scope.newTodo
-            });
-            $scope.newTodo = '';
-        }
-    }
-
-});
-</code></pre>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 </div>

@@ -103,41 +103,63 @@
 
 <div class="entry-content"><p>Para quem está utilizando o CakePHP ou já utilizou e também sentiu falta de herança nos layouts. Segue abaixo uma dica para ajudar na criações de templates utilizando o CakePHP.</p>
 
-<pre><code>&amp;lt;?php
-// sublayout.ctp
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="cp">    // sublayout.ctp</span>
+</span><span class='line'><span class="cp">    ob_start();</span>
+</span><span class='line'><span class="cp">?&gt;</span>
+</span><span class='line'><span class="c">&lt;!-- html content --&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php eco $content_for_layout; ?&gt;</span>
+</span><span class='line'><span class="c">&lt;!-- html content --&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>?php
+</span><span class='line'>
+</span><span class='line'>    $content = ob_get_contents();
+</span><span class='line'>    ob_end_clean();
+</span><span class='line'>
+</span><span class='line'>    echo $this-&gt;renderLayout(
+</span><span class='line'>        $content,
+</span><span class='line'>        &#39;default&#39; // parent layout
+</span><span class='line'>    );
+</span></code></pre></td></tr></table></div></figure>
 
-ob_start();
-
-?&amp;gt;
- &lt;!-- html content --&gt;
- &amp;lt;?php eco $content_for_layout; ?&amp;gt;
- &lt;!-- html content --&gt;
-&amp;lt;?php
-
-$content = ob_get_contents();
-ob_end_clean();
-
-echo $this-&gt;renderLayout(
-        $content, 
-        'default' // parent layout
-);
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="c1">// controller class</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyController</span> <span class="k">extends</span> <span class="nx">AppController</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">layout</span> <span class="o">=</span> <span class="s1">&#39;sublayout&#39;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-
-&amp;lt;?php
-// controller class
-class MyController extends AppController {
-
-    function test() {
-        $this-&gt;layout = 'sublayout';
-    }
-
-}
-</code></pre>
 </div>
 
 

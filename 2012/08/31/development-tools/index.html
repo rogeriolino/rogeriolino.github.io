@@ -117,16 +117,23 @@
 
 <p>Como toda a execução é feita no lado do servidor, você pode fazer uma execução ajax do seu site/aplicação para o dev-tools e pegar no response o resultado, sem que haja necessidade de importar novos recursos:</p>
 
-<blockquote>GET
->     /ajax/<package>/<method>/?<params>
->     /ajax/crypt/sha1?data=test
->     
->     JSON RESPONSE
->     {&#8220;success&#8221;:true,&#8221;data&#8221;:&#8221;a94a8fe5ccb19ba61c4c0873d391e987982fbbd3&#8221;}
->     
-> 
-> </blockquote>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>GET
+</span><span class='line'>&gt;     /ajax/&lt;package&gt;/&lt;method&gt;/?&lt;params&gt;
+</span><span class='line'>&gt;     /ajax/crypt/sha1?data=test
+</span><span class='line'>&gt;     
+</span><span class='line'>&gt;     JSON RESPONSE
+</span><span class='line'>&gt;     {"success":true,"data":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"}
+</span><span class='line'>&gt;     </span></code></pre></td></tr></table></div></figure>
 
+
+<p></p>
 
 <p>Conforme eu vá sentindo necessidade de mais funcionalidade ou alguém dê uma sugestão, irei incrementando. Depois criarei um projeto no Github e atualizarei o post com o link.</p>
 </div>

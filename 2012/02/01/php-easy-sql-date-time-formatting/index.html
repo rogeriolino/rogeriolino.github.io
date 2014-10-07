@@ -9,11 +9,25 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="SQL to Human: /* * date */
-$format = 'm/d/Y'; // en-US
-// $format = 'd/m/Y'; // pt-BR
-$date = '2012-02-01';
-echo date($format, strtotime($date &hellip;">
+  <meta name="description" content="SQL to Human: 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+/* * date */
+$format = &#39;m/d/Y&#39;; // en-US
+// $format = &#39;d/m/Y&#39;; // pt-BR
+$date = &# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -107,52 +121,95 @@ echo date($format, strtotime($date &hellip;">
 
 <div class="entry-content"><p><strong>SQL to Human:</strong></p>
 
-<pre><code>/* 
- * date
- */
-$format = 'm/d/Y'; // en-US
-// $format = 'd/m/Y'; // pt-BR
-$date = '2012-02-01';
-echo date($format, strtotime($date));
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cm">/* </span>
+</span><span class='line'><span class="cm"> * date</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;m/d/Y&#39;</span><span class="p">;</span> <span class="c1">// en-US</span>
+</span><span class='line'><span class="c1">// $format = &#39;d/m/Y&#39;; // pt-BR</span>
+</span><span class='line'><span class="nv">$date</span> <span class="o">=</span> <span class="s1">&#39;2012-02-01&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nv">$format</span><span class="p">,</span> <span class="nb">strtotime</span><span class="p">(</span><span class="nv">$date</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* </span>
+</span><span class='line'><span class="cm"> * datetime</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nv">$format</span> <span class="o">.=</span> <span class="s1">&#39; H:i:s&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$datetime</span> <span class="o">=</span> <span class="s1">&#39;2012-02-01 11:33:59&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nv">$format</span><span class="p">,</span> <span class="nb">strtotime</span><span class="p">(</span><span class="nv">$datetime</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-/* 
- * datetime
- */
-$format .= ' H:i:s';
-$datetime = '2012-02-01 11:33:59';
-echo date($format, strtotime($datetime));
-</code></pre>
 
 <p><strong>Human to SQL:</strong></p>
 
-<pre><code>/* 
- * date
- */
-$sqlFormat = 'Y-m-d';
-$date = '02/01/2012';
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cm">/* </span>
+</span><span class='line'><span class="cm"> * date</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nv">$sqlFormat</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$date</span> <span class="o">=</span> <span class="s1">&#39;02/01/2012&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// en-US</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nv">$sqlFormat</span><span class="p">,</span> <span class="nb">strtotime</span><span class="p">(</span><span class="nv">$date</span><span class="p">));</span>
+</span><span class='line'><span class="c1">// pt-BR</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="nb">array_reverse</span><span class="p">(</span><span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$date</span><span class="p">)));</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* </span>
+</span><span class='line'><span class="cm"> * datetime</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="nv">$sqlFormat</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// en-US</span>
+</span><span class='line'><span class="nv">$datetime</span> <span class="o">=</span> <span class="s1">&#39;02/01/2012 11:33:59&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">date</span><span class="p">(</span><span class="nv">$sqlFormat</span><span class="p">,</span> <span class="nb">strtotime</span><span class="p">(</span><span class="nv">$datetime</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// pt-BR</span>
+</span><span class='line'><span class="nv">$datetime</span> <span class="o">=</span> <span class="s1">&#39;01/02/2012 11:33:59&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$datetime</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="nv">$datetime</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$date</span> <span class="o">=</span> <span class="nb">join</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="nb">array_reverse</span><span class="p">(</span><span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$datetime</span><span class="p">[</span><span class="mi">0</span><span class="p">])));</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$date</span> <span class="o">.</span> <span class="s1">&#39; &#39;</span> <span class="o">.</span> <span class="nv">$datetime</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
 
-// en-US
-echo date($sqlFormat, strtotime($date));
-// pt-BR
-echo join('-', array_reverse(explode('/', $date)));
-
-
-/* 
- * datetime
- */
-$sqlFormat = 'Y-m-d H:i:s';
-
-// en-US
-$datetime = '02/01/2012 11:33:59';  
-echo date($sqlFormat, strtotime($datetime));
-
-// pt-BR
-$datetime = '01/02/2012 11:33:59';
-$datetime = explode(' ', $datetime);
-$date = join('-', array_reverse(explode('/', $datetime[0])));
-echo $date . ' ' . $datetime[1];
-</code></pre>
 
 <p><strong>Reference:</strong></p>
 

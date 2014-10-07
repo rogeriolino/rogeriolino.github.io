@@ -4,7 +4,7 @@
   <title><![CDATA[Category: quickpost | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/quickpost/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -33,26 +33,31 @@
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<pre><code>&lt;!DOCTYPE html&gt; 
-&lt;html class="no-js" lang="pt-BR"&gt;
-&lt;head&gt;
-    &lt;title&gt;JS detection&lt;/title&gt;
-    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+<p>``` html
+&lt;!DOCTYPE html>
+<html class="no-js" lang="pt-BR">
+<head></p>
 
-    &lt;style&gt;
-        .js .alert-danger { display: none; }
-        .no-js .alert-success { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+<pre><code>&lt;title&gt;JS detection&lt;/title&gt;
+&lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
 
-    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
-
-    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;style&gt;
+    .js .alert-danger { display: none; }
+    .no-js .alert-success { display: none; }
+&lt;/style&gt;
 </code></pre>
+
+<p></head>
+<body></p>
+
+<pre><code>&lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+&lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+</code></pre>
+
+<p></body>
+</html>
+```</p>
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
@@ -85,36 +90,38 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 
 <p><strong>Exemplo:</strong></p>
 
-<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso "1").
-</blockquote>
-
+<p>Para a URI <strong>/clients/add</strong> terei uma classe controladora <strong>ClientsController</strong> com um método público (a ação) <strong>add</strong>. E o script tentará renderizar a página <strong>add.php</strong> dentro do diretório <strong>clients</strong>. E para a URI <strong>/clients/view/1</strong> será necessário ter o método <strong>view</strong> que recebe um parâmetro (nesse caso &ldquo;1&rdquo;).</p>
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
-    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
-    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
-    try {
-        if (!class_exists($class)) {
-            throw new \Exception('Controlador não encontrado');
-        }
-        $ctrl = new $class($app);
-        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
-        $ref = new \ReflectionMethod($class, $methodName);
-        if (!$ref-&gt;isPublic()) {
-            throw new \Exception('O método do controlador não é público.');
-        }
-        $view = $methodName;
-        $rs = $ref-&gt;invokeArgs($ctrl, $params);
-        if ($rs) {
-            $view = $rs;
-        }
-        $app-&gt;render("{$controller}/{$view}.php");
-    } catch (\Exception $e) {
-        $app-&gt;notFound();
+<p>``` php
+$app->any(&lsquo;/:controller(/)(:action(/)(:params+))&rsquo;, function($controller, $action = &lsquo;index&rsquo;, $params = array()) use ($app) {</p>
+
+<pre><code>// transforma o parâmetro :controller no nome da classe controladora (com namespace)
+$class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
+try {
+    if (!class_exists($class)) {
+        throw new \Exception('Controlador não encontrado');
     }
-});
+    $ctrl = new $class($app);
+    $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
+    $ref = new \ReflectionMethod($class, $methodName);
+    if (!$ref-&gt;isPublic()) {
+        throw new \Exception('O método do controlador não é público.');
+    }
+    $view = $methodName;
+    $rs = $ref-&gt;invokeArgs($ctrl, $params);
+    if ($rs) {
+        $view = $rs;
+    }
+    $app-&gt;render("{$controller}/{$view}.php");
+} catch (\Exception $e) {
+    $app-&gt;notFound();
+}
 </code></pre>
+
+<p>});
+```</p>
 
 <p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
 ]]></content>
@@ -127,46 +134,52 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<pre><code>&lt;div class="container" ng-app="todo"&gt;
-    &lt;div ng-controller="todoCtrl"&gt;
-        &lt;form ng-submit="add()"&gt;
-            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
-            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
-        &lt;/form&gt;
-        &lt;ul&gt;
-            &lt;li ng-repeat="todo in todos"&gt;
-                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
-                &lt;span ng-show="editing"&gt;
-                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
-                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>``` html</p>
+
+<div class="container" ng-app="todo">
+    <div ng-controller="todoCtrl">
+        <form ng-submit="add()">
+            <input type="text" class="form-control" placeholder="New task..." ng-model="newTodo">
+            <button class="btn btn-primary">Add</button>
+        </form>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <span ng-click="editing = true" ng-hide="editing"></span>
+                <span ng-show="editing">
+                    <input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required>
+                    <a data-ng-click="editing = false" class="glyphicon glyphicon-ok"></a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<p>```</p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>var app = angular.module('todo', []);
+<p>``` js<br/>
+var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
-app.controller('todoCtrl', function($scope) {
+<p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
-    $scope.todos = [
-        {text: "First task"}
-    ];
+<pre><code>$scope.todos = [
+    {text: "First task"}
+];
 
-    $scope.add = function() {
-        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
-            $scope.todos.push({
-                text: $scope.newTodo
-            });
-            $scope.newTodo = '';
-        }
+$scope.add = function() {
+    if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+        $scope.todos.push({
+            text: $scope.newTodo
+        });
+        $scope.newTodo = '';
     }
-
-});
+}
 </code></pre>
+
+<p>});
+```</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>

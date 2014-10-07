@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/php/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -23,44 +23,51 @@
 <!-- more -->
 
 
-<pre><code>class User implements \JsonSerializable {
+<p>``` php
+class User implements \JsonSerializable {</p>
 
-    private $username;
-    private $firstName;
-    private $lastName;
+<pre><code>private $username;
+private $firstName;
+private $lastName;
 
-    ...
+...
 
-    public function jsonSerialize() {
-        return array(
-            'username' =&gt; $this-&gt;username,
-            'firstName' =&gt; $this-&gt;firstName,
-            'lastName' =&gt; $this-&gt;lastName,
-            'fullName' =&gt; "{$this-&gt;firstName} {$this-&gt;lastName}"
-        );
-    }
-
+public function jsonSerialize() {
+    return array(
+        'username' =&gt; $this-&gt;username,
+        'firstName' =&gt; $this-&gt;firstName,
+        'lastName' =&gt; $this-&gt;lastName,
+        'fullName' =&gt; "{$this-&gt;firstName} {$this-&gt;lastName}"
+    );
 }
 </code></pre>
 
+<p>}
+```</p>
+
 <p>Serializando:</p>
 
-<pre><code>$user = new User();
+<p><code>html    
+$user = new User();
 $user-&gt;setUsername("rogeriolino");
 $user-&gt;setFirstName("Rogério");
 $user-&gt;setLastName("Lino");
 echo json_encode($user);
-</code></pre>
+</code></p>
 
 <p>Resultado:</p>
 
-<pre><code>{
-    "username": "rogeriolino",
-    "firstName": "Rogério",
-    "lastName": "Lino",
-    "fullName": "Rogério Lino",
-}
+<p>``` json  <br/>
+{</p>
+
+<pre><code>"username": "rogeriolino",
+"firstName": "Rogério",
+"lastName": "Lino",
+"fullName": "Rogério Lino",
 </code></pre>
+
+<p>}
+```</p>
 
 <p>Essa implementação se torna muito útil para desenvolvimento de APIs <strong>RESTful</strong> e <strong>ajax responses</strong> (json response).</p>
 ]]></content>
@@ -82,38 +89,43 @@ echo json_encode($user);
 
 <p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
 
-<pre><code>// session keep alive
-;(function($) {
-    "use strict";
+<p>``` js
+// session keep alive
+;(function($) {</p>
 
-    var pingTime = 60; // ping a cada 60 segundos
-    var count = pingTime;
-    $.idleTimer({
-        time: 10 * 60, // 10 minutos para timeout
-        start: function() {
+<pre><code>"use strict";
+
+var pingTime = 60; // ping a cada 60 segundos
+var count = pingTime;
+$.idleTimer({
+    time: 10 * 60, // 10 minutos para timeout
+    start: function() {
+        count = pingTime;
+    },
+    change: function(it) {
+        count--;
+        console.log(count);
+        if (count &lt;= 0) {
             count = pingTime;
-        },
-        change: function(it) {
-            count--;
-            console.log(count);
-            if (count &lt;= 0) {
-                count = pingTime;
-                $.ajax({ url: '/ping.php' });
-            }
-        },
-        end: function() {
-            window.location.href = '/logout.php';
+            $.ajax({ url: '/ping.php' });
         }
-    });
-})(jQuery);
+    },
+    end: function() {
+        window.location.href = '/logout.php';
+    }
+});
 </code></pre>
+
+<p>})(jQuery);
+```</p>
 
 <p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
 
-<pre><code>&lt;?php
+<p>``` php  <br/>
+&lt;?php</p>
 
-session_start();
-</code></pre>
+<p>session_start();
+```</p>
 ]]></content>
   </entry>
   
@@ -128,36 +140,38 @@ session_start();
 
 <p><strong>Exemplo:</strong></p>
 
-<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso "1").
-</blockquote>
-
+<p>Para a URI <strong>/clients/add</strong> terei uma classe controladora <strong>ClientsController</strong> com um método público (a ação) <strong>add</strong>. E o script tentará renderizar a página <strong>add.php</strong> dentro do diretório <strong>clients</strong>. E para a URI <strong>/clients/view/1</strong> será necessário ter o método <strong>view</strong> que recebe um parâmetro (nesse caso &ldquo;1&rdquo;).</p>
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
-    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
-    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
-    try {
-        if (!class_exists($class)) {
-            throw new \Exception('Controlador não encontrado');
-        }
-        $ctrl = new $class($app);
-        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
-        $ref = new \ReflectionMethod($class, $methodName);
-        if (!$ref-&gt;isPublic()) {
-            throw new \Exception('O método do controlador não é público.');
-        }
-        $view = $methodName;
-        $rs = $ref-&gt;invokeArgs($ctrl, $params);
-        if ($rs) {
-            $view = $rs;
-        }
-        $app-&gt;render("{$controller}/{$view}.php");
-    } catch (\Exception $e) {
-        $app-&gt;notFound();
+<p>``` php
+$app->any(&lsquo;/:controller(/)(:action(/)(:params+))&rsquo;, function($controller, $action = &lsquo;index&rsquo;, $params = array()) use ($app) {</p>
+
+<pre><code>// transforma o parâmetro :controller no nome da classe controladora (com namespace)
+$class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
+try {
+    if (!class_exists($class)) {
+        throw new \Exception('Controlador não encontrado');
     }
-});
+    $ctrl = new $class($app);
+    $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
+    $ref = new \ReflectionMethod($class, $methodName);
+    if (!$ref-&gt;isPublic()) {
+        throw new \Exception('O método do controlador não é público.');
+    }
+    $view = $methodName;
+    $rs = $ref-&gt;invokeArgs($ctrl, $params);
+    if ($rs) {
+        $view = $rs;
+    }
+    $app-&gt;render("{$controller}/{$view}.php");
+} catch (\Exception $e) {
+    $app-&gt;notFound();
+}
 </code></pre>
+
+<p>});
+```</p>
 
 <p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
 ]]></content>
@@ -174,50 +188,64 @@ session_start();
 
 <p>Com o <a href="http://br1.php.net/manual/en/language.generators.overview.php">Generators</a> você pode iterar com um dado dentro de uma função sem a necessidade de criar um array para ser retornado.</p>
 
-<pre><code>function numerosInteiros($minimo, $maximo) {
-    for ($i = $minimo; $i &lt;= $maximo; $i++) {
-        // a keyword yield "libera" a variável $i para a iteração (sem sair/retornar da/a função)
-        yield $i;
-    }
-}
+<p>``` php
+function numerosInteiros($minimo, $maximo) {</p>
 
-for (numerosInteiros(1, 10) as $numero) {
-    echo "$numero ";
+<pre><code>for ($i = $minimo; $i &lt;= $maximo; $i++) {
+    // a keyword yield "libera" a variável $i para a iteração (sem sair/retornar da/a função)
+    yield $i;
 }
 </code></pre>
+
+<p>}</p>
+
+<p>for (numerosInteiros(1, 10) as $numero) {</p>
+
+<pre><code>echo "$numero ";
+</code></pre>
+
+<p>}
+```</p>
 
 <p>Ou um exemplo do próprio site php.net</p>
 
-<pre><code>function xrange($start, $limit, $step = 1) {
-    if ($start &lt; $limit) {
-        if ($step &lt;= 0) {
-            throw new LogicException('Step must be +ve');
-        }
+<p>``` php
+function xrange($start, $limit, $step = 1) {</p>
 
-        for ($i = $start; $i &lt;= $limit; $i += $step) {
-            yield $i;
-        }
-    } else {
-        if ($step &gt;= 0) {
-            throw new LogicException('Step must be -ve');
-        }
+<pre><code>if ($start &lt; $limit) {
+    if ($step &lt;= 0) {
+        throw new LogicException('Step must be +ve');
+    }
 
-        for ($i = $start; $i &gt;= $limit; $i += $step) {
-            yield $i;
-        }
+    for ($i = $start; $i &lt;= $limit; $i += $step) {
+        yield $i;
+    }
+} else {
+    if ($step &gt;= 0) {
+        throw new LogicException('Step must be -ve');
+    }
+
+    for ($i = $start; $i &gt;= $limit; $i += $step) {
+        yield $i;
     }
 }
+</code></pre>
 
-/*
+<p>}</p>
+
+<p>/<em>
  * Note that both range() and xrange() result in the same
  * output below.
- */
+ </em>/</p>
 
-echo 'Single digit odd numbers from range():  ';
-foreach (range(1, 9, 2) as $number) {
-    echo "$number ";
-}
+<p>echo &lsquo;Single digit odd numbers from range():  &rsquo;;
+foreach (range(1, 9, 2) as $number) {</p>
+
+<pre><code>echo "$number ";
 </code></pre>
+
+<p>}
+```</p>
 
 <p>Repare que não há necessidade de criar um array, populá-lo, retorná-lo, e só depois iterá-lo para imprimir os valores.</p>
 
@@ -225,54 +253,81 @@ foreach (range(1, 9, 2) as $number) {
 
 <p>Mesmo já possuindo a bastante tempo o bloco try/catch, só agora a partir da versão 5.5 foi introduzida a keyword <strong>finally</strong>. No qual você define um bloco para ser executado de qualquer maneira (mesmo que caia no catch).</p>
 
-<pre><code>function divide($a, $b) {
-    if ($b === 0) {
-        throw new Exception('Divisão por zero');
-    }
-    return $a / $b;
-}
+<p>``` php  <br/>
+function divide($a, $b) {</p>
 
-try {
-    echo '10 / 2 = ' . divide(10, 2);
-    echo '2 / 0 = ' . divide(2, 0);
-} catch (Exception $e) {
-    echo $e-&gt;getMessage();
-} finally {
-    echo 'Término das operações';
+<pre><code>if ($b === 0) {
+    throw new Exception('Divisão por zero');
 }
+return $a / $b;
 </code></pre>
+
+<p>}</p>
+
+<p>try {</p>
+
+<pre><code>echo '10 / 2 = ' . divide(10, 2);
+echo '2 / 0 = ' . divide(2, 0);
+</code></pre>
+
+<p>} catch (Exception $e) {</p>
+
+<pre><code>echo $e-&gt;getMessage();
+</code></pre>
+
+<p>} finally {</p>
+
+<pre><code>echo 'Término das operações';
+</code></pre>
+
+<p>}
+```</p>
 
 <h3>::class</h3>
 
 <p>Agora é possível resolver o nome da classe apenas através de <a href="http://br1.php.net/oop5.basic#language.oop5.basic.class.class">MinhaClass::class</a>.</p>
 
-<pre><code>&lt;?php
-namespace NS {
-    class ClassName {
-    }  
-    echo ClassName::class;
-}
-?&gt;
+<p>``` php
+&lt;?php
+namespace NS {</p>
+
+<pre><code>class ClassName {
+}  
+echo ClassName::class;
 </code></pre>
+
+<p>}
+?>
+```</p>
 
 <h3>empty()</h3>
 
 <p>Agora é possível passar expressões para a função <a href="http://br2.php.net/migration55.new-features#migration55.new-features.empty">empty()</a> e não mais apenas variáveis.</p>
 
-<pre><code>&lt;?php
-function always_false() {
-    return false;
-}
+<p>``` php  <br/>
+&lt;?php
+function always_false() {</p>
 
-if (empty(always_false())) {
-    echo "This will be printed.\n";
-}
-
-if (empty(true)) {
-    echo "This will not be printed.\n";
-}
-?&gt;
+<pre><code>return false;
 </code></pre>
+
+<p>}</p>
+
+<p>if (empty(always_false())) {</p>
+
+<pre><code>echo "This will be printed.\n";
+</code></pre>
+
+<p>}</p>
+
+<p>if (empty(true)) {</p>
+
+<pre><code>echo "This will not be printed.\n";
+</code></pre>
+
+<p>}
+?>
+```</p>
 
 <h3>Veja mais</h3>
 

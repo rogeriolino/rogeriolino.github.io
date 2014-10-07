@@ -109,52 +109,94 @@
 
 <p><strong>Dependências</strong></p>
 
-<pre><code>&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"&gt;&lt;/script&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>CSS</strong></p>
 
-<pre><code>*[accesskey]:after {
-    margin-left: 0.3em;
-    color: #ccc;
-    content: "[Alt + " attr(accesskey) "]";
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">margin-left</span><span class="o">:</span> <span class="m">0.3em</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Alt + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">body</span><span class="nc">.firefox</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Alt + Shift + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span><span class="nc">.firefox.mac</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Ctrl + Opt + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>  <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span><span class="nc">.safari.mac</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Ctrl + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
-body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
-body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
-</code></pre>
+
+<p></p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>/**
- * Add browser and OS name to body class, and append the shortcut to element title
- * @author rogeriolino
- */
-(function($) {
-    $(document).ready(function() {
-        Modernizr.Detectizr.detect({detectScreen:false});
-        var body = $('body')
-        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
-        $('*[accesskey]').each(function(i, e) {
-            var elem = $(e);
-            prefix = 'Alt';
-            if (body.hasClass('firefox')) {
-                if (body.hasClass('mac')) {
-                    prefix = 'Ctrl + Opt';
-                } else {
-                    prefix = 'Alt + Shift';
-                }
-            } else if (body.hasClass('safari mac')) {
-                prefix = 'Ctrl';
-            }
-            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
-        });
-    });
-})($);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Add browser and OS name to body class, and append the shortcut to element title</span>
+</span><span class='line'><span class="cm"> * @author rogeriolino</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">detect</span><span class="p">({</span><span class="nx">detectScreen</span><span class="o">:</span><span class="kc">false</span><span class="p">});</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">body</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">browser</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">os</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*[accesskey]&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Alt&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;mac&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Ctrl + Opt&#39;</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Alt + Shift&#39;</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;safari mac&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Ctrl&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">elem</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; [&#39;</span> <span class="o">+</span> <span class="nx">prefix</span> <span class="o">+</span> <span class="s1">&#39; + &#39;</span> <span class="o">+</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;accesskey&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>Demo</strong></p>
 

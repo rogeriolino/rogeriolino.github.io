@@ -107,36 +107,60 @@
 
 <p><strong>Exemplo:</strong></p>
 
-<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso &#8220;1&#8221;).
-</blockquote>
-
+<p>Para a URI <strong>/clients/add</strong> terei uma classe controladora <strong>ClientsController</strong> com um método público (a ação) <strong>add</strong>. E o script tentará renderizar a página <strong>add.php</strong> dentro do diretório <strong>clients</strong>. E para a URI <strong>/clients/view/1</strong> será necessário ter o método <strong>view</strong> que recebe um parâmetro (nesse caso &ldquo;1&rdquo;).</p>
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
-    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
-    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
-    try {
-        if (!class_exists($class)) {
-            throw new \Exception('Controlador não encontrado');
-        }
-        $ctrl = new $class($app);
-        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
-        $ref = new \ReflectionMethod($class, $methodName);
-        if (!$ref-&gt;isPublic()) {
-            throw new \Exception('O método do controlador não é público.');
-        }
-        $view = $methodName;
-        $rs = $ref-&gt;invokeArgs($ctrl, $params);
-        if ($rs) {
-            $view = $rs;
-        }
-        $app-&gt;render("{$controller}/{$view}.php");
-    } catch (\Exception $e) {
-        $app-&gt;notFound();
-    }
-});
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">any</span><span class="p">(</span><span class="s1">&#39;/:controller(/)(:action(/)(:params+))&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$controller</span><span class="p">,</span> <span class="nv">$action</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// transforma o parâmetro :controller no nome da classe controladora (com namespace)</span>
+</span><span class='line'>    <span class="nv">$class</span> <span class="o">=</span> <span class="s2">&quot;MeuNamespace</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">ucfirst</span><span class="p">(</span><span class="nv">$controller</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;Controller&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">class_exists</span><span class="p">(</span><span class="nv">$class</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s1">&#39;Controlador não encontrado&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$ctrl</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$class</span><span class="p">(</span><span class="nv">$app</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$methodName</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[^A-z0-9]/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nv">$action</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ReflectionMethod</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$methodName</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$ref</span><span class="o">-&gt;</span><span class="na">isPublic</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s1">&#39;O método do controlador não é público.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$methodName</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$rs</span> <span class="o">=</span> <span class="nv">$ref</span><span class="o">-&gt;</span><span class="na">invokeArgs</span><span class="p">(</span><span class="nv">$ctrl</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$rs</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$rs</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{</span><span class="nv">$controller</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nv">$view</span><span class="si">}</span><span class="s2">.php&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">notFound</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
 </div>

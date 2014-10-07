@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/linux/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -22,42 +22,48 @@
 
 <h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
 
-<pre><code>apt-cache show php5 | grep Version
-</code></pre>
+<p><code>sh
+apt-cache show php5 | grep Version
+</code></p>
 
 <p>Caso a versão mais nova já esteja na 5.4 ou superior, então pule para o próximo passo. Senão execute os comandos abaixo para adicionar o repositório com a versão 5.4.</p>
 
-<pre><code>apt-get install python-software-properties
+<p><code>sh    
+apt-get install python-software-properties
 add-apt-repository ppa:ondrej/php5
 apt-get update
-</code></pre>
+</code></p>
 
 <h3>Passo 2 &ndash; Instalando os pacotes</h3>
 
 <p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
 
-<pre><code>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
-</code></pre>
+<p><code>sh
+apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
+</code></p>
 
 <p>Habilitando os módulos de requeridos para o próximo passo:</p>
 
-<pre><code>a2enmod actions fastcgi alias
-</code></pre>
+<p><code>sh
+a2enmod actions fastcgi alias
+</code></p>
 
 <h3>Passo 3 &ndash; Configurando o Apache2</h3>
 
 <p>Editar o arquivo de configuração do módulo fastcgi</p>
 
-<pre><code>vim /etc/apache2/mods-enabled/fastcgi.conf
-</code></pre>
+<p><code>sh
+vim /etc/apache2/mods-enabled/fastcgi.conf
+</code></p>
 
 <p>Caso já tenha algumas entradas, comente (adicionando # no início da linha ou simplesmente remova) e adicione as seguintes linhas:</p>
 
-<pre><code>AddHandler php5-fcgi .php
+<p><code>
+AddHandler php5-fcgi .php
 Action php5-fcgi /php5-fcgi
 Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
 FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
-</code></pre>
+</code></p>
 
 <p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
 
@@ -65,13 +71,15 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock 
 
 <p>Abra o arquivo de configuração do PHP-FPM</p>
 
-<pre><code>vim /etc/php5/fpm/pool.d/www.conf
-</code></pre>
+<p><code>sh    
+vim /etc/php5/fpm/pool.d/www.conf
+</code></p>
 
 <p>E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:</p>
 
-<pre><code>listen = /var/run/php5-fpm.sock
-</code></pre>
+<p><code>  
+listen = /var/run/php5-fpm.sock
+</code></p>
 
 <p>Essa opção serve para evitar overhead no TCP (caso o socket não esteja configurado)</p>
 
@@ -81,15 +89,17 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock 
 
 <p>Reiniciando os serviços:</p>
 
-<pre><code>/etc/init.d/apache2 restart
+<p><code>sh    
+/etc/init.d/apache2 restart
 /etc/init.d/php5-fpm restart
-</code></pre>
+</code></p>
 
 <p>Criando arquivo de teste:</p>
 
-<pre><code>cd /var/www
+<p><code>sh
+cd /var/www
 echo '&lt;?php phpinfo();' | tee info.php
-</code></pre>
+</code></p>
 
 <p>Depois acesse o arquivo criado via browser: <a href="http://nome_servidor/info.php">http://nome_servidor/info.php</a></p>
 

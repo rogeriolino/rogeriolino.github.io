@@ -110,441 +110,558 @@
 
 <p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
 
-<pre><code>&lt;ul&gt;
-{foreach from=$myArray item=foo}
-    &lt;li&gt;{$foo}&lt;/li&gt;
-{/foreach}
-&lt;/ul&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>{foreach from=$myArray item=foo}
+</span><span class='line'>    <span class="nt">&lt;li&gt;</span>{$foo}<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>{/foreach}
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$smarty</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Smarty</span><span class="p">;</span>
+</span><span class='line'><span class="nv">$arr</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">1002</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$smarty</span><span class="o">-&gt;</span><span class="na">assign</span> <span class="p">(</span><span class="s1">&#39;myArray&#39;</span><span class="p">,</span> <span class="nv">$arr</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$smarty</span><span class="o">-&gt;</span><span class="na">display</span> <span class="p">(</span><span class="s1">&#39;HelloWorld.tpl&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-$smarty = new Smarty;
-$arr = array(1000, 1001, 1002);
-$smarty-&gt;assign ('myArray', $arr);
-$smarty-&gt;display ('HelloWorld.tpl');
-</code></pre>
 
 <p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
 
 <p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
 
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;title&gt;</span>{tmpl_var name=&#39;title_text&#39;}<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;content-type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=iso-8859-1&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;p&gt;</span>{tmpl_var name=&#39;body_text&#39;}<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$tmpl</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vlibTemplate</span><span class="p">(</span><span class="s1">&#39;tmpl/basic.htm&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$tmpl</span><span class="o">-&gt;</span><span class="na">setvar</span><span class="p">(</span><span class="s1">&#39;title_text&#39;</span><span class="p">,</span> <span class="s1">&#39;TITLE: This is the vLIB basic example ...&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$tmpl</span><span class="o">-&gt;</span><span class="na">setvar</span><span class="p">(</span><span class="s1">&#39;body_text&#39;</span><span class="p">,</span> <span class="s1">&#39;BODY: This is the message set using setvar()&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$tmpl</span><span class="o">-&gt;</span><span class="na">pparse</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-
-$tmpl = new vlibTemplate('tmpl/basic.htm');
-$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
-$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
-$tmpl-&gt;pparse();
-</code></pre>
+<p></p>
 
 <p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
 
 <p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
 
-<pre><code> &lt;table&gt;
-     &lt;!-- START row --&gt;
-         &lt;tr&gt;
-             &lt;!-- START cell --&gt; 
-             &lt;td &gt;{td_value} &lt;/td&gt; 
-             &lt;!-- END cell --&gt;
-         &lt;/tr&gt;
-     &lt;!-- END row --&gt;
- &lt;/table&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'> <span class="nt">&lt;table&gt;</span>
+</span><span class='line'>     <span class="c">&lt;!-- START row --&gt;</span>
+</span><span class='line'>         <span class="nt">&lt;tr&gt;</span>
+</span><span class='line'>             <span class="c">&lt;!-- START cell --&gt;</span>
+</span><span class='line'>             <span class="nt">&lt;td</span> <span class="nt">&gt;</span>{td_value} <span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>             <span class="c">&lt;!-- END cell --&gt;</span>
+</span><span class='line'>         <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>     <span class="c">&lt;!-- END row --&gt;</span>
+</span><span class='line'> <span class="nt">&lt;/table&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
+<p></p>
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$fxlt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fxl_template</span><span class="p">(</span><span class="s1">&#39;example.tpl&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$fxlt_row</span> <span class="o">=</span> <span class="nv">$fxlt</span><span class="o">-&gt;</span><span class="na">get_block</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$fxlt_cell</span> <span class="o">=</span> <span class="nv">$fxlt_row</span><span class="o">-&gt;</span><span class="na">get_block</span><span class="p">(</span><span class="s1">&#39;cell&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="nv">$tr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$tr</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nv">$tr</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="nv">$td</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$td</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nv">$td</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$fxlt_cell</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;td_value&#39;</span><span class="p">,</span> <span class="nv">$tr</span><span class="o">.</span><span class="s1">&#39;:&#39;</span><span class="o">.</span><span class="nv">$td</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$fxlt_row</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="nv">$fxlt_cell</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$fxlt_cell</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nv">$fxlt</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;row&#39;</span><span class="p">,</span> <span class="nv">$fxlt_row</span><span class="p">);</span>
+</span><span class='line'>    <span class="nv">$fxlt_row</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$fxlt</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-
-$fxlt = new fxl_template('example.tpl');
-$fxlt_row = $fxlt-&gt;get_block('row');
-$fxlt_cell = $fxlt_row-&gt;get_block('cell');
-for ($tr = 1; $tr &lt;= 3; $tr++) {
-    for ($td = 1; $td &lt;= 3; $td++) {
-        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
-        $fxlt_row-&gt;assign('cell', $fxlt_cell);
-        $fxlt_cell-&gt;clear();
-    }
-    $fxlt-&gt;assign('row', $fxlt_row);
-    $fxlt_row-&gt;clear();
-}
-$fxlt-&gt;display();
-</code></pre>
 
 <p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
 
 <p>Mais do mesmo, mas com alterações de sintaxe.</p>
 
-<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
-&lt;ul&gt;
-{foreach:rows,row}
-    &lt;li&gt;
-    {row['name']} 
-    &lt;/li&gt;
-{end:} 
-&lt;/ul&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;h1&gt;</span>{if:logged} Welcome {username} {else:} User not logged {end:} <span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>    {foreach:rows,row}
+</span><span class='line'>        <span class="nt">&lt;li&gt;</span>
+</span><span class='line'>        {row[&#39;name&#39;]}
+</span><span class='line'>        <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>    {end:}
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vemplator</span><span class="p">();</span>
+</span><span class='line'><span class="c1">// if/else</span>
+</span><span class='line'><span class="nv">$t</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;logged&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$t</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;Rogerio&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="c1">// loop</span>
+</span><span class='line'><span class="nv">$items</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Laptop&#39;</span><span class="p">),</span>
+</span><span class='line'>  <span class="k">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Memory Stick&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$t</span><span class="o">-&gt;</span><span class="na">assign</span><span class="p">(</span><span class="s1">&#39;rows&#39;</span><span class="p">,</span> <span class="nv">$rows</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$t</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">&#39;example.template.html&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-
-$t = new vemplator();
-// if/else
-$t-&gt;assign('logged', true);
-$t-&gt;assign('username', 'Rogerio');
-// loop
-$items = array(
-    array('name' =&gt; 'Laptop'),
-    array('name' =&gt; 'Memory Stick')
-);
-$t-&gt;assign('rows', $rows);
-echo $t-&gt;output('example.template.html');
-</code></pre>
+<p></p>
 
 <p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
 
 <p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
 
-<pre><code> &lt;table &gt;
- &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
- &lt;/table &gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;table&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;tr&gt;&lt;td&gt;</span>[blk.val;block=tr]<span class="nt">&lt;/td&gt;&lt;/tr&gt;</span>
+</span><span class='line'><span class="nt">&lt;/table&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$TBS</span> <span class="o">=&amp;</span> <span class="k">new</span> <span class="nx">clsTinyButStrong</span> <span class="p">;</span>
+</span><span class='line'><span class="nv">$TBS</span><span class="o">-&gt;</span><span class="na">LoadTemplate</span><span class="p">(</span><span class="s1">&#39;template.htm&#39;</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="nv">$list</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="nv">$TBS</span><span class="o">-&gt;</span><span class="na">MergeBlock</span><span class="p">(</span><span class="s1">&#39;blk&#39;</span><span class="p">,</span><span class="nv">$list</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="nv">$TBS</span><span class="o">-&gt;</span><span class="na">Show</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-$TBS =&amp; new clsTinyButStrong ;
-$TBS-&gt;LoadTemplate('template.htm') ;
-$list = array('X','Y','Z') ;
-$TBS-&gt;MergeBlock('blk',$list) ;
-$TBS-&gt;Show();
-</code></pre>
 
 <p><a href="http://dwoo.org/">Dwoo</a></p>
 
 <p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
 
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
-     &lt;div id="content"&gt;
-      {block "content"}
-        Welcome to my amazing homepage
-      {/block}
-     &lt;/div&gt;
- &lt;/body&gt;
- &lt;/html&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;title&gt;</span>{block &quot;title&quot;}My site name{/block} <span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>{block &quot;page-title&quot;}Default page title{/block} <span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        {block &quot;content&quot;}
+</span><span class='line'>            Welcome to my amazing homepage
+</span><span class='line'>        {/block}
+</span><span class='line'>        <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{extends &quot;base.html&quot;}
+</span><span class='line'>
+</span><span class='line'>{block &quot;title&quot;}
+</span><span class='line'>    Gallery
+</span><span class='line'>{/block}
+</span><span class='line'>
+</span><span class='line'>{foreach $images img}
+</span><span class='line'>    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;{$img.url}&quot;</span> <span class="na">alt=</span><span class="s">&quot;{$img.description}&quot;</span><span class="nt">&gt;&lt;/img&gt;</span>
+</span><span class='line'>{/foreach}
+</span></code></pre></td></tr></table></div></figure>
 
 
 
-{extends "base.html"}
-{block "title"}
-Gallery
-{/block}
-{foreach $images img}
-    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
-  {/foreach}
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$dwoo</span> <span class="o">=</span> <span class="nx">Dwoo</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$images</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;img1.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Ferrari&#39;</span><span class="p">),</span>
+</span><span class='line'>    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;img2.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;BMW&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$images</span><span class="p">;</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$dwoo</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&quot;gallery.tpl&quot;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-
-
-
-
-
-
-$dwoo = Dwoo();
-$images = array(
-    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
-    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
-);
-$params = array();
-$params['images'] = $images;
-echo $dwoo-&gt;get("gallery.tpl", $params);
-</code></pre>
+<p></p>
 
 <p><a href="http://www.h2o-template.org/">h2o</a></p>
 
 <p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
 
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;PHP: Template Engines&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-     Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;title&gt;</span>PHP: Template Engines<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o código PHP do visual (HTML). Nessas horas vale a pena estudar algumas template engines para PHP disponíveis para saber qual que melhor se adapta à suas necessidades e projeto. Alguns frameworks MVC possuem sua própria engine, outros tentam.
 
-<p><a href="http://www.smarty.net/">Smarty</a></p>
+[Smarty](http://www.smarty.net/)
 
-<p>O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido (&ldquo;compilando&rdquo; suas páginas para arquivos PHP).</p>
-
-<pre><code>&lt;ul&gt;
-{foreach from=$myArray item=foo}
-    &lt;li&gt;{$foo}&lt;/li&gt;
-{/foreach}
-&lt;/ul&gt;
-
-
-
+O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido ("compilando" suas páginas para arquivos PHP).
 
 
+    
+``` html
+    <ul>
+    {foreach from=$myArray item=foo}
+        <li>{$foo}</li>
+    {/foreach}
+    </ul>
+```
 
-
+    
+``` php
 $smarty = new Smarty;
 $arr = array(1000, 1001, 1002);
-$smarty-&gt;assign ('myArray', $arr);
-$smarty-&gt;display ('HelloWorld.tpl');
-</code></pre>
-
-<p><a href="http://vlib.clausvb.de/vlibtemplate.php">vlibtemplate</a></p>
-
-<p>Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.</p>
-
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;{tmpl_var name='title_text'}&lt;/title&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;p&gt;{tmpl_var name='body_text'}&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+$smarty->assign ('myArray', $arr);
+$smarty->display ('HelloWorld.tpl');
+```
 
 
+[vlibtemplate](http://vlib.clausvb.de/vlibtemplate.php)
+
+Com esta engine saímos de um problema e entramos em outro, é necessário aprender (lembrar) algumas palavras reservadas para sinalizar variáveis, além do uso dos limitadores das expressões.
+
+
+    
+``` html
+<html>
+    <head>
+        <title>{tmpl_var name='title_text'}</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    </head>
+    <body>
+        <p>{tmpl_var name='body_text'}</p>
+    </body>
+</html>
+```
 
 
 
 
-
+``` php
 $tmpl = new vlibTemplate('tmpl/basic.htm');
-$tmpl-&gt;setvar('title_text', 'TITLE: This is the vLIB basic example ...');
-$tmpl-&gt;setvar('body_text', 'BODY: This is the message set using setvar()');
-$tmpl-&gt;pparse();
-</code></pre>
-
-<p><a href="http://www.feverxl.org/template/">FXL Template</a></p>
-
-<p>Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: <a href="http://quickskin.worxware.com/">QuickSkin</a> e <a href="http://xtemplate.sourceforge.net/">XTemplate</a>.</p>
-
-<pre><code> &lt;table&gt;
-     &lt;!-- START row --&gt;
-         &lt;tr&gt;
-             &lt;!-- START cell --&gt; 
-             &lt;td &gt;{td_value} &lt;/td&gt; 
-             &lt;!-- END cell --&gt;
-         &lt;/tr&gt;
-     &lt;!-- END row --&gt;
- &lt;/table&gt;
+$tmpl->setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl->setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl->pparse();
+``` 
 
 
+ 
+[FXL Template](http://www.feverxl.org/template/)
+
+Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: [QuickSkin](http://quickskin.worxware.com/) e [XTemplate](http://xtemplate.sourceforge.net/).
 
 
+``` html    
+ <table>
+     <!-- START row -->
+         <tr>
+             <!-- START cell --> 
+             <td >{td_value} </td> 
+             <!-- END cell -->
+         </tr>
+     <!-- END row -->
+ </table>
+``` 
 
 
-
+``` php
 $fxlt = new fxl_template('example.tpl');
-$fxlt_row = $fxlt-&gt;get_block('row');
-$fxlt_cell = $fxlt_row-&gt;get_block('cell');
-for ($tr = 1; $tr &lt;= 3; $tr++) {
-    for ($td = 1; $td &lt;= 3; $td++) {
-        $fxlt_cell-&gt;assign('td_value', $tr.':'.$td);
-        $fxlt_row-&gt;assign('cell', $fxlt_cell);
-        $fxlt_cell-&gt;clear();
+$fxlt_row = $fxlt->get_block('row');
+$fxlt_cell = $fxlt_row->get_block('cell');
+for ($tr = 1; $tr <= 3; $tr++) {
+    for ($td = 1; $td <= 3; $td++) {
+        $fxlt_cell->assign('td_value', $tr.':'.$td);
+        $fxlt_row->assign('cell', $fxlt_cell);
+        $fxlt_cell->clear();
     }
-    $fxlt-&gt;assign('row', $fxlt_row);
-    $fxlt_row-&gt;clear();
+    $fxlt->assign('row', $fxlt_row);
+    $fxlt_row->clear();
 }
-$fxlt-&gt;display();
-</code></pre>
-
-<p><a href="http://www.greaterscope.net/projects/Vemplator">Vemplator</a></p>
-
-<p>Mais do mesmo, mas com alterações de sintaxe.</p>
-
-<pre><code> &lt;h1&gt;{if:logged} Welcome {username} {else:} User not logged {end:} &lt;/h1&gt;
-&lt;ul&gt;
-{foreach:rows,row}
-    &lt;li&gt;
-    {row['name']} 
-    &lt;/li&gt;
-{end:} 
-&lt;/ul&gt;
+$fxlt->display();
+```
 
 
 
+[Vemplator](http://www.greaterscope.net/projects/Vemplator)
+
+Mais do mesmo, mas com alterações de sintaxe.
+
+``` html    
+    <h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
+    <ul>
+        {foreach:rows,row}
+            <li>
+            {row['name']} 
+            </li>
+        {end:} 
+    </ul>
+```
 
 
-
-
+``` php
 $t = new vemplator();
 // if/else
-$t-&gt;assign('logged', true);
-$t-&gt;assign('username', 'Rogerio');
+$t->assign('logged', true);
+$t->assign('username', 'Rogerio');
 // loop
 $items = array(
-    array('name' =&gt; 'Laptop'),
-    array('name' =&gt; 'Memory Stick')
+    array('name' => 'Laptop'),
+    array('name' => 'Memory Stick')
 );
-$t-&gt;assign('rows', $rows);
-echo $t-&gt;output('example.template.html');
-</code></pre>
-
-<p><a href="http://www.tinybutstrong.com/">TinyButStrong</a></p>
-
-<p>Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.</p>
-
-<pre><code> &lt;table &gt;
- &lt;tr&gt;&lt;td&gt;[blk.val;block=tr]&lt;/td&gt;&lt;/tr&gt;
- &lt;/table &gt;
+$t->assign('rows', $rows);
+echo $t->output('example.template.html');
+``` 
 
 
 
+[TinyButStrong](http://www.tinybutstrong.com/)
+
+Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.
 
 
+``` html    
+    <table>
+        <tr><td>[blk.val;block=tr]</td></tr>
+    </table>
+```
 
 
-$TBS =&amp; new clsTinyButStrong ;
-$TBS-&gt;LoadTemplate('template.htm') ;
+``` php 
+$TBS =& new clsTinyButStrong ;
+$TBS->LoadTemplate('template.htm') ;
 $list = array('X','Y','Z') ;
-$TBS-&gt;MergeBlock('blk',$list) ;
-$TBS-&gt;Show();
-</code></pre>
-
-<p><a href="http://dwoo.org/">Dwoo</a></p>
-
-<p>Possui como diferencial um <a href="http://wiki.dwoo.org/index.php/TemplateInheritance">Template Inheritance</a>, o que facilita muito a vida na construção de templates.</p>
-
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;{block "title"}My site name{/block} &lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-     &lt;h1&gt;{block "page-title"}Default page title{/block} &lt;/h1&gt;
-     &lt;div id="content"&gt;
-      {block "content"}
-        Welcome to my amazing homepage
-      {/block}
-     &lt;/div&gt;
- &lt;/body&gt;
- &lt;/html&gt;
+$TBS->MergeBlock('blk',$list) ;
+$TBS->Show();
+```
 
 
 
+[Dwoo](http://dwoo.org/)
+
+Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php/TemplateInheritance), o que facilita muito a vida na construção de templates.
+
+
+    
+``` html
+<html>
+    <head>
+        <title>{block "title"}My site name{/block} </title>
+    </head>
+    <body>
+        <h1>{block "page-title"}Default page title{/block} </h1>
+        <div id="content">
+        {block "content"}
+            Welcome to my amazing homepage
+        {/block}
+        </div>
+    </body>
+</html>
+```
+    
 
 
 
-
+``` html 
 {extends "base.html"}
+
 {block "title"}
-Gallery
+    Gallery
 {/block}
+
 {foreach $images img}
-    &lt;img src="{$img.url}" alt="{$img.description}"&gt;&lt;/img&gt;
-  {/foreach}
+    <img src="{$img.url}" alt="{$img.description}"></img>
+{/foreach}
+```
 
 
-
-
-
-
-
-
+``` php    
 $dwoo = Dwoo();
 $images = array(
-    array('url' =&gt; 'img1.jpg', 'description' =&gt; 'Ferrari'),
-    array('url' =&gt; 'img2.jpg', 'description' =&gt; 'BMW')
+    array('url' => 'img1.jpg', 'description' => 'Ferrari'),
+    array('url' => 'img2.jpg', 'description' => 'BMW')
 );
 $params = array();
 $params['images'] = $images;
-echo $dwoo-&gt;get("gallery.tpl", $params);
-</code></pre>
-
-<p><a href="http://www.h2o-template.org/">h2o</a></p>
-
-<p>Baseado no Smarty, <a href="http://www.djangoproject.com/">Django Templates</a> e <a href="http://jinja.pocoo.org/">Jinja</a> (os dois últimos para Python).</p>
-
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;{{ page.title }}&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-     {{ page.content }}
- &lt;/body&gt;
- &lt;/html&gt;
+echo $dwoo->get("gallery.tpl", $params);
+``` 
 
 
 
+[h2o](http://www.h2o-template.org/)
+
+Baseado no Smarty, [Django Templates](http://www.djangoproject.com/) e [Jinja](http://jinja.pocoo.org/) (os dois últimos para Python).
 
 
+    
+``` html    
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        {{ page.content }}
+    </body>
+</html>
+```
 
 
+``` php 
 $h2o = new h2o('index.html');
 $page = array(
-  'title' =&gt; 'title of a page',
-  'body' =&gt; 'Hello world'
+  'title' => 'title of a page',
+  'body' => 'Hello world'
 );
-echo $h2o-&gt;render(compact('page'));
-</code></pre>
-
-<p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
-
-<p>Entre os projetos disponíveis no PEAR (<a href="http://pear.php.net/package/HTML_Template_PHPLIB/">PHPLIB</a>, <a href="http://pear.php.net/package/HTML_Template_Sigma/">Sigma</a> e <a href="http://pear.php.net/package/HTML_Template_IT/">IT</a>) esse é o melhor.</p>
-
-<p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
-
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;{title}&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
-    Input Box: &lt;input name="input" /&gt;
-    &lt;ul&gt;
-        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
-        &lt;li flexy:foreach="numbers,number,string" &gt;
-            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;!-- chamando o método da classe --&gt;
-    {someMethod()}
- &lt;/body&gt;
- &lt;/html&gt;
+echo $h2o->render(compact('page'));
+```
 
 
+[PEAR Flexy](http://pear.php.net/package/HTML_Template_Flexy/)
+
+Entre os projetos disponíveis no PEAR ([PHPLIB](http://pear.php.net/package/HTML_Template_PHPLIB/), [Sigma](http://pear.php.net/package/HTML_Template_Sigma/) e [IT](http://pear.php.net/package/HTML_Template_IT/)) esse é o melhor. 
+
+Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos. 
 
 
+    
+``` html
+<html>
+    <head>
+        <title>{title}</title>
+    </head>
+    <body>
+        <!-- o valor do input será adicionado em $element['input'] -->
+        Input Box: <input name="input" />
+        <ul>
+            <!-- isso é o mesmo que foreach ($numbers as $number => $string) -->
+            <li flexy:foreach="numbers,number,string" >
+                <a href="mypage.html?id={number}">{string}</a>
+            </li>
+        </ul>
+        <!-- chamando o método da classe -->
+        {someMethod()}
+    </body>
+</html>
+```
 
-
-
+    
+``` php
 class controller_test  {
 
     var $title;
@@ -552,25 +669,25 @@ class controller_test  {
     var $elements = array();
 
     function controller_test() {
-        $this-&gt;start();
-        $this-&gt;output();
+        $this->start();
+        $this->output();
     }
 
     function start() {
-        $this-&gt;title = "Hello World";
+        $this->title = "Hello World";
         // create an HTML Element for the form element.
-        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
-        $this-&gt;elements['input']-&gt;setValue('Hello');
+        $this->elements['input'] = new HTML_Template_Flexy_Element;
+        $this->elements['input']->setValue('Hello');
 
-        for ($i = 1;$i&lt; 5;$i++) {
-            $this-&gt;numbers[$i] = "Number $i";
+        for ($i = 1;$i< 5;$i++) {
+            $this->numbers[$i] = "Number $i";
         }
     }
 
     function output() {
         $output = new HTML_Template_Flexy();
-        $output-&gt;compile("home.html");
-        $output-&gt;outputObject($this,$this-&gt;elements);
+        $output->compile("home.html");
+        $output->outputObject($this,$this->elements);
     }
 
     function someMethod() {
@@ -579,28 +696,34 @@ class controller_test  {
 
 }
 new controller_test();
-</code></pre>
-
-<p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
-
-<p>Em meados do ano passado comecei escrever uma engine baseada no <a href="https://javaserverfaces.dev.java.net/">JSF</a>+<a href="https://facelets.dev.java.net/">Facelets</a> (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).</p>
-
-<pre><code> &lt;/body&gt;
- &lt;/html&gt;
+```
 
 
+_Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens._
 
+Em meados do ano passado comecei escrever uma engine baseada no [JSF](https://javaserverfaces.dev.java.net/)+[Facelets](https://facelets.dev.java.net/) (Java) e nesse mês voltei a trabalhar nela e espero que no próximo ano (2011) já tenha uma versão liberada (farei um post sobre).
 
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
-$h2o = new h2o('index.html');
-$page = array(
-  'title' =&gt; 'title of a page',
-  'body' =&gt; 'Hello world'
-);
-echo $h2o-&gt;render(compact('page'));
-</code></pre>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$h2o</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">h2o</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$page</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;title of a page&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Hello world&#39;</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$h2o</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="nb">compact</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><a href="http://pear.php.net/package/HTML_Template_Flexy/">PEAR Flexy</a></p>
 
@@ -608,65 +731,115 @@ echo $h2o-&gt;render(compact('page'));
 
 <p>Tem como desvantagem o fato de ter que definir as propriedades da sua classe como public (pelo menos dá para trabalhar com classes), linhas de includes e configurações exageradas (não presentes no exemplo abaixo), e algumas automações que precisam ser bem explicadas senão o programador (usuário) fica doido. Além de ter que codificar muito mais linhas se compararmos com os demais exemplos.</p>
 
-<pre><code> &lt;html&gt;
- &lt;head&gt;
- &lt;title&gt;{title}&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-    &lt;!-- o valor do input será adicionado em $element['input'] --&gt;
-    Input Box: &lt;input name="input" /&gt;
-    &lt;ul&gt;
-        &lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;
-        &lt;li flexy:foreach="numbers,number,string" &gt;
-            &lt;a href="mypage.html?id={number}"&gt;{string}&lt;/a&gt;
-        &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;!-- chamando o método da classe --&gt;
-    {someMethod()}
- &lt;/body&gt;
- &lt;/html&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;title&gt;</span>{title}<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="c">&lt;!-- o valor do input será adicionado em $element[&#39;input&#39;] --&gt;</span>
+</span><span class='line'>        Input Box: <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;input&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="c">&lt;!-- isso é o mesmo que foreach ($numbers as $number =&gt; $string) --&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li</span> <span class="na">flexy:foreach=</span><span class="s">&quot;numbers,number,string&quot;</span> <span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;mypage.html?id={number}&quot;</span><span class="nt">&gt;</span>{string}<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>        <span class="c">&lt;!-- chamando o método da classe --&gt;</span>
+</span><span class='line'>        {someMethod()}
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">controller_test</span>  <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">var</span> <span class="nv">$title</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">var</span> <span class="nv">$numbers</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">var</span> <span class="nv">$elements</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">controller_test</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">start</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">title</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">// create an HTML Element for the form element.</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elements</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HTML_Template_Flexy_Element</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elements</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="nv">$i</span><span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span><span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">numbers</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Number </span><span class="si">$i</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">output</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$output</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HTML_Template_Flexy</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">compile</span><span class="p">(</span><span class="s2">&quot;home.html&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$output</span><span class="o">-&gt;</span><span class="na">outputObject</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elements</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">someMethod</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s2">&quot;Hello From A Method&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">new</span> <span class="nx">controller_test</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-class controller_test  {
-
-    var $title;
-    var $numbers = array();
-    var $elements = array();
-
-    function controller_test() {
-        $this-&gt;start();
-        $this-&gt;output();
-    }
-
-    function start() {
-        $this-&gt;title = "Hello World";
-        // create an HTML Element for the form element.
-        $this-&gt;elements['input'] = new HTML_Template_Flexy_Element;
-        $this-&gt;elements['input']-&gt;setValue('Hello');
-
-        for ($i = 1;$i&lt; 5;$i++) {
-            $this-&gt;numbers[$i] = "Number $i";
-        }
-    }
-
-    function output() {
-        $output = new HTML_Template_Flexy();
-        $output-&gt;compile("home.html");
-        $output-&gt;outputObject($this,$this-&gt;elements);
-    }
-
-    function someMethod() {
-        return "Hello From A Method";
-    }
-
-}
-new controller_test();
-</code></pre>
 
 <p><em>Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens.</em></p>
 
@@ -1319,77 +1492,143 @@ class SocketException extends Exception {
 
 <p>As annotations devem ser escritas em blocos de comentários, uma vez que o <a href="http://thesmithfam.org/blog/2006/05/07/php-the-operator/">@</a> (caracter que inicia uma annotation) é um caractere reservado no PHP. Elas podem ser mono ou multi valoradas de acordo com os exemplos abaixo.</p>
 
-<pre><code>// Custom annotation
-class Persistent extends Annotation {}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// Custom annotation</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Persistent</span> <span class="k">extends</span> <span class="nx">Annotation</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Custom annotation</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Table</span> <span class="k">extends</span> <span class="nx">Annotation</span> <span class="p">{}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Multi valued annotation</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Secured</span> <span class="k">extends</span> <span class="nx">Annotation</span> <span class="p">{</span>
+</span><span class='line'>   <span class="k">public</span> <span class="nv">$role</span><span class="p">;</span>
+</span><span class='line'>   <span class="k">public</span> <span class="nv">$level</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/** </span>
+</span><span class='line'><span class="sd"> * @Persistent </span>
+</span><span class='line'><span class="sd"> * @Table(&quot;people&quot;)</span>
+</span><span class='line'><span class="sd"> * @Secured(role = &quot;admin&quot;, level = 2)</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+</span><span class='line'>   <span class="c1">// some code</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// getting the annotation by class name</span>
+</span><span class='line'><span class="nv">$reflection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionAnnotatedClass</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// getting the annotation by instance</span>
+</span><span class='line'><span class="nv">$person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+</span><span class='line'><span class="nv">$reflection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReflectionAnnotatedClass</span><span class="p">(</span><span class="nv">$person</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// true</span>
+</span><span class='line'><span class="nv">$reflection</span><span class="o">-&gt;</span><span class="na">hasAnnotation</span><span class="p">(</span><span class="s1">&#39;Persistent&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// contains string &quot;people&quot;</span>
+</span><span class='line'><span class="nv">$reflection</span><span class="o">-&gt;</span><span class="na">getAnnotation</span><span class="p">(</span><span class="s1">&#39;Table&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-// Custom annotation
-class Table extends Annotation {}
-
-// Multi valued annotation
-class Secured extends Annotation {
-   public $role;
-   public $level;
-}
-
-/** 
- * @Persistent 
- * @Table("people")
- * @Secured(role = "admin", level = 2)
- */
-class Person {
-   // some code
-}
-
-// getting the annotation by class name
-$reflection = new ReflectionAnnotatedClass('Person');
-
-// getting the annotation by instance
-$person = new Person();
-$reflection = new ReflectionAnnotatedClass($person);
-
-// true
-$reflection-&gt;hasAnnotation('Persistent'); 
-
-// contains string "people"
-$reflection-&gt;getAnnotation('Table')-&gt;value; 
-</code></pre>
 
 <p>E seguindo na mesma onda da <a href="http://java.sun.com/javaee/technologies/persistence.jsp">JPA</a>, a <a href="http://www.doctrine-project.org/blog/php-5-3-and-doctrine-2-0-teaser">versão 2.0 do projeto Doctrine</a> implementou também a mesma funcionalidade e agora possui suas próprias annotations facilitando a configuração das classes de persistência e seus relacionamentos.</p>
 
-<pre><code>/**
- * @DoctrineEntity(tableName="cms_articles")
- */
-class CmsArticle {
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * @DoctrineEntity(tableName=&quot;cms_articles&quot;)</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CmsArticle</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sd">/**</span>
+</span><span class='line'><span class="sd">  * @DoctrineId</span>
+</span><span class='line'><span class="sd">  * @DoctrineColumn(type=&quot;integer&quot;)</span>
+</span><span class='line'><span class="sd">  * @DoctrineIdGenerator(&quot;auto&quot;)</span>
+</span><span class='line'><span class="sd">  */</span>
+</span><span class='line'>  <span class="k">public</span> <span class="nv">$id</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sd">/**</span>
+</span><span class='line'><span class="sd">  * @DoctrineColumn(type=&quot;varchar&quot;, length=255)</span>
+</span><span class='line'><span class="sd">  */</span>
+</span><span class='line'>  <span class="k">public</span> <span class="nv">$topic</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sd">/**</span>
+</span><span class='line'><span class="sd">  * @DoctrineColumn(type=&quot;varchar&quot;)</span>
+</span><span class='line'><span class="sd">  */</span>
+</span><span class='line'>  <span class="k">public</span> <span class="nv">$text</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sd">/**</span>
+</span><span class='line'><span class="sd">  * @DoctrineManyToOne(targetEntity=&quot;CmsUser&quot;, joinColumns={&quot;user_id&quot; = &quot;id&quot;})</span>
+</span><span class='line'><span class="sd">  */</span>
+</span><span class='line'>  <span class="k">public</span> <span class="nv">$user</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="sd">/**</span>
+</span><span class='line'><span class="sd">  * @DoctrineOneToMany(targetEntity=&quot;CmsComment&quot;, mappedBy=&quot;article&quot;)</span>
+</span><span class='line'><span class="sd">  */</span>
+</span><span class='line'>  <span class="k">public</span> <span class="nv">$comments</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-   /**
-    * @DoctrineId
-    * @DoctrineColumn(type="integer")
-    * @DoctrineIdGenerator("auto")
-    */
-   public $id;
-
-   /**
-    * @DoctrineColumn(type="varchar", length=255)
-    */
-   public $topic;
-
-   /**
-    * @DoctrineColumn(type="varchar")
-    */
-   public $text;
-
-   /**
-    * @DoctrineManyToOne(targetEntity="CmsUser",
-           joinColumns={"user_id" = "id"})
-    */
-   public $user;
-
-   /**
-    * @DoctrineOneToMany(targetEntity="CmsComment", mappedBy="article")
-    */
-   public $comments;
-}
-</code></pre>
 </div>
   
   

@@ -9,7 +9,9 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="[The Websocket Protocol](http://www.rfc-editor.org/rfc/rfc6455.txt) The WebSocket Protocol enables two-way communication between a client running &hellip;">
+  <meta name="description" content="1
+2
+[The Websocket Protocol](http://www.rfc-editor.org/rfc/rfc6455.txt) The WebSocket Protocol enables two-way communication between a client running &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -101,18 +103,22 @@
   </header>
 
 
-<div class="entry-content"><blockquote>
-[The Websocket Protocol](http://www.rfc-editor.org/rfc/rfc6455.txt)
- The WebSocket Protocol enables two-way communication between a client running untrusted code in a controlled environment to a remote host    that has opted-in to communications from that code.  The security model used for this is the origin-based security model commonly used by web browsers.  The protocol consists of an opening handshake followed by basic message framing, layered over TCP.  The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and long polling).
-</blockquote>
+<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[The Websocket Protocol](http://www.rfc-editor.org/rfc/rfc6455.txt)
+</span><span class='line'> The WebSocket Protocol enables two-way communication between a client running untrusted code in a controlled environment to a remote host    that has opted-in to communications from that code.  The security model used for this is the origin-based security model commonly used by web browsers.  The protocol consists of an opening handshake followed by basic message framing, layered over TCP.  The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or &lt;iframe&gt;s and long polling).</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Aproveitando um post sobre <a href="http://rogeriolino.com/2010/04/22/php-socket-class/">PHP Sockets</a> que tinha escrito unindo o estudo sobre Websocket, eu criei um <a href="https://github.com/rogeriolino/phpsocket">projeto no Github</a> para facilitar o uso de sockets com PHP fornecendo suporte ao Websocket também.</p>
 
 <p>E para visualizar o <a href="https://github.com/rogeriolino/phpsocket/tree/master/demo/websocket">exemplo</a> basta fazer checkout do projeto, executar o arquivo server.php:</p>
 
-<pre><code>&gt; $ php server.php
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>php server.php
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>E abrir a página chat.html pelo browser. O funcionamento do exemplo vai depender, além obviamente do suporte à Websocket, do tipo da versão da implementação do browser. Por enquanto a suportada pelo projeto é a HyBi (descrita na <a href="http://www.rfc-editor.org/rfc/rfc6455.txt">RFC 6455</a>).</p>
 </div>

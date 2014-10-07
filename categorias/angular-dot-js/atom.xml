@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angular.js | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/angular-dot-js/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,46 +20,52 @@
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<pre><code>&lt;div class="container" ng-app="todo"&gt;
-    &lt;div ng-controller="todoCtrl"&gt;
-        &lt;form ng-submit="add()"&gt;
-            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
-            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
-        &lt;/form&gt;
-        &lt;ul&gt;
-            &lt;li ng-repeat="todo in todos"&gt;
-                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
-                &lt;span ng-show="editing"&gt;
-                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
-                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>``` html</p>
+
+<div class="container" ng-app="todo">
+    <div ng-controller="todoCtrl">
+        <form ng-submit="add()">
+            <input type="text" class="form-control" placeholder="New task..." ng-model="newTodo">
+            <button class="btn btn-primary">Add</button>
+        </form>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <span ng-click="editing = true" ng-hide="editing"></span>
+                <span ng-show="editing">
+                    <input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required>
+                    <a data-ng-click="editing = false" class="glyphicon glyphicon-ok"></a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<p>```</p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>var app = angular.module('todo', []);
+<p>``` js<br/>
+var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
-app.controller('todoCtrl', function($scope) {
+<p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
-    $scope.todos = [
-        {text: "First task"}
-    ];
+<pre><code>$scope.todos = [
+    {text: "First task"}
+];
 
-    $scope.add = function() {
-        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
-            $scope.todos.push({
-                text: $scope.newTodo
-            });
-            $scope.newTodo = '';
-        }
+$scope.add = function() {
+    if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
+        $scope.todos.push({
+            text: $scope.newTodo
+        });
+        $scope.newTodo = '';
     }
-
-});
+}
 </code></pre>
+
+<p>});
+```</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>

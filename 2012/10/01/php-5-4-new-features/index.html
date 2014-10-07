@@ -107,86 +107,145 @@
 
 <p>Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes reutilizem métodos de outras classes sem a necessidade de estende-la.</p>
 
-<pre><code>trait Singleton {
-    public static function getInstance() { ... }
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">trait</span> <span class="nx">Singleton</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">use</span> <span class="nx">Singleton</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">B</span> <span class="k">extends</span> <span class="nx">ArrayObject</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">use</span> <span class="nx">Singleton</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Singleton method is now available for both classes</span>
+</span><span class='line'><span class="nx">A</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+</span><span class='line'><span class="nx">B</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-class A {
-    use Singleton;
-    // ...
-}
-
-class B extends ArrayObject {
-    use Singleton;
-    // ...
-}
-
-// Singleton method is now available for both classes
-A::getInstance();
-B::getInstance();
-</code></pre>
 
 <h3>Sintaxe curta para definição de Array</h3>
 
 <p>Agora é possível instanciar um array de maneira semelhante à outras linguagens de script, como por exemplo, Javascript.</p>
 
-<pre><code>$a = [1, 2, 3];
-$b = ['foo' =&gt; 'orange', 'bar' =&gt; 'apple'];
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;apple&#39;</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Referência direta ao retorno das funções/métodos</h3>
 
 <p>Também é possível fazer fazer chamada direta ao retorno das funções, sem que haja necessidade de atribuir o valor a uma variável e só depois fazer a chamada.</p>
 
-<pre><code>function fruits() {
-    return ['apple', 'banana', 'orange'];
-}
-echo fruits()[0]; // Outputs: apple
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">fruits</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">fruits</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// Outputs: apple</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>O mesmo serve para chamadas através de novas <strong>instâncias</strong>:</p>
 
-<pre><code>class Person {
-    private $name;
-    public function setName($name) {
-        $this-&gt;name = $name;
-    }
-    public function getName() {
-        return $this-&gt;name;
-    }
-}
-function createPerson() {
-    $p = new Person();
-    $p-&gt;setName('Rogerio');
-    return $p;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">createPerson</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Rogerio&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$p</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Rogerio&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span> <span class="c1">// Outputs: Rogerio</span>
+</span></code></pre></td></tr></table></div></figure>
 
-echo (new Person)-&gt;setName('Rogerio')-&gt;getName(); // Outputs: Rogerio
-</code></pre>
 
 <h3>Método mágico __invoke</h3>
 
 <p>Permite chamar um objeto como se fosse uma função</p>
 
-<pre><code>class MoneyObject {
-    private $value;
-    function __construct($val) {
-        $this-&gt;value = $val;
-    }
-    function __invoke() {
-        return sprintf('$%.2f',$this-&gt;value); 
-    }
-}
-$Money = new MoneyObject(11.02/5*13);
-echo $Money(); // Outputs: $28.65
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">MoneyObject</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$value</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$val</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__invoke</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;$%.2f&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$Money</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoneyObject</span><span class="p">(</span><span class="mf">11.02</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="mi">13</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$Money</span><span class="p">();</span> <span class="c1">// Outputs: $28.65</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Built-in Web Server (CLI)</h3>
 
 <p>CLI server é uma pequena implementação de um Web server que você pode executar via linha de comando.</p>
 
-<blockquote>% php -S localhost:8000</blockquote>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>% php -S localhost:8000
+</span></code></pre></td></tr></table></div></figure>
 
+
+<p></p>
 
 <p>Obviamente, não é para ser usado em produção.</p>
 
@@ -194,29 +253,57 @@ echo $Money(); // Outputs: $28.65
 
 <p>Ao invés de definir várias funções, você pode criar uma handler para a sua sessão, e apenas informá-lo no session_set_save_handler.</p>
 
-<pre><code>SessionHandler implements SessionHandlerInterface {
-  public int close ( void )
-  public int destroy ( string $sessionid )
-  public int gc ( int $maxlifetime )
-  public int open ( string $save_path , string $sessionid )
-  public string read ( string $sessionid )
-  public int write ( string $sessionid , string $sessiondata )
-}
-session_set_save_handler(new MySessionHandler);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">SessionHandler</span> <span class="k">implements</span> <span class="nx">SessionHandlerInterface</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">close</span> <span class="p">(</span> <span class="nx">void</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">destroy</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">gc</span> <span class="p">(</span> <span class="nx">int</span> <span class="nv">$maxlifetime</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">open</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$save_path</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">string</span> <span class="nx">read</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">write</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$sessiondata</span> <span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">session_set_save_handler</span><span class="p">(</span><span class="k">new</span> <span class="nx">MySessionHandler</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>JsonSerialize Interface</h3>
 
 <p>Semelhante ao __tostring ao tentar imprimir um objeto, você pode pre-definir o objeto que será serializado para o formato json, através do uso da função <strong>json_encode</strong>.</p>
 
-<pre><code>class Foo implements JsonSerializable {
-    private $data = 'Bar';
-    public function jsonSerialize() {
-        return array('data'=&gt;$this-&gt;data);
-    }
-}
-echo json_encode(new Foo); // Outputs: {"data":"Bar"}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">Foo</span> <span class="k">implements</span> <span class="nx">JsonSerializable</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Bar&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonSerialize</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="o">=&gt;</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">);</span> <span class="c1">// Outputs: {&quot;data&quot;:&quot;Bar&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Para visualizar as alterações entre as versão 5.3 e 5.4, <a href="http://www.php.net/manual/en/migration54.php">clique aqui</a>.</p>
 

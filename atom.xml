@@ -4,7 +4,7 @@
   <title><![CDATA[Rogério Lino]]></title>
   <link href="http://rogeriolino.com/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T15:28:35-03:00</updated>
+  <updated>2014-10-07T17:26:37-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -26,44 +26,80 @@
 <!-- more -->
 
 
-<pre><code>class User implements \JsonSerializable {
 
-    private $username;
-    private $firstName;
-    private $lastName;
 
-    ...
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="k">implements</span> <span class="nx">\JsonSerializable</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$username</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$firstName</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$lastName</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="o">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonSerialize</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;firstName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;lastName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;fullName&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    public function jsonSerialize() {
-        return array(
-            'username' =&gt; $this-&gt;username,
-            'firstName' =&gt; $this-&gt;firstName,
-            'lastName' =&gt; $this-&gt;lastName,
-            'fullName' =&gt; "{$this-&gt;firstName} {$this-&gt;lastName}"
-        );
-    }
-
-}
-</code></pre>
 
 <p>Serializando:</p>
 
-<pre><code>$user = new User();
-$user-&gt;setUsername("rogeriolino");
-$user-&gt;setFirstName("Rogério");
-$user-&gt;setLastName("Lino");
-echo json_encode($user);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>$user = new User();
+</span><span class='line'>$user-&gt;setUsername(&quot;rogeriolino&quot;);
+</span><span class='line'>$user-&gt;setFirstName(&quot;Rogério&quot;);
+</span><span class='line'>$user-&gt;setLastName(&quot;Lino&quot;);
+</span><span class='line'>echo json_encode($user);
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Resultado:</p>
 
-<pre><code>{
-    "username": "rogeriolino",
-    "firstName": "Rogério",
-    "lastName": "Lino",
-    "fullName": "Rogério Lino",
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rogeriolino&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Rogério&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Lino&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Rogério Lino&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Essa implementação se torna muito útil para desenvolvimento de APIs <strong>RESTful</strong> e <strong>ajax responses</strong> (json response).</p>
 ]]></content>
@@ -89,38 +125,67 @@ echo json_encode($user);
 
 <p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
 
-<pre><code>// session keep alive
-;(function($) {
-    "use strict";
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// session keep alive</span>
+</span><span class='line'><span class="p">;(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pingTime</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span> <span class="c1">// ping a cada 60 segundos</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">pingTime</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">idleTimer</span><span class="p">({</span>
+</span><span class='line'>        <span class="nx">time</span><span class="o">:</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">60</span><span class="p">,</span> <span class="c1">// 10 minutos para timeout</span>
+</span><span class='line'>        <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">count</span> <span class="o">=</span> <span class="nx">pingTime</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="nx">change</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">it</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+</span><span class='line'>            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">count</span> <span class="o">=</span> <span class="nx">pingTime</span><span class="p">;</span>
+</span><span class='line'>                <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span> <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/ping.php&#39;</span> <span class="p">});</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">},</span>
+</span><span class='line'>        <span class="nx">end</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;/logout.php&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    var pingTime = 60; // ping a cada 60 segundos
-    var count = pingTime;
-    $.idleTimer({
-        time: 10 * 60, // 10 minutos para timeout
-        start: function() {
-            count = pingTime;
-        },
-        change: function(it) {
-            count--;
-            console.log(count);
-            if (count &lt;= 0) {
-                count = pingTime;
-                $.ajax({ url: '/ping.php' });
-            }
-        },
-        end: function() {
-            window.location.href = '/logout.php';
-        }
-    });
-})(jQuery);
-</code></pre>
 
 <p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
 
-<pre><code>&lt;?php
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">session_start</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-session_start();
-</code></pre>
 ]]></content>
     
   </entry>
@@ -152,26 +217,46 @@ session_start();
     
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<pre><code>&lt;!DOCTYPE html&gt; 
-&lt;html class="no-js" lang="pt-BR"&gt;
-&lt;head&gt;
-    &lt;title&gt;JS detection&lt;/title&gt;
-    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">class=</span><span class="s">&quot;no-js&quot;</span> <span class="na">lang=</span><span class="s">&quot;pt-BR&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;title&gt;</span>JS detection<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;script&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;no-js&quot;</span><span class="p">,</span><span class="s2">&quot;js&quot;</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;style&gt;</span>
+</span><span class='line'>        <span class="nc">.js</span> <span class="nc">.alert-danger</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>        <span class="nc">.no-js</span> <span class="nc">.alert-success</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="nt">&gt;</span>O seu navegador não possui suporte à <span class="nt">&lt;b&gt;</span>Javascript<span class="nt">&lt;/b&gt;&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;alert alert-success&quot;</span><span class="nt">&gt;</span>O suporte à <span class="nt">&lt;b&gt;</span>Javascript<span class="nt">&lt;/b&gt;</span> está ativado<span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    &lt;style&gt;
-        .js .alert-danger { display: none; }
-        .no-js .alert-success { display: none; }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
-
-    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
@@ -212,36 +297,60 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 
 <p><strong>Exemplo:</strong></p>
 
-<blockquote>Para a URI **/clients/add** terei uma classe controladora **ClientsController** com um método público (a ação) **add**. E o script tentará renderizar a página **add.php** dentro do diretório **clients**. E para a URI **/clients/view/1** será necessário ter o método **view** que recebe um parâmetro (nesse caso &#8220;1&#8221;).
-</blockquote>
-
+<p>Para a URI <strong>/clients/add</strong> terei uma classe controladora <strong>ClientsController</strong> com um método público (a ação) <strong>add</strong>. E o script tentará renderizar a página <strong>add.php</strong> dentro do diretório <strong>clients</strong>. E para a URI <strong>/clients/view/1</strong> será necessário ter o método <strong>view</strong> que recebe um parâmetro (nesse caso &ldquo;1&rdquo;).</p>
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<pre><code>$app-&gt;any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
-    // transforma o parâmetro :controller no nome da classe controladora (com namespace)
-    $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
-    try {
-        if (!class_exists($class)) {
-            throw new \Exception('Controlador não encontrado');
-        }
-        $ctrl = new $class($app);
-        $methodName = preg_replace('/[^A-z0-9]/', '_', $action);
-        $ref = new \ReflectionMethod($class, $methodName);
-        if (!$ref-&gt;isPublic()) {
-            throw new \Exception('O método do controlador não é público.');
-        }
-        $view = $methodName;
-        $rs = $ref-&gt;invokeArgs($ctrl, $params);
-        if ($rs) {
-            $view = $rs;
-        }
-        $app-&gt;render("{$controller}/{$view}.php");
-    } catch (\Exception $e) {
-        $app-&gt;notFound();
-    }
-});
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">any</span><span class="p">(</span><span class="s1">&#39;/:controller(/)(:action(/)(:params+))&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$controller</span><span class="p">,</span> <span class="nv">$action</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// transforma o parâmetro :controller no nome da classe controladora (com namespace)</span>
+</span><span class='line'>    <span class="nv">$class</span> <span class="o">=</span> <span class="s2">&quot;MeuNamespace</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">ucfirst</span><span class="p">(</span><span class="nv">$controller</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;Controller&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">class_exists</span><span class="p">(</span><span class="nv">$class</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s1">&#39;Controlador não encontrado&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$ctrl</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$class</span><span class="p">(</span><span class="nv">$app</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$methodName</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[^A-z0-9]/&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nv">$action</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ReflectionMethod</span><span class="p">(</span><span class="nv">$class</span><span class="p">,</span> <span class="nv">$methodName</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$ref</span><span class="o">-&gt;</span><span class="na">isPublic</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s1">&#39;O método do controlador não é público.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$methodName</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$rs</span> <span class="o">=</span> <span class="nv">$ref</span><span class="o">-&gt;</span><span class="na">invokeArgs</span><span class="p">(</span><span class="nv">$ctrl</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$rs</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$view</span> <span class="o">=</span> <span class="nv">$rs</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{</span><span class="nv">$controller</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nv">$view</span><span class="si">}</span><span class="s2">.php&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">notFound</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Para utilizar o <a href="https://github.com/rogeriolino/slimapp-skeleton">slimapp-skeleton</a> basta clonar o repositório e depois fazer a instalação das dependências via <a href="http://getcomposer.org/">Composer</a>.</p>
 ]]></content>
@@ -258,46 +367,83 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
     
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<pre><code>&lt;div class="container" ng-app="todo"&gt;
-    &lt;div ng-controller="todoCtrl"&gt;
-        &lt;form ng-submit="add()"&gt;
-            &lt;input type="text" class="form-control" placeholder="New task..." ng-model="newTodo"&gt;
-            &lt;button class="btn btn-primary"&gt;Add&lt;/button&gt;
-        &lt;/form&gt;
-        &lt;ul&gt;
-            &lt;li ng-repeat="todo in todos"&gt;
-                &lt;span ng-click="editing = true" ng-hide="editing"&gt;&lt;/span&gt;
-                &lt;span ng-show="editing"&gt;
-                    &lt;input type="text" class="form-control" ng-model="todo.text" ng-blur="editing = false" ng-required&gt;
-                    &lt;a data-ng-click="editing = false" class="glyphicon glyphicon-ok"&gt;&lt;/a&gt;
-                &lt;/span&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span> <span class="na">ng-app=</span><span class="s">&quot;todo&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;todoCtrl&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;form</span> <span class="na">ng-submit=</span><span class="s">&quot;add()&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;New task...&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;newTodo&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>Add<span class="nt">&lt;/button&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/form&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;todo in todos&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;span</span> <span class="na">ng-click=</span><span class="s">&quot;editing = true&quot;</span> <span class="na">ng-hide=</span><span class="s">&quot;editing&quot;</span><span class="nt">&gt;</span><span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;span</span> <span class="na">ng-show=</span><span class="s">&quot;editing&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">ng-model=</span><span class="s">&quot;todo.text&quot;</span> <span class="na">ng-blur=</span><span class="s">&quot;editing = false&quot;</span> <span class="na">ng-required</span><span class="nt">&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;a</span> <span class="na">data-ng-click=</span><span class="s">&quot;editing = false&quot;</span> <span class="na">class=</span><span class="s">&quot;glyphicon glyphicon-ok&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>var app = angular.module('todo', []);
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;todoCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>        <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s2">&quot;First task&quot;</span><span class="p">}</span>
+</span><span class='line'>    <span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">&amp;&amp;</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+</span><span class='line'>                <span class="nx">text</span><span class="o">:</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span>
+</span><span class='line'>            <span class="p">});</span>
+</span><span class='line'>            <span class="nx">$scope</span><span class="p">.</span><span class="nx">newTodo</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-app.controller('todoCtrl', function($scope) {
-
-    $scope.todos = [
-        {text: "First task"}
-    ];
-
-    $scope.add = function() {
-        if ($scope.newTodo &amp;&amp; $scope.newTodo != '') {
-            $scope.todos.push({
-                text: $scope.newTodo
-            });
-            $scope.newTodo = '';
-        }
-    }
-
-});
-</code></pre>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>
@@ -344,50 +490,95 @@ app.controller('todoCtrl', function($scope) {
 
 <p>Com o <a href="http://br1.php.net/manual/en/language.generators.overview.php">Generators</a> você pode iterar com um dado dentro de uma função sem a necessidade de criar um array para ser retornado.</p>
 
-<pre><code>function numerosInteiros($minimo, $maximo) {
-    for ($i = $minimo; $i &lt;= $maximo; $i++) {
-        // a keyword yield "libera" a variável $i para a iteração (sem sair/retornar da/a função)
-        yield $i;
-    }
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">numerosInteiros</span><span class="p">(</span><span class="nv">$minimo</span><span class="p">,</span> <span class="nv">$maximo</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$minimo</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">$maximo</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// a keyword yield &quot;libera&quot; a variável $i para a iteração (sem sair/retornar da/a função)</span>
+</span><span class='line'>        <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="nx">numerosInteiros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$numero</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$numero</span><span class="s2"> &quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-for (numerosInteiros(1, 10) as $numero) {
-    echo "$numero ";
-}
-</code></pre>
+
+<p></p>
 
 <p>Ou um exemplo do próprio site php.net</p>
 
-<pre><code>function xrange($start, $limit, $step = 1) {
-    if ($start &lt; $limit) {
-        if ($step &lt;= 0) {
-            throw new LogicException('Step must be +ve');
-        }
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">xrange</span><span class="p">(</span><span class="nv">$start</span><span class="p">,</span> <span class="nv">$limit</span><span class="p">,</span> <span class="nv">$step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$start</span> <span class="o">&lt;</span> <span class="nv">$limit</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$step</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">LogicException</span><span class="p">(</span><span class="s1">&#39;Step must be +ve&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$start</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">$limit</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="nv">$step</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$step</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">LogicException</span><span class="p">(</span><span class="s1">&#39;Step must be -ve&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$start</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&gt;=</span> <span class="nv">$limit</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="nv">$step</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * Note that both range() and xrange() result in the same</span>
+</span><span class='line'><span class="cm"> * output below.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="s1">&#39;Single digit odd numbers from range():  &#39;</span><span class="p">;</span>
+</span><span class='line'><span class="k">foreach</span> <span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$number</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s2">&quot;</span><span class="si">$number</span><span class="s2"> &quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-        for ($i = $start; $i &lt;= $limit; $i += $step) {
-            yield $i;
-        }
-    } else {
-        if ($step &gt;= 0) {
-            throw new LogicException('Step must be -ve');
-        }
 
-        for ($i = $start; $i &gt;= $limit; $i += $step) {
-            yield $i;
-        }
-    }
-}
-
-/*
- * Note that both range() and xrange() result in the same
- * output below.
- */
-
-echo 'Single digit odd numbers from range():  ';
-foreach (range(1, 9, 2) as $number) {
-    echo "$number ";
-}
-</code></pre>
+<p></p>
 
 <p>Repare que não há necessidade de criar um array, populá-lo, retorná-lo, e só depois iterá-lo para imprimir os valores.</p>
 
@@ -395,54 +586,94 @@ foreach (range(1, 9, 2) as $number) {
 
 <p>Mesmo já possuindo a bastante tempo o bloco try/catch, só agora a partir da versão 5.5 foi introduzida a keyword <strong>finally</strong>. No qual você define um bloco para ser executado de qualquer maneira (mesmo que caia no catch).</p>
 
-<pre><code>function divide($a, $b) {
-    if ($b === 0) {
-        throw new Exception('Divisão por zero');
-    }
-    return $a / $b;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">divide</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nv">$b</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s1">&#39;Divisão por zero&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$a</span> <span class="o">/</span> <span class="nv">$b</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;10 / 2 = &#39;</span> <span class="o">.</span> <span class="nx">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;2 / 0 = &#39;</span> <span class="o">.</span> <span class="nx">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span> <span class="nx">finally</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;Término das operações&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-try {
-    echo '10 / 2 = ' . divide(10, 2);
-    echo '2 / 0 = ' . divide(2, 0);
-} catch (Exception $e) {
-    echo $e-&gt;getMessage();
-} finally {
-    echo 'Término das operações';
-}
-</code></pre>
+
+<p></p>
 
 <h3>::class</h3>
 
 <p>Agora é possível resolver o nome da classe apenas através de <a href="http://br1.php.net/oop5.basic#language.oop5.basic.class.class">MinhaClass::class</a>.</p>
 
-<pre><code>&lt;?php
-namespace NS {
-    class ClassName {
-    }  
-    echo ClassName::class;
-}
-?&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">NS</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">ClassName</span> <span class="p">{</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="nx">ClassName</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>empty()</h3>
 
 <p>Agora é possível passar expressões para a função <a href="http://br2.php.net/migration55.new-features#migration55.new-features.empty">empty()</a> e não mais apenas variáveis.</p>
 
-<pre><code>&lt;?php
-function always_false() {
-    return false;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">always_false</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nx">always_false</span><span class="p">()))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s2">&quot;This will be printed.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="k">true</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">echo</span> <span class="s2">&quot;This will not be printed.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
 
-if (empty(always_false())) {
-    echo "This will be printed.\n";
-}
-
-if (empty(true)) {
-    echo "This will not be printed.\n";
-}
-?&gt;
-</code></pre>
 
 <h3>Veja mais</h3>
 
@@ -543,27 +774,45 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p><strong>CSS</strong></p>
 
-<pre><code>p::selection  { color: #000; }
-p::-moz-selection { color: #000; }
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">p</span><span class="o">:</span><span class="nd">:selection</span>  <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.yellow</span><span class="o">:</span><span class="nd">:selection</span>  <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.yellow</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="nb">yellow</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.green</span><span class="o">:</span><span class="nd">:selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#58FF4B</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.green</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#58FF4B</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">p</span><span class="nc">.pink</span><span class="o">:</span><span class="nd">:selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#E2189C</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">p</span><span class="nc">.pink</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#E2189C</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-p.yellow::selection  { background: yellow; }
-p.yellow::-moz-selection { background: yellow; }
-
-p.green::selection { background: #58FF4B; }
-p.green::-moz-selection { background: #58FF4B; }
-
-p.pink::selection { background: #E2189C; }
-p.pink::-moz-selection { background: #E2189C; }
-</code></pre>
 
 <p><strong>HTML</strong></p>
 
-<pre><code>&lt;p class="yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;yellow&quot;</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit...<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;green&quot;</span><span class="nt">&gt;</span>Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;pink&quot;</span><span class="nt">&gt;</span>Donec interdum placerat urna at aliquet...<span class="nt">&lt;/p&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-&lt;p class="green"&gt;Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...&lt;/p&gt;
-
-&lt;p class="pink"&gt;Donec interdum placerat urna at aliquet...&lt;/p&gt;
-</code></pre>
 
 <p><strong>Exemplo</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
@@ -587,52 +836,94 @@ p.pink::-moz-selection { background: #E2189C; }
 
 <p><strong>Dependências</strong></p>
 
-<pre><code>&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"&gt;&lt;/script&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>CSS</strong></p>
 
-<pre><code>*[accesskey]:after {
-    margin-left: 0.3em;
-    color: #ccc;
-    content: "[Alt + " attr(accesskey) "]";
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">margin-left</span><span class="o">:</span> <span class="m">0.3em</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Alt + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">body</span><span class="nc">.firefox</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Alt + Shift + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span><span class="nc">.firefox.mac</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Ctrl + Opt + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>  <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span><span class="nc">.safari.mac</span> <span class="o">*[</span><span class="nt">accesskey</span><span class="o">]</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[Ctrl + &quot;</span> <span class="n">attr</span><span class="p">(</span><span class="n">accesskey</span><span class="p">)</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
-body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
-body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
-</code></pre>
+
+<p></p>
 
 <p><strong>Javascript</strong></p>
 
-<pre><code>/**
- * Add browser and OS name to body class, and append the shortcut to element title
- * @author rogeriolino
- */
-(function($) {
-    $(document).ready(function() {
-        Modernizr.Detectizr.detect({detectScreen:false});
-        var body = $('body')
-        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
-        $('*[accesskey]').each(function(i, e) {
-            var elem = $(e);
-            prefix = 'Alt';
-            if (body.hasClass('firefox')) {
-                if (body.hasClass('mac')) {
-                    prefix = 'Ctrl + Opt';
-                } else {
-                    prefix = 'Alt + Shift';
-                }
-            } else if (body.hasClass('safari mac')) {
-                prefix = 'Ctrl';
-            }
-            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
-        });
-    });
-})($);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Add browser and OS name to body class, and append the shortcut to element title</span>
+</span><span class='line'><span class="cm"> * @author rogeriolino</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">detect</span><span class="p">({</span><span class="nx">detectScreen</span><span class="o">:</span><span class="kc">false</span><span class="p">});</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="nx">body</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">browser</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">Modernizr</span><span class="p">.</span><span class="nx">Detectizr</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">os</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;*[accesskey]&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Alt&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;mac&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Ctrl + Opt&#39;</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Alt + Shift&#39;</span><span class="p">;</span>
+</span><span class='line'>                <span class="p">}</span>
+</span><span class='line'>            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;safari mac&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">prefix</span> <span class="o">=</span> <span class="s1">&#39;Ctrl&#39;</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>            <span class="nx">elem</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; [&#39;</span> <span class="o">+</span> <span class="nx">prefix</span> <span class="o">+</span> <span class="s1">&#39; + &#39;</span> <span class="o">+</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;accesskey&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>Demo</strong></p>
 
@@ -651,31 +942,44 @@ body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
     
     <content type="html"><![CDATA[<p>Função jQuery para alinhar horizontalmente e verticalmente o elemento.</p>
 
-<pre><code>jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css({
-        top: '50%',
-        left: '50%', 
-        margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
-    });
-    return this;
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">center</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">,</span><span class="s2">&quot;absolute&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+</span><span class='line'>        <span class="nx">top</span><span class="o">:</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">margin</span><span class="o">:</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px 0 0 -&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Exemplo:</p>
 
-<pre><code>&amp;lt;div id="centered_div"&amp;gt;
-    &lt;p&gt;My div content here&lt;/p&gt;
-&amp;lt;/div&amp;gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;centered_div&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;p&gt;</span>My div content here<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#centered_div&#39;</span><span class="p">).</span><span class="nx">center</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-$('#centered_div').center()
-</code></pre>
 
 <p>Edit on jsFiddle: <a href="http://jsfiddle.net/rc6kS/">http://jsfiddle.net/rc6kS/</a></p>
 ]]></content>
@@ -694,42 +998,63 @@ $('#centered_div').center()
 
 <h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
 
-<pre><code>apt-cache show php5 | grep Version
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-cache show php5 <span class="p">|</span> grep Version
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Caso a versão mais nova já esteja na 5.4 ou superior, então pule para o próximo passo. Senão execute os comandos abaixo para adicionar o repositório com a versão 5.4.</p>
 
-<pre><code>apt-get install python-software-properties
-add-apt-repository ppa:ondrej/php5
-apt-get update
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-get install python-software-properties
+</span><span class='line'>add-apt-repository ppa:ondrej/php5
+</span><span class='line'>apt-get update
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Passo 2 &ndash; Instalando os pacotes</h3>
 
 <p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
 
-<pre><code>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Habilitando os módulos de requeridos para o próximo passo:</p>
 
-<pre><code>a2enmod actions fastcgi alias
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>a2enmod actions fastcgi <span class="nb">alias</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <h3>Passo 3 &ndash; Configurando o Apache2</h3>
 
 <p>Editar o arquivo de configuração do módulo fastcgi</p>
 
-<pre><code>vim /etc/apache2/mods-enabled/fastcgi.conf
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vim /etc/apache2/mods-enabled/fastcgi.conf
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Caso já tenha algumas entradas, comente (adicionando # no início da linha ou simplesmente remova) e adicione as seguintes linhas:</p>
 
-<pre><code>AddHandler php5-fcgi .php
-Action php5-fcgi /php5-fcgi
-Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
-FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>AddHandler php5-fcgi .php
+</span><span class='line'>Action php5-fcgi /php5-fcgi
+</span><span class='line'>Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+</span><span class='line'>FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
 
@@ -737,13 +1062,21 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock 
 
 <p>Abra o arquivo de configuração do PHP-FPM</p>
 
-<pre><code>vim /etc/php5/fpm/pool.d/www.conf
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>vim /etc/php5/fpm/pool.d/www.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:</p>
 
-<pre><code>listen = /var/run/php5-fpm.sock
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">listen</span> <span class="o">=</span> /var/run/php5-fpm.sock
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Essa opção serve para evitar overhead no TCP (caso o socket não esteja configurado)</p>
 
@@ -753,15 +1086,21 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock 
 
 <p>Reiniciando os serviços:</p>
 
-<pre><code>/etc/init.d/apache2 restart
-/etc/init.d/php5-fpm restart
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>/etc/init.d/apache2 restart
+</span><span class='line'>/etc/init.d/php5-fpm restart
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Criando arquivo de teste:</p>
 
-<pre><code>cd /var/www
-echo '&lt;?php phpinfo();' | tee info.php
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> /var/www
+</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;&lt;?php phpinfo();&#39;</span> <span class="p">|</span> tee info.php
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Depois acesse o arquivo criado via browser: <a href="http://nome_servidor/info.php">http://nome_servidor/info.php</a></p>
 
@@ -803,163 +1142,317 @@ echo '&lt;?php phpinfo();' | tee info.php
 
 <h3>CSS</h3>
 
-<pre><code>.hmenu {
-    height: 40px;
-    position: relative;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.hmenu</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">height</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span><span class="o">,</span> <span class="nc">.hmenu</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span><span class="o">,</span> <span class="nc">.hmenu</span> <span class="o">*</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">list-style</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* all links style */</span>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">font-family</span><span class="o">:</span> <span class="n">Arial</span><span class="o">,</span> <span class="n">Verdana</span><span class="o">,</span> <span class="k">sans-serif</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* main link style */</span>
+</span><span class='line'><span class="nc">.hmenu</span><span class="o">&gt;</span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">padding</span><span class="o">:</span> <span class="m">13px</span> <span class="m">20px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">visibility</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="c">/* fading transition */</span>
+</span><span class='line'>    <span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">.5s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+</span><span class='line'>   <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">.5s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+</span><span class='line'>   <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="k">opacity</span> <span class="m">.5s</span> <span class="n">ease</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* first submenu */</span>
+</span><span class='line'><span class="nc">.hmenu</span><span class="o">&gt;</span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">top</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border-top</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span><span class="nd">:hover</span><span class="o">&gt;</span><span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">visibility</span><span class="o">:</span> <span class="k">visible</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="nt">ul</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">top</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">left</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* submenu link style */</span>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">ul</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">margin</span><span class="o">:</span> <span class="m">3px</span> <span class="m">2px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span> <span class="m">15px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">/* theming */</span>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">1px</span> <span class="m">5px</span> <span class="m">#ccc</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span> <span class="c">/* Old browsers */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span> <span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* FF3.6+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">linear</span><span class="o">,</span> <span class="k">left</span> <span class="k">top</span><span class="o">,</span> <span class="k">left</span> <span class="k">bottom</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">0</span><span class="o">%,</span><span class="m">#ffffff</span><span class="p">)</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">100</span><span class="o">%,</span><span class="m">#e5e5e5</span><span class="p">));</span> <span class="c">/* Chrome,Safari4+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* Chrome10+,Safari5.1+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* Opera 11.10+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* IE10+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">to</span> <span class="k">bottom</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* W3C */</span>
+</span><span class='line'>    <span class="n">filter</span><span class="o">:</span> <span class="n">progid</span><span class="o">:</span><span class="n">DXImageTransform</span><span class="o">.</span><span class="n">Microsoft</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span> <span class="n">startColorstr</span><span class="o">=</span><span class="s1">&#39;#ffffff&#39;</span><span class="o">,</span> <span class="n">endColorstr</span><span class="o">=</span><span class="s1">&#39;#e5e5e5&#39;</span><span class="o">,</span><span class="n">GradientType</span><span class="o">=</span><span class="m">0</span> <span class="p">);</span> <span class="c">/* IE6-9 */</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">color</span><span class="o">:</span> <span class="m">#999</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span><span class="nd">:hover</span><span class="o">&gt;</span><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">text-shadow</span><span class="o">:</span> <span class="m">1px</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#ccc</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">background-color</span><span class="o">:</span> <span class="m">#f1f1f1</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">1px</span> <span class="m">5px</span> <span class="m">#bbb</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">ul</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">background-color</span><span class="o">:</span> <span class="m">#e1e1e1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span><span class="o">&gt;</span><span class="nt">li</span><span class="o">&gt;</span><span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">border-top</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#999</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nc">.hmenu</span> <span class="nt">li</span> <span class="nt">ul</span> <span class="nt">ul</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">border-left</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#999</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-.hmenu, .hmenu ul { 
-    border-radius: 3px;
-}
-
-.hmenu, .hmenu * {
-    margin: 0;
-    padding: 0;
-}
-
-.hmenu li {
-    list-style: none;
-    position: relative;
-    display: inline;
-}
-
-.hmenu li {
-    list-style: none;
-    position: relative;
-    float: left;
-}
-
-/* all links style */
-.hmenu a {
-    font-weight: bold;
-    font-family: Arial, Verdana, sans-serif;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-/* main link style */
-.hmenu&gt;li&gt;a {
-    padding: 13px 20px;
-    float: left;
-}
-
-.hmenu li ul {
-    width: 150px;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    /* fading transition */
-    transition: opacity .5s ease-in-out;
-   -moz-transition: opacity .5s ease-in-out;
-   -webkit-transition: opacity .5s ease-in-out;
-}
-
-/* first submenu */
-.hmenu&gt;li&gt;ul {
-    top: 40px;
-    left: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.hmenu li:hover&gt;ul {
-    visibility: visible;
-    opacity: 1;
-}
-
-.hmenu li ul ul {
-    top: 0px;
-    left: 150px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.hmenu li ul li {
-    width: 150px;
-    display: block;
-}
-
-/* submenu link style */
-.hmenu ul a {
-    margin: 3px 2px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    display: block;
-}
-
-/* theming */
-.hmenu {
-    box-shadow: 0px 1px 5px #ccc;
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-}
-
-.hmenu a {
-    color: #999;
-}
-
-.hmenu a:hover {
-}
-
-.hmenu li:hover&gt;a {
-    color: #000;
-    text-shadow: 1px 1px 2px #ccc;
-}
-
-.hmenu ul {
-    background-color: #f1f1f1;
-    box-shadow: 0px 1px 5px #bbb;
-}
-
-.hmenu ul a:hover {
-    background-color: #e1e1e1;
-}
-
-.hmenu&gt;li&gt;ul {
-    border-top: 2px solid #999;
-}
-
-.hmenu li ul ul {
-    border-left: 2px solid #999;
-}
-</code></pre>
 
 <h3>HTML</h3>
 
-<pre><code>&lt;ul class="hmenu"&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;
-        &lt;a href="#"&gt;Services&lt;/a&gt;
-        &lt;ul&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Service 1&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;
-                &lt;a href="#"&gt;Service 2&lt;/a&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Subservice 1&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Subservice 2&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Subservice 3&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Service 3&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Service 4&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Service 5&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-        &lt;a href="#"&gt;About&lt;/a&gt;
-        &lt;ul&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Company&lt;/a&gt;&lt;/li&gt;
-            &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;hmenu&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Services<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Service 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Service 2<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Subservice 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Subservice 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Subservice 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Service 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Service 4<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Service 5<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Company<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><a href="http://dev.rogeriolino.com/exemplos/css/hmenu.html">Visualizar o menu funcionando</a></p>
 ]]></content>
@@ -980,86 +1473,145 @@ echo '&lt;?php phpinfo();' | tee info.php
 
 <p>Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes reutilizem métodos de outras classes sem a necessidade de estende-la.</p>
 
-<pre><code>trait Singleton {
-    public static function getInstance() { ... }
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">trait</span> <span class="nx">Singleton</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">use</span> <span class="nx">Singleton</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">B</span> <span class="k">extends</span> <span class="nx">ArrayObject</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">use</span> <span class="nx">Singleton</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Singleton method is now available for both classes</span>
+</span><span class='line'><span class="nx">A</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+</span><span class='line'><span class="nx">B</span><span class="o">::</span><span class="na">getInstance</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
 
-class A {
-    use Singleton;
-    // ...
-}
-
-class B extends ArrayObject {
-    use Singleton;
-    // ...
-}
-
-// Singleton method is now available for both classes
-A::getInstance();
-B::getInstance();
-</code></pre>
 
 <h3>Sintaxe curta para definição de Array</h3>
 
 <p>Agora é possível instanciar um array de maneira semelhante à outras linguagens de script, como por exemplo, Javascript.</p>
 
-<pre><code>$a = [1, 2, 3];
-$b = ['foo' =&gt; 'orange', 'bar' =&gt; 'apple'];
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span><span class='line'><span class="nv">$b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;apple&#39;</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Referência direta ao retorno das funções/métodos</h3>
 
 <p>Também é possível fazer fazer chamada direta ao retorno das funções, sem que haja necessidade de atribuir o valor a uma variável e só depois fazer a chamada.</p>
 
-<pre><code>function fruits() {
-    return ['apple', 'banana', 'orange'];
-}
-echo fruits()[0]; // Outputs: apple
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">fruits</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">echo</span> <span class="nx">fruits</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// Outputs: apple</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>O mesmo serve para chamadas através de novas <strong>instâncias</strong>:</p>
 
-<pre><code>class Person {
-    private $name;
-    public function setName($name) {
-        $this-&gt;name = $name;
-    }
-    public function getName() {
-        return $this-&gt;name;
-    }
-}
-function createPerson() {
-    $p = new Person();
-    $p-&gt;setName('Rogerio');
-    return $p;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$name</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setName</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getName</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">createPerson</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Rogerio&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nv">$p</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">setName</span><span class="p">(</span><span class="s1">&#39;Rogerio&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">();</span> <span class="c1">// Outputs: Rogerio</span>
+</span></code></pre></td></tr></table></div></figure>
 
-echo (new Person)-&gt;setName('Rogerio')-&gt;getName(); // Outputs: Rogerio
-</code></pre>
 
 <h3>Método mágico __invoke</h3>
 
 <p>Permite chamar um objeto como se fosse uma função</p>
 
-<pre><code>class MoneyObject {
-    private $value;
-    function __construct($val) {
-        $this-&gt;value = $val;
-    }
-    function __invoke() {
-        return sprintf('$%.2f',$this-&gt;value); 
-    }
-}
-$Money = new MoneyObject(11.02/5*13);
-echo $Money(); // Outputs: $28.65
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">MoneyObject</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$value</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$val</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">__invoke</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;$%.2f&#39;</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nv">$Money</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoneyObject</span><span class="p">(</span><span class="mf">11.02</span><span class="o">/</span><span class="mi">5</span><span class="o">*</span><span class="mi">13</span><span class="p">);</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$Money</span><span class="p">();</span> <span class="c1">// Outputs: $28.65</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Built-in Web Server (CLI)</h3>
 
 <p>CLI server é uma pequena implementação de um Web server que você pode executar via linha de comando.</p>
 
-<blockquote>% php -S localhost:8000</blockquote>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>% php -S localhost:8000
+</span></code></pre></td></tr></table></div></figure>
 
+
+<p></p>
 
 <p>Obviamente, não é para ser usado em produção.</p>
 
@@ -1067,29 +1619,57 @@ echo $Money(); // Outputs: $28.65
 
 <p>Ao invés de definir várias funções, você pode criar uma handler para a sua sessão, e apenas informá-lo no session_set_save_handler.</p>
 
-<pre><code>SessionHandler implements SessionHandlerInterface {
-  public int close ( void )
-  public int destroy ( string $sessionid )
-  public int gc ( int $maxlifetime )
-  public int open ( string $save_path , string $sessionid )
-  public string read ( string $sessionid )
-  public int write ( string $sessionid , string $sessiondata )
-}
-session_set_save_handler(new MySessionHandler);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">SessionHandler</span> <span class="k">implements</span> <span class="nx">SessionHandlerInterface</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">close</span> <span class="p">(</span> <span class="nx">void</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">destroy</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">gc</span> <span class="p">(</span> <span class="nx">int</span> <span class="nv">$maxlifetime</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">open</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$save_path</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">string</span> <span class="nx">read</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">)</span>
+</span><span class='line'>    <span class="k">public</span> <span class="nx">int</span> <span class="nx">write</span> <span class="p">(</span> <span class="nx">string</span> <span class="nv">$sessionid</span> <span class="p">,</span> <span class="nx">string</span> <span class="nv">$sessiondata</span> <span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">session_set_save_handler</span><span class="p">(</span><span class="k">new</span> <span class="nx">MySessionHandler</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>JsonSerialize Interface</h3>
 
 <p>Semelhante ao __tostring ao tentar imprimir um objeto, você pode pre-definir o objeto que será serializado para o formato json, através do uso da função <strong>json_encode</strong>.</p>
 
-<pre><code>class Foo implements JsonSerializable {
-    private $data = 'Bar';
-    public function jsonSerialize() {
-        return array('data'=&gt;$this-&gt;data);
-    }
-}
-echo json_encode(new Foo); // Outputs: {"data":"Bar"}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">Foo</span> <span class="k">implements</span> <span class="nx">JsonSerializable</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;Bar&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonSerialize</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="o">=&gt;</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="k">new</span> <span class="nx">Foo</span><span class="p">);</span> <span class="c1">// Outputs: {&quot;data&quot;:&quot;Bar&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Para visualizar as alterações entre as versão 5.3 e 5.4, <a href="http://www.php.net/manual/en/migration54.php">clique aqui</a>.</p>
 
@@ -1125,16 +1705,23 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
 
 <p>Como toda a execução é feita no lado do servidor, você pode fazer uma execução ajax do seu site/aplicação para o dev-tools e pegar no response o resultado, sem que haja necessidade de importar novos recursos:</p>
 
-<blockquote>GET
->     /ajax/<package>/<method>/?<params>
->     /ajax/crypt/sha1?data=test
->     
->     JSON RESPONSE
->     {&#8220;success&#8221;:true,&#8221;data&#8221;:&#8221;a94a8fe5ccb19ba61c4c0873d391e987982fbbd3&#8221;}
->     
-> 
-> </blockquote>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>GET
+</span><span class='line'>&gt;     /ajax/&lt;package&gt;/&lt;method&gt;/?&lt;params&gt;
+</span><span class='line'>&gt;     /ajax/crypt/sha1?data=test
+</span><span class='line'>&gt;     
+</span><span class='line'>&gt;     JSON RESPONSE
+</span><span class='line'>&gt;     {"success":true,"data":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"}
+</span><span class='line'>&gt;     </span></code></pre></td></tr></table></div></figure>
 
+
+<p></p>
 
 <p>Conforme eu vá sentindo necessidade de mais funcionalidade ou alguém dê uma sugestão, irei incrementando. Depois criarei um projeto no Github e atualizarei o post com o link.</p>
 ]]></content>

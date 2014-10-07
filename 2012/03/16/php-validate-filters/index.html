@@ -9,7 +9,9 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="A partir do PHP 5.2 foi introduzida a função filter_var. Que serve justamente para filtrar uma variável a partir de um filtro especificado. > > > &hellip;">
+  <meta name="description" content="A partir do PHP 5.2 foi introduzida a função filter_var. Que serve justamente para filtrar uma variável a partir de um filtro especificado. 1
+2
+mixed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,116 +105,201 @@
 
 <div class="entry-content"><p>A partir do PHP 5.2 foi introduzida a função <a href="http://php.net/filter_var">filter_var</a>. Que serve justamente para filtrar uma variável a partir de um filtro especificado.</p>
 
-<blockquote>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nx">mixed</span> <span class="nb">filter_var</span> <span class="p">(</span> <span class="nx">mixed</span> <span class="nv">$variable</span> <span class="p">[,</span> <span class="nx">int</span> <span class="nv">$filter</span> <span class="o">=</span> <span class="nx">FILTER_DEFAULT</span> <span class="p">[,</span> <span class="nx">mixed</span> <span class="nv">$options</span> <span class="p">]]</span> <span class="p">)</span>
+</span><span class='line'><span class="c1">// Returns the filtered data, or FALSE if the filter fails.</span>
+</span></code></pre></td></tr></table></div></figure>
 
->     
->     
->     mixed filter_var ( mixed $variable [, int $filter = FILTER_DEFAULT [, mixed $options ]] )
->     // Returns the filtered data, or FALSE if the filter fails.
->     
-> 
-> 
-</blockquote>
 
+<p></p>
 
 <p>Filtros pré-definidos:</p>
 
-<pre><code>// email filtering
-echo filter_var('email@domain.com', FILTER_VALIDATE_EMAIL); // email@domain.com
-echo filter_var('domain.com', FILTER_VALIDATE_EMAIL); // false
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// email filtering</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;email@domain.com&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span> <span class="c1">// email@domain.com</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;domain.com&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">);</span> <span class="c1">// false</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// url filtering</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;http://rogeriolino.com&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span> <span class="c1">// http://rogeriolino.com</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;rogeriolino.com&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">);</span> <span class="c1">// false</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// ip filtering</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_IP</span><span class="p">);</span> <span class="c1">// 127.0.0.1</span>
+</span><span class='line'><span class="k">echo</span> <span class="nb">filter_var</span><span class="p">(</span><span class="s1">&#39;127.0.1&#39;</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_IP</span><span class="p">);</span> <span class="c1">// false</span>
+</span></code></pre></td></tr></table></div></figure>
 
-// url filtering
-echo filter_var('http://rogeriolino.com', FILTER_VALIDATE_URL); // http://rogeriolino.com
-echo filter_var('rogeriolino.com', FILTER_VALIDATE_URL); // false
-
-// ip filtering
-echo filter_var('127.0.0.1', FILTER_VALIDATE_IP); // 127.0.0.1
-echo filter_var('127.0.1', FILTER_VALIDATE_IP); // false
-</code></pre>
 
 <p>Como a função pode retornar <strong>FALSE</strong> (caso o filtro falhe) ou o valor filtrado. Podemos utilizar o <strong>Not identical operator</strong> (!==) para verificar se retorno é realmente FALSE, ou seja, o valor testado não passou pelo filtro.</p>
 
 <p>Colocando em prática a função mais orientação à objetos para criar algumas classes validadoras:</p>
 
-<pre><code>/**
- * Interface Validator 
- */
-interface Validator {
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Interface Validator </span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">interface</span> <span class="nx">Validator</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">isValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Abstract class Simple Validator</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">abstract</span> <span class="k">class</span> <span class="nc">SimpleValidator</span> <span class="k">implements</span> <span class="nx">Validator</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">abstract</span> <span class="k">function</span> <span class="nf">defaultFilter</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">isValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">defaultFilter</span><span class="p">())</span> <span class="o">!==</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Simple Email validator </span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">EmailValidator</span> <span class="k">extends</span> <span class="nx">SimpleValidator</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">defaultFilter</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Simple URL validator </span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">UrlValidator</span> <span class="k">extends</span> <span class="nx">SimpleValidator</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">defaultFilter</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">FILTER_VALIDATE_URL</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Simple IP Validator </span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">IpValidator</span> <span class="k">extends</span> <span class="nx">SimpleValidator</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">protected</span> <span class="k">function</span> <span class="nf">defaultFilter</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">FILTER_VALIDATE_IP</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    public function isValid($value);
-
-}
-
-/**
- * Abstract class Simple Validator
- */
-abstract class SimpleValidator implements Validator {
-
-    protected abstract function defaultFilter();
-
-    public function isValid($value) {
-        return filter_var($value, $this-&gt;defaultFilter()) !== false;
-    }
-
-}
-
-/**
- * Simple Email validator 
- */
-class EmailValidator extends SimpleValidator {
-
-    protected function defaultFilter() {
-        return FILTER_VALIDATE_EMAIL;
-    }
-
-}
-
-/**
- * Simple URL validator 
- */
-class UrlValidator extends SimpleValidator {
-
-    protected function defaultFilter() {
-        return FILTER_VALIDATE_URL;
-    }
-
-}
-
-/**
- * Simple IP Validator 
- */
-class IpValidator extends SimpleValidator {
-
-    protected function defaultFilter() {
-        return FILTER_VALIDATE_IP;
-    }
-
-}
-</code></pre>
 
 <p>Testando</p>
 
-<pre><code>// email validating
-$validator = new EmailValidator();
-echo $validator-&gt;isValid('rogeriolino@com'); // false
-echo $validator-&gt;isValid('contact@rogeriolino.com'); // true
-echo $validator-&gt;isValid('contact+spam@rogeriolino.com'); // true
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">// email validating</span>
+</span><span class='line'><span class="nv">$validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EmailValidator</span><span class="p">();</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;rogeriolino@com&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;contact@rogeriolino.com&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;contact+spam@rogeriolino.com&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// URL validating</span>
+</span><span class='line'><span class="nv">$validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UrlValidator</span><span class="p">();</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;http://rogeriolino.com&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;http://rogeriolino.com/contact&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;rogeriolino.com/contact&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;https://rogeriolino&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;ftp://rogeriolino.com&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// URL validating</span>
+</span><span class='line'><span class="nv">$validator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IpValidator</span><span class="p">();</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;127.0.0&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;1050:0000:0000:0000:0005:0600:300c:326b&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$validator</span><span class="o">-&gt;</span><span class="na">isValid</span><span class="p">(</span><span class="s1">&#39;1050:0000:0000:0000:0005:0600&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+</span></code></pre></td></tr></table></div></figure>
 
-// URL validating
-$validator = new UrlValidator();
-echo $validator-&gt;isValid('http://rogeriolino.com'); // true
-echo $validator-&gt;isValid('http://rogeriolino.com/contact'); // true
-echo $validator-&gt;isValid('rogeriolino.com/contact'); // false
-echo $validator-&gt;isValid('https://rogeriolino'); // true
-echo $validator-&gt;isValid('ftp://rogeriolino.com'); // true
-
-// URL validating
-$validator = new IpValidator();
-echo $validator-&gt;isValid('127.0.0.1'); // true
-echo $validator-&gt;isValid('127.0.0'); // false
-echo $validator-&gt;isValid('1050:0000:0000:0000:0005:0600:300c:326b'); // true
-echo $validator-&gt;isValid('1050:0000:0000:0000:0005:0600'); // false
-</code></pre>
 
 <p>Para ver outros filtros:
 <a href="http://php.net/manual/filter.filters.validate.php">http://php.net/manual/filter.filters.validate.php</a></p>

@@ -9,7 +9,16 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="Função jQuery para alinhar horizontalmente e verticalmente o elemento. jQuery.fn.center = function () { this.css("position","absolute"); this.css({ &hellip;">
+  <meta name="description" content="Função jQuery para alinhar horizontalmente e verticalmente o elemento. 1
+2
+3
+4
+5
+6
+7
+8
+9
+jQuery.fn.center = function () { this.css(&quot;position& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,31 +112,44 @@
 
 <div class="entry-content"><p>Função jQuery para alinhar horizontalmente e verticalmente o elemento.</p>
 
-<pre><code>jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css({
-        top: '50%',
-        left: '50%', 
-        margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
-    });
-    return this;
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">center</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">,</span><span class="s2">&quot;absolute&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">this</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
+</span><span class='line'>        <span class="nx">top</span><span class="o">:</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">left</span><span class="o">:</span> <span class="s1">&#39;50%&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">margin</span><span class="o">:</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">height</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px 0 0 -&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Exemplo:</p>
 
-<pre><code>&amp;lt;div id="centered_div"&amp;gt;
-    &lt;p&gt;My div content here&lt;/p&gt;
-&amp;lt;/div&amp;gt;
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;centered_div&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;p&gt;</span>My div content here<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#centered_div&#39;</span><span class="p">).</span><span class="nx">center</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-
-$('#centered_div').center()
-</code></pre>
 
 <p>Edit on jsFiddle: <a href="http://jsfiddle.net/rc6kS/">http://jsfiddle.net/rc6kS/</a></p>
 </div>

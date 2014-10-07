@@ -106,44 +106,80 @@
 <!-- more -->
 
 
-<pre><code>class User implements \JsonSerializable {
 
-    private $username;
-    private $firstName;
-    private $lastName;
 
-    ...
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="k">implements</span> <span class="nx">\JsonSerializable</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$username</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$firstName</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$lastName</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="o">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">jsonSerialize</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+</span><span class='line'>            <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;firstName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;lastName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="p">,</span>
+</span><span class='line'>            <span class="s1">&#39;fullName&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">firstName</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastName</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>        <span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    public function jsonSerialize() {
-        return array(
-            'username' =&gt; $this-&gt;username,
-            'firstName' =&gt; $this-&gt;firstName,
-            'lastName' =&gt; $this-&gt;lastName,
-            'fullName' =&gt; "{$this-&gt;firstName} {$this-&gt;lastName}"
-        );
-    }
-
-}
-</code></pre>
 
 <p>Serializando:</p>
 
-<pre><code>$user = new User();
-$user-&gt;setUsername("rogeriolino");
-$user-&gt;setFirstName("Rogério");
-$user-&gt;setLastName("Lino");
-echo json_encode($user);
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>$user = new User();
+</span><span class='line'>$user-&gt;setUsername(&quot;rogeriolino&quot;);
+</span><span class='line'>$user-&gt;setFirstName(&quot;Rogério&quot;);
+</span><span class='line'>$user-&gt;setLastName(&quot;Lino&quot;);
+</span><span class='line'>echo json_encode($user);
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Resultado:</p>
 
-<pre><code>{
-    "username": "rogeriolino",
-    "firstName": "Rogério",
-    "lastName": "Lino",
-    "fullName": "Rogério Lino",
-}
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;rogeriolino&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;firstName&quot;</span><span class="p">:</span> <span class="s2">&quot;Rogério&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;lastName&quot;</span><span class="p">:</span> <span class="s2">&quot;Lino&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;fullName&quot;</span><span class="p">:</span> <span class="s2">&quot;Rogério Lino&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>Essa implementação se torna muito útil para desenvolvimento de APIs <strong>RESTful</strong> e <strong>ajax responses</strong> (json response).</p>
 </div>
