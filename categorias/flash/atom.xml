@@ -18,7 +18,7 @@
     <link href="http://rogeriolino.com/2010/04/01/flash-swfaddress-rewrite-seo/"/>
     <updated>2010-04-01T11:44:53-03:00</updated>
     <id>http://rogeriolino.com/2010/04/01/flash-swfaddress-rewrite-seo</id>
-    <content type="html"><![CDATA[<p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/wp-content/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
+    <content type="html"><![CDATA[<p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
 
 <blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
 
@@ -84,7 +84,7 @@
 
 <p>Mas nem tudo está perdido para os players feitos em HTML5, um grupo de desenvolvedores e designers denominado <a href="http://jilion.com/">Jilion</a> desenvolveu um excelente player (bonito e funcional) chamado <a href="http://jilion.com/sublime/video">SublimeVideo</a>. Suportando todos os browsers listados na página do Youtube/Vimeo incluindo o Firefox.</p>
 
-<p>[caption id=&ldquo;attachment_184&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;604&rdquo; caption=&ldquo;SublimeVideo &ndash; HTML5 Video Player&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg" alt="SublimeVideo" /></a>[/caption]</p>
+<p>[caption id=&ldquo;attachment_184&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;604&rdquo; caption=&ldquo;SublimeVideo &ndash; HTML5 Video Player&rdquo;]<a href="http://rogeriolino.com/uploads/2010/02/sublimevideo.jpg"><img src="http://rogeriolino.com/uploads/2010/02/sublimevideo.jpg" alt="SublimeVideo" /></a>[/caption]</p>
 
 <p>Mais sobre <a href="http://shaver.off.net/diary/2010/01/23/html5-video-and-codecs/">HTML5 video e codecs</a>.</p>
 ]]></content>

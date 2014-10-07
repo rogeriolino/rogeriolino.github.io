@@ -75,7 +75,7 @@ app.controller('todoCtrl', function($scope) {
 <!-- more -->
 
 
-<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/wp-content/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
+<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
 
 <p><strong>[update 2013-10-09]</strong></p>
 
@@ -130,7 +130,7 @@ app.controller('todoCtrl', function($scope) {
     <link href="http://rogeriolino.com/2013/02/05/novo-sga/"/>
     <updated>2013-02-05T09:33:57-02:00</updated>
     <id>http://rogeriolino.com/2013/02/05/novo-sga</id>
-    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
 
 <blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
 

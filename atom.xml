@@ -317,7 +317,7 @@ app.controller('todoCtrl', function($scope) {
 <!-- more -->
 
 
-<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/wp-content/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
+<p>[caption id=&ldquo;attachment_804&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;600&rdquo;]<img src="http://rogeriolino.com/uploads/2013/10/firefoxos.jpg" alt="Developer preview Firefox OS" /> Developer preview Firefox OS[/caption]</p>
 
 <p><strong>[update 2013-10-09]</strong></p>
 
@@ -506,7 +506,7 @@ if (empty(true)) {
     <updated>2013-02-05T09:33:57-02:00</updated>
     <id>http://rogeriolino.com/2013/02/05/novo-sga</id>
     
-    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
+    <content type="html"><![CDATA[<p><a href="http://novosga.org"><img src="http://rogeriolino.com/uploads/2013/02/novosga.png" alt="novosga" /></a></p>
 
 <blockquote>SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, sistema desenvolvido pela Dataprev e liberado como código aberto através da versão SGA Livre.
 
@@ -767,7 +767,7 @@ echo '&lt;?php phpinfo();' | tee info.php
 
 <p>Confira a <strong>versão do PHP descrita no cabeçalho</strong> e se o valor do <strong>Server API</strong> está como <strong>FPM/FastCGI</strong>.</p>
 
-<p><img src="http://rogeriolino.com/wp-content/uploads/2012/11/phpinfo.png" alt="" /></p>
+<p><img src="http://rogeriolino.com/uploads/2012/11/phpinfo.png" alt="" /></p>
 ]]></content>
     
   </entry>
@@ -1109,7 +1109,7 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
     <updated>2012-08-31T17:02:57-03:00</updated>
     <id>http://rogeriolino.com/2012/08/31/development-tools</id>
     
-    <content type="html"><![CDATA[<p><a href="http://dev.rogeriolino.com/tools/crypt"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/dev-tools.png" alt="" /></a></p>
+    <content type="html"><![CDATA[<p><a href="http://dev.rogeriolino.com/tools/crypt"><img src="http://rogeriolino.com/uploads/2012/08/dev-tools.png" alt="" /></a></p>
 
 <p>Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para auxiliar durante o desenvolvimento. Segue abaixo as funcionalidades que estão disponíveis por enquanto:</p>
 
@@ -1149,7 +1149,7 @@ echo json_encode(new Foo); // Outputs: {"data":"Bar"}
     <updated>2012-08-13T13:54:12-03:00</updated>
     <id>http://rogeriolino.com/2012/08/13/android-futeria-app</id>
     
-    <content type="html"><![CDATA[<p><a href="https://play.google.com/store/apps/details?id=net.futeria.app"><img src="http://rogeriolino.com/wp-content/uploads/2012/08/futeria-android.png" alt="" /></a></p>
+    <content type="html"><![CDATA[<p><a href="https://play.google.com/store/apps/details?id=net.futeria.app"><img src="http://rogeriolino.com/uploads/2012/08/futeria-android.png" alt="" /></a></p>
 
 <p>Há alguns dias publiquei uma app no <a href="https://play.google.com">Google Play</a>: <strong>Futeria</strong>, versão móvel do site <a href="http://futeria.net">Futeria.net</a>, agregador de notícias dos principais clubes de futebol do Brasil.</p>
 

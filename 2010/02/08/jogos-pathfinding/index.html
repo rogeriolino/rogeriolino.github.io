@@ -105,7 +105,7 @@
 
 <p>Normalmente visualizamos o problema como um grafo e nas arestas distribuimos valores que medem o custo entre um nó e outro. E para saber qual o melhor caminho (de menor custo) utilizamos de algum algoritmo de <a href="http://pt.wikipedia.org/wiki/Problema_do_caminho_m%C3%ADnimo">caminho mínimo</a>. Dentre os algoritmos existentes, os mais famosos são: <a href="http://pt.wikipedia.org/wiki/Algoritmo_A*">A*</a> (A Estrela), <a href="http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra">Algoritmo de Dijkstra</a>, <a href="http://en.wikipedia.org/wiki/Branch_and_bound">Branch-and-Bound</a> e <a href="http://en.wikipedia.org/wiki/Category:Search_algorithms">etc</a>.</p>
 
-<p><a href="http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif" alt="" /></a></p>
+<p><a href="http://rogeriolino.com/uploads/2010/02/AstarExample.gif"><img src="http://rogeriolino.com/uploads/2010/02/AstarExample.gif" alt="" /></a></p>
 
 <p>Não vou analisar a efeciência do algoritmo utilizado, já que o objetivo é mostrar o problema ao utilizar grafos e uma possível solução (já aplicada em vários jogos).</p>
 
@@ -115,15 +115,15 @@
 
 <p>Uma forma de evitar esse problema é utilizando polígonos para delimitar aonde os personagens podem andar. Venha as imagens abaixo:</p>
 
-<p>[caption id=&ldquo;attachment_171&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com waypoints&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg" alt="Cenário marcado com waypoints" /></a>[/caption]</p>
+<p>[caption id=&ldquo;attachment_171&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com waypoints&rdquo;]<a href="http://rogeriolino.com/uploads/2010/02/Stormwind_waypoints.jpg"><img src="http://rogeriolino.com/uploads/2010/02/Stormwind_waypoints.jpg" alt="Cenário marcado com waypoints" /></a>[/caption]</p>
 
-<p>[caption id=&ldquo;attachment_172&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com Navegation Mesh&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg" alt="Cenário marcado com Navegation Mesh" /></a>[/caption]</p>
+<p>[caption id=&ldquo;attachment_172&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;399&rdquo; caption=&ldquo;Cenário marcado com Navegation Mesh&rdquo;]<a href="http://rogeriolino.com/uploads/2010/02/Stormwind-NavMesh.jpg"><img src="http://rogeriolino.com/uploads/2010/02/Stormwind-NavMesh.jpg" alt="Cenário marcado com Navegation Mesh" /></a>[/caption]</p>
 
 <p>O <a href="http://en.wikipedia.org/wiki/Navigation_mesh">Navegation Mesh</a> nada mais é que um grafo aonde cada nó é representado por um polígono, e ao invés de buscar por um ponto no cenário que se pode andar, verifica se o ponto do jogador está contido no polígono. Levando em consideração que os mesmos algoritmos utilizados com os waypoints podem ser utilizados para o navegation mesh efetuando pequenas modificações. Obviamente dessa forma será um pouco mais custosa (<a href="http://www.google.com.br/search?q=custo+algoritmo&amp;ie=utf-8&amp;oe=utf-8&amp;aq=t&amp;rls=org.mozilla:pt-BR:official&amp;client=firefox-a">custo do algoritmo</a>), em contrapartida, pode conseguir economizar uma quantidade enorme de waypoints.</p>
 
-<p>[caption id=&ldquo;attachment_176&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;Waypoints: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg" alt="Waypoints: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
+<p>[caption id=&ldquo;attachment_176&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;Waypoints: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/uploads/2010/02/Halaa_waypoints2_AB.jpg"><img src="http://rogeriolino.com/uploads/2010/02/Halaa_waypoints2_AB.jpg" alt="Waypoints: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
 
-<p>[caption id=&ldquo;attachment_175&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;NavMesh: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg"><img src="http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg" alt="NavMesh: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
+<p>[caption id=&ldquo;attachment_175&rdquo; align=&ldquo;alignnone&rdquo; width=&ldquo;538&rdquo; caption=&ldquo;NavMesh: Saindo do ponto A para o ponto B&rdquo;]<a href="http://rogeriolino.com/uploads/2010/02/Halaa_navmesh2_AB.jpg"><img src="http://rogeriolino.com/uploads/2010/02/Halaa_navmesh2_AB.jpg" alt="NavMesh: Saindo do ponto A para o ponto B" /></a>[/caption]</p>
 
 <p>Também nem sempre essa solução será a melhor para todos os tipos de jogos, é preciso antes de qualquer coisa, analisar com calma quais são as necessidades para não ter que utilizar um canhão para matar uma mosca.</p>
 
