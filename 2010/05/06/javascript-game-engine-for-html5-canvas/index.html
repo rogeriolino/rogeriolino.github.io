@@ -103,23 +103,19 @@
 
 <div class="entry-content"><p>Comecei escrever um pequeno projeto para facilitar a criação de jogos em Javascript utilizando HTML5 Canvas para isso. Baseado em <a href="http://en.wikipedia.org/wiki/Scene_graph">scenegraph</a> podendo criar nós dependentes, relativos ao nó pai. Por enquanto a estrutura da engine é composta por:</p>
 
-<blockquote>
-**Canvas:** para encapsular a tag canvas, pegando automaticamente o context e fornecendo algumas funções a mais.
+<p><strong>Canvas:</strong> para encapsular a tag canvas, pegando automaticamente o context e fornecendo algumas funções a mais.</p>
 
-**Game:** o jogo em sí, possui uma ou muitas cenas (Scene). Contém o loop principal para atualizações do canvas. Necessita de uma instância do Canvas.
+<p><strong>Game:</strong> o jogo em sí, possui uma ou muitas cenas (Scene). Contém o loop principal para atualizações do canvas. Necessita de uma instância do Canvas.</p>
 
-**Scene:** deve ser estendida para criar cenas customizadas, deve implementar o método update(interval).
+<p><strong>Scene:</strong> deve ser estendida para criar cenas customizadas, deve implementar o método update(interval).</p>
 
-**CanvasNode:** um nó do grafo, possui as coordenadas e ângulo de rotação do elemento no canvas.
+<p><strong>CanvasNode:</strong> um nó do grafo, possui as coordenadas e ângulo de rotação do elemento no canvas.</p>
 
-**CanvasNodeGroup:** um grupo de nós. Estende CanvasNode.
+<p><strong>CanvasNodeGroup:</strong> um grupo de nós. Estende CanvasNode.</p>
 
-**Graphics:** um nó &#8220;printável&#8221;, quem for estendê-lo deve implementar o método draw(). Possui como subclasses: Rectangle, Triangle, Circle, Text, Image2d e Line.
+<p><strong>Graphics:</strong> um nó &ldquo;printável&rdquo;, quem for estendê-lo deve implementar o método draw(). Possui como subclasses: Rectangle, Triangle, Circle, Text, Image2d e Line.</p>
 
-**GraphicsGroup:** estende CanvasNodeGroup, possui um grupo de graphics. Scene é um GraphicsGroup.
-
-</blockquote>
-
+<p><strong>GraphicsGroup:</strong> estende CanvasNodeGroup, possui um grupo de graphics. Scene é um GraphicsGroup.</p>
 
 <p>Os próximos passos serão a implementação de TileMap, Scene Intro, Menu e botões. Agora é só aguardar até o próximo exemplo.</p>
 

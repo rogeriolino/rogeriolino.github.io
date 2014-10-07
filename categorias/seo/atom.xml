@@ -4,7 +4,7 @@
   <title><![CDATA[Category: seo | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/seo/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T17:37:41-03:00</updated>
+  <updated>2014-10-07T18:10:36-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,24 +20,14 @@
     <id>http://rogeriolino.com/2010/04/01/flash-swfaddress-rewrite-seo</id>
     <content type="html"><![CDATA[<p><a href="http://www.asual.com/swfaddress"><img src="http://rogeriolino.com/uploads/2010/03/asual-swfaddress.jpg" alt="" /></a></p>
 
-<blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
+<p><a href="http://www.asual.com/swfaddress">SWFAddress</a> é uma pequena mas poderosa biblioteca que provê <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias <a href="http://pt.wikipedia.org/wiki/RIA">RIA</a>, incluindo:</p>
 
-> 
-> 
-    
->   * Adicionar ao Favoritos de um navegador ou site social
-> 
-    
->   * Enviar links via email ou mensageiros instantâneos
-> 
-    
->   * Procurar por um conteúdo específico através dos sites de buscas
-> 
-    
->   * Utilizar o histórico do navegador e o botão de recarregar
-> 
-
-</blockquote>
+<ul>
+<li><p>Adicionar ao Favoritos de um navegador ou site social</p></li>
+<li><p>Enviar links via email ou mensageiros instantâneos</p></li>
+<li><p>Procurar por um conteúdo específico através dos sites de buscas</p></li>
+<li><p>Utilizar o histórico do navegador e o botão de recarregar</p></li>
+</ul>
 
 
 <p>O <a href="http://www.adobe.com/br/products/flash/">Flash</a> está para o <a href="http://en.wikipedia.org/wiki/Search_engine_optimization">SEO</a> assim como o <a href="http://cinemaeafins.com/files/2008/11/batmancoringa.jpg">Coringa está para o Batman</a>. Mas nem tudo está perdido quando se trata de otimizar a indexação do site em SWF nos mecanismos de busca. Com SWFAddress você pode interagir com a página via javascript alterando a URL e o próprio conteúdo do filme, possibilidade do o uso dos botões voltar e avançar do browser, adicionar ao Favoritos e alterar a animação do seu filme de acordo com a URL que está sendo requisitada.</p>

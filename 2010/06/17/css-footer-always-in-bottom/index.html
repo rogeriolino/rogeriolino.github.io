@@ -105,46 +105,85 @@
 
 <p>Para tal exemplo vamos precisar de um HTML simples:</p>
 
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="page"&gt;
-        &lt;div id="content"&gt;
-            &lt;h1&gt;Footer always in bottom&lt;/h1&gt;
-            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet imperdiet justo, quis congue velit egestas quis. Suspendisse ac tellus vitae est ultrices imperdiet eget at dolor. Donec sit amet viverra arcu. Aenean pulvinar vehicula justo, tincidunt congue nisi pharetra eu. Suspendisse potenti. Sed libero quam, lacinia at facilisis eu, egestas sodales dolor. Duis gravida, diam interdum cursus dictum, ligula libero pellentesque lacus, vitae viverra nulla metus id erat. Suspendisse fermentum aliquam hendrerit. Sed vulputate massa ut felis sagittis molestie. Suspendisse facilisis condimentum diam, a hendrerit urna venenatis sit amet. Cras orci diam, aliquam quis fringilla ac, euismod vel orci. Quisque ac pharetra nisi. Quisque et orci ligula. Praesent lacus felis, bibendum ac varius ac, eleifend in nulla. Aliquam sodales porttitor iaculis. Aliquam pretium risus ac neque egestas convallis. Sed dignissim massa ut odio vestibulum gravida ut vel nulla.&lt;/p&gt;
-            &lt;p&gt;Sed non lacus in nibh lobortis imperdiet. Aliquam auctor tellus quis elit adipiscing consequat. Ut in elit at orci dapibus gravida interdum eget sapien. Sed lobortis, massa nec aliquet aliquet, nulla mi tincidunt quam, id iaculis turpis nibh interdum leo. Curabitur in lorem et risus ultrices pharetra. Mauris adipiscing eros vitae diam sodales et rutrum velit consequat. Fusce adipiscing congue ultrices. Nullam fermentum ullamcorper urna a malesuada. Sed sit amet congue tortor. Nulla accumsan blandit diam sed feugiat. Morbi lobortis fermentum metus, ac pulvinar dui commodo ut.&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div id="footer"&gt;
-            &lt;p&gt;footer here&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/head&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;h1&gt;</span>Footer always in bottom<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet imperdiet justo, quis congue velit egestas quis. Suspendisse ac tellus vitae est ultrices imperdiet eget at dolor. Donec sit amet viverra arcu. Aenean pulvinar vehicula justo, tincidunt congue nisi pharetra eu. Suspendisse potenti. Sed libero quam, lacinia at facilisis eu, egestas sodales dolor. Duis gravida, diam interdum cursus dictum, ligula libero pellentesque lacus, vitae viverra nulla metus id erat. Suspendisse fermentum aliquam hendrerit. Sed vulputate massa ut felis sagittis molestie. Suspendisse facilisis condimentum diam, a hendrerit urna venenatis sit amet. Cras orci diam, aliquam quis fringilla ac, euismod vel orci. Quisque ac pharetra nisi. Quisque et orci ligula. Praesent lacus felis, bibendum ac varius ac, eleifend in nulla. Aliquam sodales porttitor iaculis. Aliquam pretium risus ac neque egestas convallis. Sed dignissim massa ut odio vestibulum gravida ut vel nulla.<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;p&gt;</span>Sed non lacus in nibh lobortis imperdiet. Aliquam auctor tellus quis elit adipiscing consequat. Ut in elit at orci dapibus gravida interdum eget sapien. Sed lobortis, massa nec aliquet aliquet, nulla mi tincidunt quam, id iaculis turpis nibh interdum leo. Curabitur in lorem et risus ultrices pharetra. Mauris adipiscing eros vitae diam sodales et rutrum velit consequat. Fusce adipiscing congue ultrices. Nullam fermentum ullamcorper urna a malesuada. Sed sit amet congue tortor. Nulla accumsan blandit diam sed feugiat. Morbi lobortis fermentum metus, ac pulvinar dui commodo ut.<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;footer&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;p&gt;</span>footer here<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
 
 <p>E o CSS abaixo:</p>
 
-<pre><code>* {
-    padding: 0px;
-    margin: 0px;
-}
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">*</span> <span class="p">{</span>
+</span><span class='line'><span class="k">padding</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'><span class="k">margin</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+</span><span class='line'><span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">#page</span> <span class="p">{</span>
+</span><span class='line'><span class="k">min-height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">#footer</span> <span class="p">{</span>
+</span><span class='line'><span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+</span><span class='line'><span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-html, body {
-    height: 100%;
-}
-
-#page {
-    min-height: 100%;
-    position: relative;
-}
-
-#footer {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-</code></pre>
 
 <p>O <a href="http://dev.rogeriolino.com/exemplos/css/footer_bottom/index.html">exemplo funcionando você confere aqui</a>.</p>
 </div>

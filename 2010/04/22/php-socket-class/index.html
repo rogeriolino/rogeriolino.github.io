@@ -9,9 +9,8 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="**[UPDATE 16-05-2012]**
-Criei um projeto no Github e também adicionei suporte ao Websocket.
-[Clique aqui para ver o post novo](http://rogeriolino. &hellip;">
+  <meta name="description" content="[UPDATE 16-05-2012] Criei um projeto no Github e também adicionei suporte ao Websocket.
+Clique aqui para ver o post novo [/UPDATE] Muitas linguagens &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,288 +102,558 @@ Criei um projeto no Github e também adicionei suporte ao Websocket.
   </header>
 
 
-<div class="entry-content"><blockquote>
-**[UPDATE 16-05-2012]**
-Criei um projeto no Github e também adicionei suporte ao Websocket.
-[Clique aqui para ver o post novo](http://rogeriolino.com/2012/05/16/html5-websocket)
-**[/UPDATE]**
-</blockquote>
+<div class="entry-content"><p><strong>[UPDATE 16-05-2012]</strong></p>
 
+<p>Criei um projeto no Github e também adicionei suporte ao Websocket.
+<a href="http://rogeriolino.com/2012/05/16/html5-websocket">Clique aqui para ver o post novo</a></p>
+
+<p><strong>[/UPDATE]</strong></p>
 
 <p>Muitas linguagens oferecem suporte a <a href="http://en.wikipedia.org/wiki/Internet_socket">Sockets</a>, e com <a href="http://php.net/manual/en/book.sockets.php">PHP</a> não é diferente, porém a falta de orientação a objetos nas funções do PHP pode ser um inconveniente para algumas pessoas. E como eu me incluo entre essas pessoas, quando precisei utilizar sockets em PHP acabei criando um classe para englobar essas funções soltas e fornecer tratamento a erros.</p>
 
-<pre><code>/**
- * Copyright 2010 http://rogeriolino.com
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+<span class='line-number'>237</span>
+<span class='line-number'>238</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Copyright 2010 http://rogeriolino.com</span>
+</span><span class='line'><span class="sd"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span class='line'><span class="sd"> * you may not use this file except in compliance with the License.</span>
+</span><span class='line'><span class="sd"> * You may obtain a copy of the License at</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> *  http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * Unless required by applicable law or agreed to in writing, software</span>
+</span><span class='line'><span class="sd"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span class='line'><span class="sd"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span class='line'><span class="sd"> * See the License for the specific language governing permissions and</span>
+</span><span class='line'><span class="sd"> * limitations under the License.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Socket</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * @author rogeriolino</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Socket</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$port</span>     <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$address</span>  <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$blocking</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$buffer</span>   <span class="o">=</span> <span class="mi">2048</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$backlog</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$type</span>     <span class="o">=</span> <span class="nx">SOCK_STREAM</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$family</span>   <span class="o">=</span> <span class="nx">AF_INET</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$protocol</span> <span class="o">=</span> <span class="nx">SOL_TCP</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$resource</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Socket constructor</span>
+</span><span class='line'><span class="sd">     * @param  $resource</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span>  <span class="nf">__construct</span><span class="p">(</span><span class="nv">$resource</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$resource</span> <span class="o">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span> <span class="o">=</span> <span class="nb">socket_create</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">family</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">protocol</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span> <span class="o">=</span> <span class="nv">$resource</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Returns the socket port</span>
+</span><span class='line'><span class="sd">     * @return int</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getPort</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Define the socket port</span>
+</span><span class='line'><span class="sd">     * @param int $port</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPort</span><span class="p">(</span><span class="nv">$port</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">port</span> <span class="o">=</span> <span class="nv">$port</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @return string</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getAddress</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">address</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setAddress</span><span class="p">(</span><span class="nv">$address</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">address</span> <span class="o">=</span> <span class="nv">$address</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Returns if the socket is blocking mode</span>
+</span><span class='line'><span class="sd">     * @return boolean</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">isBlocking</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blocking</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Defines whether the socket is blocking or nonblocking mode</span>
+</span><span class='line'><span class="sd">     * @param boolean $block</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setBlocking</span><span class="p">(</span><span class="nv">$blocking</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blocking</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$blocking</span> <span class="o">==</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">updateBlockingMode</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Returns the socket communication type</span>
+</span><span class='line'><span class="sd">     * @return int</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getType</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">type</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Define the socket communication type</span>
+</span><span class='line'><span class="sd">     * @param int $type</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setType</span><span class="p">(</span><span class="nv">$type</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$type</span> <span class="o">==</span> <span class="nx">SOCK_STREAM</span> <span class="o">||</span> <span class="nv">$type</span> <span class="o">==</span> <span class="nx">SOCK_DGRAM</span> <span class="o">||</span> <span class="nv">$type</span> <span class="o">==</span> <span class="nx">SOCK_SEQPACKET</span> <span class="o">||</span> <span class="nv">$type</span> <span class="o">==</span> <span class="nx">SOCK_RAW</span> <span class="o">||</span> <span class="nv">$type</span> <span class="o">==</span> <span class="nx">SOCK_RDM</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">type</span> <span class="o">=</span> <span class="nv">$type</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Invalid socket communication type&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Returns the socket protocol family</span>
+</span><span class='line'><span class="sd">     * @return int</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getFamily</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">family</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Define the socket protocol family</span>
+</span><span class='line'><span class="sd">     * @param int $family</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setFamily</span><span class="p">(</span><span class="nv">$family</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$family</span> <span class="o">==</span> <span class="nx">AF_INET</span> <span class="o">||</span> <span class="nv">$family</span> <span class="o">==</span> <span class="nx">AF_INET6</span> <span class="o">||</span> <span class="nv">$family</span> <span class="o">==</span> <span class="nx">AF_UNIX</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">family</span> <span class="o">=</span> <span class="nv">$family</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Invalid socket protocol family&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Returns the socket protocol</span>
+</span><span class='line'><span class="sd">     * @return int</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getProtocol</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">protocol</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Define the socket protocol, must be compatible whit the protocol family</span>
+</span><span class='line'><span class="sd">     * @param int $protocol</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">setProtocol</span><span class="p">(</span><span class="nv">$protocol</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$protocol</span> <span class="o">==</span> <span class="nx">SOL_TCP</span> <span class="o">||</span> <span class="nv">$protocol</span> <span class="o">==</span> <span class="nx">SOL_UDP</span> <span class="o">||</span> <span class="nv">$protocol</span> <span class="o">==</span> <span class="nx">SOL_SOCKET</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">protocol</span> <span class="o">=</span> <span class="nv">$protocol</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Invalid socket protocol&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Binds to a socket</span>
+</span><span class='line'><span class="sd">     * @throws SocketException</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">bind</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">socket_bind</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">address</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Socket bind failed: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Listens for a connection on a socket</span>
+</span><span class='line'><span class="sd">     * @throws SocketException</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">listen</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">socket_listen</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">backlog</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Socket listen failed: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Accepts a connection</span>
+</span><span class='line'><span class="sd">     * @throws SocketException</span>
+</span><span class='line'><span class="sd">     * @return Socket</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$sock</span> <span class="o">=</span> <span class="nb">socket_accept</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$sock</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">SocketException</span><span class="p">(</span><span class="s2">&quot;Socket accept failed: &quot;</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">error</span><span class="p">());</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Socket</span><span class="p">(</span><span class="nv">$sock</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Reads data from the connected socket</span>
+</span><span class='line'><span class="sd">     * @return string</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">read</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$data</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">while</span> <span class="p">((</span><span class="nv">$m</span> <span class="o">=</span> <span class="nb">socket_read</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">buffer</span><span class="p">))</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$data</span> <span class="o">.=</span> <span class="nv">$m</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Write the data to connected socket</span>
+</span><span class='line'><span class="sd">     * @param string $message</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">write</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nb">socket_write</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Initiates a connection on a socket</span>
+</span><span class='line'><span class="sd">     * @throws SocketException</span>
+</span><span class='line'><span class="sd">     * @return boolean</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">connect</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nb">socket_connect</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">address</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">port</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">SocketException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Close the socket connection</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">close</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nb">socket_close</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="k">function</span> <span class="nf">updateBlockingMode</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blocking</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nb">socket_set_block</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nb">socket_set_nonblock</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">private</span> <span class="k">function</span> <span class="nf">error</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">socket_strerror</span><span class="p">(</span><span class="nb">socket_last_error</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-/**
- * Socket
- *
- * @author rogeriolino
- */
-class Socket {
-
-    private $port     = 3000;
-    private $address  = "localhost";
-    private $blocking = true;
-
-    private $buffer   = 2048;
-    private $backlog  = 5;
-
-    private $type     = SOCK_STREAM;
-    private $family   = AF_INET;
-    private $protocol = SOL_TCP;
-
-    private $resource;
-
-    /**
-     * Socket constructor
-     * @param  $resource
-     */
-    public function  __construct($resource = null) {
-        if ($resource == null) {
-            $this-&gt;resource = socket_create($this-&gt;family, $this-&gt;type, $this-&gt;protocol);
-        } else {
-            $this-&gt;resource = $resource;
-        }
-    }
-
-    /**
-     * Returns the socket port
-     * @return int
-     */
-    public function getPort() {
-        return $this-&gt;port;
-    }
-
-    /**
-     * Define the socket port
-     * @param int $port
-     */
-    public function setPort($port) {
-        $this-&gt;port = $port;
-    }
-
-    /**
-     *
-     * @return string
-     */
-    public function getAddress() {
-        return $this-&gt;address;
-    }
-
-    public function setAddress($address) {
-        $this-&gt;address = $address;
-    }
-
-    /**
-     * Returns if the socket is blocking mode
-     * @return boolean
-     */
-    public function isBlocking() {
-        return $this-&gt;blocking;
-    }
-
-    /**
-     * Defines whether the socket is blocking or nonblocking mode
-     * @param boolean $block
-     */
-    public function setBlocking($blocking) {
-        $this-&gt;blocking = ($blocking == true);
-        $this-&gt;updateBlockingMode();
-    }
-
-    /**
-     * Returns the socket communication type
-     * @return int
-     */
-    public function getType() {
-        return $this-&gt;type;
-    }
-
-    /**
-     * Define the socket communication type
-     * @param int $type
-     */
-    public function setType($type) {
-        if ($type == SOCK_STREAM || $type == SOCK_DGRAM || $type == SOCK_SEQPACKET || $type == SOCK_RAW || $type == SOCK_RDM) {
-            $this-&gt;type = $type;
-        } else {
-            throw new SocketException("Invalid socket communication type");
-        }
-    }
-
-    /**
-     * Returns the socket protocol family
-     * @return int
-     */
-    public function getFamily() {
-        return $this-&gt;family;
-    }
-
-    /**
-     * Define the socket protocol family
-     * @param int $family
-     */
-    public function setFamily($family) {
-        if ($family == AF_INET || $family == AF_INET6 || $family == AF_UNIX) {
-            $this-&gt;family = $family;
-        } else {
-            throw new SocketException("Invalid socket protocol family");
-        }
-    }
-
-    /**
-     * Returns the socket protocol
-     * @return int
-     */
-    public function getProtocol() {
-        return $this-&gt;protocol;
-    }
-
-    /**
-     * Define the socket protocol, must be compatible whit the protocol family
-     * @param int $protocol
-     */
-    public function setProtocol($protocol) {
-        if ($protocol == SOL_TCP || $protocol == SOL_UDP || $protocol == SOL_SOCKET) {
-            $this-&gt;protocol = $protocol;
-        } else {
-            throw new SocketException("Invalid socket protocol");
-        }
-    }
-
-    /**
-     * Binds to a socket
-     * @throws SocketException
-     */
-    public function bind() {
-        if (socket_bind($this-&gt;resource, $this-&gt;address, $this-&gt;port) === false) {
-            throw new SocketException("Socket bind failed: " . $this-&gt;error());
-        }
-    }
-
-    /**
-     * Listens for a connection on a socket
-     * @throws SocketException
-     */
-    public function listen() {
-        if (socket_listen($this-&gt;resource, $this-&gt;backlog) === false) {
-            throw new SocketException("Socket listen failed: " . $this-&gt;error());
-        }
-    }
-
-    /**
-     * Accepts a connection
-     * @throws SocketException
-     * @return Socket
-     */
-    public function accept() {
-        $sock = socket_accept($this-&gt;resource);
-        if ($sock === false) {
-            throw new SocketException("Socket accept failed: " . $this-&gt;error());
-        }
-        return new Socket($sock);
-    }
-
-    /**
-     * Reads data from the connected socket
-     * @return string
-     */
-    public function read() {
-        $data = "";
-        while (($m = socket_read($this-&gt;resource, $this-&gt;buffer)) != "") {
-            $data .= $m;
-        }
-        return $data;
-    }
-
-    /**
-     * Write the data to connected socket
-     * @param string $message
-     */
-    public function write($data) {
-        socket_write($this-&gt;resource, $data, strlen($data));
-    }
-
-    /**
-     * Initiates a connection on a socket
-     * @throws SocketException
-     * @return boolean
-     */
-    public function connect() {
-        try {
-            return socket_connect($this-&gt;resource, $this-&gt;address, $this-&gt;port);
-        } catch (SocketException $e) {
-            return false;
-        }
-    }
-
-    /**
-     * Close the socket connection
-     */
-    public function close() {
-        socket_close($this-&gt;resource);
-    }
-
-    private function updateBlockingMode() {
-        if ($this-&gt;blocking) {
-            socket_set_block($this-&gt;resource);
-        } else {
-            socket_set_nonblock($this-&gt;resource);
-        }
-    }
-
-    private function error() {
-        return socket_strerror(socket_last_error($this-&gt;resource));
-    }
-
-}
-</code></pre>
 
 <p>Classe para as exceções:</p>
 
-<pre><code>/**
- * Copyright 2010 http://rogeriolino.com
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * Copyright 2010 http://rogeriolino.com</span>
+</span><span class='line'><span class="sd"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span class='line'><span class="sd"> * you may not use this file except in compliance with the License.</span>
+</span><span class='line'><span class="sd"> * You may obtain a copy of the License at</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> *  http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * Unless required by applicable law or agreed to in writing, software</span>
+</span><span class='line'><span class="sd"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span class='line'><span class="sd"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span class='line'><span class="sd"> * See the License for the specific language governing permissions and</span>
+</span><span class='line'><span class="sd"> * limitations under the License.</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="sd">/**</span>
+</span><span class='line'><span class="sd"> * SocketException</span>
+</span><span class='line'><span class="sd"> *</span>
+</span><span class='line'><span class="sd"> * @author rogeriolino</span>
+</span><span class='line'><span class="sd"> */</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">SocketException</span> <span class="k">extends</span> <span class="nx">Exception</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span>  <span class="nf">__construct</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="nv">$code</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$previous</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">=</span> <span class="nv">$message</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">=</span> <span class="nv">$code</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">message</span> <span class="o">=</span> <span class="nv">$previous</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-/**
- * SocketException
- *
- * @author rogeriolino
- */
-class SocketException extends Exception {
 
-    public function  __construct($message, $code = 0, $previous = null) {
-        $this-&gt;message = $message;
-        $this-&gt;code = $code;
-        $this-&gt;message = $previous;
-    }
-
-}
-</code></pre>
+<p></p>
 
 <p>Espero que seja de bom aproveito.</p>
 </div>
