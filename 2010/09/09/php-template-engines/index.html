@@ -411,7 +411,6 @@
 
 O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido ("compilando" suas páginas para arquivos PHP).
 
-
     
 ``` html
     <ul>
@@ -449,15 +448,12 @@ Com esta engine saímos de um problema e entramos em outro, é necessário apren
 ```
 
 
-
-
 ``` php
 $tmpl = new vlibTemplate('tmpl/basic.htm');
 $tmpl->setvar('title_text', 'TITLE: This is the vLIB basic example ...');
 $tmpl->setvar('body_text', 'BODY: This is the message set using setvar()');
 $tmpl->pparse();
 ``` 
-
 
  
 [FXL Template](http://www.feverxl.org/template/)
@@ -495,20 +491,19 @@ $fxlt->display();
 ```
 
 
-
 [Vemplator](http://www.greaterscope.net/projects/Vemplator)
 
 Mais do mesmo, mas com alterações de sintaxe.
 
 ``` html    
-    <h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
-    <ul>
-        {foreach:rows,row}
-            <li>
-            {row['name']} 
-            </li>
-        {end:} 
-    </ul>
+<h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
+<ul>
+    {foreach:rows,row}
+        <li>
+        {row['name']} 
+        </li>
+    {end:} 
+</ul>
 ```
 
 
@@ -534,9 +529,9 @@ Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um pa
 
 
 ``` html    
-    <table>
-        <tr><td>[blk.val;block=tr]</td></tr>
-    </table>
+<table>
+    <tr><td>[blk.val;block=tr]</td></tr>
+</table>
 ```
 
 
@@ -572,9 +567,6 @@ Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php
 </html>
 ```
     
-
-
-
 ``` html 
 {extends "base.html"}
 
@@ -598,7 +590,6 @@ $params = array();
 $params['images'] = $images;
 echo $dwoo->get("gallery.tpl", $params);
 ``` 
-
 
 
 [h2o](http://www.h2o-template.org/)

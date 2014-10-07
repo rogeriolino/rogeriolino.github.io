@@ -4,7 +4,7 @@
   <title><![CDATA[Category: links | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/links/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T17:26:37-03:00</updated>
+  <updated>2014-10-07T17:37:41-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -18,46 +18,22 @@
     <link href="http://rogeriolino.com/2011/12/05/quickpost-javascript-resource-loader/"/>
     <updated>2011-12-05T17:55:32-02:00</updated>
     <id>http://rogeriolino.com/2011/12/05/quickpost-javascript-resource-loader</id>
-    <content type="html"><![CDATA[<blockquote>[yepnope](http://yepnopejs.com/) is an asynchronous conditional resource loader that's super-fast, and allows you to load only the scripts that your users need.
+    <content type="html"><![CDATA[<p><a href="http://yepnopejs.com/">yepnope</a> is an asynchronous conditional resource loader that&rsquo;s super-fast, and allows you to load only the scripts that your users need.</p>
 
-**Good Things**
+<p><strong>Good Things</strong></p>
 
-> 
-> 
-
->   * yepnope.js is only 1.6kb - smaller than most and certainly a good size for its functionality set.
-> 
-
->   * yepnope.js is called a "resource loader" because it can work with both JavaScript and CSS.
-> 
-
->   * yepnope.js has a full test suite in QUnit that you can run in your set of supported browsers to make sure it works. (We run it via TestSwarm in every browser we can get our hands on)
-> 
-
->   * yepnope.js fully decouples preloading from execution. This means that you have ultimate control of when your resource is executed and you can change that order on the fly.
-> 
-
->   * The yepnope.js api is friendly and encourages logical grouping of resources.
-> 
-
->   * yepnope.js is modular. It has a whole system for adding your own functionality and a couple examples of how you might do that. (Prefixes and filters).
-> 
-
->   * The yepnope.js api encourages you to only load the resources that you need. This means that even when it's slower than another script loader, it still can come out on top, because you could avoid an entire resource.
-> 
-
->   * yepnope.js is integrated into [Modernizr](http://www.modernizr.com/).
-> 
-
->   * yepnope.js always executes things in the order they are listed. This is a pro for some, and a con for others. We think it's a friendly default.
-> 
-
->   * yepnope.js has the capability to do resource fallbacks and still download dependent scripts in parallel with the first.
-> 
-
-</blockquote>
-
-
+<ul>
+<li><p>yepnope.js is only 1.6kb &ndash; smaller than most and certainly a good size for its functionality set.</p></li>
+<li><p>yepnope.js is called a &ldquo;resource loader&rdquo; because it can work with both JavaScript and CSS.</p></li>
+<li><p>yepnope.js has a full test suite in QUnit that you can run in your set of supported browsers to make sure it works. (We run it via TestSwarm in every browser we can get our hands on)</p></li>
+<li><p>yepnope.js fully decouples preloading from execution. This means that you have ultimate control of when your resource is executed and you can change that order on the fly.</p></li>
+<li><p>The yepnope.js api is friendly and encourages logical grouping of resources.</p></li>
+<li><p>yepnope.js is modular. It has a whole system for adding your own functionality and a couple examples of how you might do that. (Prefixes and filters).</p></li>
+<li><p>The yepnope.js api encourages you to only load the resources that you need. This means that even when it&rsquo;s slower than another script loader, it still can come out on top, because you could avoid an entire resource.</p></li>
+<li><p>yepnope.js is integrated into <a href="http://www.modernizr.com/">Modernizr</a>.</p></li>
+<li><p>yepnope.js always executes things in the order they are listed. This is a pro for some, and a con for others. We think it&rsquo;s a friendly default.</p></li>
+<li><p>yepnope.js has the capability to do resource fallbacks and still download dependent scripts in parallel with the first.</p></li>
+</ul>
 
 ]]></content>
   </entry>
