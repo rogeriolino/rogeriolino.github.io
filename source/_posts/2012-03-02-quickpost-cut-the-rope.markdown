@@ -24,7 +24,7 @@ tags:
 ---
 
 [
-![](http://rogeriolino.com/wp-content/uploads/2012/03/cuttherope.png)
+![](http://rogeriolino.com/uploads/2012/03/cuttherope.png)
 ](http://www.cuttherope.ie/)
 
 **HTML5 version**

@@ -29,7 +29,7 @@ tags:
 - search
 ---
 
-[![](http://rogeriolino.com/wp-content/uploads/2011/12/dochub.png)](http://dochub.io/)
+[![](http://rogeriolino.com/uploads/2011/12/dochub.png)](http://dochub.io/)
 
 [dochub](http://dochub.io/) concentra de maneira fácil e rápida as documentações de CSS, HTML, Javascript e DOM. No qual tem o seu conteúdo retirado da [Mozilla Developer Network](https://developer.mozilla.org/en-US/).
 

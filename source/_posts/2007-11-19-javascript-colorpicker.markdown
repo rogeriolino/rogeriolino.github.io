@@ -21,7 +21,7 @@ tags:
 - XHTML
 ---
 
-![colorpicker.jpg](http://rogeriolino.com/wp-content/uploads/2007/11/colorpicker.jpg)
+![colorpicker.jpg](http://rogeriolino.com/uploads/2007/11/colorpicker.jpg)
 
 Para quem não conhece, **colorpicker **é um **seletor de cores**. Ou seja uma "janela" com **n cores predefinidas**.
 

@@ -39,7 +39,7 @@ tags:
 - whois
 ---
 
-[![](http://rogeriolino.com/wp-content/uploads/2012/08/dev-tools.png)](http://dev.rogeriolino.com/tools/crypt)
+[![](http://rogeriolino.com/uploads/2012/08/dev-tools.png)](http://dev.rogeriolino.com/tools/crypt)
 
 Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para auxiliar durante o desenvolvimento. Segue abaixo as funcionalidades que estão disponíveis por enquanto:
 

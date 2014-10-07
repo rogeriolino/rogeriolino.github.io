@@ -27,7 +27,7 @@ tags:
 - url
 ---
 
-[![](http://rogeriolino.com/wp-content/uploads/2010/03/asual-swfaddress.jpg)](http://www.asual.com/swfaddress)
+[![](http://rogeriolino.com/uploads/2010/03/asual-swfaddress.jpg)](http://www.asual.com/swfaddress)
 
 
 <blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:

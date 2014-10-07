@@ -24,7 +24,7 @@ Após inscrever meu aplicativo [Futeria](https://play.google.com/store/apps/deta
 
 <!-- more -->
 
-[caption id="attachment_804" align="aligncenter" width="600"]![Developer preview Firefox OS](http://rogeriolino.com/wp-content/uploads/2013/10/firefoxos.jpg) Developer preview Firefox OS[/caption]
+[caption id="attachment_804" align="aligncenter" width="600"]![Developer preview Firefox OS](http://rogeriolino.com/uploads/2013/10/firefoxos.jpg) Developer preview Firefox OS[/caption]
 
 **[update 2013-10-09]**
 

@@ -51,6 +51,6 @@ Outros pontos ruins nessa versão do Youtube são a nítida perda de qualidade e
 
 Mas nem tudo está perdido para os players feitos em HTML5, um grupo de desenvolvedores e designers denominado [Jilion](http://jilion.com/) desenvolveu um excelente player (bonito e funcional) chamado [SublimeVideo](http://jilion.com/sublime/video). Suportando todos os browsers listados na página do Youtube/Vimeo incluindo o Firefox.
 
-[caption id="attachment_184" align="aligncenter" width="604" caption="SublimeVideo - HTML5 Video Player"][![SublimeVideo](http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg)](http://rogeriolino.com/wp-content/uploads/2010/02/sublimevideo.jpg)[/caption]
+[caption id="attachment_184" align="aligncenter" width="604" caption="SublimeVideo - HTML5 Video Player"][![SublimeVideo](http://rogeriolino.com/uploads/2010/02/sublimevideo.jpg)](http://rogeriolino.com/uploads/2010/02/sublimevideo.jpg)[/caption]
 
 Mais sobre [HTML5 video e codecs](http://shaver.off.net/diary/2010/01/23/html5-video-and-codecs/).

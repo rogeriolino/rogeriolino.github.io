@@ -29,7 +29,7 @@ tags:
 - times
 ---
 
-[![](http://rogeriolino.com/wp-content/uploads/2012/08/futeria-android.png)](https://play.google.com/store/apps/details?id=net.futeria.app)
+[![](http://rogeriolino.com/uploads/2012/08/futeria-android.png)](https://play.google.com/store/apps/details?id=net.futeria.app)
 
 Há alguns dias publiquei uma app no [Google Play](https://play.google.com): **Futeria**, versão móvel do site [Futeria.net](http://futeria.net), agregador de notícias dos principais clubes de futebol do Brasil.
 

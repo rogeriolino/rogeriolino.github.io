@@ -28,7 +28,7 @@ tags:
 - web
 ---
 
-[![novosga](http://rogeriolino.com/wp-content/uploads/2013/02/novosga.png)](http://novosga.org)
+[![novosga](http://rogeriolino.com/uploads/2013/02/novosga.png)](http://novosga.org)
 
 
 

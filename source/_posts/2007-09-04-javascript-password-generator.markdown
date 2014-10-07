@@ -61,7 +61,7 @@ E para converter o valor no tão "pelejado"  caracter utilizamos a função pró
 Enfim o script é capaz de gerar senhas de tamanho 0 até 9999 (restringido devido que senhas muito grandes são mais demoradas para serem geradas, e pode levar a travamento do browser) contendo letras minúsculas (a até z), letras maiúsculas (A até Z), números (0 até 9) e "@" (arroba).
 
 
-[![Password Generator](http://rogeriolino.com/wp-content/uploads/2007/09/password_generator.jpg)](http://dev.rogeriolino.com/exemplos/javascript/gerador_senhas/index.html)
+[![Password Generator](http://rogeriolino.com/uploads/2007/09/password_generator.jpg)](http://dev.rogeriolino.com/exemplos/javascript/gerador_senhas/index.html)
 
 
 Espero que seja de bom aproveito.

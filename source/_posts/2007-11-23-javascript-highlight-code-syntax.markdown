@@ -21,7 +21,7 @@ tags:
 - syntax
 ---
 
-![jscc.jpg](http://rogeriolino.com/wp-content/uploads/2007/11/jscc1.jpg)
+![jscc.jpg](http://rogeriolino.com/uploads/2007/11/jscc1.jpg)
 
 
 

@@ -20,7 +20,7 @@ tags:
 ---
 
 [
-    ![](http://rogeriolino.com/wp-content/uploads/2012/01/vscroller.png)
+    ![](http://rogeriolino.com/uploads/2012/01/vscroller.png)
 ](https://github.com/rogeriolino/vscroller/)
 
 Hoje criei um novo projeto no Github, para um plugin para jQuery (1.7+) que desenvolvi (estou e estarei desenvolvendo). Trata-se um scroller vertical que pode ser aplicado a qualquer tag block.

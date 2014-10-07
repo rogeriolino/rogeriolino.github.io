@@ -167,4 +167,4 @@ Depois acesse o arquivo criado via browser: http://nome_servidor/info.php
 
 Confira a **versão do PHP descrita no cabeçalho** e se o valor do **Server API** está como **FPM/FastCGI**.
 
-![](http://rogeriolino.com/wp-content/uploads/2012/11/phpinfo.png)
+![](http://rogeriolino.com/uploads/2012/11/phpinfo.png)

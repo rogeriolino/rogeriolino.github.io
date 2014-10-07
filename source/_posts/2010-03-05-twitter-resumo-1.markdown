@@ -28,7 +28,7 @@ tags:
 - ubuntu
 ---
 
-[![](http://rogeriolino.com/wp-content/uploads/2010/03/Twitter.gif)](http://twitter.com/rogeriolino)
+[![](http://rogeriolino.com/uploads/2010/03/Twitter.gif)](http://twitter.com/rogeriolino)
 
 
 

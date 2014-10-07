@@ -33,7 +33,7 @@ tags:
 - wow
 ---
 
-[![Twitter](http://rogeriolino.com/wp-content/uploads/2010/03/Twitter.gif)](http://twitter.com/rogeriolino)
+[![Twitter](http://rogeriolino.com/uploads/2010/03/Twitter.gif)](http://twitter.com/rogeriolino)
 
 
 

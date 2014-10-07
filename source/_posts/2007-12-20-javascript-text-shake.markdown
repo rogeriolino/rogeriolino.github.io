@@ -22,7 +22,7 @@ tags:
 - twister
 ---
 
-![shake.jpg](http://rogeriolino.com/wp-content/uploads/2007/12/shake.jpg)
+![shake.jpg](http://rogeriolino.com/uploads/2007/12/shake.jpg)
 
 
 Mais um exemplo em Javascript, agora uma função, creio que conhecida por muitos já, que tem a finalidade de embaralhar o texto contido em uma tag qualquer (embaralhar o texto após passar o mouse por cima).

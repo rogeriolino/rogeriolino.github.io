@@ -33,7 +33,7 @@ tags:
 Normalmente visualizamos o problema como um grafo e nas arestas distribuimos valores que medem o custo entre um nó e outro. E para saber qual o melhor caminho (de menor custo) utilizamos de algum algoritmo de [caminho mínimo](http://pt.wikipedia.org/wiki/Problema_do_caminho_m%C3%ADnimo). Dentre os algoritmos existentes, os mais famosos são: [A*](http://pt.wikipedia.org/wiki/Algoritmo_A*) (A Estrela), [Algoritmo de Dijkstra](http://pt.wikipedia.org/wiki/Algoritmo_de_Dijkstra), [Branch-and-Bound](http://en.wikipedia.org/wiki/Branch_and_bound) e [etc](http://en.wikipedia.org/wiki/Category:Search_algorithms).
 
 
-[![](http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif)](http://rogeriolino.com/wp-content/uploads/2010/02/AstarExample.gif)
+[![](http://rogeriolino.com/uploads/2010/02/AstarExample.gif)](http://rogeriolino.com/uploads/2010/02/AstarExample.gif)
 
 
 Não vou analisar a efeciência do algoritmo utilizado, já que o objetivo é mostrar o problema ao utilizar grafos e uma possível solução (já aplicada em vários jogos).
@@ -48,15 +48,15 @@ Esse grafo delimitando a trajetória que pode ser percorrida pelo cenário é de
 
 Uma forma de evitar esse problema é utilizando polígonos para delimitar aonde os personagens podem andar. Venha as imagens abaixo:
 
-[caption id="attachment_171" align="alignnone" width="399" caption="Cenário marcado com waypoints"][![Cenário marcado com waypoints](http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg)](http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind_waypoints.jpg)[/caption]
+[caption id="attachment_171" align="alignnone" width="399" caption="Cenário marcado com waypoints"][![Cenário marcado com waypoints](http://rogeriolino.com/uploads/2010/02/Stormwind_waypoints.jpg)](http://rogeriolino.com/uploads/2010/02/Stormwind_waypoints.jpg)[/caption]
 
-[caption id="attachment_172" align="alignnone" width="399" caption="Cenário marcado com Navegation Mesh"][![Cenário marcado com Navegation Mesh](http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg)](http://rogeriolino.com/wp-content/uploads/2010/02/Stormwind-NavMesh.jpg)[/caption]
+[caption id="attachment_172" align="alignnone" width="399" caption="Cenário marcado com Navegation Mesh"][![Cenário marcado com Navegation Mesh](http://rogeriolino.com/uploads/2010/02/Stormwind-NavMesh.jpg)](http://rogeriolino.com/uploads/2010/02/Stormwind-NavMesh.jpg)[/caption]
 
 O [Navegation Mesh](http://en.wikipedia.org/wiki/Navigation_mesh) nada mais é que um grafo aonde cada nó é representado por um polígono, e ao invés de buscar por um ponto no cenário que se pode andar, verifica se o ponto do jogador está contido no polígono. Levando em consideração que os mesmos algoritmos utilizados com os waypoints podem ser utilizados para o navegation mesh efetuando pequenas modificações. Obviamente dessa forma será um pouco mais custosa ([custo do algoritmo](http://www.google.com.br/search?q=custo+algoritmo&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:pt-BR:official&client=firefox-a)), em contrapartida, pode conseguir economizar uma quantidade enorme de waypoints.
 
-[caption id="attachment_176" align="alignnone" width="538" caption="Waypoints: Saindo do ponto A para o ponto B"][![Waypoints: Saindo do ponto A para o ponto B](http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg)](http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_waypoints2_AB.jpg)[/caption]
+[caption id="attachment_176" align="alignnone" width="538" caption="Waypoints: Saindo do ponto A para o ponto B"][![Waypoints: Saindo do ponto A para o ponto B](http://rogeriolino.com/uploads/2010/02/Halaa_waypoints2_AB.jpg)](http://rogeriolino.com/uploads/2010/02/Halaa_waypoints2_AB.jpg)[/caption]
 
-[caption id="attachment_175" align="alignnone" width="538" caption="NavMesh: Saindo do ponto A para o ponto B"][![NavMesh: Saindo do ponto A para o ponto B](http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg)](http://rogeriolino.com/wp-content/uploads/2010/02/Halaa_navmesh2_AB.jpg)[/caption]
+[caption id="attachment_175" align="alignnone" width="538" caption="NavMesh: Saindo do ponto A para o ponto B"][![NavMesh: Saindo do ponto A para o ponto B](http://rogeriolino.com/uploads/2010/02/Halaa_navmesh2_AB.jpg)](http://rogeriolino.com/uploads/2010/02/Halaa_navmesh2_AB.jpg)[/caption]
 
 Também nem sempre essa solução será a melhor para todos os tipos de jogos, é preciso antes de qualquer coisa, analisar com calma quais são as necessidades para não ter que utilizar um canhão para matar uma mosca.
 

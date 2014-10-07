@@ -17,7 +17,7 @@ tags:
 - XHTML
 ---
 
-![](http://rogeriolino.com/wp-content/uploads/2007/10/datagrid.jpg)
+![](http://rogeriolino.com/uploads/2007/10/datagrid.jpg)
 
 Há algum tempo queria fazer algo parecido e então tirei um tempo para desenvolver, ou pelo menos tentar, uma espécie de data grid.
 
