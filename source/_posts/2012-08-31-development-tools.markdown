@@ -69,16 +69,15 @@ Iniciei e publiquei um pequeno projeto que reune algumas funcionalidades para au
 Como toda a execução é feita no lado do servidor, você pode fazer uma execução ajax do seu site/aplicação para o dev-tools e pegar no response o resultado, sem que haja necessidade de importar novos recursos:
 
 
-
-<blockquote>GET
+```
+GET
 >     /ajax/<package>/<method>/?<params>
 >     /ajax/crypt/sha1?data=test
 >     
 >     JSON RESPONSE
 >     {"success":true,"data":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"}
 >     
-> 
-> </blockquote>
+``` 
 
 
 

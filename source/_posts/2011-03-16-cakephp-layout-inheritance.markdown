@@ -25,42 +25,33 @@ Para quem está utilizando o CakePHP ou já utilizou e também sentiu falta de h
 
 
     
-    
-    &lt;?php
+``` html
+<?php
     // sublayout.ctp
-    
     ob_start();
-    
-    ?&gt;
-     <!-- html content -->
-     &lt;?php eco $content_for_layout; ?&gt;
-     <!-- html content -->
-    &lt;?php
-    
+?>
+<!-- html content -->
+<?php eco $content_for_layout; ?>
+<!-- html content -->
+<?php
+
     $content = ob_get_contents();
     ob_end_clean();
     
     echo $this->renderLayout(
-            $content, 
-            'default' // parent layout
+        $content, 
+        'default' // parent layout
     );
-    
+```
 
+``` php
+<?php
+// controller class
+class MyController extends AppController {
 
-
-
-    
-    
-    &lt;?php
-    // controller class
-    class MyController extends AppController {
-    
-        function test() {
-            $this->layout = 'sublayout';
-        }
-    
+    function test() {
+        $this->layout = 'sublayout';
     }
-    
 
-
-
+}
+```

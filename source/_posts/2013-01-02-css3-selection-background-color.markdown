@@ -37,35 +37,32 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 **CSS**
 
+    
+``` css
+p::selection  { color: #000; }
+p::-moz-selection { color: #000; }
 
-    
-    
-    p::selection  { color: #000; }
-    p::-moz-selection { color: #000; }
-    
-    p.yellow::selection  { background: yellow; }
-    p.yellow::-moz-selection { background: yellow; }
-    
-    p.green::selection { background: #58FF4B; }
-    p.green::-moz-selection { background: #58FF4B; }
-    
-    p.pink::selection { background: #E2189C; }
-    p.pink::-moz-selection { background: #E2189C; }
-    
+p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }
+
+p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }
+
+p.pink::selection { background: #E2189C; }
+p.pink::-moz-selection { background: #E2189C; }
+```
 
 
 
 **HTML**
+    
+``` html    
+<p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 
-    
-    
-    <p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    
-    <p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...</p>
-    
-    <p class="pink">Donec interdum placerat urna at aliquet...</p>
-    
+<p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...</p>
 
+<p class="pink">Donec interdum placerat urna at aliquet...</p>
+```
 
 
 **Exemplo**

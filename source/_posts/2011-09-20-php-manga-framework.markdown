@@ -45,26 +45,18 @@ A intenção não é desenvolver um framework revolucionário, e sim adaptar as 
 
 **Ruby**
 
-
-
-    
+   
   * [RoR](http://rubyonrails.org/)
-
 
 
 **Java**
 
-
-
     
   * [JSF2](http://javaserverfaces.java.net/)
-
     
   * [Spring 3](http://www.springsource.org/)
-
     
   * [VRaptor](http://vraptor.caelum.com.br/)
-
     
   * [Play Framework](www.playframework.org)
 
@@ -72,16 +64,10 @@ A intenção não é desenvolver um framework revolucionário, e sim adaptar as 
 
 **PHP**
 
-
-
     
   * [Lithium](http://lithify.me/)
-
     
   * [Symfony](http://symfony.com/)
-
     
   * [Yii](http://www.yiiframework.com/)
-
-
 

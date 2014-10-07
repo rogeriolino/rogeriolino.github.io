@@ -32,55 +32,45 @@ Depois de feito isso é hora de estruturar o "esqueleto" da página no XHTML. Ne
 **XHTML:**
 
 
-<blockquote>_ <!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”
-“http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
-<html xmlns=”http://www.w3.org/1999/xhtml” xml:lang=”pt” lang=”pt”>
-<head>
-<title> Título </title>
-<meta name=”Generator” content=”" />
-<meta name=”Author” content=”" />
-<meta name=”Keywords” content=”" />
-<meta name=”Description” content=”" />
-<meta name=”language” content=”pt-br” />
-<!– Favicon –>
-<link rel=”shortcut icon” href=”favicon.ico” />
-<!– Style –>
-<link rel=”stylesheet” href=”style.css” type=”text/css”/>_
-_</head>
-<body>
-_ _<div id="geral">
-_ _    <div id="topo>_
-
-<h2>Título da Página</h2>
-
-_</div>
-_ _    <div id="meio">
-_ _        <div id="esquerda">_
-
-<ul>
-
-<li><a href="#" alt="Página Inicial">Home</a></li>
-
-<li><a href="#" alt="Quem Sou">Sobre</a></li>
-
-<li><a href="#" alt="Contato">Contato</a></li>
-
-</ul>
-
-_</div>
-_ _        <div id="direita">_
-
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum nulla. Mauris sollicitudin ante sed orci. Vivamus vitae sapien id felis lobortis aliquam. Suspendisse potenti. Integer pellentesque. Nulla vehicula, nisl a lacinia egestas, justo dolor semper justo, sed faucibus nibh orci eu magna. Curabitur vel nisi vulputate est vehicula rhoncus. Curabitur est ligula, vehicula ornare, suscipit vitae, ornare varius, justo. Suspendisse lacus. Sed pulvinar vehicula lectus. Curabitur quis augue. Nullam gravida tortor at felis. Aliquam neque massa, scelerisque at, auctor lobortis, placerat ut, erat. Fusce adipiscing. Phasellus imperdiet blandit quam. Maecenas posuere.</p>
-_</div>
-_ _    </div>
-_ _    <div id="rodape">_
-
-<h3>Minha Página - 2006</h3>
-
-_ _ _    </div>
-_ _</div>
-_ _</body>
-</html>_</blockquote>
+``` html
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN" “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+    <head>
+        <title> Título </title>
+        <meta name="Generator" content="" />
+        <meta name="Author" content="" />
+        <meta name="Keywords" content="" />
+        <meta name="Description" content="" />
+        <meta name="language" content="pt-br" />
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico" />
+        <!-- Style -->
+        <link rel="stylesheet" href="style.css" type="text/css"/>_
+    </head>
+    <body>
+        <div id="geral">
+            <div id="topo">
+                <h2>Título da Página</h2>
+            </div>
+            <div id="meio">
+                <div id="esquerda">
+                    <ul>
+                        <li><a href="#" alt="Página Inicial">Home</a></li>
+                        <li><a href="#" alt="Quem Sou">Sobre</a></li>
+                        <li><a href="#" alt="Contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div id="direita">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum nulla. Mauris sollicitudin ante sed orci. Vivamus vitae sapien id felis lobortis aliquam. Suspendisse potenti. Integer pellentesque. Nulla vehicula, nisl a lacinia egestas, justo dolor semper justo, sed faucibus nibh orci eu magna. Curabitur vel nisi vulputate est vehicula rhoncus. Curabitur est ligula, vehicula ornare, suscipit vitae, ornare varius, justo. Suspendisse lacus. Sed pulvinar vehicula lectus. Curabitur quis augue. Nullam gravida tortor at felis. Aliquam neque massa, scelerisque at, auctor lobortis, placerat ut, erat. Fusce adipiscing. Phasellus imperdiet blandit quam. Maecenas posuere.</p>
+                </div>
+            </div>
+            <div id="rodape">
+                <h3>Minha Página - 2006</h3>
+            </div>
+        </div>
+    </body>
+</html>
+```
 
 
 Foram colocadas seis camadas, **DIVs**, uma chamada **geral** que engloba todo o site para ter um maior controle, a **topo** - aonde vem a imagem de topo e título da página -, a **meio** que dentro tem duas, **esquerda** - menu - e **direita** - conteúdo - e **rodapé **- aonde tem os créditos -.
@@ -98,54 +88,46 @@ E por fim um crédito no rodapé dentro de ourta tag **hn**.
 Agora é a vez do estilo. Como no XHTML o link do CSS está apontando para um arquivo chamado **style.css**, salve-o com esse nome. Caso deseje colocar outro, mude na página o destino.
 
 
-<blockquote>
+``` css
+#geral {
+	width: 726px;
+}
 
->     
->     <strong>#geral </strong>{
->     	width: 726px;
->     }
->     <strong>
->     #topo</strong> {
->     	width: 720px;
->     	height: 100px;
->     	border: 3px solid #999999;
->     	background: #FFFFFF;
->     }
->     
->     <strong>#meio</strong> {
->     	width: 720px;
->     	border: 3px solid #999999;
->     	background: #FFFFFF;
->     }
->     
->     <strong>#esquerda</strong>, <strong>#direita</strong> {
->     	padding: 15px;
->     }
->     
->     <strong>#esquerda </strong>{
->     	width: 150px;
->     	float: left;
->     }
->     
->     <strong>#direita </strong>{
->     	width: 490px;
->     	float: right;
->     }
->     
->     <strong>#rodape</strong> {
->     	width: 720px;
->     	height: 50px;
->     	border: 3px solid #999999;
->     	background: #FFFFFF;
->     	clear: both;
->     }
-> 
-> 
+#topo {
+	width: 720px;
+	height: 100px;
+	border: 3px solid #999999;
+	background: #FFFFFF;
+}
 
-> 
-> 
-</blockquote>
+#meio {
+	width: 720px;
+	border: 3px solid #999999;
+	background: #FFFFFF;
+}
 
+#esquerda, #direita {
+	padding: 15px;
+}
+
+#esquerda {
+	width: 150px;
+	float: left;
+}
+
+#direita {
+	width: 490px;
+	float: right;
+}
+
+#rodape {
+	width: 720px;
+	height: 50px;
+	border: 3px solid #999999;
+	background: #FFFFFF;
+	clear: both;
+}
+```
 
 Neste caso a página vai ter 720 pixeis de largura e as camadas uma borda de 3 pixeis, totalizando 726px (720+3+3) de largura para a camada geral. Então as camadas topo, meio e rodape terão 720px de largura.
 

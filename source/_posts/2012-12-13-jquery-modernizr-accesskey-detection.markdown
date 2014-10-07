@@ -33,67 +33,58 @@ Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz u
 **Dependências**
 
 
-    
-    
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    <script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"></script>
-    
-
-
+``` html
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"></script>
+```
 
 **CSS**
 
 
-    
-    
-    *[accesskey]:after {
-        margin-left: 0.3em;
-        color: #ccc;
-        content: "[Alt + " attr(accesskey) "]";
-    }
-    
-    body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
-    body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
-    body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
-    
-    
+``` css
+*[accesskey]:after {
+    margin-left: 0.3em;
+    color: #ccc;
+    content: "[Alt + " attr(accesskey) "]";
+}
 
+body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
+body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
+body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
+``` 
 
 
 **Javascript**
 
 
-    
-    
-    /**
-     * Add browser and OS name to body class, and append the shortcut to element title
-     * @author rogeriolino
-     */
-    (function($) {
-        $(document).ready(function() {
-            Modernizr.Detectizr.detect({detectScreen:false});
-            var body = $('body')
-            body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
-            $('*[accesskey]').each(function(i, e) {
-                var elem = $(e);
-                prefix = 'Alt';
-                if (body.hasClass('firefox')) {
-                    if (body.hasClass('mac')) {
-                        prefix = 'Ctrl + Opt';
-                    } else {
-                        prefix = 'Alt + Shift';
-                    }
-                } else if (body.hasClass('safari mac')) {
-                    prefix = 'Ctrl';
+``` js
+/**
+ * Add browser and OS name to body class, and append the shortcut to element title
+ * @author rogeriolino
+ */
+(function($) {
+    $(document).ready(function() {
+        Modernizr.Detectizr.detect({detectScreen:false});
+        var body = $('body')
+        body.addClass(Modernizr.Detectizr.device.browser + ' ' + Modernizr.Detectizr.device.os);
+        $('*[accesskey]').each(function(i, e) {
+            var elem = $(e);
+            prefix = 'Alt';
+            if (body.hasClass('firefox')) {
+                if (body.hasClass('mac')) {
+                    prefix = 'Ctrl + Opt';
+                } else {
+                    prefix = 'Alt + Shift';
                 }
-                elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
-            });
+            } else if (body.hasClass('safari mac')) {
+                prefix = 'Ctrl';
+            }
+            elem.prop('title', elem.prop('title') + ' [' + prefix + ' + ' + elem.attr('accesskey') + ']');
         });
-    })($);
-    
-    
-
+    });
+})(jQuery);
+```
 
 
 **Demo**

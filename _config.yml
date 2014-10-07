@@ -8,6 +8,7 @@ subtitle: Web development and tips
 author: Rogério Lino
 simple_search: https://www.google.com/search
 description: Web development and tips
+encoding: utf-8
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

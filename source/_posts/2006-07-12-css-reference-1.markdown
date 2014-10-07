@@ -18,16 +18,10 @@ tags:
 
 Primeira referência de CSS vai ser sobre:
 
-**Background & Border**
+## Background & Border
 
 
-<blockquote>
-
-> 
-> 
-	
->   * **Background **
-> 
+### Background
 
 **background-color:** define a cor de fundo (ex: hexa/rgb/nome/transparent);
 
@@ -41,11 +35,9 @@ Primeira referência de CSS vai ser sobre:
 
 **background:** forma resumida de utilizar tudo, mas não é necessário declarar tudo. Qual não for declarado assumirá o valor padrão. (ex: #FF00FF url(fundo.gif) no-repeat);
 
-> 
-> 
-	
->   * **Border**
-> 
+
+### Border
+
 
 **border-width:** largura da borda. (ex: thin/medium/thick/valor);
 
@@ -57,11 +49,11 @@ Primeira referência de CSS vai ser sobre:
 
 **border-top:** definido do mesmo modo que o border porém só para cima.
 
-**border-right:**  borda da direita (ex: _2px dotted yellow);_
+**border-right:**  borda da direita (ex: _2px dotted yellow_);
 
 **border-bottom:** borda de baixo;
 
-border-left: borda da esquerda;</blockquote>
+**border-left:** borda da esquerda;
 
 
 Por enquanto é só isso, adiante veremos mais.

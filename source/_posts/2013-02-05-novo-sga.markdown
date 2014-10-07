@@ -39,8 +39,6 @@ Devido ao desenvolvimento do SGA Livre estar estagnado na mesma versão desde 20
 A parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel foi feitas melhorias para funcionar em monitores widescreen. Outras melhorias e funcionalidades estão previstas e irão ser aplicadas durante o desenvolvimento do projeto.</blockquote>
 
 
-
-
 Visite o [site do projeto](http://novosga.org) e confira a [versão demo](http://novosga.org/demo) disponível online.
 
 Gostou e quer contribuir com o desenvolvimento? Acesse o [projeto no GitHub](http://github.com/rogeriolino/novosga).

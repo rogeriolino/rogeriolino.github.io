@@ -19,20 +19,17 @@ tags:
 - vscroller
 ---
 
-[
-    ![](http://rogeriolino.com/uploads/2012/01/vscroller.png)
-](https://github.com/rogeriolino/vscroller/)
+![](http://rogeriolino.com/uploads/2012/01/vscroller.png)
 
 Hoje criei um novo projeto no Github, para um plugin para jQuery (1.7+) que desenvolvi (estou e estarei desenvolvendo). Trata-se um scroller vertical que pode ser aplicado a qualquer tag block.
 
-
     
-    
-        $('#news').vScroller({
-            width: 300,
-            height: 400
-        });
-    
+``` js
+$('#news').vScroller({
+  width: 300,
+  height: 400
+});
+```
 
 
 
@@ -42,31 +39,21 @@ _[update 2012-01-24]_
 **Features:**
 
 
-
-
   * MouseWheel
-
 
   * Drag&Drop;
 
-
   * Keys (UP, DOWN, PG_UP, PG_DOWN, HOME, END)
-
 
 
 **Compatibility (tested):**
 
 
-
-
   * Chrome 12+
-
 
   * Firefox 8+
 
-
   * Opera 11+
-
 
 
 _[/update]_

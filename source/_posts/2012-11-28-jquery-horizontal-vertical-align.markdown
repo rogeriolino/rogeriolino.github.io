@@ -25,38 +25,30 @@ Função jQuery para alinhar horizontalmente e verticalmente o elemento.
 
 
     
-    
-    jQuery.fn.center = function () {
-        this.css("position","absolute");
-        this.css({
-            top: '50%',
-            left: '50%', 
-            margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
-        });
-        return this;
-    }
-    
-
-
+``` js
+jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css({
+        top: '50%',
+        left: '50%', 
+        margin: '-' + (this.height() / 2) + 'px 0 0 -' + (this.width() / 2) + 'px'
+    });
+    return this;
+}
+```
 
 Exemplo:
 
 
-    
-    
-    &lt;div id="centered_div"&gt;
-        <p>My div content here</p>
-    &lt;/div&gt;
-    
+``` html
+<div id="centered_div">
+    <p>My div content here</p>
+</div>
+```
 
-
-
-
-    
-    
+``` js    
     $('#centered_div').center()
-    
-
+```
 
 
 Edit on jsFiddle: [http://jsfiddle.net/rc6kS/](http://jsfiddle.net/rc6kS/)

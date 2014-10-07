@@ -30,42 +30,38 @@ Para implementar essa ideia, vou utilizar um plugin jQuery que monitora a ativid
 Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.
 
 
+``` js
+// session keep alive
+;(function($) {
+    "use strict";
     
-    // session keep alive
-    ;(function($) {
-        "use strict";
-        
-        var pingTime = 60; // ping a cada 60 segundos
-        var count = pingTime;
-        $.idleTimer({
-            time: 10 * 60, // 10 minutos para timeout
-            start: function() {
+    var pingTime = 60; // ping a cada 60 segundos
+    var count = pingTime;
+    $.idleTimer({
+        time: 10 * 60, // 10 minutos para timeout
+        start: function() {
+            count = pingTime;
+        },
+        change: function(it) {
+            count--;
+            console.log(count);
+            if (count <= 0) {
                 count = pingTime;
-            },
-            change: function(it) {
-                count--;
-                console.log(count);
-                if (count <= 0) {
-                    count = pingTime;
-                    $.ajax({ url: '/ping.php' });
-                }
-            },
-            end: function() {
-                window.location.href = '/logout.php';
+                $.ajax({ url: '/ping.php' });
             }
-        });
-    })(jQuery);
-
-
+        },
+        end: function() {
+            window.location.href = '/logout.php';
+        }
+    });
+})(jQuery);
+```
 
 Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:
 
 
-    
-    <?php
-    
-    session_start();
-    
+``` php    
+<?php
 
-
-
+session_start();
+```

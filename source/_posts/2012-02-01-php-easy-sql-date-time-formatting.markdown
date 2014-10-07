@@ -33,59 +33,56 @@ tags:
 **SQL to Human:**
 
     
-    
-    /* 
-     * date
-     */
-    $format = 'm/d/Y'; // en-US
-    // $format = 'd/m/Y'; // pt-BR
-    $date = '2012-02-01';
-    echo date($format, strtotime($date));
-    
-    
-    /* 
-     * datetime
-     */
-    $format .= ' H:i:s';
-    $datetime = '2012-02-01 11:33:59';
-    echo date($format, strtotime($datetime));
-    
+``` php
+/* 
+ * date
+ */
+$format = 'm/d/Y'; // en-US
+// $format = 'd/m/Y'; // pt-BR
+$date = '2012-02-01';
+echo date($format, strtotime($date));
 
+
+/* 
+ * datetime
+ */
+$format .= ' H:i:s';
+$datetime = '2012-02-01 11:33:59';
+echo date($format, strtotime($datetime));
+```
 
 
 **Human to SQL:**
 
     
-    
-    /* 
-     * date
-     */
-    $sqlFormat = 'Y-m-d';
-    $date = '02/01/2012';
-    
-    // en-US
-    echo date($sqlFormat, strtotime($date));
-    // pt-BR
-    echo join('-', array_reverse(explode('/', $date)));
-    
-    
-    /* 
-     * datetime
-     */
-    $sqlFormat = 'Y-m-d H:i:s';
-    
-    // en-US
-    $datetime = '02/01/2012 11:33:59';  
-    echo date($sqlFormat, strtotime($datetime));
-    
-    // pt-BR
-    $datetime = '01/02/2012 11:33:59';
-    $datetime = explode(' ', $datetime);
-    $date = join('-', array_reverse(explode('/', $datetime[0])));
-    echo $date . ' ' . $datetime[1];
-    
-    
+``` php
+/* 
+ * date
+ */
+$sqlFormat = 'Y-m-d';
+$date = '02/01/2012';
 
+// en-US
+echo date($sqlFormat, strtotime($date));
+// pt-BR
+echo join('-', array_reverse(explode('/', $date)));
+
+
+/* 
+ * datetime
+ */
+$sqlFormat = 'Y-m-d H:i:s';
+
+// en-US
+$datetime = '02/01/2012 11:33:59';  
+echo date($sqlFormat, strtotime($datetime));
+
+// pt-BR
+$datetime = '01/02/2012 11:33:59';
+$datetime = explode(' ', $datetime);
+$date = join('-', array_reverse(explode('/', $datetime[0])));
+echo $date . ' ' . $datetime[1];
+```
 
 
 **Reference:**

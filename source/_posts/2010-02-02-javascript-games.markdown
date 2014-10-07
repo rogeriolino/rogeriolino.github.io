@@ -43,8 +43,6 @@ O que antes precisariámos de um plugin adicional - [Flash Player](http://get.ad
 
 
 
-
-
 	
   * [Solitaire](http://www.freejavascriptgames.info/games/solitaire/solitaire1.0.html)
 

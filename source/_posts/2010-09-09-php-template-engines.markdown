@@ -40,27 +40,22 @@ Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o
 
 O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido ("compilando" suas páginas para arquivos PHP).
 
-
     
-    
+``` html
     <ul>
     {foreach from=$myArray item=foo}
         <li>{$foo}</li>
     {/foreach}
     </ul>
-    
-
-
-
+```
 
     
-    
-    $smarty = new Smarty;
-    $arr = array(1000, 1001, 1002);
-    $smarty->assign ('myArray', $arr);
-    $smarty->display ('HelloWorld.tpl');
-    
-
+``` php
+$smarty = new Smarty;
+$arr = array(1000, 1001, 1002);
+$smarty->assign ('myArray', $arr);
+$smarty->display ('HelloWorld.tpl');
+```
 
 
 [vlibtemplate](http://vlib.clausvb.de/vlibtemplate.php)
@@ -69,29 +64,25 @@ Com esta engine saímos de um problema e entramos em outro, é necessário apren
 
 
     
-    
-    <html>
+``` html
+<html>
     <head>
-    <title>{tmpl_var name='title_text'}</title>
-    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <title>{tmpl_var name='title_text'}</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
     </head>
     <body>
-    <p>{tmpl_var name='body_text'}</p>
+        <p>{tmpl_var name='body_text'}</p>
     </body>
-    </html>
-    
+</html>
+```
 
 
-
-
-    
-    
-    $tmpl = new vlibTemplate('tmpl/basic.htm');
-    $tmpl->setvar('title_text', 'TITLE: This is the vLIB basic example ...');
-    $tmpl->setvar('body_text', 'BODY: This is the message set using setvar()');
-    $tmpl->pparse();
-    
-
+``` php
+$tmpl = new vlibTemplate('tmpl/basic.htm');
+$tmpl->setvar('title_text', 'TITLE: This is the vLIB basic example ...');
+$tmpl->setvar('body_text', 'BODY: This is the message set using setvar()');
+$tmpl->pparse();
+``` 
 
  
 [FXL Template](http://www.feverxl.org/template/)
@@ -99,76 +90,65 @@ Com esta engine saímos de um problema e entramos em outro, é necessário apren
 Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: [QuickSkin](http://quickskin.worxware.com/) e [XTemplate](http://xtemplate.sourceforge.net/).
 
 
-    
-    
-     <table>
-         <!-- START row -->
-             <tr>
-                 <!-- START cell --> 
-                 <td >{td_value} </td> 
-                 <!-- END cell -->
-             </tr>
-         <!-- END row -->
-     </table>
-    
+``` html    
+ <table>
+     <!-- START row -->
+         <tr>
+             <!-- START cell --> 
+             <td >{td_value} </td> 
+             <!-- END cell -->
+         </tr>
+     <!-- END row -->
+ </table>
+``` 
 
 
-
-
-    
-    
-    $fxlt = new fxl_template('example.tpl');
-    $fxlt_row = $fxlt->get_block('row');
-    $fxlt_cell = $fxlt_row->get_block('cell');
-    for ($tr = 1; $tr <= 3; $tr++) {
-        for ($td = 1; $td <= 3; $td++) {
-            $fxlt_cell->assign('td_value', $tr.':'.$td);
-            $fxlt_row->assign('cell', $fxlt_cell);
-            $fxlt_cell->clear();
-        }
-        $fxlt->assign('row', $fxlt_row);
-        $fxlt_row->clear();
+``` php
+$fxlt = new fxl_template('example.tpl');
+$fxlt_row = $fxlt->get_block('row');
+$fxlt_cell = $fxlt_row->get_block('cell');
+for ($tr = 1; $tr <= 3; $tr++) {
+    for ($td = 1; $td <= 3; $td++) {
+        $fxlt_cell->assign('td_value', $tr.':'.$td);
+        $fxlt_row->assign('cell', $fxlt_cell);
+        $fxlt_cell->clear();
     }
-    $fxlt->display();
-    
-
+    $fxlt->assign('row', $fxlt_row);
+    $fxlt_row->clear();
+}
+$fxlt->display();
+```
 
 
 [Vemplator](http://www.greaterscope.net/projects/Vemplator)
 
 Mais do mesmo, mas com alterações de sintaxe.
 
-
-    
-    
-     <h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
-    <ul>
+``` html    
+<h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
+<ul>
     {foreach:rows,row}
         <li>
         {row['name']} 
         </li>
     {end:} 
-    </ul>
-    
+</ul>
+```
 
 
-
-
-    
-    
-    $t = new vemplator();
-    // if/else
-    $t->assign('logged', true);
-    $t->assign('username', 'Rogerio');
-    // loop
-    $items = array(
-    	array('name' => 'Laptop'),
-    	array('name' => 'Memory Stick')
-    );
-    $t->assign('rows', $rows);
-    echo $t->output('example.template.html');
-    
-
+``` php
+$t = new vemplator();
+// if/else
+$t->assign('logged', true);
+$t->assign('username', 'Rogerio');
+// loop
+$items = array(
+	array('name' => 'Laptop'),
+	array('name' => 'Memory Stick')
+);
+$t->assign('rows', $rows);
+echo $t->output('example.template.html');
+``` 
 
 
 
@@ -177,24 +157,20 @@ Mais do mesmo, mas com alterações de sintaxe.
 Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.
 
 
-    
-    
-     <table >
-     <tr><td>[blk.val;block=tr]</td></tr>
-     </table >
-    
+``` html    
+<table>
+    <tr><td>[blk.val;block=tr]</td></tr>
+</table>
+```
 
 
-
-
-    
-    
-    $TBS =& new clsTinyButStrong ;
-    $TBS->LoadTemplate('template.htm') ;
-    $list = array('X','Y','Z') ;
-    $TBS->MergeBlock('blk',$list) ;
-    $TBS->Show();
-    
+``` php 
+$TBS =& new clsTinyButStrong ;
+$TBS->LoadTemplate('template.htm') ;
+$list = array('X','Y','Z') ;
+$TBS->MergeBlock('blk',$list) ;
+$TBS->Show();
+```
 
 
 
@@ -204,52 +180,45 @@ Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php
 
 
     
-    
-     <html>
-     <head>
-     <title>{block "title"}My site name{/block} </title>
-     </head>
-     <body>
-         <h1>{block "page-title"}Default page title{/block} </h1>
-         <div id="content">
-          {block "content"}
+``` html
+<html>
+    <head>
+        <title>{block "title"}My site name{/block} </title>
+    </head>
+    <body>
+        <h1>{block "page-title"}Default page title{/block} </h1>
+        <div id="content">
+        {block "content"}
             Welcome to my amazing homepage
-          {/block}
-         </div>
-     </body>
-     </html>
+        {/block}
+        </div>
+    </body>
+</html>
+```
     
+``` html 
+{extends "base.html"}
 
-
-
-
-    
-    
-    {extends "base.html"}
-    {block "title"}
+{block "title"}
     Gallery
-    {/block}
-    {foreach $images img}
-        <img src="{$img.url}" alt="{$img.description}"></img>
-      {/foreach}
-    
+{/block}
+
+{foreach $images img}
+    <img src="{$img.url}" alt="{$img.description}"></img>
+{/foreach}
+```
 
 
-
-
-
-    
-    
-    $dwoo = Dwoo();
-    $images = array(
-        array('url' => 'img1.jpg', 'description' => 'Ferrari'),
-        array('url' => 'img2.jpg', 'description' => 'BMW')
-    );
-    $params = array();
-    $params['images'] = $images;
-    echo $dwoo->get("gallery.tpl", $params);
-    
-
+``` php    
+$dwoo = Dwoo();
+$images = array(
+    array('url' => 'img1.jpg', 'description' => 'Ferrari'),
+    array('url' => 'img2.jpg', 'description' => 'BMW')
+);
+$params = array();
+$params['images'] = $images;
+echo $dwoo->get("gallery.tpl", $params);
+``` 
 
 
 [h2o](http://www.h2o-template.org/)
@@ -258,30 +227,26 @@ Baseado no Smarty, [Django Templates](http://www.djangoproject.com/) e [Jinja](h
 
 
     
-    
-     <html>
-     <head>
-     <title>{{ page.title }}</title>
-     </head>
-     <body>
-         {{ page.content }}
-     </body>
-     </html>
-    
+``` html    
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        {{ page.content }}
+    </body>
+</html>
+```
 
 
-
-
-    
-    
-    $h2o = new h2o('index.html');
-    $page = array(
-      'title' => 'title of a page',
-      'body' => 'Hello world'
-    );
-    echo $h2o->render(compact('page'));
-    
-
+``` php 
+$h2o = new h2o('index.html');
+$page = array(
+  'title' => 'title of a page',
+  'body' => 'Hello world'
+);
+echo $h2o->render(compact('page'));
+```
 
 
 [PEAR Flexy](http://pear.php.net/package/HTML_Template_Flexy/)
@@ -292,12 +257,12 @@ Tem como desvantagem o fato de ter que definir as propriedades da sua classe com
 
 
     
-    
-     <html>
-     <head>
-     <title>{title}</title>
-     </head>
-     <body>
+``` html
+<html>
+    <head>
+        <title>{title}</title>
+    </head>
+    <body>
         <!-- o valor do input será adicionado em $element['input'] -->
         Input Box: <input name="input" />
         <ul>
@@ -308,51 +273,47 @@ Tem como desvantagem o fato de ter que definir as propriedades da sua classe com
         </ul>
         <!-- chamando o método da classe -->
         {someMethod()}
-     </body>
-     </html>
-    
-
-
-
+    </body>
+</html>
+```
 
     
-    
-    class controller_test  {
-    
-        var $title;
-        var $numbers = array();
-        var $elements = array();
-    
-        function controller_test() {
-            $this->start();
-            $this->output();
-        }
-    
-        function start() {
-            $this->title = "Hello World";
-            // create an HTML Element for the form element.
-            $this->elements['input'] = new HTML_Template_Flexy_Element;
-            $this->elements['input']->setValue('Hello');
-    
-            for ($i = 1;$i< 5;$i++) {
-                $this->numbers[$i] = "Number $i";
-            }
-        }
-    
-        function output() {
-            $output = new HTML_Template_Flexy();
-            $output->compile("home.html");
-            $output->outputObject($this,$this->elements);
-        }
-    
-        function someMethod() {
-            return "Hello From A Method";
-        }
-    
+``` php
+class controller_test  {
+
+    var $title;
+    var $numbers = array();
+    var $elements = array();
+
+    function controller_test() {
+        $this->start();
+        $this->output();
     }
-    new controller_test();
-    
 
+    function start() {
+        $this->title = "Hello World";
+        // create an HTML Element for the form element.
+        $this->elements['input'] = new HTML_Template_Flexy_Element;
+        $this->elements['input']->setValue('Hello');
+
+        for ($i = 1;$i< 5;$i++) {
+            $this->numbers[$i] = "Number $i";
+        }
+    }
+
+    function output() {
+        $output = new HTML_Template_Flexy();
+        $output->compile("home.html");
+        $output->outputObject($this,$this->elements);
+    }
+
+    function someMethod() {
+        return "Hello From A Method";
+    }
+
+}
+new controller_test();
+```
 
 
 _Todos os exemplos a cima foram retirados dos próprios sites dos projetos, sofrendo alterações afim de minimizar as linhas e focar em suas caracterísicas, vantagens e desvantagens._

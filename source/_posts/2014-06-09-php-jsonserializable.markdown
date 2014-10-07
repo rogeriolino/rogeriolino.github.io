@@ -24,56 +24,47 @@ Desde a **versão 5.4** do PHP ficou mais fácil transformar entidades em **JSON
 <!-- more -->
 
 
-    
-    
-    class User implements \JsonSerializable {
-    
-        private $username;
-        private $firstName;
-        private $lastName;
-    
-        ...
-    
-        public function jsonSerialize() {
-            return array(
-                'username' => $this->username,
-                'firstName' => $this->firstName,
-                'lastName' => $this->lastName,
-                'fullName' => "{$this->firstName} {$this->lastName}"
-            );
-        }
-    
+``` php
+class User implements \JsonSerializable {
+
+    private $username;
+    private $firstName;
+    private $lastName;
+
+    ...
+
+    public function jsonSerialize() {
+        return array(
+            'username' => $this->username,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'fullName' => "{$this->firstName} {$this->lastName}"
+        );
     }
-    
 
-
+}
+```
 
 Serializando:
 
-
-    
-    
-    $user = new User();
-    $user->setUsername("rogeriolino");
-    $user->setFirstName("Rogério");
-    $user->setLastName("Lino");
-    echo json_encode($user);
-    
-
-
+``` php
+$user = new User();
+$user->setUsername("rogeriolino");
+$user->setFirstName("Rogério");
+$user->setLastName("Lino");
+echo json_encode($user);
+```
 
 Resultado:
 
     
-    
-    {
-        "username": "rogeriolino",
-        "firstName": "Rogério",
-        "lastName": "Lino",
-        "fullName": "Rogério Lino",
-    }
-    
-
-
+``` json    
+{
+    "username": "rogeriolino",
+    "firstName": "Rogério",
+    "lastName": "Lino",
+    "fullName": "Rogério Lino",
+}
+```   
 
 Essa implementação se torna muito útil para desenvolvimento de APIs **RESTful** e **ajax responses** (json response).

@@ -24,7 +24,6 @@ Comecei escrever um pequeno projeto para facilitar a criação de jogos em Javas
 
 
 
-<blockquote>
 **Canvas:** para encapsular a tag canvas, pegando automaticamente o context e fornecendo algumas funções a mais.
 
 **Game:** o jogo em sí, possui uma ou muitas cenas (Scene). Contém o loop principal para atualizações do canvas. Necessita de uma instância do Canvas.
@@ -38,9 +37,6 @@ Comecei escrever um pequeno projeto para facilitar a criação de jogos em Javas
 **Graphics:** um nó "printável", quem for estendê-lo deve implementar o método draw(). Possui como subclasses: Rectangle, Triangle, Circle, Text, Image2d e Line.
 
 **GraphicsGroup:** estende CanvasNodeGroup, possui um grupo de graphics. Scene é um GraphicsGroup.
-
-</blockquote>
-
 
 
 Os próximos passos serão a implementação de TileMap, Scene Intro, Menu e botões. Agora é só aguardar até o próximo exemplo.

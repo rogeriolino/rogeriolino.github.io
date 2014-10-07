@@ -30,25 +30,15 @@ tags:
 [![](http://rogeriolino.com/uploads/2010/03/asual-swfaddress.jpg)](http://www.asual.com/swfaddress)
 
 
-<blockquote>[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
+[SWFAddress](http://www.asual.com/swfaddress) é uma pequena mas poderosa biblioteca que provê [deep linking](http://en.wikipedia.org/wiki/Deep_linking) para Flash e Ajax. É uma ferramenta de desenvolvimento, permitindo a criação de URLs unicas e virtuais que podem apontar para uma seção do site ou aplicação. SWFAddress habilita algumas de importantes capacidades que faltam hoje em dia nas tecnologias [RIA](http://pt.wikipedia.org/wiki/RIA), incluindo:
 
-> 
-> 
-	
->   * Adicionar ao Favoritos de um navegador ou site social
-> 
-	
->   * Enviar links via email ou mensageiros instantâneos
-> 
-	
->   * Procurar por um conteúdo específico através dos sites de buscas
-> 
-	
->   * Utilizar o histórico do navegador e o botão de recarregar
-> 
+* Adicionar ao Favoritos de um navegador ou site social
 
-</blockquote>
+* Enviar links via email ou mensageiros instantâneos
 
+* Procurar por um conteúdo específico através dos sites de buscas
+
+* Utilizar o histórico do navegador e o botão de recarregar
 
 
 O [Flash](http://www.adobe.com/br/products/flash/) está para o [SEO](http://en.wikipedia.org/wiki/Search_engine_optimization) assim como o [Coringa está para o Batman](http://cinemaeafins.com/files/2008/11/batmancoringa.jpg). Mas nem tudo está perdido quando se trata de otimizar a indexação do site em SWF nos mecanismos de busca. Com SWFAddress você pode interagir com a página via javascript alterando a URL e o próprio conteúdo do filme, possibilidade do o uso dos botões voltar e avançar do browser, adicionar ao Favoritos e alterar a animação do seu filme de acordo com a URL que está sendo requisitada.
@@ -62,26 +52,15 @@ Resumindo, você acaba tendo um trabalho dobrado ao desenvolver o site, mas evit
 No próprio site da Asual tem um [exemplo de uso do SWFAddress para SEO](http://www.asual.com/swfaddress/samples/seo/) (o exemplo pode ser baixado pelo site). Abaixo segue alguns sites que fizeram uso da biblioteca, no qual o primeiro eu participei do desenvolvimento:
 
 
-
-
 	
   * [Óticas Paris](http://www.oticasparis.com.br/)
-
 	
   * [Salinas Rio -inverno2010](http://www.salinas-rio.com.br/inverno2010/)
-
 	
   * [Umbro](http://www.umbro.com/)
-
 	
   * [Mis Architecture](http://www.mis-architecture.co.uk/)
-
 	
   * [Kraftfoods - Food and Family](http://www.kraftfoods.com/foodandfamily)
-
 	
   * [BBH](http://www.bartleboglehegarty.com/)
-
-
-
-

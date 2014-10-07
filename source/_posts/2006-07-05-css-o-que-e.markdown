@@ -27,11 +27,12 @@ Servem para definir um estilo para o seu documento Web (HTML, XHTLM, por exemplo
 
 Ex.: Se você quer que toda a tag <p> tenha a fonte de cor azul, Verdana e tamanho 12px. Basta configurar ela no CSS dessa maneira:
 
-
-<blockquote>_**p** {_
-_font: 12px Verdana;_
-_color: blue; _
-_} _</blockquote>
+``` css
+p {
+    font: 12px Verdana;
+    color: blue;
+}
+``` 
 
 
 E assim todas as tag <p> terão essa mesma característica. Caso você não queira que isso se aplique a todas mas sim em apenas algumas tag <p>, você pode definir uma classe com tais características e depois dentro da tag chamar essa classe.
@@ -39,17 +40,22 @@ E assim todas as tag <p> terão essa mesma característica. Caso você não quei
 Ex.:
 
 
-<blockquote>_**.minhaclasse** {_
-_font: 12px Verdana;_
-_color: blue; _
-_} _repare que para definir uma classe é necessário começar com um ponto.
+``` css
+.minhaclasse {
+    font: 12px Verdana;
+    color: blue;
+} 
+```
+
+repare que para definir uma classe é necessário começar com um ponto.
 
 e na tag:
 
-<p **class**="_minhaclasse_"> Meu parágrafo aqui </p></blockquote>
+``` html
+<p class="minhaclasse"> Meu parágrafo aqui </p>
+```
 
-
-_**Como que eu uso o CSS?**_
+**Como que eu uso o CSS?**
 
 Há duas maneiras de aplicar uma folha de estilo em seu documento, uma é definir na própria página, ou chamar um arquivo externo de extensão .css. A segunda opção posibilita muito mais flexibilidade, devido a que você não irá precisar mudar os estilos página por páginas, caso venha querer mudar a "cara" do seu documento, e sim só alterar uma vez o próprio arquivo .css.
 
@@ -62,19 +68,20 @@ Os nomes das classes devem ser iniciados com um "**.**" e dos ID com "**#**".
 Ex.:
 
 
-<blockquote>_**body** {_
-_background: black;_
-_}_
+``` css
+body {
+    background: black;
+}
 
-_**.minhaclasse** {_
-_color: #FF0000;_
-_}_
+_**.minhaclasse** {
+    color: #FF0000;
+}
 
-_**#meuDiv** {_
-_width: 100px;_
-_height: 200px; _
-_}_</blockquote>
-
+#meuDiv {
+    width: 100px;
+    height: 200px;
+}
+```
 
 [mais aqui](http://www.w3schools.com/css/css_syntax.asp)
 
@@ -86,52 +93,49 @@ Se você não ver porquê criar um arquivo externo ou que só vai precisar usá-
 
 Ex.:
 
-
-<blockquote><html>
-<head>
-<title>Meu Título</title>
-<style type="text/css">
-<!--
-_**.minhaclasse** {_
-_font: 12px Verdana;_
-_color: blue; _
-_}_
--->
-</style>
-</head>
-<body>
-<p class="_minhaclasse_"> Meu parágrafo aqui </p>
-</body>
+``` html
+<html>
+    <head>
+        <title>Meu Título</title>
+        <style type="text/css">
+            <!-- 
+            .minhaclasse {
+                font: 12px Verdana;
+                color: blue;
+            }
+            -->
+        </style>
+    </head>
+    <body>
+        <p class="minhaclasse"> Meu parágrafo aqui </p>
+    </body>
 </html>
+``` 
 
-Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.</blockquote>
-
+Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.
 
 **Definindo o estilo através de um arquivo externo:**
 
 Pode-se chamar um arquivo externo de duas maneiras, uma já utrapassada e pouco usada e a mais semânticamente correta usando a tag <link> - tag na qual adiciona informações externas na página.
 
 
-<blockquote>**Primeira:**</blockquote>
+**Primeira:**
 
 
-
-
-<blockquote><style type="text/css">
+``` html
+<style type="text/css">
 <!--
-_@import: url(arquivo.css);_
+@import: url(arquivo.css);
 -->
-</style></blockquote>
+</style>
+``` 
+
+**Segunda, e recomendada:**
 
 
-
-
-<blockquote>**Segunda, e recomendada:**</blockquote>
-
-
-
-
-<blockquote><**link** rel="stylesheet" href="style.css" type="text/css"/>
+``` html
+<link rel="stylesheet" href="style.css" type="text/css"/>
+```
 
 Para entender um pouco mais do porquê de tanto atributos vamos analisar um-por-um :
 
@@ -145,15 +149,16 @@ A tag <link> também deverá estar contida na tag <head>.</blockquote>
 **Alguns dos atributos mais utilizados:**
 
 
-<blockquote>_**background:** cor; /* cor do fundo da página */_
-_**color: **cor; /* cor da fonte */_
-**font:** familia; /* ex.: Verdana, Arial, Tahoma */
-_**margin: **top right bottom left; /* margin e os sentidos */_
-_**padding:**  top right bottom left; /* espaçamento dentro e os sentidos */_
-_**width:** valor /* largura */_
-_**height:** valor /* altura */_
-_**text-align:** valor /* alinhamento do texto - center, left, right, justify */_
-_**border: ** __largura tipo cor /* largura, tipo (solid, dotted, dashed), cor */_</blockquote>
+
+**background:** cor; _/* cor do fundo da página */_
+**color:** cor; _/* cor da fonte */_
+**font:** familia; _/* ex.: Verdana, Arial, Tahoma */_
+**margin:** top right bottom left; _/* margin e os sentidos */_
+**padding:**  top right bottom left; _/* espaçamento dentro e os sentidos */_
+**width:** valor _/* largura */_
+**height:** valor _/* altura */_
+**text-align:** valor _/* alinhamento do texto - center, left, right, justify */_
+**border: ** largura tipo cor _/* largura, tipo (solid, dotted, dashed), cor */_
 
 
 **mais sobre:**

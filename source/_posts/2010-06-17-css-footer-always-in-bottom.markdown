@@ -26,10 +26,9 @@ tags:
 
 Para tal exemplo vamos precisar de um HTML simples:
 
-
     
-    
-    <html>
+``` html    
+<html>
     <head>
     </head>
     <body>
@@ -44,37 +43,33 @@ Para tal exemplo vamos precisar de um HTML simples:
             </div>
         </div>
     </body>
-    </html>
-    
-
-
+</html>
+```    
 
 E o CSS abaixo:
 
 
+``` css   
     
-    
-    * {
-        padding: 0px;
-        margin: 0px;
-    }
-    
-    html, body {
-        height: 100%;
-    }
-    
-    #page {
-        min-height: 100%;
-        position: relative;
-    }
-    
-    #footer {
-        width: 100%;
-        bottom: 0;
-        position: absolute;
-    }
-    
+* {
+    padding: 0px;
+    margin: 0px;
+}
 
+html, body {
+    height: 100%;
+}
 
+#page {
+    min-height: 100%;
+    position: relative;
+}
+
+#footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+```
 
 O [exemplo funcionando você confere aqui](http://dev.rogeriolino.com/exemplos/css/footer_bottom/index.html).
