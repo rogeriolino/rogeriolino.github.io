@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angular.js | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/angular-dot-js/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<p>``` html</p>
+<p>```html</p>
 
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
@@ -45,7 +45,7 @@
 
 <p><strong>Javascript</strong></p>
 
-<p>``` js<br/>
+<p>```js<br/>
 var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
 <p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: quickpost | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/quickpost/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -33,7 +33,7 @@
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<p>``` html
+<p>```html
 &lt;!DOCTYPE html>
 <html class="no-js" lang="pt-BR">
 <head></p>
@@ -94,7 +94,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<p>``` php
+<p>```php
 $app->any(&lsquo;/:controller(/)(:action(/)(:params+))&rsquo;, function($controller, $action = &lsquo;index&rsquo;, $params = array()) use ($app) {</p>
 
 <pre><code>// transforma o parâmetro :controller no nome da classe controladora (com namespace)
@@ -134,7 +134,7 @@ try {
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<p>``` html</p>
+<p>```html</p>
 
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
@@ -159,7 +159,7 @@ try {
 
 <p><strong>Javascript</strong></p>
 
-<p>``` js<br/>
+<p>```js<br/>
 var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
 <p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>

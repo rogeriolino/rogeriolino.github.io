@@ -4,7 +4,7 @@
   <title><![CDATA[Category: semântica | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/semantica/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2006/07/11/escrevendo-o-primeiro-xhtml</id>
     <content type="html"><![CDATA[<p>Mãos à obra, vamos agora escrever nosso primeiro código <strong>XHTML</strong>. Abaixo o código já pronto e comentado:</p>
 
-<p>``` html
+<p>```html
 &lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Strict//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</a>&rdquo;>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt"></p>
 
@@ -134,7 +134,7 @@
 
 <p><strong>exemplo:</strong></p>
 
-<p>``` html</p>
+<p>```html</p>
 
 <hr align="center" width="50%">
 
@@ -214,7 +214,7 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
 
 <p>Exemplo de página HTML:</p>
 
-<p>``` html
+<p>```html
 <html></p>
 
 <pre><code>&lt;head&gt;

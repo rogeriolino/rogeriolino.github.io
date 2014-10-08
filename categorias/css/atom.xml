@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/css/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<p>``` html
+<p>```html
 &lt;!DOCTYPE html>
 <html class="no-js" lang="pt-BR">
 <head></p>
@@ -126,7 +126,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p><strong>CSS</strong></p>
 
-<p>``` css
+<p>```css
 p::selection  { color: #000; }
 p::-moz-selection { color: #000; }</p>
 
@@ -142,7 +142,7 @@ p.pink::-moz-selection { background: #E2189C; }
 
 <p><strong>HTML</strong></p>
 
-<p>``` html</p>
+<p>```html</p>
 
 <p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 
@@ -177,7 +177,7 @@ p.pink::-moz-selection { background: #E2189C; }
 
 <p><strong>Dependências</strong></p>
 
-<p>``` html</p>
+<p>```html</p>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
@@ -192,7 +192,7 @@ p.pink::-moz-selection { background: #E2189C; }
 
 <p><strong>CSS</strong></p>
 
-<p>``` css
+<p>```css
 *[accesskey]:after {</p>
 
 <pre><code>margin-left: 0.3em;
@@ -209,7 +209,7 @@ body.safari.mac *[accesskey]:after { content: &ldquo;[Ctrl + &rdquo; attr(access
 
 <p><strong>Javascript</strong></p>
 
-<p>``` js
+<p>```js
 /<em>*
  * Add browser and OS name to body class, and append the shortcut to element title
  * @author rogeriolino

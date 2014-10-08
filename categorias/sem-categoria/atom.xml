@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sem categoria | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/sem-categoria/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<p>``` html
+<p>```html
 &lt;!DOCTYPE html>
 <html class="no-js" lang="pt-BR">
 <head></p>

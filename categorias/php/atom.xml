@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/php/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-07T18:10:36-03:00</updated>
+  <updated>2014-10-08T10:53:54-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -23,7 +23,7 @@
 <!-- more -->
 
 
-<p>``` php
+<p>```php
 class User implements \JsonSerializable {</p>
 
 <pre><code>private $username;
@@ -57,7 +57,7 @@ echo json_encode($user);
 
 <p>Resultado:</p>
 
-<p>``` json  <br/>
+<p>```json  <br/>
 {</p>
 
 <pre><code>"username": "rogeriolino",
@@ -89,7 +89,7 @@ echo json_encode($user);
 
 <p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
 
-<p>``` js
+<p>```js
 // session keep alive
 ;(function($) {</p>
 
@@ -121,7 +121,7 @@ $.idleTimer({
 
 <p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
 
-<p>``` php  <br/>
+<p>```php  <br/>
 &lt;?php</p>
 
 <p>session_start();
@@ -144,7 +144,7 @@ $.idleTimer({
 
 <p>Abaixo segue o trecho semelhante ao que está disponível no meu repositório no Github (porém nesse repositório utilizo o Twig como template engine): <a href="https://github.com/rogeriolino/slimapp-skeleton">rogeriolino/slimapp-skeleton</a>.</p>
 
-<p>``` php
+<p>```php
 $app->any(&lsquo;/:controller(/)(:action(/)(:params+))&rsquo;, function($controller, $action = &lsquo;index&rsquo;, $params = array()) use ($app) {</p>
 
 <pre><code>// transforma o parâmetro :controller no nome da classe controladora (com namespace)
@@ -188,7 +188,7 @@ try {
 
 <p>Com o <a href="http://br1.php.net/manual/en/language.generators.overview.php">Generators</a> você pode iterar com um dado dentro de uma função sem a necessidade de criar um array para ser retornado.</p>
 
-<p>``` php
+<p>```php
 function numerosInteiros($minimo, $maximo) {</p>
 
 <pre><code>for ($i = $minimo; $i &lt;= $maximo; $i++) {
@@ -209,7 +209,7 @@ function numerosInteiros($minimo, $maximo) {</p>
 
 <p>Ou um exemplo do próprio site php.net</p>
 
-<p>``` php
+<p>```php
 function xrange($start, $limit, $step = 1) {</p>
 
 <pre><code>if ($start &lt; $limit) {
@@ -253,7 +253,7 @@ foreach (range(1, 9, 2) as $number) {</p>
 
 <p>Mesmo já possuindo a bastante tempo o bloco try/catch, só agora a partir da versão 5.5 foi introduzida a keyword <strong>finally</strong>. No qual você define um bloco para ser executado de qualquer maneira (mesmo que caia no catch).</p>
 
-<p>``` php  <br/>
+<p>```php  <br/>
 function divide($a, $b) {</p>
 
 <pre><code>if ($b === 0) {
@@ -287,7 +287,7 @@ echo '2 / 0 = ' . divide(2, 0);
 
 <p>Agora é possível resolver o nome da classe apenas através de <a href="http://br1.php.net/oop5.basic#language.oop5.basic.class.class">MinhaClass::class</a>.</p>
 
-<p>``` php
+<p>```php
 &lt;?php
 namespace NS {</p>
 
@@ -304,7 +304,7 @@ echo ClassName::class;
 
 <p>Agora é possível passar expressões para a função <a href="http://br2.php.net/migration55.new-features#migration55.new-features.empty">empty()</a> e não mais apenas variáveis.</p>
 
-<p>``` php  <br/>
+<p>```php  <br/>
 &lt;?php
 function always_false() {</p>
 

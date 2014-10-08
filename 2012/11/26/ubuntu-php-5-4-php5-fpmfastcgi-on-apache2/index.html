@@ -107,7 +107,7 @@ apt-cache show php5 | grep &hellip;">
 <h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-cache show php5 <span class="p">|</span> grep Version
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt-cache show php5 <span class="p">|</span> grep Version
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -118,7 +118,7 @@ apt-cache show php5 | grep &hellip;">
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-get install python-software-properties
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt-get install python-software-properties
 </span><span class='line'>add-apt-repository ppa:ondrej/php5
 </span><span class='line'>apt-get update
 </span></code></pre></td></tr></table></div></figure>
@@ -129,14 +129,14 @@ apt-cache show php5 | grep &hellip;">
 <p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>Habilitando os módulos de requeridos para o próximo passo:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>a2enmod actions fastcgi <span class="nb">alias</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>a2enmod actions fastcgi <span class="nb">alias</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -147,7 +147,7 @@ apt-cache show php5 | grep &hellip;">
 <p>Editar o arquivo de configuração do módulo fastcgi</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vim /etc/apache2/mods-enabled/fastcgi.conf
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim /etc/apache2/mods-enabled/fastcgi.conf
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -157,7 +157,7 @@ apt-cache show php5 | grep &hellip;">
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>AddHandler php5-fcgi .php
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>AddHandler php5-fcgi .php
 </span><span class='line'>Action php5-fcgi /php5-fcgi
 </span><span class='line'>Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
 </span><span class='line'>FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -socket /var/run/php5-fpm.sock -pass-header Authorization
@@ -171,7 +171,7 @@ apt-cache show php5 | grep &hellip;">
 <p>Abra o arquivo de configuração do PHP-FPM</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>vim /etc/php5/fpm/pool.d/www.conf
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>vim /etc/php5/fpm/pool.d/www.conf
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -180,7 +180,7 @@ apt-cache show php5 | grep &hellip;">
 <p>E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">listen</span> <span class="o">=</span> /var/run/php5-fpm.sock
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">listen</span> <span class="o">=</span> /var/run/php5-fpm.sock
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -196,7 +196,7 @@ apt-cache show php5 | grep &hellip;">
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>/etc/init.d/apache2 restart
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/etc/init.d/apache2 restart
 </span><span class='line'>/etc/init.d/php5-fpm restart
 </span></code></pre></td></tr></table></div></figure>
 
@@ -205,7 +205,7 @@ apt-cache show php5 | grep &hellip;">
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> /var/www
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> /var/www
 </span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;&lt;?php phpinfo();&#39;</span> <span class="p">|</span> tee info.php
 </span></code></pre></td></tr></table></div></figure>
 
