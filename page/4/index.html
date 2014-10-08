@@ -24,13 +24,14 @@
   <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<!--- MathJax Configuration -->
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -39,7 +40,7 @@
 
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -48,12 +49,36 @@
 </head>
 
 <body   class="collapse-sidebar sidebar-footer" >
-  <header role="banner">
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+    <header role="banner">
+        <div class="container">
+            <hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>Web development and tips</h2>
+  
+</hgroup>
+
+
+        </div>
+    </header>
+    <nav role="navigation">
+        <div class="container">
+            <div>
+                <ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
+  
+  
+  
+  
+<ul class="subscription">
+  <li><a href="https://github.com/rogeriolino" rel="subscribe-github" title="@rogeriolino on GitHub">GitHub</a></li>
+</ul>
+  
+  
+  
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -64,25 +89,26 @@
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
+
+            </div>
+        </div>
+    </nav>
+    <div id="main">
+        <div class="container">
+            <div id="content">
+                <div class="blog-index">
   
   
   
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/09/09/php-template-engines/">PHP: Template Engines</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -91,13 +117,6 @@
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-09-09T18:22:29-03:00" pubdate data-updated="true">Sep 9<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -840,11 +859,9 @@ Em meados do ano passado comecei escrever uma engine baseada no [JSF](https://ja
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/06/17/css-footer-always-in-bottom/">CSS: Footer Always in Bottom</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -853,13 +870,6 @@ Em meados do ano passado comecei escrever uma engine baseada no [JSF](https://ja
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-06-17T11:51:50-03:00" pubdate data-updated="true">Jun 17<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -962,11 +972,9 @@ Em meados do ano passado comecei escrever uma engine baseada no [JSF](https://ja
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/05/06/javascript-game-engine-for-html5-canvas/">Javascript Game Engine for HTML5 Canvas</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -975,13 +983,6 @@ Em meados do ano passado comecei escrever uma engine baseada no [JSF](https://ja
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-05-06T16:04:35-03:00" pubdate data-updated="true">May 6<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -1029,11 +1030,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/04/22/php-socket-class/">PHP: Socket Class</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1042,13 +1041,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-04-22T16:19:03-03:00" pubdate data-updated="true">Apr 22<sup>nd</sup>, 2010</time>
         
       </p>
     
@@ -1618,11 +1610,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/04/08/twitter-resumo-2/">Twitter: Resumo #2</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1631,13 +1621,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-04-08T19:33:08-03:00" pubdate data-updated="true">Apr 8<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -1672,11 +1655,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/04/01/flash-swfaddress-rewrite-seo/">Flash: SWFAddress + ReWrite = SEO</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1685,13 +1666,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-04-01T11:44:53-03:00" pubdate data-updated="true">Apr 1<sup>st</sup>, 2010</time>
         
       </p>
     
@@ -1740,11 +1714,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/03/26/php-annotations/">PHP: Annotations</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1753,13 +1725,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-03-26T10:21:12-03:00" pubdate data-updated="true">Mar 26<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -1918,11 +1883,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/03/18/sga-livre/">SGA Livre</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1931,13 +1894,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-03-18T09:51:13-03:00" pubdate data-updated="true">Mar 18<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -1973,11 +1929,9 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/03/11/html5-database/">HTML5: Database</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1986,13 +1940,6 @@ Source now available in <a href="https://github.com/rogeriolino/mangame">GitHub<
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-03-11T16:17:36-03:00" pubdate data-updated="true">Mar 11<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -2074,11 +2021,9 @@ db.transaction(function(tx) {
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2010/03/05/twitter-resumo-1/">Twitter: Resumo #1</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -2087,13 +2032,6 @@ db.transaction(function(tx) {
 
 
 
-
-
-
-  
-
-
-<time datetime="2010-03-05T20:44:31-03:00" pubdate data-updated="true">Mar 5<sup>th</sup>, 2010</time>
         
       </p>
     
@@ -2128,7 +2066,7 @@ db.transaction(function(tx) {
     
       <a class="prev" href="/page/5">&larr; Older</a>
     
-    <a href="/archives">Blog Archives</a>
+    <a href="/blog/archives">Blog Archives</a>
     
     <a class="next" href="/page/3">Newer &rarr;</a>
     
@@ -2136,78 +2074,20 @@ db.transaction(function(tx) {
 </div>
 <aside class="sidebar">
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow em Português</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/10/simple-javascript-support-detection/">Simple javascript support detection</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery plugin</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rogeriolino',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
   
 </aside>
 
+            </div>
+        </div>
     </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Rogério Lino <br/>
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
+    <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 
 </footer>
-  
+    
 
 <script type="text/javascript">
       var disqus_shortname = 'rogeriolino';
@@ -2217,10 +2097,13 @@ db.transaction(function(tx) {
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
+
+
+
 
 
 
@@ -2250,7 +2133,7 @@ db.transaction(function(tx) {
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

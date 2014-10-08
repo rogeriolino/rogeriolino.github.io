@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: xhtml | Rogério Lino]]></title>
+  <title><![CDATA[Category: Xhtml | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/xhtml/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-10-08T10:53:54-03:00</updated>
+  <updated>2014-10-08T18:08:52-03:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Quickpost: Instant documentation search]]></title>
+    <title type="html"><![CDATA[Quickpost: Instant Documentation Search]]></title>
     <link href="http://rogeriolino.com/2011/12/07/quickpost-instant-documentation-search/"/>
     <updated>2011-12-07T12:47:27-02:00</updated>
     <id>http://rogeriolino.com/2011/12/07/quickpost-instant-documentation-search</id>
@@ -61,7 +61,7 @@ picker.setVisible(true);
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[CSS: Centralizar Horizontal e Vertical #2]]></title>
+    <title type="html"><![CDATA[CSS: Centralizar Horizontal E Vertical #2]]></title>
     <link href="http://rogeriolino.com/2007/10/29/css-centralizar-horizontal-e-vertical-2/"/>
     <updated>2007-10-29T23:30:47-02:00</updated>
     <id>http://rogeriolino.com/2007/10/29/css-centralizar-horizontal-e-vertical-2</id>
@@ -124,7 +124,7 @@ picker.setVisible(true);
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Flash e CSS: Banner Flutuante]]></title>
+    <title type="html"><![CDATA[Flash E CSS: Banner Flutuante]]></title>
     <link href="http://rogeriolino.com/2007/02/04/flash-banner-flutuante/"/>
     <updated>2007-02-04T18:45:42-02:00</updated>
     <id>http://rogeriolino.com/2007/02/04/flash-banner-flutuante</id>

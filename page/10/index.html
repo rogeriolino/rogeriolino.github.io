@@ -24,13 +24,14 @@
   <link href="/atom.xml" rel="alternate" title="Rogério Lino" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<!--- MathJax Configuration -->
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -39,7 +40,7 @@
 
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -48,12 +49,36 @@
 </head>
 
 <body   class="collapse-sidebar sidebar-footer" >
-  <header role="banner">
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+    <header role="banner">
+        <div class="container">
+            <hgroup>
+  <h1><a href="/">Rogério Lino</a></h1>
+  
+    <h2>Web development and tips</h2>
+  
+</hgroup>
+
+
+        </div>
+    </header>
+    <nav role="navigation">
+        <div class="container">
+            <div>
+                <ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
+  
+  
+  
+  
+<ul class="subscription">
+  <li><a href="https://github.com/rogeriolino" rel="subscribe-github" title="@rogeriolino on GitHub">GitHub</a></li>
+</ul>
+  
+  
+  
   
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -64,25 +89,26 @@
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/archives">Archives</a></li>
-  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
+
+            </div>
+        </div>
+    </nav>
+    <div id="main">
+        <div class="container">
+            <div id="content">
+                <div class="blog-index">
   
   
   
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/13/layout-1/">Layout #1</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -91,13 +117,6 @@
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-13T11:11:08-03:00" pubdate data-updated="true">Jul 13<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -309,11 +328,9 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/12/css-reference-1/">CSS Reference #1</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -322,13 +339,6 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-12T15:44:50-03:00" pubdate data-updated="true">Jul 12<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -389,11 +399,9 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/11/escrevendo-o-primeiro-xhtml/">Escrevendo O Primeiro XHTML</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -402,13 +410,6 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-11T09:47:21-03:00" pubdate data-updated="true">Jul 11<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -489,11 +490,9 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/06/extensoes-firefox/">Extensões Firefox</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -502,13 +501,6 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-06T14:31:51-03:00" pubdate data-updated="true">Jul 6<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -595,11 +587,9 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/05/editores-html-qual-usar/">Editores HTML - Qual Usar?</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -608,13 +598,6 @@ No rodapé foi colocado o <a href="http://www.w3schools.com/css/pr_class_clear.a
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-05T20:11:28-03:00" pubdate data-updated="true">Jul 5<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -656,11 +639,9 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/05/css-o-que-e/">CSS - O Que é?</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -669,13 +650,6 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-05T01:54:49-03:00" pubdate data-updated="true">Jul 5<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -877,11 +851,9 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/07/03/xhtml-o-que-e/">XHTML - O Que é?</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -890,13 +862,6 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-07-03T16:17:28-03:00" pubdate data-updated="true">Jul 3<sup>rd</sup>, 2006</time>
         
       </p>
     
@@ -964,11 +929,9 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/06/30/tags-o-que-sao-2/">Tags - O Que São?</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -977,13 +940,6 @@ Mas depois que passei a escrever todo o HTML &ldquo;na mão&rdquo;, comecei a ve
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-06-30T14:43:44-03:00" pubdate data-updated="true">Jun 30<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -1070,11 +1026,9 @@ ex: <img src="imagens/avatar.gif" width="100" height="75"/></blockquote>
     <article>
       
   <header>
-  
     
       <h1 class="entry-title"><a href="/2006/06/30/html-o-que-e/">HTML - O Que é?</a></h1>
-      
-      
+    
     
       <p class="meta">
         
@@ -1083,13 +1037,6 @@ ex: <img src="imagens/avatar.gif" width="100" height="75"/></blockquote>
 
 
 
-
-
-
-  
-
-
-<time datetime="2006-06-30T14:42:26-03:00" pubdate data-updated="true">Jun 30<sup>th</sup>, 2006</time>
         
       </p>
     
@@ -1137,7 +1084,7 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
   
   <div class="pagination">
     
-    <a href="/archives">Blog Archives</a>
+    <a href="/blog/archives">Blog Archives</a>
     
     <a class="next" href="/page/9">Newer &rarr;</a>
     
@@ -1145,78 +1092,20 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
 </div>
 <aside class="sidebar">
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/2014/06/09/php-jsonserializable/">PHP: JsonSerializable</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/05/12/session-keep-alive/">Session Keep Alive</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/29/stack-overflow-em-portugues/">Stack Overflow em Português</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/10/simple-javascript-support-detection/">Simple javascript support detection</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/01/08/freezeheader-jquery-plugin/">FreezeHeader jQuery plugin</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/rogeriolino">@rogeriolino</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rogeriolino',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
   
 </aside>
 
+            </div>
+        </div>
     </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Rogério Lino <br/>
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>, customized with <a href="https://github.com/mjhea0/whiterspace">whiterspace</a>.</span>
+    <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Rogério Lino -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 
 </footer>
-  
+    
 
 <script type="text/javascript">
       var disqus_shortname = 'rogeriolino';
@@ -1226,10 +1115,13 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
+
+
+
 
 
 
@@ -1259,7 +1151,7 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
