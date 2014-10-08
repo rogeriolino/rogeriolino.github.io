@@ -24,7 +24,7 @@ Segue abaixo algumas das novas funcionalidades da versão 5.4 do PHP. Para ver m
 Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes reutilizem métodos de outras classes sem a necessidade de estende-la.
 
 
-``` php
+```php
     trait Singleton {
         public static function getInstance() { ... }
     }
@@ -50,7 +50,7 @@ Trait (ou mixin em outras linguagens) é um mecanismo que permite que as classes
 Agora é possível instanciar um array de maneira semelhante à outras linguagens de script, como por exemplo, Javascript.
 
 
-``` php
+```php
 $a = [1, 2, 3];
 $b = ['foo' => 'orange', 'bar' => 'apple'];
 ```
@@ -63,7 +63,7 @@ $b = ['foo' => 'orange', 'bar' => 'apple'];
 Também é possível fazer fazer chamada direta ao retorno das funções, sem que haja necessidade de atribuir o valor a uma variável e só depois fazer a chamada.
 
 
-``` php
+```php
 function fruits() {
     return ['apple', 'banana', 'orange'];
 }
@@ -75,7 +75,7 @@ O mesmo serve para chamadas através de novas **instâncias**:
 
 
     
-``` php
+```php
 class Person {
     private $name;
     public function setName($name) {
@@ -101,7 +101,7 @@ echo (new Person)->setName('Rogerio')->getName(); // Outputs: Rogerio
 Permite chamar um objeto como se fosse uma função
 
 
-``` php
+```php
 class MoneyObject {
     private $value;
     function __construct($val) {
@@ -121,9 +121,9 @@ echo $Money(); // Outputs: $28.65
 
 CLI server é uma pequena implementação de um Web server que você pode executar via linha de comando.
 
-``` sh
+```bash
 % php -S localhost:8000
-``` 
+```
 
 
 Obviamente, não é para ser usado em produção.
@@ -135,7 +135,7 @@ Obviamente, não é para ser usado em produção.
 Ao invés de definir várias funções, você pode criar uma handler para a sua sessão, e apenas informá-lo no session_set_save_handler.
 
 
-``` php
+```php
 SessionHandler implements SessionHandlerInterface {
     public int close ( void )
     public int destroy ( string $sessionid )
@@ -155,7 +155,7 @@ session_set_save_handler(new MySessionHandler);
 Semelhante ao __tostring ao tentar imprimir um objeto, você pode pre-definir o objeto que será serializado para o formato json, através do uso da função **json_encode**.
 
 
-``` php    
+```php    
 class Foo implements JsonSerializable {
 
     private $data = 'Bar';
@@ -166,7 +166,7 @@ class Foo implements JsonSerializable {
 }
 
 echo json_encode(new Foo); // Outputs: {"data":"Bar"}
-```    
+```   
 
 Para visualizar as alterações entre as versão 5.3 e 5.4, [clique aqui](http://www.php.net/manual/en/migration54.php).
 

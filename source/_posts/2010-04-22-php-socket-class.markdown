@@ -33,7 +33,7 @@ Muitas linguagens oferecem suporte a [Sockets](http://en.wikipedia.org/wiki/Inte
 
 
     
-``` php
+```php
 /**
  * Copyright 2010 http://rogeriolino.com
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -279,7 +279,7 @@ class Socket {
 Classe para as exceções:
 
 
-``` php
+```php
 /**
  * Copyright 2010 http://rogeriolino.com
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -309,6 +309,6 @@ class SocketException extends Exception {
     }
 
 }
-``` 
+```
 
 Espero que seja de bom aproveito.

@@ -24,7 +24,7 @@ tags:
 As annotations devem ser escritas em blocos de comentários, uma vez que o [@](http://thesmithfam.org/blog/2006/05/07/php-the-operator/) (caracter que inicia uma annotation) é um caractere reservado no PHP. Elas podem ser mono ou multi valoradas de acordo com os exemplos abaixo.
    
     
-``` php
+```php
 // Custom annotation
 class Persistent extends Annotation {}
 
@@ -63,7 +63,7 @@ $reflection->getAnnotation('Table')->value;
 E seguindo na mesma onda da [JPA](http://java.sun.com/javaee/technologies/persistence.jsp), a [versão 2.0 do projeto Doctrine](http://www.doctrine-project.org/blog/php-5-3-and-doctrine-2-0-teaser) implementou também a mesma funcionalidade e agora possui suas próprias annotations facilitando a configuração das classes de persistência e seus relacionamentos.
 
 
-``` php
+```php
 /**
  * @DoctrineEntity(tableName="cms_articles")
  */

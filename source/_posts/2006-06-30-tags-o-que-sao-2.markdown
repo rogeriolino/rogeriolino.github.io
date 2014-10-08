@@ -26,9 +26,9 @@ São as estruturas que formam o **HTML**, podem conter atributos ou não. Uma ta
 
 **exemplo:**
 
-``` html
+```html
 <hr align="center" width="50%">
-``` 
+```
 
 resultado:
 

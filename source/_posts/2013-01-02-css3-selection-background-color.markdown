@@ -38,7 +38,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 **CSS**
 
     
-``` css
+```css
 p::selection  { color: #000; }
 p::-moz-selection { color: #000; }
 
@@ -56,7 +56,7 @@ p.pink::-moz-selection { background: #E2189C; }
 
 **HTML**
     
-``` html    
+```html    
 <p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 
 <p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...</p>

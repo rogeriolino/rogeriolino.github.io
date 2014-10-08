@@ -24,7 +24,7 @@ Para desenvolver uma página HTML não é necessário mais do que um simples Blo
 
 Exemplo de página HTML:
 
-``` html
+```html
 <html>
     <head>
         <title>Minha Home Page</title>

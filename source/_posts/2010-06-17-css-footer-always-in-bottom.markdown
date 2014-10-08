@@ -27,7 +27,7 @@ tags:
 Para tal exemplo vamos precisar de um HTML simples:
 
     
-``` html    
+```html    
 <html>
     <head>
     </head>
@@ -44,12 +44,12 @@ Para tal exemplo vamos precisar de um HTML simples:
         </div>
     </body>
 </html>
-```    
+```   
 
 E o CSS abaixo:
 
 
-``` css   
+```css   
     
 * {
     padding: 0px;

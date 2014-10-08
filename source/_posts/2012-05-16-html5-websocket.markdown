@@ -33,8 +33,8 @@ Aproveitando um post sobre [PHP Sockets](http://rogeriolino.com/2010/04/22/php-s
 E para visualizar o [exemplo](https://github.com/rogeriolino/phpsocket/tree/master/demo/websocket) basta fazer checkout do projeto, executar o arquivo server.php: 
 
     
-``` sh
+```bash
 $ php server.php
-```    
+```   
 
 E abrir a página chat.html pelo browser. O funcionamento do exemplo vai depender, além obviamente do suporte à Websocket, do tipo da versão da implementação do browser. Por enquanto a suportada pelo projeto é a HyBi (descrita na [RFC 6455](http://www.rfc-editor.org/rfc/rfc6455.txt)).

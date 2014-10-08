@@ -25,7 +25,7 @@ Função jQuery para alinhar horizontalmente e verticalmente o elemento.
 
 
     
-``` js
+```js
 jQuery.fn.center = function () {
     this.css("position","absolute");
     this.css({
@@ -40,13 +40,13 @@ jQuery.fn.center = function () {
 Exemplo:
 
 
-``` html
+```html
 <div id="centered_div">
     <p>My div content here</p>
 </div>
 ```
 
-``` js    
+```js    
     $('#centered_div').center()
 ```
 

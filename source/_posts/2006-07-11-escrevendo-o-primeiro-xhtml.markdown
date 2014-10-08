@@ -22,7 +22,7 @@ tags:
 Mãos à obra, vamos agora escrever nosso primeiro código **XHTML**. Abaixo o código já pronto e comentado:
 
     
-``` html
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
     <head>
@@ -40,7 +40,7 @@ Mãos à obra, vamos agora escrever nosso primeiro código **XHTML**. Abaixo o c
     <body>
     </body>
 </html>
-```    
+```   
 
 
 Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: [leia aqui](http://rogeriolino.com/2006/07/03/xhtml-o-que-e/) e/ou [aqui](http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/).
@@ -48,7 +48,7 @@ Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você 
 Nesse caso foi definido como Strict, caso você ainda não esteje preparado pode utilizar como Transitional.
 
 
-``` html
+```html
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 ```
 

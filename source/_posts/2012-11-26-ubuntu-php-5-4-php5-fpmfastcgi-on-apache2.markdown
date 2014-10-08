@@ -26,15 +26,15 @@ Os comandos abaixo que devem ser executados como **root**.
 ### Passo 1 - Verificando a versão do PHP no repositório
 
 
-``` sh
+```bash
 apt-cache show php5 | grep Version
-```    
+```   
 
 
 Caso a versão mais nova já esteja na 5.4 ou superior, então pule para o próximo passo. Senão execute os comandos abaixo para adicionar o repositório com a versão 5.4.
 
 
-``` sh    
+```bash    
 apt-get install python-software-properties
 add-apt-repository ppa:ondrej/php5
 apt-get update
@@ -47,7 +47,7 @@ apt-get update
 Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.
 
     
-``` sh
+```bash
 apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
 ```
 
@@ -55,9 +55,9 @@ apt-get install apache2-mpm-worker libapache2-mod-fastcgi php5-fpm php5
 Habilitando os módulos de requeridos para o próximo passo:
 
 
-``` sh
+```bash
 a2enmod actions fastcgi alias
-```    
+```   
 
 
 ### Passo 3 - Configurando o Apache2
@@ -66,7 +66,7 @@ a2enmod actions fastcgi alias
 Editar o arquivo de configuração do módulo fastcgi
 
 
-``` sh
+```bash
 vim /etc/apache2/mods-enabled/fastcgi.conf
 ```
 
@@ -90,16 +90,16 @@ obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas um
 Abra o arquivo de configuração do PHP-FPM
 
 
-``` sh    
+```bash    
 vim /etc/php5/fpm/pool.d/www.conf
-```    
+```   
 
 E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:
 
 
-```   
+```  
 listen = /var/run/php5-fpm.sock
-```    
+```   
 
 
 Essa opção serve para evitar overhead no TCP (caso o socket não esteja configurado)
@@ -115,7 +115,7 @@ Reiniciando os serviços:
 
 
     
-``` sh    
+```bash    
 /etc/init.d/apache2 restart
 /etc/init.d/php5-fpm restart
 ```
@@ -125,7 +125,7 @@ Criando arquivo de teste:
 
 
     
-``` sh
+```bash
 cd /var/www
 echo '<?php phpinfo();' | tee info.php
 ```

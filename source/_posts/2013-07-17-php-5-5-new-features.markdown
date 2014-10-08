@@ -34,7 +34,7 @@ Com o [Generators](http://br1.php.net/manual/en/language.generators.overview.php
 
 
     
-``` php
+```php
 function numerosInteiros($minimo, $maximo) {
     for ($i = $minimo; $i <= $maximo; $i++) {
         // a keyword yield "libera" a variável $i para a iteração (sem sair/retornar da/a função)
@@ -45,12 +45,12 @@ function numerosInteiros($minimo, $maximo) {
 for (numerosInteiros(1, 10) as $numero) {
     echo "$numero ";
 }
-``` 
+```
 
 Ou um exemplo do próprio site php.net
 
 
-``` php
+```php
 function xrange($start, $limit, $step = 1) {
     if ($start < $limit) {
         if ($step <= 0) {
@@ -80,7 +80,7 @@ echo 'Single digit odd numbers from range():  ';
 foreach (range(1, 9, 2) as $number) {
     echo "$number ";
 }
-```    
+```   
 
 Repare que não há necessidade de criar um array, populá-lo, retorná-lo, e só depois iterá-lo para imprimir os valores.
 
@@ -90,7 +90,7 @@ Repare que não há necessidade de criar um array, populá-lo, retorná-lo, e s�
 Mesmo já possuindo a bastante tempo o bloco try/catch, só agora a partir da versão 5.5 foi introduzida a keyword **finally**. No qual você define um bloco para ser executado de qualquer maneira (mesmo que caia no catch).
 
     
-``` php    
+```php    
 function divide($a, $b) {
     if ($b === 0) {
         throw new Exception('Divisão por zero');
@@ -106,7 +106,7 @@ try {
 } finally {
     echo 'Término das operações';
 }
-```   
+```  
 
 
 ### ::class
@@ -115,7 +115,7 @@ try {
 Agora é possível resolver o nome da classe apenas através de [MinhaClass::class](http://br1.php.net/oop5.basic#language.oop5.basic.class.class).
 
 
-``` php
+```php
 <?php
 namespace NS {
     class ClassName {
@@ -131,7 +131,7 @@ namespace NS {
 
 Agora é possível passar expressões para a função [empty()](http://br2.php.net/migration55.new-features#migration55.new-features.empty) e não mais apenas variáveis.
 
-``` php    
+```php    
 <?php
 function always_false() {
     return false;

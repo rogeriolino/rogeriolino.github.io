@@ -25,7 +25,7 @@ Para quem está utilizando o CakePHP ou já utilizou e também sentiu falta de h
 
 
     
-``` html
+```html
 <?php
     // sublayout.ctp
     ob_start();
@@ -44,7 +44,7 @@ Para quem está utilizando o CakePHP ou já utilizou e também sentiu falta de h
     );
 ```
 
-``` php
+```php
 <?php
 // controller class
 class MyController extends AppController {

@@ -33,7 +33,7 @@ Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz u
 **Dependências**
 
 
-``` html
+```html
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 <script src="https://raw.github.com/barisaydinoglu/Detectizr/master/detectizr.min.js"></script>
@@ -42,7 +42,7 @@ Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz u
 **CSS**
 
 
-``` css
+```css
 *[accesskey]:after {
     margin-left: 0.3em;
     color: #ccc;
@@ -52,13 +52,13 @@ Como esses atalhos variam de acordo com o Browser e o Sistema Operacional, fiz u
 body.firefox *[accesskey]:after { content: "[Alt + Shift + " attr(accesskey) "]"; }
 body.firefox.mac *[accesskey]:after { content: "[Ctrl + Opt + " attr(accesskey) "]";  }
 body.safari.mac *[accesskey]:after { content: "[Ctrl + " attr(accesskey) "]";  }
-``` 
+```
 
 
 **Javascript**
 
 
-``` js
+```js
 /**
  * Add browser and OS name to body class, and append the shortcut to element title
  * @author rogeriolino

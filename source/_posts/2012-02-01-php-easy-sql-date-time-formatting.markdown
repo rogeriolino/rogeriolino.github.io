@@ -33,7 +33,7 @@ tags:
 **SQL to Human:**
 
     
-``` php
+```php
 /* 
  * date
  */
@@ -55,7 +55,7 @@ echo date($format, strtotime($datetime));
 **Human to SQL:**
 
     
-``` php
+```php
 /* 
  * date
  */

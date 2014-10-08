@@ -36,7 +36,7 @@ Abaixo segue o trecho semelhante ao que está disponível no meu repositório no
 
 
     
-``` php
+```php
 $app->any('/:controller(/)(:action(/)(:params+))', function($controller, $action = 'index', $params = array()) use ($app) {
     // transforma o parâmetro :controller no nome da classe controladora (com namespace)
     $class = "MeuNamespace\\" . ucfirst($controller) . "Controller";
@@ -60,6 +60,6 @@ $app->any('/:controller(/)(:action(/)(:params+))', function($controller, $action
         $app->notFound();
     }
 });
-``` 
+```
 
 Para utilizar o [slimapp-skeleton](https://github.com/rogeriolino/slimapp-skeleton) basta clonar o repositório e depois fazer a instalação das dependências via [Composer](http://getcomposer.org/).

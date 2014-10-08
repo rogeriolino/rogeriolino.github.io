@@ -31,15 +31,15 @@ A partir do PHP 5.2 foi introduzida a função [filter_var](http://php.net/filte
 
 
 
-``` php
+```php
 mixed filter_var ( mixed $variable [, int $filter = FILTER_DEFAULT [, mixed $options ]] )
 // Returns the filtered data, or FALSE if the filter fails.
-``` 
+```
 
 
 Filtros pré-definidos:
 
-``` php    
+```php    
 // email filtering
 echo filter_var('email@domain.com', FILTER_VALIDATE_EMAIL); // email@domain.com
 echo filter_var('domain.com', FILTER_VALIDATE_EMAIL); // false
@@ -59,7 +59,7 @@ Como a função pode retornar **FALSE** (caso o filtro falhe) ou o valor filtrad
 Colocando em prática a função mais orientação à objetos para criar algumas classes validadoras:
 
 
-``` php
+```php
 /**
  * Interface Validator 
  */
@@ -119,7 +119,7 @@ class IpValidator extends SimpleValidator {
 Testando
 
 
-``` php    
+```php    
 // email validating
 $validator = new EmailValidator();
 echo $validator->isValid('rogeriolino@com'); // false

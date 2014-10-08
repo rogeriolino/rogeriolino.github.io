@@ -27,12 +27,12 @@ Servem para definir um estilo para o seu documento Web (HTML, XHTLM, por exemplo
 
 Ex.: Se você quer que toda a tag <p> tenha a fonte de cor azul, Verdana e tamanho 12px. Basta configurar ela no CSS dessa maneira:
 
-``` css
+```css
 p {
     font: 12px Verdana;
     color: blue;
 }
-``` 
+```
 
 
 E assim todas as tag <p> terão essa mesma característica. Caso você não queira que isso se aplique a todas mas sim em apenas algumas tag <p>, você pode definir uma classe com tais características e depois dentro da tag chamar essa classe.
@@ -40,7 +40,7 @@ E assim todas as tag <p> terão essa mesma característica. Caso você não quei
 Ex.:
 
 
-``` css
+```css
 .minhaclasse {
     font: 12px Verdana;
     color: blue;
@@ -51,7 +51,7 @@ repare que para definir uma classe é necessário começar com um ponto.
 
 e na tag:
 
-``` html
+```html
 <p class="minhaclasse"> Meu parágrafo aqui </p>
 ```
 
@@ -68,7 +68,7 @@ Os nomes das classes devem ser iniciados com um "**.**" e dos ID com "**#**".
 Ex.:
 
 
-``` css
+```css
 body {
     background: black;
 }
@@ -93,7 +93,7 @@ Se você não ver porquê criar um arquivo externo ou que só vai precisar usá-
 
 Ex.:
 
-``` html
+```html
 <html>
     <head>
         <title>Meu Título</title>
@@ -110,7 +110,7 @@ Ex.:
         <p class="minhaclasse"> Meu parágrafo aqui </p>
     </body>
 </html>
-``` 
+```
 
 Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.
 
@@ -122,18 +122,18 @@ Pode-se chamar um arquivo externo de duas maneiras, uma já utrapassada e pouco 
 **Primeira:**
 
 
-``` html
+```html
 <style type="text/css">
 <!--
 @import: url(arquivo.css);
 -->
 </style>
-``` 
+```
 
 **Segunda, e recomendada:**
 
 
-``` html
+```html
 <link rel="stylesheet" href="style.css" type="text/css"/>
 ```
 

@@ -28,7 +28,7 @@ Exemplo de um menu dropdown horizontal, utilizando gradient e transition apenas 
 ### CSS
 
 
-``` css
+```css
 .hmenu {
     height: 40px;
     position: relative;
@@ -160,7 +160,7 @@ Exemplo de um menu dropdown horizontal, utilizando gradient e transition apenas 
 ### HTML
 
 
-``` html
+```html
 <ul class="hmenu">
     <li><a href="#">Home</a></li>
     <li>

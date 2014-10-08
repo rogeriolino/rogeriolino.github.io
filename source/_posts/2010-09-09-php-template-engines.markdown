@@ -41,7 +41,7 @@ Todo mundo que programa em PHP sente falta de uma boa alternativa para separar o
 O mais famoso e usado como inspiração por muitos outros projetos. Robusto (possuindo blocos condicionais/loops e várias funções próprias) e rápido ("compilando" suas páginas para arquivos PHP).
 
     
-``` html
+```html
     <ul>
     {foreach from=$myArray item=foo}
         <li>{$foo}</li>
@@ -50,7 +50,7 @@ O mais famoso e usado como inspiração por muitos outros projetos. Robusto (pos
 ```
 
     
-``` php
+```php
 $smarty = new Smarty;
 $arr = array(1000, 1001, 1002);
 $smarty->assign ('myArray', $arr);
@@ -64,7 +64,7 @@ Com esta engine saímos de um problema e entramos em outro, é necessário apren
 
 
     
-``` html
+```html
 <html>
     <head>
         <title>{tmpl_var name='title_text'}</title>
@@ -77,12 +77,12 @@ Com esta engine saímos de um problema e entramos em outro, é necessário apren
 ```
 
 
-``` php
+```php
 $tmpl = new vlibTemplate('tmpl/basic.htm');
 $tmpl->setvar('title_text', 'TITLE: This is the vLIB basic example ...');
 $tmpl->setvar('body_text', 'BODY: This is the message set using setvar()');
 $tmpl->pparse();
-``` 
+```
 
  
 [FXL Template](http://www.feverxl.org/template/)
@@ -90,7 +90,7 @@ $tmpl->pparse();
 Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os loops. Outros semelhantes e nada melhores são: [QuickSkin](http://quickskin.worxware.com/) e [XTemplate](http://xtemplate.sourceforge.net/).
 
 
-``` html    
+```html    
  <table>
      <!-- START row -->
          <tr>
@@ -100,10 +100,10 @@ Muito pouco usual, o FXL faz uso dos blocos de comentário HTML para definir os 
          </tr>
      <!-- END row -->
  </table>
-``` 
+```
 
 
-``` php
+```php
 $fxlt = new fxl_template('example.tpl');
 $fxlt_row = $fxlt->get_block('row');
 $fxlt_cell = $fxlt_row->get_block('cell');
@@ -124,7 +124,7 @@ $fxlt->display();
 
 Mais do mesmo, mas com alterações de sintaxe.
 
-``` html    
+```html    
 <h1>{if:logged} Welcome {username} {else:} User not logged {end:} </h1>
 <ul>
     {foreach:rows,row}
@@ -136,7 +136,7 @@ Mais do mesmo, mas com alterações de sintaxe.
 ```
 
 
-``` php
+```php
 $t = new vemplator();
 // if/else
 $t->assign('logged', true);
@@ -148,7 +148,7 @@ $items = array(
 );
 $t->assign('rows', $rows);
 echo $t->output('example.template.html');
-``` 
+```
 
 
 
@@ -157,14 +157,14 @@ echo $t->output('example.template.html');
 Uma alternativa ao estilo Smarty de muitos, porém é mais confuso e segue um padrão de nomenclatura bem particular.
 
 
-``` html    
+```html    
 <table>
     <tr><td>[blk.val;block=tr]</td></tr>
 </table>
 ```
 
 
-``` php 
+```php 
 $TBS =& new clsTinyButStrong ;
 $TBS->LoadTemplate('template.htm') ;
 $list = array('X','Y','Z') ;
@@ -180,7 +180,7 @@ Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php
 
 
     
-``` html
+```html
 <html>
     <head>
         <title>{block "title"}My site name{/block} </title>
@@ -196,7 +196,7 @@ Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php
 </html>
 ```
     
-``` html 
+```html 
 {extends "base.html"}
 
 {block "title"}
@@ -209,7 +209,7 @@ Possui como diferencial um [Template Inheritance](http://wiki.dwoo.org/index.php
 ```
 
 
-``` php    
+```php    
 $dwoo = Dwoo();
 $images = array(
     array('url' => 'img1.jpg', 'description' => 'Ferrari'),
@@ -218,7 +218,7 @@ $images = array(
 $params = array();
 $params['images'] = $images;
 echo $dwoo->get("gallery.tpl", $params);
-``` 
+```
 
 
 [h2o](http://www.h2o-template.org/)
@@ -227,7 +227,7 @@ Baseado no Smarty, [Django Templates](http://www.djangoproject.com/) e [Jinja](h
 
 
     
-``` html    
+```html    
 <html>
     <head>
         <title>{{ page.title }}</title>
@@ -239,7 +239,7 @@ Baseado no Smarty, [Django Templates](http://www.djangoproject.com/) e [Jinja](h
 ```
 
 
-``` php 
+```php 
 $h2o = new h2o('index.html');
 $page = array(
   'title' => 'title of a page',
@@ -257,7 +257,7 @@ Tem como desvantagem o fato de ter que definir as propriedades da sua classe com
 
 
     
-``` html
+```html
 <html>
     <head>
         <title>{title}</title>
@@ -278,7 +278,7 @@ Tem como desvantagem o fato de ter que definir as propriedades da sua classe com
 ```
 
     
-``` php
+```php
 class controller_test  {
 
     var $title;

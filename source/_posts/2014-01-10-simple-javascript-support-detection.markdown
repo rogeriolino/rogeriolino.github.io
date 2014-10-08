@@ -25,7 +25,7 @@ tags:
 Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.
 
 
-``` html
+```html
 <!DOCTYPE html> 
 <html class="no-js" lang="pt-BR">
 <head>

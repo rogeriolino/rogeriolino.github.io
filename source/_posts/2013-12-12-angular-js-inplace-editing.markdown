@@ -23,7 +23,7 @@ tags:
 **HTML**
 
     
-``` html    
+```html    
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
         <form ng-submit="add()">
@@ -47,7 +47,7 @@ tags:
 **Javascript**
 
 
-``` js  
+```js  
 var app = angular.module('todo', []);
 
 app.controller('todoCtrl', function($scope) {

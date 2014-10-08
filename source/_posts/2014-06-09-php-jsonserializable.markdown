@@ -24,7 +24,7 @@ Desde a **versão 5.4** do PHP ficou mais fácil transformar entidades em **JSON
 <!-- more -->
 
 
-``` php
+```php
 class User implements \JsonSerializable {
 
     private $username;
@@ -47,7 +47,7 @@ class User implements \JsonSerializable {
 
 Serializando:
 
-``` php
+```php
 $user = new User();
 $user->setUsername("rogeriolino");
 $user->setFirstName("Rogério");
@@ -58,13 +58,13 @@ echo json_encode($user);
 Resultado:
 
     
-``` json    
+```json    
 {
     "username": "rogeriolino",
     "firstName": "Rogério",
     "lastName": "Lino",
     "fullName": "Rogério Lino",
 }
-```   
+```  
 
 Essa implementação se torna muito útil para desenvolvimento de APIs **RESTful** e **ajax responses** (json response).

@@ -32,7 +32,7 @@ Você pode ver um exemplo desse layout [aqui](http://www17.brinkster.com/chivalr
 **Estruturando o XHTML:**
 
 
-``` html
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -85,7 +85,7 @@ Resposta: Simplesmente não funciona se a coluna da direita vier primeiro da col
 **Desenrolando com o CSS:**
 
 
-``` css
+```css
 #topo {
 	height: 120px;
 	border: 1px solid #f1f1f1;

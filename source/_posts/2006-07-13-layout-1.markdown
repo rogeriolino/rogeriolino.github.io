@@ -32,7 +32,7 @@ Depois de feito isso é hora de estruturar o "esqueleto" da página no XHTML. Ne
 **XHTML:**
 
 
-``` html
+```html
 <!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN" “http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
     <head>
@@ -88,7 +88,7 @@ E por fim um crédito no rodapé dentro de ourta tag **hn**.
 Agora é a vez do estilo. Como no XHTML o link do CSS está apontando para um arquivo chamado **style.css**, salve-o com esse nome. Caso deseje colocar outro, mude na página o destino.
 
 
-``` css
+```css
 #geral {
 	width: 726px;
 }

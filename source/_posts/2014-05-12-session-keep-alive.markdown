@@ -30,7 +30,7 @@ Para implementar essa ideia, vou utilizar um plugin jQuery que monitora a ativid
 Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.
 
 
-``` js
+```js
 // session keep alive
 ;(function($) {
     "use strict";
@@ -60,7 +60,7 @@ Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minuto
 Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:
 
 
-``` php    
+```php    
 <?php
 
 session_start();
