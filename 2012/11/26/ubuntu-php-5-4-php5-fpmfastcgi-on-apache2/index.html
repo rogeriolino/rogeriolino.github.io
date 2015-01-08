@@ -9,8 +9,8 @@
   <meta name="author" content="Rogério Lino">
 
   
-  <meta name="description" content="Os comandos abaixo que devem ser executados como root. Passo 1 &ndash; Verificando a versão do PHP no repositório 1
-apt-cache show php5 | grep &hellip;">
+  <meta name="description" content="Os comandos abaixo que devem ser executados como root. Passo 1 - Verificando a versão do PHP no repositório 1
+apt-cache show php5 | grep Version Caso &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -123,9 +123,25 @@ apt-cache show php5 | grep &hellip;">
   </header>
 
 
+  <div style="padding: 10px; text-align: center;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- responsive -->
+    <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-4035316215618754"
+    data-ad-slot="7320978228"
+    data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+
+
+
 <div class="entry-content"><p>Os comandos abaixo que devem ser executados como <strong>root</strong>.</p>
 
-<h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
+<h3>Passo 1 - Verificando a versão do PHP no repositório</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>apt-cache show php5 <span class="p">|</span> grep Version
@@ -145,7 +161,7 @@ apt-cache show php5 | grep &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Passo 2 &ndash; Instalando os pacotes</h3>
+<h3>Passo 2 - Instalando os pacotes</h3>
 
 <p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
 
@@ -163,7 +179,7 @@ apt-cache show php5 | grep &hellip;">
 
 <p></p>
 
-<h3>Passo 3 &ndash; Configurando o Apache2</h3>
+<h3>Passo 3 - Configurando o Apache2</h3>
 
 <p>Editar o arquivo de configuração do módulo fastcgi</p>
 
@@ -187,7 +203,7 @@ apt-cache show php5 | grep &hellip;">
 
 <p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
 
-<h3>Passo 4 &ndash; Configurando o PHP-FPM</h3>
+<h3>Passo 4 - Configurando o PHP-FPM</h3>
 
 <p>Abra o arquivo de configuração do PHP-FPM</p>
 
@@ -211,7 +227,7 @@ apt-cache show php5 | grep &hellip;">
 
 <p>obs: Repare que tem que ser o mesmo caminho especificado no fastcgi.conf</p>
 
-<h3>Passo 5 &ndash; Reiniciando e testando</h3>
+<h3>Passo 5 - Reiniciando e testando</h3>
 
 <p>Reiniciando os serviços:</p>
 
@@ -294,6 +310,20 @@ apt-cache show php5 | grep &hellip;">
   </footer>
 </article>
 
+<div style="padding: 10px; text-align: center;">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- responsive -->
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-client="ca-pub-4035316215618754"
+  data-ad-slot="7320978228"
+  data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
+
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
@@ -314,7 +344,7 @@ apt-cache show php5 | grep &hellip;">
         </div>
     </div>
     <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Rogério Lino -
+  Copyright &copy; 2015 - Rogério Lino -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
 </p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tableless | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/tableless/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -262,7 +262,7 @@ btn.onRelease = function() {
 
 <p><a href="http://dev.rogeriolino.com/exemplos/css/vertical_align/index.html">Exemplo com a primeira situação</a></p>
 
-<p><a href="http://www.maujor.com/tutorial/centrar-vertical.php">Maujor &ndash; Centralizar Vertical </a></p>
+<p><a href="http://www.maujor.com/tutorial/centrar-vertical.php">Maujor - Centralizar Vertical </a></p>
 
 <p><strong>[update testado=&ldquo;IE6, IE7, FIREFOX 2 e OPERA 9&rdquo;]</strong></p>
 

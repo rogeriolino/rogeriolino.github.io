@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/javascript/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -29,43 +29,38 @@
 
 <p>Abaixo o trecho javascript para disparar o ping e fazer o logout após 10 minutos de ociosidade.</p>
 
-<p>```js
-// session keep alive
-;(function($) {</p>
+<pre><code class="js">// session keep alive
+;(function($) {
+    "use strict";
 
-<pre><code>"use strict";
-
-var pingTime = 60; // ping a cada 60 segundos
-var count = pingTime;
-$.idleTimer({
-    time: 10 * 60, // 10 minutos para timeout
-    start: function() {
-        count = pingTime;
-    },
-    change: function(it) {
-        count--;
-        console.log(count);
-        if (count &lt;= 0) {
+    var pingTime = 60; // ping a cada 60 segundos
+    var count = pingTime;
+    $.idleTimer({
+        time: 10 * 60, // 10 minutos para timeout
+        start: function() {
             count = pingTime;
-            $.ajax({ url: '/ping.php' });
+        },
+        change: function(it) {
+            count--;
+            console.log(count);
+            if (count &lt;= 0) {
+                count = pingTime;
+                $.ajax({ url: '/ping.php' });
+            }
+        },
+        end: function() {
+            window.location.href = '/logout.php';
         }
-    },
-    end: function() {
-        window.location.href = '/logout.php';
-    }
-});
+    });
+})(jQuery);
 </code></pre>
-
-<p>})(jQuery);
-```</p>
 
 <p>Arquivo PHP para receber as requisições e abrir a sessão mantendo-a ativa:</p>
 
-<p>```php  <br/>
-&lt;?php</p>
+<pre><code class="php    ">&lt;?php
 
-<p>session_start();
-```</p>
+session_start();
+</code></pre>
 ]]></content>
   </entry>
   
@@ -76,31 +71,26 @@ $.idleTimer({
     <id>http://rogeriolino.com/2014/01/10/simple-javascript-support-detection</id>
     <content type="html"><![CDATA[<p>Partindo do princípio que o seu navegador não suporta javascript e depois contrariando via o próprio javascript, é possível fazer uma simples verificação se o navegador do usuário está com javascript habilitado ou não.</p>
 
-<p>```html
-&lt;!DOCTYPE html>
-<html class="no-js" lang="pt-BR">
-<head></p>
+<pre><code class="html">&lt;!DOCTYPE html&gt; 
+&lt;html class="no-js" lang="pt-BR"&gt;
+&lt;head&gt;
+    &lt;title&gt;JS detection&lt;/title&gt;
+    &lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
 
-<pre><code>&lt;title&gt;JS detection&lt;/title&gt;
-&lt;script&gt;document.documentElement.className = document.documentElement.className.replace("no-js","js");&lt;/script&gt;
+    &lt;style&gt;
+        .js .alert-danger { display: none; }
+        .no-js .alert-success { display: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-&lt;style&gt;
-    .js .alert-danger { display: none; }
-    .no-js .alert-success { display: none; }
-&lt;/style&gt;
+    &lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
+
+    &lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-
-<p></head>
-<body></p>
-
-<pre><code>&lt;div class="alert alert-danger"&gt;O seu navegador não possui suporte à &lt;b&gt;Javascript&lt;/b&gt;&lt;/div&gt;
-
-&lt;div class="alert alert-success"&gt;O suporte à &lt;b&gt;Javascript&lt;/b&gt; está ativado&lt;/div&gt;
-</code></pre>
-
-<p></body>
-</html>
-```</p>
 
 <p>Visualizar <a href="http://dev.rogeriolino.com/exemplos/javascript/js-detection/">demo online</a>.</p>
 ]]></content>
@@ -129,7 +119,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<p>```html</p>
+<p>&#8220;`html</p>
 
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
@@ -150,12 +140,12 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 </div>
 
 
-<p>```</p>
+<pre><code>
 
-<p><strong>Javascript</strong></p>
+**Javascript**
+</code></pre>
 
-<p>```js<br/>
-var app = angular.module(&lsquo;todo&rsquo;, []);</p>
+<p>var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
 <p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
@@ -174,7 +164,7 @@ $scope.add = function() {
 </code></pre>
 
 <p>});
-```</p>
+&#8220;`</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>

@@ -4,7 +4,7 @@
   <title><![CDATA[Rogério Lino]]></title>
   <link href="http://rogeriolino.com/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -303,7 +303,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 <span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">any</span><span class="p">(</span><span class="s1">&#39;/:controller(/)(:action(/)(:params+))&#39;</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nv">$controller</span><span class="p">,</span> <span class="nv">$action</span> <span class="o">=</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$app</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="c1">// transforma o parâmetro :controller no nome da classe controladora (com namespace)</span>
-</span><span class='line'>    <span class="nv">$class</span> <span class="o">=</span> <span class="s2">&quot;MeuNamespace</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nx">ucfirst</span><span class="p">(</span><span class="nv">$controller</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;Controller&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$class</span> <span class="o">=</span> <span class="s2">&quot;MeuNamespace</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">.</span> <span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$controller</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;Controller&quot;</span><span class="p">;</span>
 </span><span class='line'>    <span class="k">try</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">class_exists</span><span class="p">(</span><span class="nv">$class</span><span class="p">))</span> <span class="p">{</span>
 </span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nx">\Exception</span><span class="p">(</span><span class="s1">&#39;Controlador não encontrado&#39;</span><span class="p">);</span>
@@ -466,7 +466,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">numerosInteiros</span><span class="p">(</span><span class="nv">$minimo</span><span class="p">,</span> <span class="nv">$maximo</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$minimo</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">$maximo</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>        <span class="c1">// a keyword yield &quot;libera&quot; a variável $i para a iteração (sem sair/retornar da/a função)</span>
-</span><span class='line'>        <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">yield</span> <span class="nv">$i</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
@@ -514,7 +514,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$start</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="nv">$limit</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="nv">$step</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">yield</span> <span class="nv">$i</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$step</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -522,7 +522,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="nv">$start</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&gt;=</span> <span class="nv">$limit</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">+=</span> <span class="nv">$step</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nx">yield</span> <span class="nv">$i</span><span class="p">;</span>
+</span><span class='line'>            <span class="k">yield</span> <span class="nv">$i</span><span class="p">;</span>
 </span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
@@ -574,7 +574,7 @@ Github: <a href="https://github.com/laertejjunior/freezeheader">https://github.c
 </span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;2 / 0 = &#39;</span> <span class="o">.</span> <span class="nx">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </span><span class='line'><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
-</span><span class='line'><span class="p">}</span> <span class="nx">finally</span> <span class="p">{</span>
+</span><span class='line'><span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;Término das operações&#39;</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -931,7 +931,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
     <id>http://rogeriolino.com/2012/11/26/ubuntu-php-5-4-php5-fpmfastcgi-on-apache2</id>
     <content type="html"><![CDATA[<p>Os comandos abaixo que devem ser executados como <strong>root</strong>.</p>
 
-<h3>Passo 1 &ndash; Verificando a versão do PHP no repositório</h3>
+<h3>Passo 1 - Verificando a versão do PHP no repositório</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>apt-cache show php5 <span class="p">|</span> grep Version
@@ -951,7 +951,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Passo 2 &ndash; Instalando os pacotes</h3>
+<h3>Passo 2 - Instalando os pacotes</h3>
 
 <p>Execute o commando abaixo para instalar de uma só vez o Apache2 como Worker, o módulo FastCgi e o PHP 5.4 com PHP-FPM.</p>
 
@@ -969,7 +969,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p></p>
 
-<h3>Passo 3 &ndash; Configurando o Apache2</h3>
+<h3>Passo 3 - Configurando o Apache2</h3>
 
 <p>Editar o arquivo de configuração do módulo fastcgi</p>
 
@@ -993,7 +993,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p>obs: O arquivo /usr/lib/cgi-bin/php5-fcgi realmente não existe, será apenas uma ponte para o PHP-FPM</p>
 
-<h3>Passo 4 &ndash; Configurando o PHP-FPM</h3>
+<h3>Passo 4 - Configurando o PHP-FPM</h3>
 
 <p>Abra o arquivo de configuração do PHP-FPM</p>
 
@@ -1017,7 +1017,7 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p>obs: Repare que tem que ser o mesmo caminho especificado no fastcgi.conf</p>
 
-<h3>Passo 5 &ndash; Reiniciando e testando</h3>
+<h3>Passo 5 - Reiniciando e testando</h3>
 
 <p>Reiniciando os serviços:</p>
 
@@ -1282,12 +1282,12 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 </span><span class='line'><span class="nc">.hmenu</span> <span class="p">{</span>
 </span><span class='line'>    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0px</span> <span class="m">1px</span> <span class="m">5px</span> <span class="m">#ccc</span><span class="p">;</span>
 </span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="m">#ffffff</span><span class="p">;</span> <span class="c">/* Old browsers */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span> <span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* FF3.6+ */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">linear</span><span class="o">,</span> <span class="k">left</span> <span class="k">top</span><span class="o">,</span> <span class="k">left</span> <span class="k">bottom</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">0</span><span class="o">%,</span><span class="m">#ffffff</span><span class="p">)</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">100</span><span class="o">%,</span><span class="m">#e5e5e5</span><span class="p">));</span> <span class="c">/* Chrome,Safari4+ */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* Chrome10+,Safari5.1+ */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* Opera 11.10+ */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* IE10+ */</span>
-</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">to</span> <span class="k">bottom</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0</span><span class="o">%,</span><span class="m">#e5e5e5</span> <span class="m">100</span><span class="o">%</span><span class="p">);</span> <span class="c">/* W3C */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0%</span><span class="o">,</span> <span class="m">#e5e5e5</span> <span class="m">100%</span><span class="p">);</span> <span class="c">/* FF3.6+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">linear</span><span class="o">,</span> <span class="k">left</span> <span class="k">top</span><span class="o">,</span> <span class="k">left</span> <span class="k">bottom</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">0%</span><span class="o">,</span><span class="m">#ffffff</span><span class="p">)</span><span class="o">,</span> <span class="k">color</span><span class="o">-</span><span class="n">stop</span><span class="p">(</span><span class="m">100%</span><span class="o">,</span><span class="m">#e5e5e5</span><span class="p">));</span> <span class="c">/* Chrome,Safari4+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0%</span><span class="o">,</span><span class="m">#e5e5e5</span> <span class="m">100%</span><span class="p">);</span> <span class="c">/* Chrome10+,Safari5.1+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0%</span><span class="o">,</span><span class="m">#e5e5e5</span> <span class="m">100%</span><span class="p">);</span> <span class="c">/* Opera 11.10+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">top</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0%</span><span class="o">,</span><span class="m">#e5e5e5</span> <span class="m">100%</span><span class="p">);</span> <span class="c">/* IE10+ */</span>
+</span><span class='line'>    <span class="k">background</span><span class="o">:</span> <span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="n">to</span> <span class="k">bottom</span><span class="o">,</span>  <span class="m">#ffffff</span> <span class="m">0%</span><span class="o">,</span><span class="m">#e5e5e5</span> <span class="m">100%</span><span class="p">);</span> <span class="c">/* W3C */</span>
 </span><span class='line'>    <span class="n">filter</span><span class="o">:</span> <span class="n">progid</span><span class="o">:</span><span class="n">DXImageTransform</span><span class="o">.</span><span class="n">Microsoft</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span> <span class="n">startColorstr</span><span class="o">=</span><span class="s1">&#39;#ffffff&#39;</span><span class="o">,</span> <span class="n">endColorstr</span><span class="o">=</span><span class="s1">&#39;#e5e5e5&#39;</span><span class="o">,</span><span class="n">GradientType</span><span class="o">=</span><span class="m">0</span> <span class="p">);</span> <span class="c">/* IE6-9 */</span>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Links | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/links/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -23,7 +23,7 @@
 <p><strong>Good Things</strong></p>
 
 <ul>
-<li><p>yepnope.js is only 1.6kb &ndash; smaller than most and certainly a good size for its functionality set.</p></li>
+<li><p>yepnope.js is only 1.6kb - smaller than most and certainly a good size for its functionality set.</p></li>
 <li><p>yepnope.js is called a &ldquo;resource loader&rdquo; because it can work with both JavaScript and CSS.</p></li>
 <li><p>yepnope.js has a full test suite in QUnit that you can run in your set of supported browsers to make sure it works. (We run it via TestSwarm in every browser we can get our hands on)</p></li>
 <li><p>yepnope.js fully decouples preloading from execution. This means that you have ultimate control of when your resource is executed and you can change that order on the fly.</p></li>
@@ -45,7 +45,7 @@
     <id>http://rogeriolino.com/2010/02/02/javascript-games</id>
     <content type="html"><![CDATA[<p>Conforme a evolução dos browsers e consequentemente das suas engines de javascript, hoje é possível encontrarmos diversas API/Engines dessa linguagem de script. E um tipo de engine que vem crescendo nessa linguagem é a de jogos.</p>
 
-<p>O que antes precisariámos de um plugin adicional &ndash; <a href="http://get.adobe.com/br/flashplayer/">Flash Player</a> e/ou <a href="http://java.sun.com/applets/">Java Applet</a> &ndash; consumindo mais memória e processamento, podemos agora nos divertir com jogos rodando nativamente no browser.</p>
+<p>O que antes precisariámos de um plugin adicional - <a href="http://get.adobe.com/br/flashplayer/">Flash Player</a> e/ou <a href="http://java.sun.com/applets/">Java Applet</a> - consumindo mais memória e processamento, podemos agora nos divertir com jogos rodando nativamente no browser.</p>
 
 <p>É possível encontrar na web jogos desde os simples e clássicos <strong>Paciência</strong> (Solitaire), <strong>Tetris</strong>, <strong>Resta Um</strong> (Peg), passando por clássicos não tão simples como <strong>Mario Kart</strong>, até jogos mais complexos como <strong>Shadow of Time 4</strong> e <strong>Crystal Galaxy</strong>.</p>
 

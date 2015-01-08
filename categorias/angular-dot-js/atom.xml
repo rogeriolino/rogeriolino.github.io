@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angular.js | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/angular-dot-js/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<p>```html</p>
+<p>&#8220;`html</p>
 
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
@@ -41,12 +41,12 @@
 </div>
 
 
-<p>```</p>
+<pre><code>
 
-<p><strong>Javascript</strong></p>
+**Javascript**
+</code></pre>
 
-<p>```js<br/>
-var app = angular.module(&lsquo;todo&rsquo;, []);</p>
+<p>var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
 <p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
@@ -65,7 +65,7 @@ $scope.add = function() {
 </code></pre>
 
 <p>});
-```</p>
+&#8220;`</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>

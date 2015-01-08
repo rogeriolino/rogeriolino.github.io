@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/python/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -19,7 +19,7 @@
     <updated>2008-07-03T15:31:11-03:00</updated>
     <id>http://rogeriolino.com/2008/07/03/python-pycacic</id>
     <content type="html"><![CDATA[<blockquote>
-![Cacic](http://rogeriolino.files.wordpress.com/2008/07/logo.png)**CACIC:** "Primeiro Software Público do Governo Federal, resultado do Consórcio de
+![Cacic](http://rogeriolino.files.wordpress.com/2008/07/logo.png)**CACIC:** &#8220;Primeiro Software Público do Governo Federal, resultado do Consórcio de
 Cooperação entre a SLTI - Secretaria de Logística Tecnologia da Informação, do
 Ministério do Planejamento, Orçamento e Gestão - MPOG e a DATAPREV - Empresa de
 Tecnologia e Informações da Previdência Social, desenvolvido pelo Escritório
@@ -30,7 +30,7 @@ disponibilizar informações como o número de equipamentos e sua distribuição
 diversos órgãos, os tipos de softwares utilizados e licenciados, configurações de
 hardware, entre outras. Também pode fornecer informações patrimoniais e a localização
 física dos equipamentos, ampliando o controle do parque computacional e a segurança
-na rede."
+na rede.&#8221;
 
 **fonte:** [http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585](http://www.softwarepublico.gov.br/ver-comunidade?community_id=3585)
 </blockquote>
@@ -40,7 +40,7 @@ na rede."
 
 <p>Há bastante tempo existe a versão do <strong>Agente Cacic</strong> para Windows, versão bastante difundida não só no Brasil quanto no mundo, mas ainda não existia uma versão para <strong>GNU/Linux</strong>. O que para a comunidade de software livre era uma pena, diante da grande utilidade e compentência do Cacic.</p>
 
-<p>E para felicidade geral foi lançada nesta segunda-feira (30/06/08) a versão rc1 (release candidate 1) do agente para <strong>GNU/Linux</strong> escrita em <strong>Python</strong>, no qual tive o prazer de ser um dos principais desenvolvedores junto com toda &ndash; excelente &ndash; equipe de desenvolvimento da <strong>Dataprev</strong> (<strong>URES</strong> &ndash; Unidade Regional Espírito Santo).</p>
+<p>E para felicidade geral foi lançada nesta segunda-feira (30/06/08) a versão rc1 (release candidate 1) do agente para <strong>GNU/Linux</strong> escrita em <strong>Python</strong>, no qual tive o prazer de ser um dos principais desenvolvedores junto com toda - excelente - equipe de desenvolvimento da <strong>Dataprev</strong> (<strong>URES</strong> - Unidade Regional Espírito Santo).</p>
 
 <p>Esta versão conta com a praticidade de um gerador de pacotes preconfigurados (deb, rpm ou tgz genérico) para facilitar a instação nas estações. Coleta informações de software, hardware, variáveis de ambiente, informações de rede e patrimoniais, partições e unidades de disco.</p>
 
@@ -55,7 +55,7 @@ na rede."
     <id>http://rogeriolino.com/2008/06/13/python-pyteta</id>
     <content type="html"><![CDATA[<p><img src="http://rogeriolino.files.wordpress.com/2008/06/pateta.png" alt="Pateta" />Incentivado por um trabalho de faculdade, no qual teria que fazer um simples sistema de chat (contando com um cliente e um servidor, também cliente) usando socket. Eu e Ulysses resolvemos então criar um protocolo para transferência de mensagem e utilizá-lo em nossos trabalhos para que posteriormente ambos consigam se comunicar. Surgiu então o protocolo P.A.T.E.T.A (Protocolo Aberto de Transferência Especialmente para Trabalhos Acadêmicos).</p>
 
-<p>E tão bobo quanto o nome do protocolo surgiu o <a href="http://code.google.com/p/pyteta/">PyTETA </a>versão feita em Python do comunicador baseado no protocolo PATETA. Imitando descaradamente o mIRC (só que infinitamente mais humilde), o sistema conta com envios de mensagens privadas (pvt), públicas e notificações de status dos outros usuários (mudança de nick, entrada, saída &ndash; exibindo a frase personalizada do usuário).</p>
+<p>E tão bobo quanto o nome do protocolo surgiu o <a href="http://code.google.com/p/pyteta/">PyTETA </a>versão feita em Python do comunicador baseado no protocolo PATETA. Imitando descaradamente o mIRC (só que infinitamente mais humilde), o sistema conta com envios de mensagens privadas (pvt), públicas e notificações de status dos outros usuários (mudança de nick, entrada, saída - exibindo a frase personalizada do usuário).</p>
 
 <p>Para poder utilizar (caso tenha curiosidade) necessita ter além do Python 2.4, o GTK+, pygtk e pyglade. Estes últimos exclusivos da interface gráfica. O servidor pode tanto ser executado no prompt, quando pela interface gráfica.</p>
 

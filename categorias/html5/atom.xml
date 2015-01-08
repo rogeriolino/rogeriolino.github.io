@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Html5 | Rogério Lino]]></title>
   <link href="http://rogeriolino.com/categorias/html5/atom.xml" rel="self"/>
   <link href="http://rogeriolino.com/"/>
-  <updated>2014-12-02T22:15:47-02:00</updated>
+  <updated>2015-01-07T22:47:42-02:00</updated>
   <id>http://rogeriolino.com/</id>
   <author>
     <name><![CDATA[Rogério Lino]]></name>
@@ -20,7 +20,7 @@
     <id>http://rogeriolino.com/2013/12/12/angular-js-inplace-editing</id>
     <content type="html"><![CDATA[<p><strong>HTML</strong></p>
 
-<p>```html</p>
+<p>&#8220;`html</p>
 
 <div class="container" ng-app="todo">
     <div ng-controller="todoCtrl">
@@ -41,12 +41,12 @@
 </div>
 
 
-<p>```</p>
+<pre><code>
 
-<p><strong>Javascript</strong></p>
+**Javascript**
+</code></pre>
 
-<p>```js<br/>
-var app = angular.module(&lsquo;todo&rsquo;, []);</p>
+<p>var app = angular.module(&lsquo;todo&rsquo;, []);</p>
 
 <p>app.controller(&lsquo;todoCtrl&rsquo;, function($scope) {</p>
 
@@ -65,7 +65,7 @@ $scope.add = function() {
 </code></pre>
 
 <p>});
-```</p>
+&#8220;`</p>
 
 <p><a href="http://jsfiddle.net/rogeriolino/DTF2f/">JSFiddle demo</a></p>
 ]]></content>
@@ -169,38 +169,37 @@ Gecko/Firefox supports ::-moz-selection, use also ::selection other browsers. Th
 
 <p><strong>CSS</strong></p>
 
-<p>```css
-p::selection  { color: #000; }
-p::-moz-selection { color: #000; }</p>
+<pre><code class="css">p::selection  { color: #000; }
+p::-moz-selection { color: #000; }
 
-<p>p.yellow::selection  { background: yellow; }
-p.yellow::-moz-selection { background: yellow; }</p>
+p.yellow::selection  { background: yellow; }
+p.yellow::-moz-selection { background: yellow; }
 
-<p>p.green::selection { background: #58FF4B; }
-p.green::-moz-selection { background: #58FF4B; }</p>
+p.green::selection { background: #58FF4B; }
+p.green::-moz-selection { background: #58FF4B; }
 
-<p>p.pink::selection { background: #E2189C; }
+p.pink::selection { background: #E2189C; }
 p.pink::-moz-selection { background: #E2189C; }
-```</p>
+</code></pre>
 
 <p><strong>HTML</strong></p>
 
-<p>```html</p>
+<p>&#8220;`html</p>
 
-<p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-
-
-
-
-<p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis...</p>
+<p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit&#8230;</p>
 
 
 
 
-<p class="pink">Donec interdum placerat urna at aliquet...</p>
+<p class="green">Aliquam erat volutpat. Donec in elit at magna venenatis venenatis&#8230;</p>
 
 
-<p>```</p>
+
+
+<p class="pink">Donec interdum placerat urna at aliquet&#8230;</p>
+
+
+<p>&#8220;`</p>
 
 <p><strong>Exemplo</strong>
 <a href="http://dev.rogeriolino.com/exemplos/css/selection/index.html">http://dev.rogeriolino.com/exemplos/css/selection/index.html</a></p>
