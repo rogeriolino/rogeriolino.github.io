@@ -27,7 +27,7 @@ tags:
 - youtube
 ---
 
-Para todos aqueles que odeiam o [flash player](http://get.adobe.com/flashplayer) e adoram assistir vídeos pela Internet, alguns portais de vídeos possuem uma alternativa ao plugin da Adobe para que os usuários possam assistir seus vídeos sem precisar de um plugin externo que pode deixar o browser mais lento e ocasionar travamentos. Isso se dá com a utilização da [tag video do HTML5](http://www.w3schools.com/html5/html5_reference.asp) que por sua vez varia dependendo da implementação de cada navegador.
+Para todos aqueles que odeiam o [flash player](http://get.adobe.com/flashplayer) e adoram assistir vídeos pela Internet, alguns portais de vídeos possuem uma alternativa ao plugin da Adobe para que os usuários possam assistir seus vídeos sem precisar de um plugin externo que pode deixar o browser mais lento e ocasionar travamentos. Isso se dá com a utilização da [tag video do HTML5](http://www.w3schools.com/tags/ref_av_dom.asp) que por sua vez varia dependendo da implementação de cada navegador.
 
 No [Youtube por exemplo há uma página para sua versão experimental](http://www.youtube.com/html5). Ao acessar esta página destinada a habilitar o player em HTML5, eis que surgem algumas considerações e uma lista de browsers que o suportam:
 
