@@ -3,10 +3,12 @@ layout: default
 ---
 {% assign p = site.data.profile %}
 <section class="hero">
-  <div>
+  <div class="intro">
     {% if p.gravatar_hash %}<img class="avatar" src="https://gravatar.com/avatar/{{ p.gravatar_hash }}?s=320" width="160" height="160" alt="{{ p.name }}">{% endif %}
-    <h1>{{ p.name }}</h1>
-    <p class="headline">{{ p.headline }} · {{ p.location }}</p>
+    <div>
+      <h1>{{ p.name }}</h1>
+      <p class="headline">{{ p.headline }} · {{ p.location }}</p>
+    </div>
   </div>
   <p class="summary">{{ p.summary }}</p>
   <p class="cta">
