@@ -3,6 +3,8 @@
 name: Rogério Lino
 headline: Full-stack Software Engineer
 location: Vitória, Brazil
+# SHA-256 of the Gravatar email (keeps the address itself out of the page)
+gravatar_hash: 993ae218b2285441c4144a2dbfe5c40efa9a483cde2c6762b544bd557243ee7a
 summary: >-
   Computer scientist with 15+ years of experience designing and building web
   applications end-to-end — from backend services and databases to frontends and

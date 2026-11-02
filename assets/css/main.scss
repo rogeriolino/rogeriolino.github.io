@@ -79,3 +79,6 @@ blockquote { margin: 1rem 0; padding: .25rem 1rem; border-left: 3px solid var(--
 table { border-collapse: collapse; display: block; overflow-x: auto; }
 th, td { border: 1px solid var(--line); padding: .35rem .6rem; }
 #comments { margin-top: 3rem; }
+.avatar { display: block; width: 160px; height: 160px; border-radius: 50%;
+  margin-bottom: 1.25rem; border: 3px solid var(--line); object-fit: cover; }
+@media (max-width: 560px) { .avatar { width: 112px; height: 112px; } }
