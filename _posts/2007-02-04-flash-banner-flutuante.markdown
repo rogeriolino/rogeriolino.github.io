@@ -42,9 +42,11 @@ Instanciei de **btn** e apliquei o alpha para 0%, para deixar ele transparente. 
 
     
     
-    btn.onRollOver = function() {
-        _root.gotoAndPlay(2);
-    }
+```actionscript
+btn.onRollOver = function() {
+    _root.gotoAndPlay(2);
+}
+```
     
 
 
@@ -58,13 +60,15 @@ Também temos que colocar uma action para ao tirar o mouse (rolar fora) do botã
 
     
     
-    btn.onRollOut = function() {
-        _root.gotoAndStop(1);
-    }
-    
-    btn.onRelease = function() {
-        getURL("/", "_blank");
-    }
+```actionscript
+btn.onRollOut = function() {
+    _root.gotoAndStop(1);
+}
+
+btn.onRelease = function() {
+    getURL("/", "_blank");
+}
+```
     
 
 
@@ -76,14 +80,16 @@ Vamos colocar o SWF dentro de uma **div** chamada** banner**:
 
     
     
-    <div id="banner">
-        <object type="application/x-shockwave-flash" data="banner.swf" width="480" height="280">
-        <param name="movie" value="banner.swf" />
-        <param name="allowScriptAcess" value="sameDomain" />
-        <param name="wmode" value="transparent" />
-        <param name="quality" value="best" />
-    </object>
-    </div>
+```html
+<div id="banner">
+    <object type="application/x-shockwave-flash" data="banner.swf" width="480" height="280">
+    <param name="movie" value="banner.swf" />
+    <param name="allowScriptAcess" value="sameDomain" />
+    <param name="wmode" value="transparent" />
+    <param name="quality" value="best" />
+</object>
+</div>
+```
     
 
 
@@ -93,12 +99,14 @@ E o nosso CSS:
 
     
     
-    #banner {
-        margin-left: 250px;
-        _margin-left: 10px;
-        padding: 20px;
-        position: absolute;
-    }
+```css
+#banner {
+    margin-left: 250px;
+    _margin-left: 10px;
+    padding: 20px;
+    position: absolute;
+}
+```
     
 
 

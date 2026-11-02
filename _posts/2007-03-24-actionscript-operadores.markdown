@@ -32,8 +32,10 @@ Adiciona um número, variável numérica, à expressão ou concatena (une) Strin
 
     
     
-    var n:Number = A + 10;
-    var s:String = "Foo" + "bar";
+```actionscript
+var n:Number = A + 10;
+var s:String = "Foo" + "bar";
+```
     
 
 
@@ -45,13 +47,15 @@ Atribui à expressão1 o valor da expressão1 mais o valor da expressão2.
 
     
     
-    var s:String = "Foo";
-    s += " bar";
-    trace(s) // "Foo bar"
-    
-    var n:Number = 10;
-    n += 2; 
-    trace(n) // 12
+```actionscript
+var s:String = "Foo";
+s += " bar";
+trace(s) // "Foo bar"
+
+var n:Number = 10;
+n += 2; 
+trace(n) // 12
+```
     
 
 
@@ -63,24 +67,26 @@ Inicialize uma nova array (vetor ou matriz) com os elementos especificados, ou a
 
     
     
-    // inicializando um vetor com 3 posições
-    var frutas:Array = ["banana", "manga", "uva"];
-    
-    // minhaFruta irá receber "manga"
-    var minhaFruta:String = frutas[1];
-    
-    // alterou o valor da posição 0 do vetor de "banana" para "abacaxi"
-    frutas[0] = "abacaxi";
-    
-    // inicializando uma matriz 3 por 3
-    var matriz:Array = [
-        [1, 2, 3], 
-        [4, 5, 6], 
-        [7, 8, 9]
-    ]; 
-    
-    // n recebe o valor da posição 2,2 da matriz, n = 5
-    var n:Number = matriz[2, 2]; 
+```actionscript
+// inicializando um vetor com 3 posições
+var frutas:Array = ["banana", "manga", "uva"];
+
+// minhaFruta irá receber "manga"
+var minhaFruta:String = frutas[1];
+
+// alterou o valor da posição 0 do vetor de "banana" para "abacaxi"
+frutas[0] = "abacaxi";
+
+// inicializando uma matriz 3 por 3
+var matriz:Array = [
+    [1, 2, 3], 
+    [4, 5, 6], 
+    [7, 8, 9]
+]; 
+
+// n recebe o valor da posição 2,2 da matriz, n = 5
+var n:Number = matriz[2, 2]; 
+```
     
 
 
@@ -92,8 +98,10 @@ Atribui o valor da expressão2 (direita) à expressão1 (esquerda).
 
     
     
-    var str:String = "Foobar";
-    var n:Number = 15;
+```actionscript
+var str:String = "Foobar";
+var n:Number = 15;
+```
     
 
 
@@ -105,11 +113,13 @@ Decrementa em 1 a variável. Caso venha antes da expressão (esquerda) terá mai
 
     
     
-    var n1:Number = 10;
-    trace(--n1); // 9
-    
-    var n2:Number = 10;
-    trace(n2--); // 10
+```actionscript
+var n1:Number = 10;
+trace(--n1); // 9
+
+var n2:Number = 10;
+trace(n2--); // 10
+```
     
 
 
@@ -121,9 +131,11 @@ Divide a expressão1 pela expressão2.
 
     
     
-    var a:Number = 12;
-    var b:Number = 3;
-    trace(a / b); // saída: 4
+```actionscript
+var a:Number = 12;
+var b:Number = 3;
+trace(a / b); // saída: 4
+```
     
 
 
@@ -135,12 +147,14 @@ Testa a igualdade de duas expressões.
 
     
     
-    var a:Number = 5;
-    var b:Number = 10;
-    var c:Number = 5;
-    
-    trace(a == b); // false
-    trace(a == c); // true
+```actionscript
+var a:Number = 5;
+var b:Number = 10;
+var c:Number = 5;
+
+trace(a == b); // false
+trace(a == c); // true
+```
     
 
 
@@ -152,11 +166,13 @@ Compara duas expressções e determina se a expressão1 é maior que a expressã
 
     
     
-    var a:Number = 5;
-    var b:Number = 10;
-    
-    trace(a > b); // false
-    trace(b > a); // true
+```actionscript
+var a:Number = 5;
+var b:Number = 10;
+
+trace(a > b); // false
+trace(b > a); // true
+```
     
 
 
@@ -168,12 +184,14 @@ Compara duas expressões e determina se a expressão1 é maior ou igual que a ex
 
     
     
-    var a:Number = 5;
-    var b:Number = 5;
-    var c:Number = 7;
-    
-    trace(a >= b); // true
-    trace(c >= b); // true
+```actionscript
+var a:Number = 5;
+var b:Number = 5;
+var c:Number = 7;
+
+trace(a >= b); // true
+trace(c >= b); // true
+```
     
 
 
@@ -186,11 +204,13 @@ Incrementa em 1 a variável. Caso venha antes da expressão (esquerda) terá mai
 
     
     
-    var n1:Number = 10;
-    trace(++n1); // 11
-    
-    var n2:Number = 10;
-    trace(n2++); // 10
+```actionscript
+var n1:Number = 10;
+trace(++n1); // 11
+
+var n2:Number = 10;
+trace(n2++); // 10
+```
     
 
 
@@ -202,12 +222,14 @@ Testa a desigualdade de duas expressões.
 
     
     
-    var a:Number = 5;
-    var b:Number = 10;
-    var c:Number = 5;
-    
-    trace(a != b); // true
-    trace(a != c); // false
+```actionscript
+var a:Number = 5;
+var b:Number = 10;
+var c:Number = 5;
+
+trace(a != b); // true
+trace(a != c); // false
+```
     
 
 
@@ -219,11 +241,13 @@ Compara duas expressções e determina se a expressão1 é menor que a expressã
 
     
     
-    var a:Number = 5;
-    var b:Number = 10;
-    
-    trace(a < b); // true
-    trace(b < a); // false
+```actionscript
+var a:Number = 5;
+var b:Number = 10;
+
+trace(a < b); // true
+trace(b < a); // false
+```
     
 
 
@@ -235,12 +259,14 @@ Compara duas expressões e determina se a expressão1 é menor ou igual que a ex
 
     
     
-    var a:Number = 5;
-    var b:Number = 5;
-    var c:Number = 7;
-    
-    trace(a <= b); // true
-    trace(b <= c); // true
+```actionscript
+var a:Number = 5;
+var b:Number = 5;
+var c:Number = 7;
+
+trace(a <= b); // true
+trace(b <= c); // true
+```
     
 
 
@@ -252,10 +278,12 @@ Executa uma operação booleana nos valores de ambas expressões.
 
     
     
-    var n:Number = 50;
-    if ((n > 10) && (n < 80)) {
-        trace("n está entre 10 e 80");
-    }
+```actionscript
+var n:Number = 50;
+if ((n > 10) && (n < 80)) {
+    trace("n está entre 10 e 80");
+}
+```
     
 
 
@@ -267,10 +295,12 @@ Inverte o valor booleano da variável ou expressão (negação).
 
     
     
-    var b:Boolean = false;
-    if (!b) {
-        trace("Condição passada como true");
-    }
+```actionscript
+var b:Boolean = false;
+if (!b) {
+    trace("Condição passada como true");
+}
+```
     
 
 
@@ -282,10 +312,12 @@ Executa uma operação booleana nos valores de ambas expressões.
 
     
     
-    var n:Number = 100;
-    if ((n < 10) && (n > 80)) {
-        trace("n é menor que 10 ou maior que 80");
-    }
+```actionscript
+var n:Number = 100;
+if ((n < 10) && (n > 80)) {
+    trace("n é menor que 10 ou maior que 80");
+}
+```
     
 
 
@@ -297,10 +329,12 @@ Calcula o resto da divisão entre a expressão1 pela expressão2.
 
     
     
-    var a:Number = 10;
-    var b:Number = 3;
-    
-    trace(a%b); // 1
+```actionscript
+var a:Number = 10;
+var b:Number = 3;
+
+trace(a%b); // 1
+```
     
 
 
@@ -312,10 +346,12 @@ Multiplica a expressão1 pela expressão2.
 
     
     
-    var a:Number = 4;
-    var b:Number = 3;
-    
-    trace(a*b); // 12
+```actionscript
+var a:Number = 4;
+var b:Number = 3;
+
+trace(a*b); // 12
+```
     
 
 
@@ -327,11 +363,13 @@ Usado para subtrair ou negar, transformar em negativo, expressões.
 
     
     
-    var a:Number = 8;
-    var b:Number = 2;
-    
-    trace(a-b); // 6
-    trace(-(a-b)); // -6
+```actionscript
+var a:Number = 8;
+var b:Number = 2;
+
+trace(a-b); // 6
+trace(-(a-b)); // -6
+```
     
 
 
@@ -343,10 +381,12 @@ Atribui à expressão1 o valor da expressão1 menos a expressão2.
 
     
     
-    var a:Number = 5;
-    a -= 3;
-    
-    trace(a); // 2
+```actionscript
+var a:Number = 5;
+a -= 3;
+
+trace(a); // 2
+```
     
 
 

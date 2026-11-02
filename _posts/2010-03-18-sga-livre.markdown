@@ -56,7 +56,7 @@ Não é novidade o lançamento da versão livre do SGA, porém é com muito orgu
 
 ![Tela de instalação do SGA](/uploads/2010/03/sga_instalacao.jpg)
 
-Dividido em módulos é fácil customizar a ferramenta para atender as  necessidades específicas de qualquer centro de atendimento. Para facilitar o uso de requisições assíncronas no sistema foi  utilizada o código [Ajax](http://pt.wikipedia.org/wiki/AJAX_(programação)) da lib escrita por mim e já comentada nesse blog ([libjsx](/2009/03/11/javascript-libjsx/), [Ajax.js](http://code.google.com/p/libjsx/source/browse/trunk/org/libjsx/ajax/Ajax.js)).
+Dividido em módulos é fácil customizar a ferramenta para atender as  necessidades específicas de qualquer centro de atendimento. Para facilitar o uso de requisições assíncronas no sistema foi  utilizada o código [Ajax](http://pt.wikipedia.org/wiki/AJAX_(programação)) da lib escrita por mim e já comentada nesse blog ([libjsx](/blog/2009/03/11/javascript-libjsx/), [Ajax.js](http://code.google.com/p/libjsx/source/browse/trunk/org/libjsx/ajax/Ajax.js)).
 
 [](/uploads/2010/03/sga_atendimento.jpg)
 

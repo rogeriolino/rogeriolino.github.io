@@ -18,7 +18,7 @@ redirect_from:
   - /2008/04/07/jscc-no-assembla/
 ---
 
-Eu juntamente com meu amigo Ulysses Rangel (que em breve estará com um blog), a partir de uma idéia dele, resolvemos colocar o [JsCC](/2007/11/23/javascript-highlight-code-syntax/) no Assembla e trabalharmos juntos para aprimorarmos e dar suporte a outras linguagens.
+Eu juntamente com meu amigo Ulysses Rangel (que em breve estará com um blog), a partir de uma idéia dele, resolvemos colocar o [JsCC](/blog/2007/11/23/javascript-highlight-code-syntax/) no Assembla e trabalharmos juntos para aprimorarmos e dar suporte a outras linguagens.
 
 Outra novidade é que agora você pode escolher quais tags quer que o script colore. Para acessar o space do JsCC, segue o link abaixo:
 

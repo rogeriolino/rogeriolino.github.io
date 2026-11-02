@@ -39,7 +39,7 @@ Primeiro de tudo é desenharmos nossa janela, ela será divida da seguinte manei
 
 
 
-Use as ferramentas de desenho para construir a janela, mas deixe os desenhos separados como mostrado acima. Se você ainda não está familiarizado[ leia este post primeiro](/2006/09/06/flash-8-para-quem-esta-comecando-1/).
+Use as ferramentas de desenho para construir a janela, mas deixe os desenhos separados como mostrado acima. Se você ainda não está familiarizado[ leia este post primeiro](/blog/2006/09/06/flash-8-para-quem-esta-comecando-1/).
 
 A minha janela ficou assim:
 
@@ -59,25 +59,27 @@ Clique no **frame principal** (o primeiro frame da timeline) e aperte **F9**. Co
 
     
     
-    this.janela.barra.onPress = function() {
-        this._parent.startDrag();
-    }
-    
-    this.janela.barra.onRelease = function() {
-        this._parent.stopDrag();
-    }
-    
-    this.janela.fechar.onRelease = function() {
-        this._parent._visible = false;
-    }
-    
-    this.abrir.onRelease = function() {
-        this._parent.janela._visible = true;
-    }
-    
-    this.janela.minimax.onRelease = function() {
-        this._parent.conteudo._visible = !this._parent.conteudo._visible;
-    }
+```actionscript
+this.janela.barra.onPress = function() {
+    this._parent.startDrag();
+}
+
+this.janela.barra.onRelease = function() {
+    this._parent.stopDrag();
+}
+
+this.janela.fechar.onRelease = function() {
+    this._parent._visible = false;
+}
+
+this.abrir.onRelease = function() {
+    this._parent.janela._visible = true;
+}
+
+this.janela.minimax.onRelease = function() {
+    this._parent.conteudo._visible = !this._parent.conteudo._visible;
+}
+```
     
 
 

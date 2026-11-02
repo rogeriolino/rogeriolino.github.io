@@ -30,7 +30,7 @@ redirect_from:
 The WebSocket Protocol enables two-way communication between a client running untrusted code in a controlled environment to a remote host that has opted-in to communications from that code. The security model used for this is the origin-based security model commonly used by web browsers. The protocol consists of an opening handshake followed by basic message framing, layered over TCP.  The goal of this technology is to provide a mechanism for browser-based applications that need two-way communication with servers that does not rely on opening multiple HTTP connections (e.g., using XMLHttpRequest or <iframe>s and long polling).
 ```
 
-Aproveitando um post sobre [PHP Sockets](/2010/04/22/php-socket-class/) que tinha escrito unindo o estudo sobre Websocket, eu criei um [projeto no Github](https://github.com/rogeriolino/phpsocket) para facilitar o uso de sockets com PHP fornecendo suporte ao Websocket também.
+Aproveitando um post sobre [PHP Sockets](/blog/2010/04/22/php-socket-class/) que tinha escrito unindo o estudo sobre Websocket, eu criei um [projeto no Github](https://github.com/rogeriolino/phpsocket) para facilitar o uso de sockets com PHP fornecendo suporte ao Websocket também.
 
 E para visualizar o [exemplo](https://github.com/rogeriolino/phpsocket/tree/master/demo/websocket) basta fazer checkout do projeto, executar o arquivo server.php: 
 

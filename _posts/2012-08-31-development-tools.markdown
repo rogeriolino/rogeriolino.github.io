@@ -73,12 +73,11 @@ Como toda a execução é feita no lado do servidor, você pode fazer uma execu�
 
 ```
 GET
->     /ajax/<package>/<method>/?<params>
->     /ajax/crypt/sha1?data=test
->     
->     JSON RESPONSE
->     {"success":true,"data":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"}
->     
+    /ajax/<package>/<method>/?<params>
+    /ajax/crypt/sha1?data=test
+
+JSON RESPONSE
+    {"success":true,"data":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"}
 ```
 
 

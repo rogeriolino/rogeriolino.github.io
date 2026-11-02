@@ -44,43 +44,45 @@ Exemplo (Java):
     
     
     
-    class FormaGeometrica {
-    
-        public void introduz() {
-            System.out.println("Sou uma forma geométrica");</p>
-        }
-    
+```java
+class FormaGeometrica {
+
+    public void introduz() {
+        System.out.println("Sou uma forma geométrica");</p>
     }
-    
-    class Retangulo extends FormaGeometrica {
-     
-        public void introduz() {
-            System.out.println("Sou um retângulo");
-        }
-    
+
+}
+
+class Retangulo extends FormaGeometrica {
+ 
+    public void introduz() {
+        System.out.println("Sou um retângulo");
     }
-    
-    class Circulo extends FormaGeometrica {
-    
-        public void introduz() {
-            System.out.println("Sou um círculo");
-        }
-    
+
+}
+
+class Circulo extends FormaGeometrica {
+
+    public void introduz() {
+        System.out.println("Sou um círculo");
     }
-    
-    public class Uso {
-    
-        public static void main (String[] args) {
-            FormaGeometrica g1, g2, g3;
-            g1 =  new FormaGeometrica();
-            g2 = new Retangulo();
-            g3 = new Circulo();
-            g1.introduz(); // Sou uma forma geométrica
-            g2.introduz(); // Sou um retângulo
-            g3.introduz(); // Sou um círculo
-        }
-    
+
+}
+
+public class Uso {
+
+    public static void main (String[] args) {
+        FormaGeometrica g1, g2, g3;
+        g1 =  new FormaGeometrica();
+        g2 = new Retangulo();
+        g3 = new Circulo();
+        g1.introduz(); // Sou uma forma geométrica
+        g2.introduz(); // Sou um retângulo
+        g3.introduz(); // Sou um círculo
     }
+
+}
+```
     
 
 

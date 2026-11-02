@@ -36,11 +36,13 @@ Depois de desenhado e exportado vamos à linguagem de marcação para estrutura-
 
     
     
-    <ul id="nav">
-    	<li id="home"><a href="index.html">home</a></li>
-    	<li id="sobre"><a href="sobre.html">sobre</a></li>
-    	<li id="contato"><a href="contato.html">contato</a></li>
-    </ul>
+```html
+<ul id="nav">
+	<li id="home"><a href="index.html">home</a></li>
+	<li id="sobre"><a href="sobre.html">sobre</a></li>
+	<li id="contato"><a href="contato.html">contato</a></li>
+</ul>
+```
     
 
 
@@ -53,36 +55,38 @@ A parte da marcação pronta, vamos então ao CSS. Para realmente dar vida ao me
 
     
     
-    ul#nav {
-    	width: 324px;
-    	height: 35px;
-    	_padding-right: 1px;
-    	list-style-type: none;
-    	float: right;
-    }
-    
-    ul#nav li {
-    	display: inline;
-    }
-    
-    ul#nav li a {
-    	width: 98px;
-    	height: 35px;
-    	margin-left: 5px;
-    	margin-right: 5px;
-    	background: url(imgs/nav.gif) no-repeat;
-    	float: left;
-    	text-indent: -5000px;
-    	overflow: hidden;
-    }
-    
-    ul#nav li#home a { background-position: 0px 5px; }
-    ul#nav li#sobre a { background-position: -99px 5px; }
-    ul#nav li#contato a { background-position: -198px 5px; }
-    
-    ul#nav li#home a:hover { background-position: 0px 0px; }
-    ul#nav li#sobre a:hover { background-position: -99px 0px; }
-    ul#nav li#contato a:hover { background-position: -198px 0px; }
+```css
+ul#nav {
+	width: 324px;
+	height: 35px;
+	_padding-right: 1px;
+	list-style-type: none;
+	float: right;
+}
+
+ul#nav li {
+	display: inline;
+}
+
+ul#nav li a {
+	width: 98px;
+	height: 35px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background: url(imgs/nav.gif) no-repeat;
+	float: left;
+	text-indent: -5000px;
+	overflow: hidden;
+}
+
+ul#nav li#home a { background-position: 0px 5px; }
+ul#nav li#sobre a { background-position: -99px 5px; }
+ul#nav li#contato a { background-position: -198px 5px; }
+
+ul#nav li#home a:hover { background-position: 0px 0px; }
+ul#nav li#sobre a:hover { background-position: -99px 0px; }
+ul#nav li#contato a:hover { background-position: -198px 0px; }
+```
     
 
 

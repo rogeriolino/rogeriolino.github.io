@@ -18,7 +18,7 @@ redirect_from:
   - /2007/07/23/javascript-replaceall/
 ---
 
-<blockquote>**UPDATE**: Ao invés de usar a função abaixo, utilize **split + join**. Conforme mostrado no post [/2009/01/07/javascript-benchmark-replaceall/](/2009/01/07/javascript-benchmark-replaceall/)</blockquote>
+<blockquote>**UPDATE**: Ao invés de usar a função abaixo, utilize **split + join**. Conforme mostrado no post [/2009/01/07/javascript-benchmark-replaceall/](/blog/2009/01/07/javascript-benchmark-replaceall/)</blockquote>
 
 
 
@@ -30,12 +30,14 @@ Por isso temos que criar nossa própria função para sair buscando os resultado
 
     
     
-    function replaceAll(string, token, newtoken) {
-    	while (string.indexOf(token) != -1) {
-     		string = string.replace(token, newtoken);
-    	}
-    	return string;
-    }
+```js
+function replaceAll(string, token, newtoken) {
+	while (string.indexOf(token) != -1) {
+ 		string = string.replace(token, newtoken);
+	}
+	return string;
+}
+```
     
 
 
@@ -49,6 +51,8 @@ Uso:
 
     
     
-    str = "Phasellus commodo gravida ligula. Vivamus libero eros, dignissim sit amet, imperdiet quis, condimentum ut, enim.";
-    window.alert(replaceAll(str, "a", "[A]"));
+```js
+str = "Phasellus commodo gravida ligula. Vivamus libero eros, dignissim sit amet, imperdiet quis, condimentum ut, enim.";
+window.alert(replaceAll(str, "a", "[A]"));
+```
     

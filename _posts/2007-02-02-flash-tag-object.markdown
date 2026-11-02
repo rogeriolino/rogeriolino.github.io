@@ -27,13 +27,15 @@ O código gerado é igual a este:
 
     
     
-    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://..." width="550" height="400">
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="movie" value="filme.swf" />
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#ffffff" />
-        <embed src="filme.swf" quality="high" bgcolor="#ffffff" width="550" height="400" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://..." />
-    </object>
+```html
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://..." width="550" height="400">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="filme.swf" />
+    <param name="quality" value="high" />
+    <param name="bgcolor" value="#ffffff" />
+    <embed src="filme.swf" quality="high" bgcolor="#ffffff" width="550" height="400" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://..." />
+</object>
+```
     
 
 
@@ -57,12 +59,14 @@ Resulmindo o código acima ficaria assim:
 
     
     
-    <object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400">
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="movie" value="filme.swf" />
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#ffffff" />
-    </object>
+```html
+<object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400">
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="filme.swf" />
+    <param name="quality" value="high" />
+    <param name="bgcolor" value="#ffffff" />
+</object>
+```
     
 
 

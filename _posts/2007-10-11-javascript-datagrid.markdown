@@ -35,9 +35,11 @@ Para utilizar o DataGrid é bastante simples, precisa apenas informar a quantida
 
     
     
-    var datagrid = new DataGrid(10, 25);
-    datagrid.setCelSize(10,10);
-    datagrid.pack("container2");
+```js
+var datagrid = new DataGrid(10, 25);
+datagrid.setCelSize(10,10);
+datagrid.pack("container2");
+```
     
 
 

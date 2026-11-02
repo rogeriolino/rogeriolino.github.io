@@ -36,39 +36,41 @@ Então, mesmo depois de muito tempo da versão já lançada, deixo um novo post 
 
     
     
-    html, body {
-        width: 100%;
-        height: 100%;
-        padding: 0px;
-        margin: 0px;
-    }
-    
-    #table {
-        width: 100%;
-        height: 100%;
-        position: static;
-        display: table;
-        *overflow: hidden; /* hack para o IE6 e IE7 */
-        *position: relative; /* hack para o IE6 e IE7 */
-    }
-    
-    #cell {
-        vertical-align: middle;
-        display: table-cell;
-        position: static;
-        *top: 50%; /* hack para o IE6 e IE7 */
-        *position: absolute; /* hack para o IE6 e IE7 */
-    }
-    
-    #conteudo {
-        top: -50%;
-        width: 500px;
-        margin: auto;
-        position: relative;
-        background: red;
-    }
+```css
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: table;
+    *overflow: hidden; /* hack para o IE6 e IE7 */
+    *position: relative; /* hack para o IE6 e IE7 */
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    position: static;
+    *top: 50%; /* hack para o IE6 e IE7 */
+    *position: absolute; /* hack para o IE6 e IE7 */
+}
+
+#conteudo {
+    top: -50%;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background: red;
+}
+```
     
 
 
 
-[link para o outro post e comentários](/2007/01/17/css-centralizar-horizontal-e-vertical/)
+[link para o outro post e comentários](/blog/2007/01/17/css-centralizar-horizontal-e-vertical/)

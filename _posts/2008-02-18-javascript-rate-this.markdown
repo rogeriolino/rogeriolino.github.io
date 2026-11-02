@@ -33,16 +33,18 @@ O código está contido na própria página do exemplo, e para usá-lo basta ins
 
     
     
-    var r1 = new Rate(5);
-    
-    r1.onclick = function() {
-        // input here your action
-        alert(r1.getValue());
-    }
-    
-    r1.setDefault(3);
-    
-    r1.append("example1");
+```js
+var r1 = new Rate(5);
+
+r1.onclick = function() {
+    // input here your action
+    alert(r1.getValue());
+}
+
+r1.setDefault(3);
+
+r1.append("example1");
+```
     
 
 

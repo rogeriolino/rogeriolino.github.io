@@ -27,34 +27,36 @@ Conforme prometido aqui um exemplo de preloader de imagem feito em Javascript:
 
     
     
-    var bgColor = "#FFFFFF";
-    var bgImage = "http://www.../loading.gif";
-    var bgRepeat = "no-repeat";
-    var bgPosition = "center center";
-    var borderWidth = "3px";
-    var borderStyle = "solid";
-    var borderColor = "#3366FF";
-    
-    var loadImage = function(w, h, url, target) {
-        var img = new Image(w, h);
-        img.src = url;
-        img.style.visibility = "hidden";
-        var molde = document.createElement("div");
-        molde.setAttribute("id", "molde");
-    
-        var style = molde.style;
-        style.border = borderWidth+" "+borderStyle+" "+borderColor;
-        style.background = bgColor+" url("+bgImage+") "+bgRepeat+" "+bgPosition;
-        style.width = img.width+"px";
-        style.height = img.height+"px";
-    
-        document.getElementById(target).appendChild(molde);
-        molde.appendChild(img);
-        img.onload = function() {
-            this.style.visibility = "visible";
-            molde.style.background = bgColor;
-        }
+```js
+var bgColor = "#FFFFFF";
+var bgImage = "http://www.../loading.gif";
+var bgRepeat = "no-repeat";
+var bgPosition = "center center";
+var borderWidth = "3px";
+var borderStyle = "solid";
+var borderColor = "#3366FF";
+
+var loadImage = function(w, h, url, target) {
+    var img = new Image(w, h);
+    img.src = url;
+    img.style.visibility = "hidden";
+    var molde = document.createElement("div");
+    molde.setAttribute("id", "molde");
+
+    var style = molde.style;
+    style.border = borderWidth+" "+borderStyle+" "+borderColor;
+    style.background = bgColor+" url("+bgImage+") "+bgRepeat+" "+bgPosition;
+    style.width = img.width+"px";
+    style.height = img.height+"px";
+
+    document.getElementById(target).appendChild(molde);
+    molde.appendChild(img);
+    img.onload = function() {
+        this.style.visibility = "visible";
+        molde.style.background = bgColor;
     }
+}
+```
     
 
 
@@ -67,13 +69,15 @@ Para usar coloque isso no HTML:
 
     
     
-    /*
-     * largura: largura da imagem em pixel
-     * altura: altura da imagem em pixel
-     * url: caminho para a imagem
-     * alvo: id da tag aonde deverá ser adicionada a imagem
-     */
-    var imagem = new loadImage(largura, altura, url, alvo);
+```js
+/*
+ * largura: largura da imagem em pixel
+ * altura: altura da imagem em pixel
+ * url: caminho para a imagem
+ * alvo: id da tag aonde deverá ser adicionada a imagem
+ */
+var imagem = new loadImage(largura, altura, url, alvo);
+```
     
 
 

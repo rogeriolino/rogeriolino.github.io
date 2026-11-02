@@ -32,9 +32,11 @@ Usando:
 
     
     
-    var minhaData = new Date();
-    var hora = minhaData.getHours();
-    window.alert( hora);
+```js
+var minhaData = new Date();
+var hora = minhaData.getHours();
+window.alert( hora);
+```
     
 
 
@@ -46,15 +48,17 @@ Podemos então aproveitar isso para mostrar uma mensagem (bom dia, boa tarde ou 
 
     
     
-    var minhaData = new Date();
-    var hora = minhaData.getHours();
-    var msg = "Boa noite";
-    if ((hora >= 6) && (hora < 12)) {
-        msg = "Bom dia";
-    } else if ((hora >= 12) && (hora < 18)) {
-        msg = "Boa tarde";
-    }
-    window.alert(msg);
+```js
+var minhaData = new Date();
+var hora = minhaData.getHours();
+var msg = "Boa noite";
+if ((hora >= 6) && (hora < 12)) {
+    msg = "Bom dia";
+} else if ((hora >= 12) && (hora < 18)) {
+    msg = "Boa tarde";
+}
+window.alert(msg);
+```
     
 
 

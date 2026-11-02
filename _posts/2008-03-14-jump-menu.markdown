@@ -30,14 +30,16 @@ Ex:
 
     
     
-    var itens = Array();
-    
-    for (var i=0; i<15; i++) {
-        itens[i] = ['/', 'item ' + (i+1)];
-        var menu = new JumpMenu(itens);
-        menu.setLabel(' + Click Here');
-        menu.pack('teste');
-    }
+```js
+var itens = Array();
+
+for (var i=0; i<15; i++) {
+    itens[i] = ['/', 'item ' + (i+1)];
+    var menu = new JumpMenu(itens);
+    menu.setLabel(' + Click Here');
+    menu.pack('teste');
+}
+```
     
 
 

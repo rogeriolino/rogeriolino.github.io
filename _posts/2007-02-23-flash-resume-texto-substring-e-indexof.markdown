@@ -31,14 +31,16 @@ Então fiz uma bem simples depois dei uma implementada nela (utilizando prototyp
 
     
      
-    String.prototype.resume = function(q) {
-        var aux:String = "";
-        for (var i = 0; i < q; i++) {
-            aux += this.substring(0, this.indexOf(" ")) + " ";
-            this = this.substring(this.indexOf(" ") + 1);
-        }
-        return (aux += "...");
+```actionscript
+String.prototype.resume = function(q) {
+    var aux:String = "";
+    for (var i = 0; i < q; i++) {
+        aux += this.substring(0, this.indexOf(" ")) + " ";
+        this = this.substring(this.indexOf(" ") + 1);
     }
+    return (aux += "...");
+}
+```
     
 
 
@@ -55,8 +57,10 @@ E para utilizar:
 
     
     
-    var texto = "Putz, o carnaval acabou comigo.";
-    trace(texto.resume(3)); // "Putz, o carnaval ..."
+```actionscript
+var texto = "Putz, o carnaval acabou comigo.";
+trace(texto.resume(3)); // "Putz, o carnaval ..."
+```
     
 
 
@@ -72,21 +76,23 @@ Adicionei condições para ver se o texto não é uma única palavra ou a quanti
 
     
     
-    String.prototype.resume = function(q) {
-        var aux:String = "";
-        var menor:Boolean = (this.indexOf(" ") == -1) ? false : true;
-        for (var i= 0; i < q; i++) {
-            if (!menor) {
-                return this;
-            } else if (this.indexOf(" ") != -1) {
-                aux += this.substring(0, this.indexOf(" ")) + " ";
-                this = this.substring(this.indexOf(" ") + 1);
-            } else {
-                return aux + this;
-            }
+```actionscript
+String.prototype.resume = function(q) {
+    var aux:String = "";
+    var menor:Boolean = (this.indexOf(" ") == -1) ? false : true;
+    for (var i= 0; i < q; i++) {
+        if (!menor) {
+            return this;
+        } else if (this.indexOf(" ") != -1) {
+            aux += this.substring(0, this.indexOf(" ")) + " ";
+            this = this.substring(this.indexOf(" ") + 1);
+        } else {
+            return aux + this;
         }
-        return aux + "...";
     }
+    return aux + "...";
+}
+```
     
 
 

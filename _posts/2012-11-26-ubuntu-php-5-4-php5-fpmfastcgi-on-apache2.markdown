@@ -76,7 +76,7 @@ vim /etc/apache2/mods-enabled/fastcgi.conf
 Caso já tenha algumas entradas, comente (adicionando # no início da linha ou simplesmente remova) e adicione as seguintes linhas:
 
 
-```
+```apache
 AddHandler php5-fcgi .php
 Action php5-fcgi /php5-fcgi
 Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
@@ -99,7 +99,7 @@ vim /etc/php5/fpm/pool.d/www.conf
 E procure pela opção listen. Se não estiver como socket, altere conforme abaixo:
 
 
-```
+```ini
 listen = /var/run/php5-fpm.sock
 ```
 

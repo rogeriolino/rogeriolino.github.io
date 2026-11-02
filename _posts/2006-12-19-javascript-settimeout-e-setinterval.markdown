@@ -27,8 +27,10 @@ Sintaxe:
 
     
     
-    window.setTimeout('funcao()', intervalo_em_milisegundos);
-    window.setInterval('funcao()', intervalo_em_milisegundos);
+```js
+window.setTimeout('funcao()', intervalo_em_milisegundos);
+window.setInterval('funcao()', intervalo_em_milisegundos);
+```
     
 
 
@@ -43,11 +45,13 @@ Ex:
 
     
     
-    var intervalo = window.setInterval(lerolero, 1000);
-    function lerolero() {
-        window.alert("Popup");
-    }
-    clearInterval(intervalo);
+```js
+var intervalo = window.setInterval(lerolero, 1000);
+function lerolero() {
+    window.alert("Popup");
+}
+clearInterval(intervalo);
+```
     
 
 
@@ -58,13 +62,15 @@ Ex:
 
     
     
-    var intervalo = window.setInterval(function() {
-        // corpo da funcao
-    }, 50);
-    
-    window.setTimeout(function() {
-        clearInterval(intervalo);
-    }, 3000);
+```js
+var intervalo = window.setInterval(function() {
+    // corpo da funcao
+}, 50);
+
+window.setTimeout(function() {
+    clearInterval(intervalo);
+}, 3000);
+```
     
 
 

@@ -21,9 +21,11 @@ Podemos simular um pré-carregamento de uma imagem utilizando a propriedade CSS*
 
     
     
-    img {
-        background: #ffffff url(loading.gif) no-repeat center center;
-    }
+```css
+img {
+    background: #ffffff url(loading.gif) no-repeat center center;
+}
+```
     
 
 
@@ -38,5 +40,5 @@ Liberando um tempo vago darei um update nesse post com o exemplo já utilizando 
 
 **[update]**
 Link para o exemplo com Javascript:
-[/2007/03/21/javascript-image-preloader/](/2007/03/21/javascript-image-preloader/)
+[/2007/03/21/javascript-image-preloader/](/blog/2007/03/21/javascript-image-preloader/)
 **[/update]**

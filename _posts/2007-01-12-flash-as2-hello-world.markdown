@@ -31,10 +31,12 @@ Criando então o campo de texto aonde aparecerá a mensagem.
 
     
     
-    this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
-    meuCampo.autoSize = true;
-    meuCampo.html = true;
-    meuCampo.text = "Hello World!";
+```actionscript
+this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+```
     
 
 
@@ -49,7 +51,9 @@ E por fim o nosso texto, a mensagem que queremos que apareça - "Hello World!". 
 
     
     
-    meuCampo.htmlText = "Hello World!";
+```actionscript
+meuCampo.htmlText = "Hello World!";
+```
     
 
 
@@ -63,14 +67,16 @@ Vamos então criar o objeto que formatará o nosso texto (**textFormat**).
 
     
     
-    var style:TextFormat = new TextFormat();
-    style.align = "center";
-    style.bold = true;
-    style.italic = true;
-    style.color = 0x000099;
-    style.font = "Verdana";
-    style.size = 30;
-    style.url = "http://rogeriolino.com"
+```actionscript
+var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com"
+```
     
 
 
@@ -82,7 +88,9 @@ Agora só falta adicionar esse estilo ao campo:
 
     
     
-    meuCampo.setTextFormat(style);
+```actionscript
+meuCampo.setTextFormat(style);
+```
     
 
 
@@ -91,8 +99,10 @@ E colocar o ele centralizado no palco:
 
     
     
-    meuCampo._x = (Stage.width-meuCampo._width)/2;
-    meuCampo._y = (Stage.height-meuCampo._height)/2;
+```actionscript
+meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+```
     
 
 
@@ -107,21 +117,23 @@ Agora é só executar. Abaixo o código completo:
 
     
     
-    this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
-    meuCampo.autoSize = true;
-    meuCampo.html = true;
-    meuCampo.text = "Hello World!";
-    
-    var style:TextFormat = new TextFormat();
-    style.align = "center";
-    style.bold = true;
-    style.italic = true;
-    style.color = 0x000099;
-    style.font = "Verdana";
-    style.size = 30;
-    style.url = "http://rogeriolino.com";
-    
-    meuCampo.setTextFormat(style);
-    meuCampo._x = (Stage.width-meuCampo._width)/2;
-    meuCampo._y = (Stage.height-meuCampo._height)/2;
+```actionscript
+this.createTextField("meuCampo", _root.getNextHighestDepth(), 0, 0, 0, 0);
+meuCampo.autoSize = true;
+meuCampo.html = true;
+meuCampo.text = "Hello World!";
+
+var style:TextFormat = new TextFormat();
+style.align = "center";
+style.bold = true;
+style.italic = true;
+style.color = 0x000099;
+style.font = "Verdana";
+style.size = 30;
+style.url = "http://rogeriolino.com";
+
+meuCampo.setTextFormat(style);
+meuCampo._x = (Stage.width-meuCampo._width)/2;
+meuCampo._y = (Stage.height-meuCampo._height)/2;
+```
     

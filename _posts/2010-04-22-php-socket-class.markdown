@@ -25,7 +25,7 @@ redirect_from:
 **[UPDATE 16-05-2012]**
 
 Criei um projeto no Github e também adicionei suporte ao Websocket.
-[Clique aqui para ver o post novo](/2012/05/16/html5-websocket)
+[Clique aqui para ver o post novo](/blog/2012/05/16/html5-websocket)
 
 **[/UPDATE]**
 

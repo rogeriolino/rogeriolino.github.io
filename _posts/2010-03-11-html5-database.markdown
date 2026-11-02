@@ -35,17 +35,19 @@ Para abrir a conexão com a banco de dados (**openDatabase**) deve-se informar o
 
     
     
-    var db;
-    try {
-        if (window.openDatabase) {
-            db = openDatabase("MyDB", "1.0", "HTML5 Database Example", 200000);
-            if (!db) {
-                alert("Failed to open the database.");
-            }
-        } else {
-            alert("Couldn't open the database.");
+```js
+var db;
+try {
+    if (window.openDatabase) {
+        db = openDatabase("MyDB", "1.0", "HTML5 Database Example", 200000);
+        if (!db) {
+            alert("Failed to open the database.");
         }
-    } catch(err) { }
+    } else {
+        alert("Couldn't open the database.");
+    }
+} catch(err) { }
+```
     
     
 
@@ -56,36 +58,38 @@ Uma vez estabelecida a conexão a interação passa ser efetuada através de com
 
     
     
-    db.transaction(function(tx) {
-    tx.executeSql("CREATE TABLE myTable (id REAL UNIQUE, name TEXT, description TEXT, timestamp REAL");
-    });
-    
-    db.transaction(function (tx) {
-    tx.executeSql("INSERT INTO myTable (id, name, description, timestamp) VALUES (?, ?, ?, ?)", [id, name, description, timestamp]);
-    });
-    
-    db.transaction(function(tx) {
-    tx.executeSql("DELETE FROM myTable WHERE id = ?", [id]);
-    });
-    
-    db.transaction(function(tx) {
-        tx.executeSql(
-            "SELECT * FROM myTable WHERE id = ?", 
-             [id], 
-             function(tx, result) {
-                 // success
-                 if (result.rows.length > 0) {
-                       alert("My name is: " + result.rows.item(0)['name']);
-                 } else {
-                      alert("Sorry, no result for this id");
-                  }
-             }, 
-             function(tx, error) {
-                 // error
-                 alert("Error when try retrieve data: " + error.message);
-             }
-        );
-    });
+```js
+db.transaction(function(tx) {
+tx.executeSql("CREATE TABLE myTable (id REAL UNIQUE, name TEXT, description TEXT, timestamp REAL");
+});
+
+db.transaction(function (tx) {
+tx.executeSql("INSERT INTO myTable (id, name, description, timestamp) VALUES (?, ?, ?, ?)", [id, name, description, timestamp]);
+});
+
+db.transaction(function(tx) {
+tx.executeSql("DELETE FROM myTable WHERE id = ?", [id]);
+});
+
+db.transaction(function(tx) {
+    tx.executeSql(
+        "SELECT * FROM myTable WHERE id = ?", 
+         [id], 
+         function(tx, result) {
+             // success
+             if (result.rows.length > 0) {
+                   alert("My name is: " + result.rows.item(0)['name']);
+             } else {
+                  alert("Sorry, no result for this id");
+              }
+         }, 
+         function(tx, error) {
+             // error
+             alert("Error when try retrieve data: " + error.message);
+         }
+    );
+});
+```
     
     
 

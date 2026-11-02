@@ -37,14 +37,16 @@ Nos **browser espertos** (smarts) fica assim:
 
     
     
-    #menu {
-        top: 15%;
-        left: 50px;
-        width: 200px;
-        padding: 20px 0px;
-        border: 2px solid #CCCCCC;
-        position: fixed;
-    }
+```css
+#menu {
+    top: 15%;
+    left: 50px;
+    width: 200px;
+    padding: 20px 0px;
+    border: 2px solid #CCCCCC;
+    position: fixed;
+}
+```
     
 
 
@@ -55,17 +57,19 @@ Agora para o **IE** vamos colocar o CSS dentro de um comentário do HTML (que po
 
     
     
-    <!--[if IE]>
-    <style type="text/css">
-    html, body {
-        height: 100%;
-        overflow: auto;
-    }
-    #menu {
-        position: absolute;
-    }
-    </style>
-    <![endif]-->
+```html
+<!--[if IE]>
+<style type="text/css">
+html, body {
+    height: 100%;
+    overflow: auto;
+}
+#menu {
+    position: absolute;
+}
+</style>
+<![endif]-->
+```
     
 
 

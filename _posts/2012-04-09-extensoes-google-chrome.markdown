@@ -30,7 +30,7 @@ redirect_from:
   - /2012/04/09/extensoes-google-chrome/
 ---
 
-Em 2006 publiquei um post listando algumas [extensões que recomendava para o Firefox](/2006/07/06/extensoes-firefox/), o tempo passou e acabei mudando de browser também. E o mais engraçado é que mesmo mudando de browser, as duas extensões que sempre fiz questão de instalar no Firefox, hoje também são pré-requisitos no Chrome. São elas:
+Em 2006 publiquei um post listando algumas [extensões que recomendava para o Firefox](/blog/2006/07/06/extensoes-firefox/), o tempo passou e acabei mudando de browser também. E o mais engraçado é que mesmo mudando de browser, as duas extensões que sempre fiz questão de instalar no Firefox, hoje também são pré-requisitos no Chrome. São elas:
 
 
 

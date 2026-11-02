@@ -28,7 +28,9 @@ Mesmo sendo fácil ainda há gente que não conhece. Através de um parâmetro (
 
     
      
-    <param name="wmode" value="transparent" />
+```html
+<param name="wmode" value="transparent" />
+```
     
 
 
@@ -38,7 +40,9 @@ Para muitos que aindam usam a tag embed para funcionar em todos os browsers tem 
 
     
     
-    <embed wmode="transparent" ... />
+```html
+<embed wmode="transparent" ... />
+```
     
 
 
@@ -48,11 +52,13 @@ Então o código validado do SWF com fundo transparente ficaria assim:
 
     
     
-    <object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400" >
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="movie" value="filme.swf" />
-        <param name="wmode" value="transparent" />
-    </object>
+```html
+<object type="application/x-shockwave-flash" data="filme.swf" width="550" height="400" >
+    <param name="allowScriptAccess" value="sameDomain" />
+    <param name="movie" value="filme.swf" />
+    <param name="wmode" value="transparent" />
+</object>
+```
     
 
 

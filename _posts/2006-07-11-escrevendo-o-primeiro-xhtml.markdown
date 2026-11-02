@@ -45,7 +45,7 @@ Mãos à obra, vamos agora escrever nosso primeiro código **XHTML**. Abaixo o c
 ```
 
 
-Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: [leia aqui](/2006/07/03/xhtml-o-que-e/) e/ou [aqui](http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/).
+Antes de iniciar a tag html é declarado o tipo da página, o Doctype, se você não sabe o que é: [leia aqui](/blog/2006/07/03/xhtml-o-que-e/) e/ou [aqui](http://www.revolucao.etc.br/archives/doctype-dtd-document-type-definition/).
 
 Nesse caso foi definido como Strict, caso você ainda não esteje preparado pode utilizar como Transitional.
 

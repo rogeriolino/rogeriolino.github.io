@@ -38,15 +38,17 @@ No CSS definimos o tamanho (largura) da caixa, uma borda em cima e em baixo, tex
 
     
      
-    blockquote.pull {
-        width: 170px;
-        border-top: 3px solid #CC0099;
-        border-bottom: 3px solid #CC0099;
-        text-align: center;
-        float: right;
-        margin: 0px 20px;
-        padding: 15px;
-    }
+```css
+blockquote.pull {
+    width: 170px;
+    border-top: 3px solid #CC0099;
+    border-bottom: 3px solid #CC0099;
+    text-align: center;
+    float: right;
+    margin: 0px 20px;
+    padding: 15px;
+}
+```
     
 
 

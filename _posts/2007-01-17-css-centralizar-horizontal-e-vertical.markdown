@@ -36,16 +36,18 @@ A primeira consiste em definir a posição do objeto como **absolute** e suas po
 
     
     
-    #minhaDiv {
-        width: 500px;
-        height: 400px;
-        top: 50%;
-        left: 50%;
-        margin-top: -200px;
-        margin-left: -250px;
-        position: absolute;
-        border: 1px solid black;
-    }
+```css
+#minhaDiv {
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+    position: absolute;
+    border: 1px solid black;
+}
+```
     
 
 
@@ -63,13 +65,15 @@ A estrutura para simular uma tabela fica assim:
 
     
     
-    <div id="tabela">
-        <div id="cell">
-            <div id="conteudo">
-                <p>parágrafo</p>
-            </div>
+```html
+<div id="tabela">
+    <div id="cell">
+        <div id="conteudo">
+            <p>parágrafo</p>
         </div>
     </div>
+</div>
+```
     
 
 
@@ -79,22 +83,24 @@ E definimos no CSS o display da div **tabela** como **table** e da div **cell** 
 
     
     
-    html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0px; /* retirando a margem padrão */
-        padding: 0px; /* retirando o padding padrão */
-    }
-    
-    #table {
-        width: 100%;
-        height: 100%;
-        display: table;
-    }
-    
-    #cell { 
-        display: table-cell; 
-    }
+```css
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px; /* retirando a margem padrão */
+    padding: 0px; /* retirando o padding padrão */
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#cell { 
+    display: table-cell; 
+}
+```
     
 
 
@@ -104,10 +110,12 @@ Com as divs já funcionando como tabela vamos definir a **vertical-align** como 
 
     
     
-    #cell {
-        vertical-align: middle;
-        display: table-cell;
-    }
+```css
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+}
+```
     
 
 
@@ -117,10 +125,12 @@ Falta agora setar a **margin** do conteudo como **auto**. E colocar um valor par
 
     
     
-    #conteudo {
-        width: 500px;
-        margin: auto;
-    }
+```css
+#conteudo {
+    width: 500px;
+    margin: auto;
+}
+```
     
 
 
@@ -136,35 +146,37 @@ Ficando o **CSS final** assim:
 
     
     
-    html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    
-    #table {
-        width: 100%;
-        height: 100%;
-        display: table;
-        background: #f1f1f1;
-    }
-    
-    #cell {
-        vertical-align: middle;
-        display: table-cell;
-        _position: absolute;
-        _top: 50%;
-    }
-    
-    #conteudo {
-        width: 500px;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid black;
-        _position: relative;
-        _top: -50%;
-    }
+```css
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    display: table;
+    background: #f1f1f1;
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    _position: absolute;
+    _top: 50%;
+}
+
+#conteudo {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    _position: relative;
+    _top: -50%;
+}
+```
     
 
 
@@ -173,13 +185,15 @@ E o **HTML**:
 
     
     
-    <div id="table">
-        <div id="cell">
-            <div id="conteudo">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-            </div>
+```html
+<div id="table">
+    <div id="cell">
+        <div id="conteudo">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
         </div>
     </div>
+</div>
+```
     
 
 
@@ -195,37 +209,39 @@ Mais **sobre**:
 
     
     
-    html, body {
-        width: 100%;
-        height: 100%;
-        padding: 0px;
-        margin: 0px;
-    }
-    
-    #table {
-        width: 100%;
-        height: 100%;
-        position: static;
-        display: table;
-        *overflow: hidden; /* hack para o IE6 e IE7 */
-        *position: relative; /* hack para o IE6 e IE7 */
-    }
-    
-    #cell {
-        vertical-align: middle;
-        display: table-cell;
-        position: static;
-        *top: 50%; /* hack para o IE6 e IE7 */
-        *position: absolute; /* hack para o IE6 e IE7 */
-    }
-    
-    #conteudo {
-        top: -50%;
-        width: 500px;
-        margin: auto;
-        position: relative;
-        background: red;
-    }
+```css
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: table;
+    *overflow: hidden; /* hack para o IE6 e IE7 */
+    *position: relative; /* hack para o IE6 e IE7 */
+}
+
+#cell {
+    vertical-align: middle;
+    display: table-cell;
+    position: static;
+    *top: 50%; /* hack para o IE6 e IE7 */
+    *position: absolute; /* hack para o IE6 e IE7 */
+}
+
+#conteudo {
+    top: -50%;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background: red;
+}
+```
     
 
 

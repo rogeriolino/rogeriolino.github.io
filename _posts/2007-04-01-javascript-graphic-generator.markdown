@@ -35,32 +35,34 @@ O código que gerou o gráfico da imagem ao lado é o seguinte:
 
     
     
-    var grafico = new Grafico(11);
-    grafico.setSize("200px");
-    grafico.setTitle("Grafico de Barras");
-    grafico.setSource("Fonte: Fictícia");
-    grafico.setBarraSize(0, "80%");
-    grafico.setBarraLabel(0, "manga");
-    grafico.setBarraSize(1, "30%");
-    grafico.setBarraLabel(1, "banana");
-    grafico.setBarraSize(2, "50%");
-    grafico.setBarraLabel(2, "maracuja");
-    grafico.setBarraSize(3, "100%");
-    grafico.setBarraLabel(3, "melancia");
-    grafico.setBarraSize(4, "70%");
-    grafico.setBarraLabel(4, "maracuja");
-    grafico.setBarraSize(5, "76%");
-    grafico.setBarraLabel(5, "pera");
-    grafico.setBarraSize(6, "30%");
-    grafico.setBarraLabel(6, "uva");
-    grafico.setBarraSize(7, "47%");
-    grafico.setBarraLabel(7, "melao");
-    grafico.setBarraSize(8, "25%");
-    grafico.setBarraLabel(8, "laranja");
-    grafico.setBarraSize(9, "90%");
-    grafico.setBarraLabel(9, "abacaxi");
-    grafico.setBarraSize(10, "10%");
-    grafico.setBarraLabel(10, "kiwi");
+```js
+var grafico = new Grafico(11);
+grafico.setSize("200px");
+grafico.setTitle("Grafico de Barras");
+grafico.setSource("Fonte: Fictícia");
+grafico.setBarraSize(0, "80%");
+grafico.setBarraLabel(0, "manga");
+grafico.setBarraSize(1, "30%");
+grafico.setBarraLabel(1, "banana");
+grafico.setBarraSize(2, "50%");
+grafico.setBarraLabel(2, "maracuja");
+grafico.setBarraSize(3, "100%");
+grafico.setBarraLabel(3, "melancia");
+grafico.setBarraSize(4, "70%");
+grafico.setBarraLabel(4, "maracuja");
+grafico.setBarraSize(5, "76%");
+grafico.setBarraLabel(5, "pera");
+grafico.setBarraSize(6, "30%");
+grafico.setBarraLabel(6, "uva");
+grafico.setBarraSize(7, "47%");
+grafico.setBarraLabel(7, "melao");
+grafico.setBarraSize(8, "25%");
+grafico.setBarraLabel(8, "laranja");
+grafico.setBarraSize(9, "90%");
+grafico.setBarraLabel(9, "abacaxi");
+grafico.setBarraSize(10, "10%");
+grafico.setBarraLabel(10, "kiwi");
+```
     
 
 

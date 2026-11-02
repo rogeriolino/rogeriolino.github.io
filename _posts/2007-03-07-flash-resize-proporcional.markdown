@@ -53,17 +53,19 @@ Agora então mãos a obra com as Actions:
 
     
     
-    MovieClip.prototype.resizeW = function(w) {
-        var dw = w - this._width;
-        this._height += dw * (this._height / this._width);
-        this._width = w;
-    }
-    
-    MovieClip.prototype.resizeH = function(h) {
-        var dh = h - this._height;
-        this._width += dh * (this._width / this._height);
-        this._height = h;
-    }
+```actionscript
+MovieClip.prototype.resizeW = function(w) {
+    var dw = w - this._width;
+    this._height += dw * (this._height / this._width);
+    this._width = w;
+}
+
+MovieClip.prototype.resizeH = function(h) {
+    var dh = h - this._height;
+    this._width += dh * (this._width / this._height);
+    this._height = h;
+}
+```
     
 
 
@@ -72,11 +74,13 @@ Para utilizar:
 
     
     
-    // redimensionando a partir da largura
-    MovieClip.resizeW(novaLargura);
-    
-    // redimensionando a partir da altura
-    MovieClip.resizeH(novaAltura);
+```actionscript
+// redimensionando a partir da largura
+MovieClip.resizeW(novaLargura);
+
+// redimensionando a partir da altura
+MovieClip.resizeH(novaAltura);
+```
     
 
 

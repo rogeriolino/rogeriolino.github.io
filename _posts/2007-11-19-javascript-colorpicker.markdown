@@ -39,15 +39,17 @@ Ex:
 
     
     
-    <script type="text/javascript" src="colorpicker.js"></script>
-    
+```html
+<script type="text/javascript" src="colorpicker.js"></script>
 
 
 
-    
-    
-    var picker = new ColorPicker(100, 38); // x , y
-    picker.setVisible(true);
+
+
+
+var picker = new ColorPicker(100, 38); // x , y
+picker.setVisible(true);
+```
     
 
 

@@ -24,7 +24,7 @@ redirect_from:
 
 Já tem algum tempo que está no ar a [Wikipedia FlashMasters](http://wiki.flashmasters.net/) mas estava esperando juntar mais um pouco de conteúdo antes de divulgá-la aqui.
 
-Lá você poderá tirar sua dúvida sobre algum comando ActionScript por exemplo, ou até mesmo deixar sua contribuíção. Assim como eu em [Operadores](http://wiki.flashmasters.net/index.php?title=Operadores), que também postei [aqui no blog](/2007/03/24/actionscript-operadores/).
+Lá você poderá tirar sua dúvida sobre algum comando ActionScript por exemplo, ou até mesmo deixar sua contribuíção. Assim como eu em [Operadores](http://wiki.flashmasters.net/index.php?title=Operadores), que também postei [aqui no blog](/blog/2007/03/24/actionscript-operadores/).
 
 A intenção por trás da criação do Wiki está em ter o Help (ou um) do Flash traduzido para o português. Como o [LiveDocs](http://livedocs.adobe.com/flash/8/) da Adobe.
 
