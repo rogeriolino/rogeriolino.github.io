@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<section class="blog">
+  <p class="meta"><a href="{{ '/blog/' | relative_url }}">← Blog</a></p>
+  <h1>Categoria: {{ page.category }}</h1>
+  {% assign posts = site.categories[page.category] %}
+  {% include post-list.html posts=posts %}
+</section>

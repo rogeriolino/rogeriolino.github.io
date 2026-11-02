@@ -1,0 +1,65 @@
+---
+layout: default
+---
+{% assign p = site.data.profile %}
+<section class="hero">
+  <h1>{{ p.name }}</h1>
+  <p class="headline">{{ p.headline }} · {{ p.location }}</p>
+  <p class="summary">{{ p.summary }}</p>
+  <p class="cta">
+    <a class="btn" href="https://www.linkedin.com/in/rogerio-alencar-lino-filho/">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/rogeriolino">GitHub</a>
+  </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ol class="timeline">
+  {% for job in p.experience %}
+    <li>
+      <h3>{{ job.role }} <span>@ {{ job.company }}</span></h3>
+      <p class="meta">{{ job.period }}</p>
+      {% if job.description %}<p>{{ job.description }}</p>{% endif %}
+      <p class="tags">{% for t in job.stack %}<span>{{ t }}</span>{% endfor %}</p>
+    </li>
+  {% endfor %}
+  </ol>
+</section>
+
+<section id="projects">
+  <h2>Open Source Projects</h2>
+  <div class="cards">
+  {% for pr in p.projects %}
+    <article class="card">
+      <h3><a href="{{ pr.url | default: pr.repo }}">{{ pr.name }}</a></h3>
+      <p>{{ pr.description }}</p>
+      <p class="tags">{% for t in pr.tags %}<span>{{ t }}</span>{% endfor %}</p>
+      {% if pr.repo %}<p class="meta"><a href="{{ pr.repo }}">Source code →</a></p>{% endif %}
+    </article>
+  {% endfor %}
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <dl class="skills">
+  {% for group in p.skills %}
+    <dt>{{ group[0] }}</dt>
+    <dd class="tags">{% for s in group[1] %}<span>{{ s }}</span>{% endfor %}</dd>
+  {% endfor %}
+  </dl>
+</section>
+
+{% assign edu = p.education | where_exp: "e", "e.school != ''" %}
+{% if edu.size > 0 %}
+<section id="education">
+  <h2>Education</h2>
+  <ul>{% for e in edu %}<li><strong>{{ e.degree }}</strong> — {{ e.school }} {% if e.period %}({{ e.period }}){% endif %}</li>{% endfor %}</ul>
+</section>
+{% endif %}
+
+<section id="writing">
+  <h2>Latest from the blog <small>(pt-BR)</small></h2>
+  {% include post-list.html posts=site.posts limit=5 %}
+  <p><a href="{{ '/blog/' | relative_url }}">All posts →</a></p>
+</section>

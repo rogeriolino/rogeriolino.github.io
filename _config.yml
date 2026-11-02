@@ -1,0 +1,43 @@
+title: Rogério Lino
+description: Full-stack software engineer with 15+ years of experience building web applications end-to-end.
+url: https://rogeriolino.com
+author: Rogério Lino
+lang: en
+timezone: America/Sao_Paulo
+
+permalink: /blog/:year/:month/:day/:title/
+paginate: 10
+paginate_path: /blog/page/:num/
+excerpt_separator: "<!-- more -->"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+feed:
+  path: atom.xml
+
+# Disqus is disabled: the free plan injects ads. Set to "rogeriolino" to re-enable
+# (old threads stay attached via page.old_url).
+disqus_shortname:
+
+social:
+  name: Rogério Lino
+  links:
+    - https://github.com/rogeriolino
+    - https://www.linkedin.com/in/rogerio-alencar-lino-filho/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post, lang: pt-BR }
+
+exclude: [Gemfile, Gemfile.lock, README.md, vendor, .bundle]

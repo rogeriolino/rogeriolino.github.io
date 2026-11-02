@@ -1,0 +1,22 @@
+---
+layout: default
+title: Blog
+lang: pt-BR
+---
+<section class="blog">
+  <h1>Blog</h1>
+  <p class="meta">Web development and tips · <a href="{{ '/blog/archives/' | relative_url }}">Arquivo</a> · <a href="{{ '/atom.xml' | relative_url }}">RSS</a></p>
+  {% for post in paginator.posts %}
+  <article class="excerpt">
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time> {% include categories.html categories=post.categories %}</p>
+    {{ post.excerpt | strip_html | truncatewords: 50 }}
+    <p><a href="{{ post.url | relative_url }}">Ler mais →</a></p>
+  </article>
+  {% endfor %}
+  <nav class="pager">
+    {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path | relative_url }}">← Mais recentes</a>{% else %}<span></span>{% endif %}
+    <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}">Mais antigos →</a>{% else %}<span></span>{% endif %}
+  </nav>
+</section>

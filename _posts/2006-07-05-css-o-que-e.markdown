@@ -1,0 +1,174 @@
+---
+author: rogeriolino
+comments: true
+date: 2006-07-05 04:54:49+00:00
+slug: css-o-que-e
+title: CSS - O que é?
+wordpress_id: 9
+categories:
+- CSS
+tags:
+- cascading
+- CSS
+- o que e
+- referencia
+- sheet
+- sintaxe
+- style
+- tag
+old_url: /2006/07/05/css-o-que-e/
+redirect_from:
+  - /2006/07/05/css-o-que-e/
+---
+
+CSS (**Cascading Style Sheet**) são folhas de estilo em cascata.
+
+_**Pra que servem?** _
+
+Servem para definir um estilo para o seu documento Web (HTML, XHTLM, por exemplo). Ao invez de você ter que toda hora definir dentro da tag usada os atributos desejados, basta fazer isso uma vez pelo CSS.
+
+Ex.: Se você quer que toda a tag <p> tenha a fonte de cor azul, Verdana e tamanho 12px. Basta configurar ela no CSS dessa maneira:
+
+```css
+p {
+    font: 12px Verdana;
+    color: blue;
+}
+```
+
+
+E assim todas as tag <p> terão essa mesma característica. Caso você não queira que isso se aplique a todas mas sim em apenas algumas tag <p>, você pode definir uma classe com tais características e depois dentro da tag chamar essa classe.
+
+Ex.:
+
+
+```css
+.minhaclasse {
+    font: 12px Verdana;
+    color: blue;
+} 
+```
+
+repare que para definir uma classe é necessário começar com um ponto.
+
+e na tag:
+
+```html
+<p class="minhaclasse"> Meu parágrafo aqui </p>
+```
+
+**Como que eu uso o CSS?**
+
+Há duas maneiras de aplicar uma folha de estilo em seu documento, uma é definir na própria página, ou chamar um arquivo externo de extensão .css. A segunda opção posibilita muito mais flexibilidade, devido a que você não irá precisar mudar os estilos página por páginas, caso venha querer mudar a "cara" do seu documento, e sim só alterar uma vez o próprio arquivo .css.
+
+**Sintaxe:**
+
+A sintaxe do CSS é muito simples. Primeiro coloca o nome da tag que queira definir o estilo abra "{" coloca os atributos e depois fecha "}".
+
+Os nomes das classes devem ser iniciados com um "**.**" e dos ID com "**#**".
+
+Ex.:
+
+
+```css
+body {
+    background: black;
+}
+
+_**.minhaclasse** {
+    color: #FF0000;
+}
+
+#meuDiv {
+    width: 100px;
+    height: 200px;
+}
+```
+
+[mais aqui](http://www.w3schools.com/css/css_syntax.asp)
+
+A diferença primordial entre **class **e **id**, é que a mesma classe você usa mais de uma vez em tags diferentes, enquanto o id é usado uma única vez - por uma <div> por exempo - pois o nome declarado no id serve para identificar aquela tag (exclusiva), como era feito pelo atributo **_name_**.
+
+**Definindo o estilo pela própria página:**
+
+Se você não ver porquê criar um arquivo externo ou que só vai precisar usá-lo em uma página, basta colocar o código do CSS dentro da tag _**<style>**_ que por sua vez deve ficar dentro da tag **<head>** passando o atributo _type_ como **_text/css_**.
+
+Ex.:
+
+```html
+<html>
+    <head>
+        <title>Meu Título</title>
+        <style type="text/css">
+            <!-- 
+            .minhaclasse {
+                font: 12px Verdana;
+                color: blue;
+            }
+            -->
+        </style>
+    </head>
+    <body>
+        <p class="minhaclasse"> Meu parágrafo aqui </p>
+    </body>
+</html>
+```
+
+Repare que o CSS propriamente dito vem dentro de um comentário ( _**<!-- ****-->**_ ), isso acontece para evitar bugs de alguns browser antigos, mas será ignorados pelos browsers mais novos.
+
+**Definindo o estilo através de um arquivo externo:**
+
+Pode-se chamar um arquivo externo de duas maneiras, uma já utrapassada e pouco usada e a mais semânticamente correta usando a tag <link> - tag na qual adiciona informações externas na página.
+
+
+**Primeira:**
+
+
+```html
+<style type="text/css">
+<!--
+@import: url(arquivo.css);
+-->
+</style>
+```
+
+**Segunda, e recomendada:**
+
+
+```html
+<link rel="stylesheet" href="style.css" type="text/css"/>
+```
+
+Para entender um pouco mais do porquê de tanto atributos vamos analisar um-por-um :
+
+[**href:**](http://www.w3.org/TR/html4/struct/links.html#adef-href) igual ao da tag <a>, define o caminho.
+
+[**rel:**](http://www.w3.org/TR/html4/struct/links.html#adef-rel) vem do ingles _relationship _(relacionamento), com o atual arquivo especificado no href.
+
+A tag <link> também deverá estar contida na tag <head>.</blockquote>
+
+
+**Alguns dos atributos mais utilizados:**
+
+
+
+**background:** cor; _/* cor do fundo da página */_
+**color:** cor; _/* cor da fonte */_
+**font:** familia; _/* ex.: Verdana, Arial, Tahoma */_
+**margin:** top right bottom left; _/* margin e os sentidos */_
+**padding:**  top right bottom left; _/* espaçamento dentro e os sentidos */_
+**width:** valor _/* largura */_
+**height:** valor _/* altura */_
+**text-align:** valor _/* alinhamento do texto - center, left, right, justify */_
+**border: ** largura tipo cor _/* largura, tipo (solid, dotted, dashed), cor */_
+
+
+**mais sobre:**
+
+[Maujor.com](http://www.maujor.com/)
+[Maujor.com Tutorial](http://www.maujor.com/tutorialcss1/css1tut.shtml)
+[W3.org](http://www.w3.org/Style/)
+[W3.org Use Link](http://www.w3.org/QA/Tips/use-links)
+[W3schools.com](http://www.w3schools.com/css/default.asp)
+[W3schools.com examples](http://www.w3schools.com/css/css_examples.asp)
+[Wikipedia.org](http://pt.wikipedia.org/wiki/Cascading_Style_Sheets)

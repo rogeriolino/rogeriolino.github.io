@@ -1,0 +1,59 @@
+---
+author: rogeriolino
+comments: true
+date: 2011-03-16 18:37:26+00:00
+slug: cakephp-layout-inheritance
+title: 'CakePHP: Layout Inheritance'
+wordpress_id: 356
+categories:
+- PHP
+- Tutorial
+tags:
+- cakephp
+- dica
+- framework
+- inheritance
+- layout
+- PHP
+- template
+- tip
+- tutorial
+old_url: /2011/03/16/cakephp-layout-inheritance/
+redirect_from:
+  - /2011/03/16/cakephp-layout-inheritance/
+---
+
+Para quem está utilizando o CakePHP ou já utilizou e também sentiu falta de herança nos layouts. Segue abaixo uma dica para ajudar na criações de templates utilizando o CakePHP.
+
+
+    
+```html
+<?php
+    // sublayout.ctp
+    ob_start();
+?>
+<!-- html content -->
+<?php eco $content_for_layout; ?>
+<!-- html content -->
+<?php
+
+    $content = ob_get_contents();
+    ob_end_clean();
+    
+    echo $this->renderLayout(
+        $content, 
+        'default' // parent layout
+    );
+```
+
+```php
+<?php
+// controller class
+class MyController extends AppController {
+
+    function test() {
+        $this->layout = 'sublayout';
+    }
+
+}
+```

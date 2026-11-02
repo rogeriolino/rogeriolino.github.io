@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post">
+  <header>
+    <p class="meta"><a href="{{ '/blog/' | relative_url }}">← Blog</a></p>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
+      {% include categories.html categories=page.categories %}
+    </p>
+  </header>
+  <div class="post-content">
+    {{ content }}
+  </div>
+  <nav class="post-nav">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+  </nav>
+  {% if page.comments and site.disqus_shortname %}{% include disqus.html %}{% endif %}
+</article>

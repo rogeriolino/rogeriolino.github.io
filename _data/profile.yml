@@ -1,0 +1,54 @@
+# Portfolio content. Source: GitHub profile README (github.com/rogeriolino/rogeriolino).
+# TODO: complete with LinkedIn details (exact dates, education, certifications).
+name: Rogério Lino
+headline: Full-stack Software Engineer
+location: Vitória, Brazil
+summary: >-
+  Computer scientist with 15+ years of experience designing and building web
+  applications end-to-end — from backend services and databases to frontends and
+  infrastructure. Creator of NovoSGA, an open source queue management system used
+  by public and private organizations across Brazil.
+
+experience:
+  - role: Senior Software Engineer
+    company: Collective Health
+    period: 6 years   # TODO: exact dates from LinkedIn
+    stack: [Java, Spring Boot, PostgreSQL, Messaging, Kubernetes]
+  - role: Software Architect
+    company: Prefeitura Municipal de Vitória
+    period: 7 years   # TODO: exact dates from LinkedIn
+    stack: [PHP, C#, SQL Server, PostgreSQL, Docker Swarm, Linux]
+  - role: Consultant & Freelance Developer
+    company: Independent
+    period: 15+ years
+    stack: [PHP, Python, Java, Go, Android, MySQL, PostgreSQL, Linux]
+
+education:
+  - degree: B.Sc. Computer Science   # TODO: institution and years from LinkedIn
+    school: ""
+
+skills:
+  Languages: [Java, PHP, Python, Go, TypeScript, JavaScript, C#]
+  Backend: [Spring Boot, Symfony, REST APIs, Messaging]
+  Frontend: [React, HTML5, CSS]
+  Data & Infra: [PostgreSQL, MySQL, SQL Server, Docker, Kubernetes, Linux]
+
+projects:
+  - name: NovoSGA
+    url: https://novosga.org/
+    repo: https://github.com/novosga/novosga
+    description: Open source queue management and attendance ticket system, adaptable to small and large organizations.
+    tags: [PHP, Symfony, Open Source]
+  - name: OnceOn.ly
+    url: https://onceon.ly/
+    repo: https://github.com/teramundi/onceonly
+    description: Securely share content that self-destructs on first access.
+    tags: [JavaScript, Security]
+  - name: Sicoob SDK
+    repo: https://github.com/mangati/sicoob-sdk
+    description: PHP SDK for integrating applications with Sicoob's banking/billing system.
+    tags: [PHP, SDK]
+  - name: PHP Socket
+    repo: https://github.com/rogeriolino/phpsocket
+    description: Tools for socket usage in PHP, including WebSocket.
+    tags: [PHP, WebSocket]
